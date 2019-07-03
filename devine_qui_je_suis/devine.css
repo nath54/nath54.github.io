@@ -1,0 +1,20 @@
+
+img
+{
+    border:2px solid black;
+    width:100;
+    height:120;
+}
+
+p
+{
+    font-size:40px;
+    color:rgb(41,65,150);
+    text-align:center;
+}
+
+.img2
+{
+    width:400;
+    height:480;
+}
