@@ -5,4 +5,9 @@ body
     color:green;
 }
 
-
+header,footer
+{
+    background-color:rgb(35,35,35);
+    color:white;
+    border:2px solid white;
+}
