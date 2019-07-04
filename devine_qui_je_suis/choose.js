@@ -5,26 +5,28 @@ var imgs=[document.getElementById("img1"),document.getElementById("img2"),docume
 var isaff=[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true];
 
 var noms1=["Superman","Batman","Wonder Woman","Flash","Green Lantern","Aquaman","Captain Marvel","Green Arrow","Hulk","Thor","Iron Man","Ant Man","Captain America","Spider Man","Wolverine","Le Cyclope","Iceberg","Angel","Le Fauve","La Torche","La chose","Le Surfer D'argent","Deadpool","Le Joker","Lex Luthor","Venom","Dr Octopus","Le bouffon vert","Magneto","Thanos","Loki","Dr Fatalis"];
-var noms2=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"];
+var noms2=["Emmanuel Macron","Nicolas Sarkozy","Francois Hollande","Marine LePen","Jean Luc Melanchon","Francois Fillon","Manuel Valls","Jacque Chirac","Donald Trump","Ségolène Royal","Marion Maréchal","Francois Mitterand","Barack Obama","Vladimir Poutine","Martine Aubry","Angela Merkel","Nadine Morano","Adolf Hitler","Charles de Gaulle","Benito Mussolini","Joseph Staline","Winston Churchill","Louis XIV","Louis XVI","Elisabeth II","Kim Joung-Un","Felipe VI","Édouard Philippe","Jules Cesar","Charlemagne","Jules Ferry","Valerie Giscard D'estaing"];
 var noms3=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"];
 var noms4=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"];
 var noms5=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"];
 var noms6=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"];
 var dimgs="images/";
-var cats=[["images/superheros/",noms1]];
+var cats=[["images/superheros/",noms1],["images/politique/",noms2]];
 
 var texte="Quelle categorie voulez vous ? \n\
     0-super-heros \n\
+    1-politiques \n\
 tapez le numero pour choisir la categorie que vous voulez. \n\
 Si vous tapez autre chose, ce sera la premiere categorie qui sera prise.";
 
 var valeur = prompt(texte);
 var bc=parseInt(valeur);
-if(bc in [0]){
+if(bc in [0,1]){
     nbc=bc;
 }
 else
 {
+    alert("La categorie par défaut a été prise")
     nbc=0;
 }
 
