@@ -122,7 +122,7 @@
 					answer: "atx",
 					position: 15,
 					orientation: "across",
-					startx: 18,
+					startx: 16,
 					starty: 12
 				},
 				{
@@ -254,7 +254,7 @@
 					starty: 4
 				},
 				{
-					clue: "carte",
+					clue: "carte (traduction en anglais )",
 					answer: "map",
 					position: 8,
 					orientation: "down",
