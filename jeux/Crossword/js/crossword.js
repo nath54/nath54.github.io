@@ -194,7 +194,7 @@
 					answer: "store",
 					position: 2,
 					orientation: "down",
-					startx: 5,
+					startx: 7,
 					starty: 1
 				},
 				{
@@ -202,8 +202,64 @@
 					answer: "bi",
 					position: 3,
 					orientation: "down",
-					startx: 3,
+					startx: 10,
 					starty: 1
+				},
+				{
+					clue: "Synonyme de vieux",
+					answer: "ages",
+					position: 4,
+					orientation: "down",
+					startx: 12,
+					starty: 1
+				},
+				{
+					clue: "Port utilisé pour brancher les disques durs à la carte mère",
+					answer: "sata",
+					position: 5,
+					orientation: "down",
+					startx: 1,
+					starty: 3
+				},
+				{
+					clue: "Matériel permettant de stocker des données et d'y accéder très rapidement",
+					answer: "ssd",
+					position: 6,
+					orientation: "down",
+					startx: 10,
+					starty: 4
+				},
+				{
+					clue: "Ensemble normalisé de fonctions de calcul d'images 2D ou 3D lancé par Silicon Graphics en 1992",
+					answer: "opengl",
+					position: 7,
+					orientation: "down",
+					startx: 14,
+					starty: 4
+				},
+				{
+					clue: "carte",
+					answer: "map",
+					position: 8,
+					orientation: "down",
+					startx: 4,
+					starty: 6
+				},
+				{
+					clue: "Ce qui sert à stocker",
+					answer: "memoire",
+					position: 9,
+					orientation: "down",
+					startx: 2,
+					starty: 7
+				},
+				{
+					clue: "Collection de bibliothèques destinées à la programmation d’applications multimédia, plus particulièrement de jeux ou de programmes faisant intervenir de la vidéo, sur les plates-formes Microsoft",
+					answer: "directx",
+					position: 10,
+					orientation: "down",
+					startx: 17,
+					starty: 7
 				}
 			] 
 	
