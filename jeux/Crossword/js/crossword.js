@@ -204,7 +204,7 @@
 					orientation: "down",
 					startx: 3,
 					starty: 1
-				},
+				}
 			] 
 	
 		$('#puzzle-wrapper').crossword(puzzleData);
