@@ -70,7 +70,7 @@
 					starty: 6
 				},
 				{
-					clue: "note",
+					clue: "note de musique",
 					answer: "re",
 					position: 9,
 					orientation: "across",
