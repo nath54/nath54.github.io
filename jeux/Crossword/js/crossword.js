@@ -163,7 +163,7 @@
 					position: 20,
 					orientation: "across",
 					startx: 1,
-					starty: 18
+					starty: 20
 				},
 				{
 					clue: "Logiciel malveillant",
@@ -171,7 +171,7 @@
 					position: 21,
 					orientation: "across",
 					startx: 9,
-					starty: 18
+					starty: 20
 				},
 				{
 					clue: "L'un des ports les plus utilisés sur un ordinateur",
@@ -179,8 +179,32 @@
 					position: 22,
 					orientation: "across",
 					startx: 15,
-					starty: 18
-				}
+					starty: 20
+				},
+				{
+					clue: "Grande entreprise fabriquant des cartes graphiques",
+					answer: "nvidia",
+					position: 1,
+					orientation: "down",
+					startx: 3,
+					starty: 1
+				},
+				{
+					clue: "Magasin",
+					answer: "store",
+					position: 2,
+					orientation: "down",
+					startx: 5,
+					starty: 1
+				},
+				{
+					clue: "Deux",
+					answer: "bi",
+					position: 3,
+					orientation: "down",
+					startx: 3,
+					starty: 1
+				},
 			] 
 	
 		$('#puzzle-wrapper').crossword(puzzleData);
