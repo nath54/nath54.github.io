@@ -182,6 +182,22 @@
 					starty: 20
 				},
 				{
+					clue: "L'adresse d'un utilisateur sur internet",
+					answer: "ip",
+					position: 23,
+					orientation: "across",
+					startx: 14,
+					starty: 19
+				},
+				{
+					clue: "Opération très utililsée en informatique",
+					answer: "et",
+					position: 24,
+					orientation: "across",
+					startx: 17,
+					starty: 19
+				},
+				{
 					clue: "Grande entreprise fabriquant des cartes graphiques",
 					answer: "nvidia",
 					position: 1,
@@ -260,6 +276,94 @@
 					orientation: "down",
 					startx: 17,
 					starty: 7
+				},
+				{
+					clue: "Structure d'un système informatique.",
+					answer: "architecture",
+					position: 11,
+					orientation: "down",
+					startx: 5,
+					starty: 8
+				},
+				{
+					clue: "On en trouve partout sur internet",
+					answer: "chat",
+					position: 12,
+					orientation: "down",
+					startx: 7,
+					starty: 8
+				},
+				{
+					clue: "Programmes informatiques destinés à permettre à un autre programme (souvent un système d'exploitation) d'interagir avec un périphérique",
+					answer: "drivers",
+					position: 13,
+					orientation: "down",
+					startx: 10,
+					starty: 10
+				},
+				{
+					clue: "Multiplet de 8 bits codant une information",
+					answer: "octet",
+					position: 14,
+					orientation: "down",
+					startx: 1,
+					starty: 12
+				},
+				{
+					clue: "Très haute gamme de cartes graphiques nvidia destinées généralement pour le gaming",
+					answer: "titan",
+					position: 15,
+					orientation: "down",
+					startx: 12,
+					starty: 12
+				},
+				{
+					clue: "OS open source",
+					answer: "linux",
+					position: 16,
+					orientation: "down",
+					startx: 14,
+					starty: 12
+				},
+				{
+					clue: "Tout écran en est composé d'une très grande quantité",
+					answer: "pixel",
+					position: 17,
+					orientation: "down",
+					startx: 3,
+					starty: 16
+				},
+				{
+					clue: "Condition très utilisée en informatique",
+					answer: "si",
+					position: 18,
+					orientation: "down",
+					startx: 13,
+					starty: 17
+				},
+				{
+					clue: "Processeur",
+					answer: "cpu",
+					position: 19,
+					orientation: "down",
+					startx: 12,
+					starty: 18
+				},
+				{
+					clue: "Carte Graphique",
+					answer: "gpu",
+					position: 20,
+					orientation: "down",
+					startx: 15,
+					starty: 18
+				},
+				{
+					clue: "Toile",
+					answer: "web",
+					position: 21,
+					orientation: "down",
+					startx: 17,
+					starty: 18
 				}
 			] 
 	
