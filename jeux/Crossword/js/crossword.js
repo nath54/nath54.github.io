@@ -70,29 +70,117 @@
 					starty: 6
 				},
 				{
-					clue: "",
-					answer: "",
-					position: 0,
+					clue: "note",
+					answer: "re",
+					position: 9,
 					orientation: "across",
-					startx: 0,
-					starty: 0
+					startx: 1,
+					starty: 8
 				},
 				{
-					clue: "",
-					answer: "",
-					position: 0,
+					clue: "Autre Architecture Nvidia",
+					answer: "Pascal",
+					position: 10,
 					orientation: "across",
-					startx: 0,
-					starty: 0
+					startx: 4,
+					starty: 8
 				},
 				{
-					clue: "",
-					answer: "",
-					position: 0,
+					clue: "apprendre",
+					answer: "learn",
+					position: 11,
 					orientation: "across",
-					startx: 0,
-					starty: 0
+					startx: 14,
+					starty: 9
 				},
+				{
+					clue: "Matériel qui permet à l'utilisateur de voir l'interface graphique de l'ordinateur",
+					answer: "ecran",
+					position: 12,
+					orientation: "across",
+					startx: 4,
+					starty: 10
+				},
+				{
+					clue: "minerai très précieux",
+					answer: "or",
+					position: 13,
+					orientation: "across",
+					startx: 1,
+					starty: 12
+				},
+				{
+					clue: "Entreprise qui crée des processeurs et qui a aussi essayé de créer des cartes graphiques, mais qui a lamentablement échoué",
+					answer: "intel",
+					position: 14,
+					orientation: "across",
+					startx: 10,
+					starty: 12
+				},
+				{
+					clue: "format de carte mère",
+					answer: "atx",
+					position: 15,
+					orientation: "across",
+					startx: 18,
+					starty: 12
+				},
+				{
+					clue: "élément de l'interface  graphique, qui est utilisé un logiciel et qui sert à interagir avec l'utilisateur",
+					answer: "fenetre",
+					position: 16,
+					orientation: "across",
+					startx: 4,
+					starty: 14
+				},
+				{
+					clue: "Le meilleur language informatique au monde (non, je n'éxagère pas, c'est la vérité)",
+					answer: "python",
+					position: 17,
+					orientation: "across",
+					startx: 3,
+					starty: 16
+				},
+				{
+					clue: "Onde",
+					answer: "son",
+					position: 18,
+					orientation: "across",
+					startx: 10,
+					starty: 16
+				},
+				{
+					clue: "Technologie de nvidia de la gamme rtx",
+					answer: "ray-tracing",
+					position: 19,
+					orientation: "across",
+					startx: 5,
+					starty: 18
+				},
+				{
+					clue: "addresse d'une page web",
+					answer: "url",
+					position: 20,
+					orientation: "across",
+					startx: 1,
+					starty: 18
+				},
+				{
+					clue: "Logiciel malveillant",
+					answer: "virus",
+					position: 21,
+					orientation: "across",
+					startx: 9,
+					starty: 18
+				},
+				{
+					clue: "L'un des ports les plus utilisés sur un ordinateur",
+					answer: "usb",
+					position: 22,
+					orientation: "across",
+					startx: 15,
+					starty: 18
+				}
 			] 
 	
 		$('#puzzle-wrapper').crossword(puzzleData);
