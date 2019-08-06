@@ -163,7 +163,7 @@
 					position: 20,
 					orientation: "across",
 					startx: 1,
-					starty: 21
+					starty: 20
 				},
 				{
 					clue: "Logiciel malveillant",
@@ -171,7 +171,7 @@
 					position: 21,
 					orientation: "across",
 					startx: 9,
-					starty: 21
+					starty: 20
 				},
 				{
 					clue: "L'un des ports les plus utilisés sur un ordinateur",
@@ -179,7 +179,7 @@
 					position: 22,
 					orientation: "across",
 					startx: 15,
-					starty: 21
+					starty: 20
 				},
 				{
 					clue: "Grande entreprise fabriquant des cartes graphiques",
