@@ -3,7 +3,24 @@ button
 {
     width:100%;
     height:10%;
-    background-color: rgb(50,50,50);
+    background-color: rgb(100,100,100);
     color: rgb(50,50,250);
 }
 
+li
+{
+    border:2px solid black;
+    background-color:rgb(120,120,120);
+    width:33%
+    height:19%
+    list-style-type:none;
+}
+
+ul
+{
+    border:1px solid grey;
+    background-color:rgb(200,200,200);
+    width:100%
+    height:20%
+    list-style-type:none;
+}
