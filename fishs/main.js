@@ -43,6 +43,7 @@ class Poisson{
         this.dan=dt.getTime();
         this.tanim=0.1;
         this.sens="Right";
+        this.dmon="Up";
     }
     update(dt){
         if( dt.getTime()-this.dbg >= this.tbg ){
@@ -62,13 +63,21 @@ class Poisson{
             }
             if( this.nsens == "Left"){
                 this.px-=1;
-                this.py+=(-1+Math.random()*2);
+                this.monts=["Up","Down",this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon];
+                this.mon=randomchoice(this.monts);
+                this.dmon=this.mon;
+                if(this.mon=="Up") this.py-=1;
+                if(this.mon=="Down") this.py+=1;
                 this.imgs=this.an_gauche;
                 this.an=0;
             }
             if( this.nsens == "Right"){
                 this.px+=1;
-                this.py+=(-1+parseInt(Math.random()*2));
+                this.monts=["Up","Down",this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon,this.dmon];
+                this.mon=randomchoice(this.monts);
+                this.dmon=this.mon;
+                if(this.mon=="Up") this.py-=1;
+                if(this.mon=="Down") this.py+=1;
                 this.imgs=this.an_droit;
                 this.an=0;
             }
