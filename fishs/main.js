@@ -5,6 +5,8 @@ tey=500;
 
 imgfond=new Image();
 imgfond.src="images/eau.png"
+imgfond2=new Image();
+imgfond2.src="images/eau_2.png"
 imgf11=new Image();
 imgf11.src="images/f_2_1.png"
 imgf21=new Image();
@@ -26,8 +28,8 @@ class Poisson{
     constructor(){
         this.px=Math.random()*tex/2;
         this.py=Math.random()*tex/2;
-        this.tx=50;
-        this.ty=50;
+        this.tx=35;
+        this.ty=35;
         this.tc=100;
         this.an_droit=[imgf11];
         this.an_gauche=[imgf21];
@@ -71,9 +73,9 @@ class Poisson{
                 this.an=0;
             }
             if( this.px<0) this.px=0;
-            if( this.px>tex) this.px=tex;
+            if( this.px>tex-this.tx) this.px=tex-this.tx;
             if( this.py<50) this.py=50;
-            if( this.py>tey) this.py=tey;
+            if( this.py>tey-this.ty-30) this.py=tey-this.ty-30;
             if( this.tc<50) this.tc=50;
             if( this.tc>150) this.tc=150;
             if( dt.getTime()-this.dan >= this.tanim){
@@ -88,19 +90,20 @@ class Poisson{
 
 
 
-function Aff(fish,dt){
+function Aff(fishs,dt){
     ctx.drawImage( imgfond , 0 , 0 );
-    ctx.drawImage( fish.img_actu , fish.px , fish.py , fish.tx , fish.ty );
+    for(x=0;x<fishs.length;x++) ctx.drawImage( fishs[x].img_actu , fishs[x].px , fishs[x].py , fishs[x].tx , fishs[x].ty );
+    ctx.drawImage( imgfond2 , 0 , 0 );
     //ctx.fillText(fps, 15, 15);
 }
 
 function Main(){
-    fish=new Poisson();
+    fishs=[new Poisson(),new Poisson(),new Poisson(),new Poisson()];
     encour=true;
     function mainboucle(){
         var dt = new Date();
-        Aff(fish,dt);
-        fish.update(dt);
+        Aff(fishs,dt);
+        for(x=0;x<fishs.length;x++) fishs[x].update(dt);
         if(encour) window.requestAnimationFrame(mainboucle);
     }
     window.requestAnimationFrame(mainboucle);
