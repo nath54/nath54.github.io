@@ -173,7 +173,8 @@ function Aff(fishs,dt){
 }
 
 function Main(){
-    fishs=[new Poisson(),new Poisson(),new Poisson(),new Poisson()];
+    fishs=[];
+    for(x=0;x<2+parseInt(Math.random()*5);x++) fishs.push[ new Poisson() ];
     encour=true;
     function mainboucle(){
         var dt = new Date();
