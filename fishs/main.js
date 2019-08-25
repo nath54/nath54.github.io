@@ -8,9 +8,21 @@ imgfond.src="images/eau.png"
 imgfond2=new Image();
 imgfond2.src="images/eau_2.png"
 imgf11=new Image();
-imgf11.src="images/f_2_1.png"
+imgf11.src="images/f_1_1.png"
+imgf12=new Image();
+imgf12.src="images/f_1_2.png"
+imgf13=new Image();
+imgf13.src="images/f_1_3.png"
+imgf14=new Image();
+imgf14.src="images/f_1_4.png"
 imgf21=new Image();
-imgf21.src="images/f_1_1.png"
+imgf21.src="images/f_2_1.png"
+imgf22=new Image();
+imgf22.src="images/f_2_2.png"
+imgf23=new Image();
+imgf23.src="images/f_2_3.png"
+imgf24=new Image();
+imgf24.src="images/f_2_4.png"
 imgf31=new Image();
 imgf31.src="images/f_3_1.png"
 imgf41=new Image();
@@ -31,17 +43,17 @@ class Poisson{
         this.tx=35;
         this.ty=35;
         this.tc=100;
-        this.an_droit=[imgf11];
-        this.an_gauche=[imgf21];
+        this.an_droit=[imgf21,imgf22,imgf23,imgf24];
+        this.an_gauche=[imgf11,imgf12,imgf13,imgf14];
         this.an_pres=[imgf31];
         this.an_loin=[imgf41];
         this.imgs=this.an_droit;
         this.an=0
         this.img_actu=this.imgs[this.an];
         this.dbg=dt.getTime();
-        this.tbg=0.05;
+        this.tbg=1;
         this.dan=dt.getTime();
-        this.tanim=0.1;
+        this.tanim=80;
         this.sens="Right";
         this.dmon="Up";
     }
@@ -53,13 +65,17 @@ class Poisson{
             this.sens=this.nsens;
             if( this.nsens == "Up"){
                 this.tc-=1;
-                this.imgs=this.an_loin;
-                this.an=0;
+                if(this.imgs!=this.an_loin){
+                    this.imgs=this.an_loin;
+                    this.an=0;
+                }
             }
             if( this.nsens == "Down"){
                 this.tc+=1;
-                this.imgs=this.an_pres;
-                this.an=0;
+                if(this.imgs!=this.an_pres){
+                    this.imgs=this.an_pres;
+                    this.an=0;
+                }
             }
             if( this.nsens == "Left"){
                 this.px-=1;
@@ -68,8 +84,10 @@ class Poisson{
                 this.dmon=this.mon;
                 if(this.mon=="Up") this.py-=1;
                 if(this.mon=="Down") this.py+=1;
-                this.imgs=this.an_gauche;
-                this.an=0;
+                if(this.imgs!=this.an_gauche){
+                    this.imgs=this.an_gauche;
+                    this.an=0;
+                }
             }
             if( this.nsens == "Right"){
                 this.px+=1;
@@ -78,8 +96,10 @@ class Poisson{
                 this.dmon=this.mon;
                 if(this.mon=="Up") this.py-=1;
                 if(this.mon=="Down") this.py+=1;
-                this.imgs=this.an_droit;
-                this.an=0;
+                if(this.imgs!=this.an_droit){
+                    this.imgs=this.an_droit;
+                    this.an=0;
+                }
             }
             if( this.px<0) this.px=0;
             if( this.px>tex-this.tx) this.px=tex-this.tx;
