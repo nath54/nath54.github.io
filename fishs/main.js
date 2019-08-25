@@ -27,6 +27,50 @@ imgf31=new Image();
 imgf31.src="images/f_3_1.png"
 imgf41=new Image();
 imgf41.src="images/f_4_1.png"
+as1=[imgf11,imgf12,imgf13,imgf14,imgf21,imgf22,imgf23,imgf24,imgf31,imgf41];
+imgf211=new Image();
+imgf211.src="images/f2_1_1.png"
+imgf212=new Image();
+imgf212.src="images/f2_1_2.png"
+imgf213=new Image();
+imgf213.src="images/f2_1_3.png"
+imgf214=new Image();
+imgf214.src="images/f2_1_4.png"
+imgf221=new Image();
+imgf221.src="images/f2_2_1.png"
+imgf222=new Image();
+imgf222.src="images/f2_2_2.png"
+imgf223=new Image();
+imgf223.src="images/f2_2_3.png"
+imgf224=new Image();
+imgf224.src="images/f2_2_4.png"
+imgf231=new Image();
+imgf231.src="images/f2_3_1.png"
+imgf241=new Image();
+imgf241.src="images/f2_4_1.png"
+as2=[imgf211,imgf212,imgf213,imgf214,imgf221,imgf222,imgf223,imgf224,imgf231,imgf241];
+imgf311=new Image();
+imgf311.src="images/f3_1_1.png"
+imgf312=new Image();
+imgf312.src="images/f3_1_2.png"
+imgf313=new Image();
+imgf313.src="images/f3_1_3.png"
+imgf314=new Image();
+imgf314.src="images/f3_1_4.png"
+imgf321=new Image();
+imgf321.src="images/f3_2_1.png"
+imgf322=new Image();
+imgf322.src="images/f3_2_2.png"
+imgf323=new Image();
+imgf323.src="images/f3_2_3.png"
+imgf324=new Image();
+imgf324.src="images/f3_2_4.png"
+imgf331=new Image();
+imgf331.src="images/f3_3_1.png"
+imgf341=new Image();
+imgf341.src="images/f3_4_1.png"
+as3=[imgf311,imgf312,imgf313,imgf314,imgf321,imgf322,imgf323,imgf324,imgf331,imgf341];
+ans=[as1,as2,as3];
 
 var dt = new Date();
 
@@ -36,17 +80,19 @@ function randomchoice(lst){
     return e
 }
 
+
 class Poisson{
     constructor(){
+        this.as=randomchoice(ans);
         this.px=Math.random()*tex/2;
         this.py=Math.random()*tex/2;
         this.tx=35;
         this.ty=35;
         this.tc=100;
-        this.an_droit=[imgf21,imgf22,imgf23,imgf24];
-        this.an_gauche=[imgf11,imgf12,imgf13,imgf14];
-        this.an_pres=[imgf31];
-        this.an_loin=[imgf41];
+        this.an_droit=[this.as[4],this.as[5],this.as[6],this.as[7]];
+        this.an_gauche=[this.as[0],this.as[1],this.as[2],this.as[3]];
+        this.an_pres=[this.as[8]];
+        this.an_loin=[this.as[9]];
         this.imgs=this.an_droit;
         this.an=0
         this.img_actu=this.imgs[this.an];
