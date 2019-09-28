@@ -37,20 +37,17 @@ function initialise(){
 	chemb=[];
 }
 
-function collide(o1,o2){
-    if ((o1.y > o2.y) && (o1.y < o2.y + o2.h)) {
-        return 'top'; // o1's top border collided with o2's bottom border
-    }
-    if ((o2.y > o1.y) && (o2.y < o1.y + o1.h)) {
-        return 'bottom'; // o2's top border collided with o1's bottom border
-    }
-    if ((o1.x > o2.x) && (o1.x < o2.x + o2.w)) {
-        return 'left'; // o1's top border collided with o2's bottom border
-    }
-    if ((o2.x > o1.x) && (o2.x < o1.x + o1.w)) {
-        return 'right'; // o2's top border collided with o1's bottom border
-    }
-    return null;
+function collide(a,b){
+    var cc=[];
+    if( a.px < b.px && a.px + a.tx > b.px && a.py < b.py && a.py+a.ty > b.py+b.ty ) cc=["right"];
+    else if( a.px > b.px && a.px + a.tx b.px+b.tx && a.py < b.py && a.py+a.ty > b.py+b.ty ) cc=["left"];
+    else if( a.px < b.px && a.px+a.tx > b.px+b.tx && a.py>b.py && a.py < b.py+b.ty ) cc=["top"];
+    else if( a.px < b.px && a.px+a.tx > b.px+b.tx && a.py+a.ty > b.py && a.py+a.ty < b.py+b.ty ) cc=["bottom"];
+    else if( a.px > b.px && a.py > b.py && a.px < b.px+b.tx && a.py < b.py+b.ty ) cc=["top","left"];
+    else if( a.px+a.tx > b.px && a.px+a.tx < b.px+b.tx && a.py > b.py && a.py < b.py+b.ty ) cc=["top","right"];
+    else if( a.px > b.px && a.px < b.px+b.tx && a.py+a.ty > b.py && a.py+a.ty < b.py+b.ty ) cc=["bottom","left"];
+    else if( a.px+a.tx > b.px && a.px+a.tx < b.px+b.tx && a.py+a.ty > b.py && a.py+a.ty < b.py+b.ty ) cc=["bottom","right"];
+    return cc;
 }
 
 function tc(){
@@ -72,17 +69,18 @@ function tc(){
 	    vity=vity*fpvf;
 	}
 	for( r of rects ){
-		var rect1 = {x: bpx, y: bpy, width: btx, height: bty}
-        var rect2 = {x: r[0], y: r[1], width: r[2], height: r[3]}
-        var c=collide( rect1 , rect2 );
-        if( c!= null ) alert(c);
-        if(c=='bottom' || c=='top'){
-        	vity=-vity*fr;
-            vitx=vitx*fpvf;
-        }
-        if(c=='left' || c=='right'){
-        	vitx=-vitx*fr;
-            vity=vity*fpvf;
+		var rect1 = {x: bpx, y: bpy, tx: btx, ty: bty}
+        var rect2 = {x: r[0], y: r[1], tx: r[2], ty: r[3]}
+        var cc=collide( rect1 , rect2 );
+        for( c of cc ){
+            if(c=='bottom' || c=='top'){
+            	vity=-vity*fr;
+                vitx=vitx*fpvf;
+            }
+            if(c=='left' || c=='right'){
+            	vitx=-vitx*fr;
+                vity=vity*fpvf;
+            }
         }
 	}
 }
