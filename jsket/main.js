@@ -40,7 +40,7 @@ function initialise(){
 function collide(a,b){
     var cc=[];
     if( a.px < b.px && a.px + a.tx > b.px && a.py < b.py && a.py+a.ty > b.py+b.ty ) cc=["right"];
-    else if( a.px > b.px && a.px + a.tx b.px+b.tx && a.py < b.py && a.py+a.ty > b.py+b.ty ) cc=["left"];
+    else if( a.px > b.px && a.px+a.tx < b.px+b.tx && a.py < b.py && a.py+a.ty > b.py+b.ty ) cc=["left"];
     else if( a.px < b.px && a.px+a.tx > b.px+b.tx && a.py>b.py && a.py < b.py+b.ty ) cc=["top"];
     else if( a.px < b.px && a.px+a.tx > b.px+b.tx && a.py+a.ty > b.py && a.py+a.ty < b.py+b.ty ) cc=["bottom"];
     else if( a.px > b.px && a.py > b.py && a.px < b.px+b.tx && a.py < b.py+b.ty ) cc=["top","left"];
@@ -69,8 +69,8 @@ function tc(){
 	    vity=vity*fpvf;
 	}
 	for( r of rects ){
-		var rect1 = {x: bpx, y: bpy, tx: btx, ty: bty}
-        var rect2 = {x: r[0], y: r[1], tx: r[2], ty: r[3]}
+		var rect2 = {px: bpx, py: bpy, tx: btx, ty: bty}
+        var rect1 = {px: r[0], py: r[1], tx: r[2], ty: r[3]}
         var cc=collide( rect1 , rect2 );
         for( c of cc ){
             if(c=='bottom' || c=='top'){
