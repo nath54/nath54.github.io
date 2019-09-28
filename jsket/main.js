@@ -8,8 +8,11 @@ tey=500;
 iball=document.getElementById("ball");
 iterrain=document.getElementById("terrain");
 
-var rects=[[38,0,8,47],[44,40,8,4],[66,40,5,4],[254,0,8,47],[226,40,5,4],[251,40,4,4]];
-for( r of rects) r[1]+=tey-369
+var rects=[ [72,2,22,99] , [137,78,9,11] , [503,2,23,102] , [453,75,10,12] ];
+for( r of rects) r[1]+=tey-369;
+
+var pansr=[ [110,85,20,2] , [470,85,20,2] ];
+for( r of pansr) r[1]+=tey-369;
 
 var dt=new Date();
 var dframe=dt.getTime();
@@ -18,6 +21,10 @@ var g=0.1;  //force gravité
 var fr=0.6; //facteur rebondissement
 var fpvf=0.75; //facteur perte de vitesse frottements
 
+var tscore=1500;
+var dscore=dt.getTime();
+var score1=0;
+var score2=0;
 var bpx=tex/2;
 var bpy=tey/2;
 var btx=25;
@@ -51,6 +58,7 @@ function collide(a,b){
 }
 
 function tc(){
+    var dt=new Date();
 	//y
 	if( bpy+bty>tey ){
 	    bpy=tey-bty;
@@ -73,16 +81,38 @@ function tc(){
         var rect1 = {px: r[0], py: r[1], tx: r[2], ty: r[3]}
         var cc=collide( rect1 , rect2 );
         for( c of cc ){
-            if(c=='bottom' || c=='top'){
+            if(c=='bottom'){
+                pby=r[1]+r[3]+1
             	vity=-vity*fr;
                 vitx=vitx*fpvf;
             }
-            if(c=='left' || c=='right'){
+            if(c=='top'){
+                pby=r[1]-bty-1
+            	vity=-vity*fr;
+                vitx=vitx*fpvf;
+            }
+            if(c=='left'){
+                bpx=r[0]-btx-1
+            	vitx=-vitx*fr;
+                vity=vity*fpvf;
+            }
+            if(c=='right'){
+                bpx=r[0]+r[2]+1
             	vitx=-vitx*fr;
                 vity=vity*fpvf;
             }
         }
 	}
+	for( r of pansr ){
+		var rect2 = {px: bpx, py: bpy, tx: btx, ty: bty}
+        var rect1 = {px: r[0], py: r[1], tx: r[2], ty: r[3]}
+        var cc=collide( rect1 , rect2 );
+        if( cc.length > 0 && dt.getTime()-dscore>=tscore){
+            dscore=dt.getTime();
+            if( pansr.indexOf(r)==0 ) score1=score1+1
+            else score2=score2+1
+        }
+    }
 }
 
 function balleupdate(){
@@ -98,8 +128,14 @@ function aff(){
 	ctx.fillRect(0,0,tex,tey);
 	ctx.drawImage( iterrain, 0, tey-369, tex, 369);
 	ctx.drawImage( iball, bpx, bpy, btx, bty);
-	ctx.fillStyle="rgb(0,0,255)";
-	for( r of rects ) ctx.fillRect( r[0], r[1] , r[2] , r[3] );
+	ctx.strokeStyle="rgb(0,0,0)";
+	ctx.font = "30px Arial";
+    ctx.strokeText(score1, 115, 120);
+    ctx.strokeText(score2, 475, 120);
+	//ctx.fillStyle="rgb(0,0,255)";
+	//for( r of rects ) ctx.fillRect( r[0], r[1] , r[2] , r[3] );
+	//ctx.fillStyle="rgb(0,255,0)";
+	//for( r of pansr ) ctx.fillRect( r[0], r[1] , r[2] , r[3] );
     ctx.strokeStyle="rgb(0,100,0)";
 	ctx.beginPath();
 	var a=0;
