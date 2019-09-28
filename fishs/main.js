@@ -274,6 +274,18 @@ function Aff(fishs,dt){
     //ctx.fillText(fps, 15, 15);
 }
 
+document.addEventListener('keydown', (event) => {
+    const nomTouche = event.key;
+    alert(nomTouche);
+  
+}, false);
+
+document.addEventListener('keyup', (event) => {
+    const nomTouche = event.key;
+    alert(nomTouche);
+}, false);
+
+
 function Main(){
     fishs=[];
     for(x=0;x<2+parseInt(Math.random()*5);x++){ fishs.push( new Poisson(false) );  }
