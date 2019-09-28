@@ -1,0 +1,21 @@
+body{
+    background-color:rgb(200,200,200);
+    color:rgb(250,200,0);
+    text-align:center;
+    margin:auto;
+}
+
+canvas{
+	border:2px solid black;
+	width:98%;
+}
+
+button{
+	width:50%;
+	height:20%;
+	font-size:50px;
+}
+
+.nd{
+	display:none;
+}
