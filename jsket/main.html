@@ -12,7 +12,9 @@
 		<div>
 			<h1>Jsket : a little basket simulation</h1>
 			<canvas id="canvas" width="600" height="500">Votre navigateur est vraiment nul car il ne supporte pas les canvas. Pourquoi n'utilisez vous pas Firefox comme tout le monde ?</canvas>
-			<button onClick="initialise();">tirer</button>
+			<button id="t" onClick="initialise(0);">tirer</button>
+			<button id="tg" onClick="initialise(2);">tirer gauche</button>
+			<button id="td" onClick="initialise(1);">tirer droite</button>
 		</div>
 		<script src="main.js" type="text/javascript"></script>
 	</body>

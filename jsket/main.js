@@ -34,13 +34,23 @@ var vity=-10+Math.random()*20;
 var chemb=[];
 var encour=true;
 
-function initialise(){
+function initialise(v){
 	bpx=tex/2;
 	bpy=tey/2;
 	btx=25;
 	bty=25;
-	vitx=-10+Math.random()*20;
-	vity=-10+Math.random()*20;
+	if(v==0){
+	    vitx=-10+Math.random()*20;
+	    vity=1+Math.random()*-10;
+	}
+	else if (v==1){
+		vitx=1+Math.random()*10;
+	    vity=1+Math.random()*-10;
+	}
+	else if (v==2){
+		vitx=-1+Math.random()*-10;
+	    vity=1+Math.random()*-10;
+	}
 	chemb=[];
 }
 
@@ -120,7 +130,7 @@ function balleupdate(){
 	tc();
     bpx=bpx+vitx;
 	bpy=bpy+vity;
-	chemb.push( [bpx,bpy] );
+	chemb.push( [bpx+btx/2,bpy+bty/2] );
 }
 
 function aff(){
