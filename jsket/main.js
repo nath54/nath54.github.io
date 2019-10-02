@@ -17,7 +17,7 @@ for( r of pansr) r[1]+=tey-369;
 var dt=new Date();
 var dframe=dt.getTime();
 var tframe=10;
-var g=0.1;  //force gravité
+var g=0.2;  //force gravité
 var fr=0.6; //facteur rebondissement
 var fpvf=0.75; //facteur perte de vitesse frottements
 
@@ -41,15 +41,15 @@ function initialise(v){
 	bty=25;
 	if(v==0){
 	    vitx=-10+Math.random()*20;
-	    vity=1+Math.random()*-10;
+	    vity=-5+Math.random()*-10;
 	}
 	else if (v==1){
 		vitx=1+Math.random()*10;
-	    vity=1+Math.random()*-10;
+	    vity=-5+Math.random()*-10;
 	}
 	else if (v==2){
 		vitx=-1+Math.random()*-10;
-	    vity=1+Math.random()*-10;
+	    vity=-5+Math.random()*-10;
 	}
 	chemb=[];
 }
