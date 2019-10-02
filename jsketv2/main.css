@@ -1,0 +1,22 @@
+body{
+    background-color:rgb(200,200,200);
+    color:rgb(250,200,0);
+    text-align:center;
+    margin:auto;
+}
+
+canvas{
+	border:2px solid black;
+	width:98%;
+}
+
+#t{
+    width:90%;
+    height:300px;
+	font-size:100px;
+}
+
+.nd{
+	display:none;
+}
+
