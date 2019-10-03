@@ -7,11 +7,14 @@ tey=500;
 
 iball=document.getElementById("ball");
 iterrain=document.getElementById("terrain");
+ifleche=document.getElementById("fleche");
+ibarrex=document.getElementById("barrex");
+ibarrey=document.getElementById("barrey");
 
-var rects=[ [72,2,22,99] , [137,78,9,11] , [503,2,23,102] , [453,75,10,12] ];
+var rects=[ [72,2,22,98] , [137,78,7,11] , [506,2,22,98] , [453,78,7,12] ];
 for( r of rects) r[1]+=tey-369;
 
-var pansr=[ [110,85,20,2] , [470,85,20,2] ];
+var pansr=[ [120,87,5,2] , [480,87,5,2] ];
 for( r of pansr) r[1]+=tey-369;
 
 var dt=new Date();
@@ -96,26 +99,26 @@ function tc(){
 	    vity=vity*fpvf;
 	}
 	for( r of rects ){
-		var rect2 = {px: bpx, py: bpy, tx: btx, ty: bty}
-        var rect1 = {px: r[0], py: r[1], tx: r[2], ty: r[3]}
+		var rect1 = {px: bpx, py: bpy, tx: btx, ty: bty}
+        var rect2 = {px: r[0], py: r[1], tx: r[2], ty: r[3]}
         var cc=collide( rect1 , rect2 );
         for( c of cc ){
             if(c=='bottom'){
+                pby=r[1]-bty-1
+            	vity=-vity*fr;
+                //vitx=vitx*fpvf;
+            }
+            if(c=='top'){
                 pby=r[1]+r[3]+1
             	vity=-vity*fr;
                 vitx=vitx*fpvf;
             }
-            if(c=='top'){
-                pby=r[1]-bty-1
-            	vity=-vity*fr;
-                vitx=vitx*fpvf;
-            }
-            if(c=='left'){
+            if(c=='right'){
                 bpx=r[0]-btx-1
             	vitx=-vitx*fr;
                 vity=vity*fpvf;
             }
-            if(c=='right'){
+            if(c=='left'){
                 bpx=r[0]+r[2]+1
             	vitx=-vitx*fr;
                 vity=vity*fpvf;
@@ -182,19 +185,22 @@ function aff(){
 	ctx.closePath();
 	ctx.strokeStyle="rgb(0,0,0)" ;
 	if(etev==0){
+    	ctx.drawImage( ibarrex, 150, 15, 200, 40);
 	    ctx.strokeRect( 150 , 15 , 200 , 40 );
 	    ctx.fillStyle="rgb(50,50,50)";
 	    ctx.fillRect( 150+99 , 15  , 2, 40);
-	    ctx.fillStyle="rgb(255,0,0)";
+	    ctx.fillStyle="rgb(0,255,255)";
 	    ctx.fillRect( 150+(vx-vmix)/(vmax-vmix)*200, 15 , 5 , 40 )
 	}
 	else if(etev==1){
+	    ctx.drawImage( ibarrey, 180, 15, 40, 200);
 	    ctx.strokeRect( 180 , 15 , 40 , 200);
 	    ctx.fillStyle="rgb(50,50,50)";
 	    ctx.fillRect( 180 , 15+199 , 40 , 2);
-	    ctx.fillStyle="rgb(255,0,0)";
+	    ctx.fillStyle="rgb(0,255,255)";
 	    ctx.fillRect( 180 , 15+(vmay-vy)/(vmay-vmiy)*200 , 40, 5)
 	}
+	if( bpy+bty < 0 ) ctx.drawImage( ifleche, bpx, 5, btx, 50);
 }
 
 function tir(){
