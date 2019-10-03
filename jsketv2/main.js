@@ -17,12 +17,11 @@ for( r of pansr) r[1]+=tey-369;
 var dt=new Date();
 var dframe=dt.getTime();
 var tframe=10;
-var g=0.2;  //force gravité
-var fr=0.6; //facteur rebondissement
+var g=0.3;  //force gravité
+var fr=0.63; //facteur rebondissement
 var fpvf=0.75; //facteur perte de vitesse frottements
 
-var tscore=1500;
-var dscore=dt.getTime();
+var pscore=true;
 var score1=0;
 var score2=0;
 var bpx=tex/2;
@@ -34,19 +33,20 @@ var vity=-10+Math.random()*20;
 var chemb=[];
 var encour=true;
 
-var vmix=-20
-var vmax=20
+var vmix=-15
+var vmax=15
 var vx=0
-var evx=0.1
+var evx=0.3
 
-var vmiy=-20
+var vmiy=0
 var vmay=20
 var vy=0
-var evy=0.1
+var evy=0.3
 var etev=0;
 var vvx=0;
 
 function initialise(v){
+	pscore=true;
 	if(etev==0){
 		vvx=vx;
 		etev=1;
@@ -56,7 +56,7 @@ function initialise(v){
 	    bpy=tey/2;
 	    btx=25;
 	    bty=25;
-	    vity=vy;
+	    vity=-vy;
 	    vitx=vvx;
 	    chemb=[];
 	    etev=0;
@@ -126,10 +126,11 @@ function tc(){
 		var rect2 = {px: bpx, py: bpy, tx: btx, ty: bty}
         var rect1 = {px: r[0], py: r[1], tx: r[2], ty: r[3]}
         var cc=collide( rect1 , rect2 );
-        if( cc.length > 0 && dt.getTime()-dscore>=tscore){
-            dscore=dt.getTime();
+        if( cc.length > 0 && pscore){
+            pscore=false;
             if( pansr.indexOf(r)==0 ) score1=score1+1
             else score2=score2+1
+            vitx=vitx/10;
         }
     }
 }
@@ -190,9 +191,9 @@ function aff(){
 	else if(etev==1){
 	    ctx.strokeRect( 180 , 15 , 40 , 200);
 	    ctx.fillStyle="rgb(50,50,50)";
-	    ctx.fillRect( 180 , 15+99 , 40 , 2);
+	    ctx.fillRect( 180 , 15+199 , 40 , 2);
 	    ctx.fillStyle="rgb(255,0,0)";
-	    ctx.fillRect( 180 , 15+(vy-vmiy)/(vmay-vmiy)*200 , 40, 5)
+	    ctx.fillRect( 180 , 15+(vmay-vy)/(vmay-vmiy)*200 , 40, 5)
 	}
 }
 
