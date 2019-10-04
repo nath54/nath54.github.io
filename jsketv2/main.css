@@ -1,22 +1,13 @@
 body{
-    background-color:rgb(200,200,200);
-    color:rgb(250,200,0);
-    text-align:center;
-    margin:auto;
+	font-size:50px;
 }
 
-canvas{
+.buttons{
 	border:2px solid black;
 	width:98%;
+	height:20%;
+	text-align:center;
+	color:red;
+	background-color:rgb(200,200,200);
+	font-size:60px;
 }
-
-#t{
-    width:90%;
-    height:300px;
-	font-size:100px;
-}
-
-.nd{
-	display:none;
-}
-
