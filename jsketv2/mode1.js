@@ -25,8 +25,6 @@ var fr=0.63; //facteur rebondissement
 var fpvf=0.75; //facteur perte de vitesse frottements
 
 var pscore=true;
-var score1=0;
-var score2=0;
 var bpx=tex/2;
 var bpy=tey/2;
 var btx=25;
@@ -47,6 +45,11 @@ var vy=0
 var evy=0.3
 var etev=0;
 var vvx=0;
+
+
+var dtps=dt.getTime();
+var tps=2*60*1000;
+var score=0;
 
 function initialise(v){
 	pscore=true;
@@ -131,8 +134,7 @@ function tc(){
         var cc=collide( rect1 , rect2 );
         if( cc.length > 0 && pscore){
             pscore=false;
-            if( pansr.indexOf(r)==0 ) score1=score1+1
-            else score2=score2+1
+            score+=1;
             vitx=vitx/10;
         }
     }
@@ -154,6 +156,13 @@ function balleupdate(){
     bpx=bpx+vitx;
 	bpy=bpy+vity;
 	chemb.push( [bpx+btx/2,bpy+bty/2] );
+	var dt=new Date();
+	tps-=dt.getTime()-dtps;
+	dtps=dt.getTime();
+	if(tps<=0){
+		encour=false;
+		alert("Vous avez fait un score de : "+score);
+	}
 }
 
 function aff(){
@@ -163,8 +172,11 @@ function aff(){
 	ctx.drawImage( iball, bpx, bpy, btx, bty);
 	ctx.strokeStyle="rgb(0,0,0)";
 	ctx.font = "30px Arial";
-    ctx.strokeText(score1, 115, 120);
-    ctx.strokeText(score2, 475, 120);
+	mm=parseInt(tps/1000/60)
+	ss=parseInt(tps/1000%60)
+	ms=parseInt(tps%1000)
+	ctx.strokeText(mm+" m "+ss+" s "+ms, 360, 50);
+    ctx.strokeText(" score : "+score, 300, 120);
 	//ctx.fillStyle="rgb(0,0,255)";
 	//for( r of rects ) ctx.fillRect( r[0], r[1] , r[2] , r[3] );
 	//ctx.fillStyle="rgb(0,255,0)";
@@ -204,6 +216,7 @@ function aff(){
 }
 
 function tir(){
+	alert("Are you ready ?");
 	function boucle(){
 		var dt=new Date();
 		if(dt.getTime()-dframe>=tframe){
