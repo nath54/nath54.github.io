@@ -5,7 +5,8 @@ tex=1000;
 tey=1000;
 couleur="rgb(255,0,0)";
 
-cam=[tex/2,tey/2];
+vit=-100
+cam=[100,0];
 
 function range(a,b){
 	liste=[];
@@ -26,14 +27,14 @@ function aff(){
 	context.strokeStyle="rgb(0,0,0)";
 	if(cam[0] <= 0 && cam[0] >= -tex ){
 		context.beginPath();
-		context.moveTo( cam[0] , 0 );
-		context.lineTo( cam[0] , tey );
+		context.moveTo( -cam[0] , 0 );
+		context.lineTo( -cam[0] , tey );
 		context.stroke();
 	}
 	if(cam[1] <= 0 && cam[1] >= -tey ){
 		context.beginPath();
-		context.moveTo( 0, cam[1] );
-		context.lineTo( tex, cam[1] );
+		context.moveTo( 0, -cam[1] );
+		context.lineTo( tex, -cam[1] );
 		context.stroke();
 	}
 	context.strokeStyle=couleur;
@@ -45,6 +46,13 @@ function aff(){
 	context.stroke();
 }
 
+function moveCam(d){
+	if(d=='up') cam[1]+=vit
+	if(d=='down') cam[1]-=vit
+	if(d=='left') cam[0]+=vit
+	if(d=='right') cam[0]-=vit
+	aff();
+}
 
 aff();
 
