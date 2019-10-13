@@ -29,7 +29,7 @@ var nbo=2;
 
 var clso=[[255,0,0],[0,255,0]]
 
-ctx.sizeStyle="130px";
+ctx.font = "30px Comic";
 
 function choice( liste ){
 	return liste[parseInt(Math.random()*(liste.length-1))];
