@@ -29,7 +29,7 @@ var nbo=2;
 
 var clso=[[255,0,0],[0,255,0]]
 
-ctx.font = "30px Comic";
+ctx.font = "20px Arial";
 
 function choice( liste ){
 	return liste[parseInt(Math.random()*(liste.length-1))];
@@ -82,8 +82,8 @@ function aff(){
     ctx.fillStyle="rgb("+pcl[0]+","+pcl[1]+","+pcl[2]+")";
     //ctx.fillStyle="rgb(200,200,200)";
     ctx.fillRect( ppx-paffev , ppy-paffev , ptx+paffev*2 , pty+paffev*2 );
-    ctx.strokestyle="rgb(200,200,200)";
-    ctx.strokeText("score : "+pscore, 200, 20);
+    ctx.fillStyle="rgb(200,200,200)";
+    ctx.fillText("score : "+pscore, 200, 20);
     ctx.fillStyle="rgb(200,0,0)" ;
 	ctx.fillText(pvie, 30, 20);
 }
