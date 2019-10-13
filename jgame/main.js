@@ -140,7 +140,7 @@ function ev(){
 			}
 		}
 		while( objs.length < nbo ){
-			line=choice([1,2,3]);
+			line=choice([1,2,3,4]);
 			oo=[ choice([0,1,2])  ,  100*(line-1)+25 , choice([-100,-50,0]) , 50,50 , line , 0.1 , 0 , 0];
 			objs.push( oo );
 		}
