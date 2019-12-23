@@ -1,22 +1,75 @@
+@keyframes an_cl_tel{
+	0%{    color:rgb(255,0,0); border-radius:10px; }
+	20%{  color:rgb(255,255,0); border-radius:15px; }
+	40%{  color:rgb(0,255,0); border-radius:20px; }
+	60%{  color:rgb(0,255,255); border-radiud:20px; }
+	80%{  color:rgb(0,0,255); border-radius:15px; }
+	100%{color:rgb(255,0,0); border-radius:10px; }
+}
+
+@keyframes an_cl_tel2{
+	0%{    color:rgb(255,0,0); border-radius:10px; }
+	20%{  color:rgb(255,0,255); border-radius:15px; }
+	40%{  color:rgb(0,0,255); border-radius:20px; }
+	60%{  color:rgb(0,255,255); border-radiud:20px; }
+	80%{  color:rgb(0,255,0); border-radius:15px; }
+	100%{color:rgb(255,0,0); border-radius:10px; }
+}
+
+.tel{
+	color:rgb(255,0,0);
+	animation:an_cl_tel 3s linear infinite;
+	text-align:center;
+}
+
+.tel2{
+	color:rgb(255,0,0);
+	animation:an_cl_tel2 3s linear infinite;
+	text-align:center;
+}
+
+
 
 html
 {
     font-style:Serif;
-    font-size:20px;
+    font-size:28px;
 }
 
 body
 {
-    background-color:rgb(200,200,230);
-    color:black;
+    background-color:rgb(30,40,30);
+    color:white;
     margin-left:50px;
     margin-right:50px;
 }
 
+a{
+	color:rgb(200,200,200);
+}
+a:visited{
+		color:rgb(150,150,150);
+}
+
+
+div{
+	border:1px solid black;
+	border-radius:10px;
+	margin-left:2%;
+	margin-right:2%;
+	margin-top:2%;
+	margin-bottom:2%;
+	padding-left:4%;
+	padding-right:4%;
+	padding-top:4%;
+	padding-bottom:4%;
+}
+
 header,footer
 {
-    background-color:rgb(35,35,35);
+    background-color:rgb(35,135,135);
     color:white;
     border:2px solid white;
+    border-radius:25px;
     text-align:center;
 }
