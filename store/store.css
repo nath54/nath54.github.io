@@ -12,14 +12,22 @@ button
 	border:2px solid black;
 	color:yellow;
 	background-color:rgb(200,200,200);
-	width:98%;
-	height:20%;
-	font-size:50px;
+	width:49%;
+	height:10%;
+	font-size:25px;
+	line-height:25px;
+	padding-left:15px;
+	padding-top:10px;
+	padding-right:10px;
+	margin-top:5px;
+	border-radius:5px;
 }
 
 img{
 	height:90%;
 	float:left;
+	border-radius:5px;
+	margin-right:10px;
 }
 
 header,footer{
@@ -29,7 +37,7 @@ header,footer{
 
 .hf{
     border:1px solid white;
-    width:33%
+    width:33%;
     height:10%;
     border-radius:10px;
     font-size:15px;
