@@ -1,0 +1,186 @@
+// GLOBAL STYLES
+// Z-levels
+.z-depth-0 {
+    box-shadow: none !important;
+}
+
+.z-depth-1 {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.z-depth-1-half {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.z-depth-2 {
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.z-depth-3 {
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.z-depth-4 {
+    box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
+}
+
+.z-depth-5 {
+    box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
+}
+
+.hoverable {
+    transition: box-shadow .55s;
+    box-shadow: 0;
+}
+
+.hoverable:hover {
+    transition: box-shadow .45s;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+// Normalize
+a {
+    color: $link-color;
+    text-decoration: none;
+    cursor: pointer;
+    // Gets rid of tap active state
+    -webkit-tap-highlight-color: transparent;
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+    li {
+        list-style-type: none;
+    }
+}
+
+.jumbotron,
+.card,
+.label,
+.alert,
+.nav .nav-link,
+.navbar-toggler,
+.navbar,
+.breadcrumb,
+.page-item:last-child .page-link,
+.page-item:first-child .page-link,
+.pagination-lg .page-item:last-child .page-link,
+.pagination-lg .page-item:first-child .page-link,
+.pagination-sm .page-item:first-child .page-link,
+.pagination-sm .page-item:last-child .page-link,
+.list-group .list-group-item,
+.modal-content,
+.tooltip-inner,
+.popover,
+.dropdown-menu,
+.input-group-addon,
+.file-custom,
+.card .card-header {
+    border-radius: 0;
+}
+
+.jumbotron,
+.card,
+.list-group,
+.popover,
+.navbar,
+.dropdown-menu,
+.pagination {
+    @extend .z-depth-1;
+}
+
+.popover,
+.input-group-addon,
+.dropdown-menu {
+    border: 0;
+}
+
+// Modal footer buttons fix
+.modal-footer .btn + .btn {
+    margin-bottom: 6px;
+}
+
+// Shifting bacground fix
+body.modal-open {
+    overflow: inherit;
+    padding-right: 0 !important;
+}
+
+body {
+    overflow: auto !important;
+}
+
+// Card columns fix - cut edges of the cards
+.card-columns .card {
+    margin: 2px;
+}
+
+// Parallax
+.parallax {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+// Scrollspy free
+.nav-pills {
+    &.horizontal-spy {
+        .nav-item {
+            .active {
+                border-bottom: 2px solid $mdb-color;
+                border-left: none;
+            }
+            &:hover {
+                background-color: transparent;
+                color: $mdb-color;
+                font-weight: 500;
+                border-left: none;
+            }
+        }
+    }
+}
+
+//Nav normalize
+.nav-pills .nav-item.open .nav-link,
+.nav-pills .nav-item.open .nav-link:focus,
+.nav-pills .nav-item.open .nav-link:hover,
+.nav-pills .nav-link.active,
+.nav-pills .nav-link.active:focus,
+.nav-pills .nav-link.active:hover {
+    background-color: transparent;
+    color: #000;
+}
+
+//Disabled cursor
+.disabled {
+    cursor: not-allowed!important;
+}
+
+//Video responsive
+.video-fluid {
+    height: auto;
+    width: 100%;
+}
+
+//Media improvement
+.media {
+    img {
+        @extend .z-depth-1-half;
+    }
+}
+
+//Equal height columns
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
