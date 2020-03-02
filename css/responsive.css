@@ -1,0 +1,156 @@
+
+
+/*
+Author: Bootstrapthemes
+Author URI: http://www.bootstrapthemes.co
+*/
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+    html {
+        font-size: 100%;
+    }
+    body {
+        font-size: 1rem;
+    }
+    h4 {
+        font-size:1rem !important;
+    }
+    .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group {
+        z-index: 2;
+        margin-left: 7px;
+        height: 51px;
+        margin-top: 0px;
+        border-radius: 0px 5px 5px 0px;
+    }
+    /*    .carousel.carousel-slider .carousel-item {
+            top: 150px;
+        }*/
+}
+
+/* Portrait tablets and small desktops */
+@media (max-width: 991px) {
+    html {
+        font-size: 90%;
+    }
+    h1 {
+        font-size:4.5rem;
+    }
+    h3 {}
+    h3 {}
+    h4 {
+        font-size: 1.025rem;
+    }
+    h5 {}
+
+    .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group {
+        z-index: 2;
+        margin-left: 7px;
+        height: 46px;
+        margin-top: 0px;
+        border-radius: 0px 5px 5px 0px;
+    }
+    .main_footer_area .single_f_widget .single_f_widget_text .socail_f_widget a i {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        color: #444444;
+        font-size: 1rem;
+    }
+    .carousel.carousel-slider .carousel-item {
+        top: 18%;
+    }
+
+
+
+}
+/* Landscape phones and portrait tablets */
+@media  (max-width: 768px) {
+    html {
+        font-size: 80%;
+    }
+    h4 {
+        font-size: 1.225rem;
+    }
+    .main_accordion{
+        margin-bottom: 30px;
+    }
+    .single_works{
+        margin-top:20px;
+    }
+    .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group {
+        margin-left: 6px;
+        height: 41px;
+    }
+    .carousel{
+        height: 560px;
+    }
+    .carousel.carousel-slider .carousel-item {
+        top: 0%;
+    }
+    .carousel .carousel-item img {
+        width: 15%;
+        margin-bottom: 15px;
+    } 
+
+
+}
+/* Landscape phones and smaller */
+@media (max-width: 550px) {
+    html {
+        font-size: 65%;
+    }
+    .main_offer_area .single_offer .single_offer_icon i {
+        width: 25%;
+        margin: 10px auto;
+    }
+    .single_offer{
+        text-align: center;
+    }
+
+    .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group {
+        margin-left: 5px;
+        height: 33px;
+    }
+
+    .carousel.carousel-slider .carousel-item .single_c_text p{
+        font-size:1.5rem;
+    }
+
+    .carousel.carousel-slider .carousel-item {
+        top: -20%;
+    }
+}
+
+
+/* Landscape phones and smaller */
+@media (max-width: 479px) {
+    html {
+        font-size: 65%;
+    }
+    .main_offer_area .single_offer .single_offer_icon i {
+        width: 25%;
+        margin: 10px auto;
+    }
+
+
+
+}
+
+
+
+@media (max-width: 320px) {
+
+
+    html {
+        font-size: 60.5%;
+    }
+    .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group {
+        margin-left: 5px;
+        height: 31px;
+    }
+
+
+
+}
+

@@ -1,0 +1,261 @@
+/*-----------------------------------------------------------------------------------
+
+    Template Name:Progress Bar Plugin
+    Template URI: http://www.devitems.com
+    Description: This is Bootstrap Progress Bar Plugin
+    Author: devitems
+    Author URI: http://devitems.com/author/rakib9382/
+    Version: 1.0
+
+-----------------------------------------------------------------------------------
+    
+    CSS INDEX
+    ===================
+	1.	Theme default CSS (body, link color, section etc)
+	[2.	Header section]
+		[2.1 Logo]
+		[2.2 Mainmenu]
+	[3. Demo-1 CSS]
+	[4. Demo-2 CSS]
+	[5. Demo-3 CSS]
+	[6. Demo-3 CSS]
+	
+-----------------------------------------------------------------------------------*/
+
+/*----------------------------------------
+[1. Theme default CSS]
+---------------------------------------*/
+html, body {height: 100%;}
+.white-color{color:#ffffff;}
+.floatleft {float:left}
+.floatright {float:right}
+.alignleft {float:left;margin-right:15px;margin-bottom: 15px}
+.alignright {float:right;margin-left:15px;margin-bottom: 15px}
+.aligncenter {display:block;margin:0 auto 15px}
+a:focus {
+  outline:0px solid;
+  text-decoration:none;
+}
+img {max-width:100%;height:auto}
+.fix {overflow:hidden}
+p {margin:0 0 15px;}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family:"Raleway",sans-serif;
+  color:rgb(49, 61, 83);
+}
+a {
+  transition: all 0.3s ease 0s;
+  text-decoration:none;
+}
+a:hover {
+  color: #ec4445;
+  text-decoration: none;
+}
+a:active, a:hover {
+  outline: 0 none;
+  text-decoration:none;
+}
+ul{
+  list-style: outside none none;
+  margin: 0;
+  padding: 0
+}
+hr.t_underline {
+  background: rgb(49, 61, 83) none repeat scroll 0 0;
+  border: medium none;
+  height: 2px;
+  margin: 30px auto;
+  width: 150px;
+}
+.white-bg{background:#ffffff!important;}
+.margin-top-{margin-top:-30px;}
+.section-title p{
+  font-size: 15px;
+  font-weight:400;
+  letter-spacing: 1px;
+  line-height: 25px;
+}
+.col-text-center{
+  float: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.section-padding{padding:50px 0;}
+.clear{clear:both}
+body{
+  background:#ddd;
+  font-family: 'Open Sans', sans-serif;
+  font-size:14px;
+  color:rgb(49, 61, 83);
+  font-weight:400;
+  line-height:18px;
+}
+/*----------------------------------------
+[2.	Header section]
+----------------------------------------*/
+header {
+  background: rgb(49, 61, 83) none repeat scroll 0 0;
+  position:fixed;
+  z-index:999;
+  width:100%;
+}
+/*-------------------------------
+[2.1 Logo]
+----------------------------------*/
+.logo h4 {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  margin: 0;
+  padding: 28px 0;
+}
+/*-------------------------------
+[2.2 Mainmenu]
+----------------------------------*/
+nav ul li {display: inline-block;}
+.mainmenu a{
+  color: #889bbc;
+  display: block;
+  padding: 30px 20px;
+}
+.mainmenu a:hover,.active a{
+  color: rgb(255, 255, 255);
+  background:#273144;
+}
+/*-----------------------
+[3. Demo-1 CSS]
+--------------------------*/
+#demo1 {padding-top: 130px;}	
+.skill{overflow:hidden;}
+.skill {
+  margin-bottom: 0;
+  padding-top: 50px;
+}
+.service-text{margin-top:30px;}
+.skill .progress .lead {
+  color: #444;
+  font-size: 14px;
+  font-weight: 400;
+  left: 0;
+  position: absolute;
+  top: -23px;
+  z-index: 99;
+  font-family:"Open Sans","Sans Serif";
+}
+.skill .progress {
+  background-color: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  height: 5px;
+  margin-bottom: 50px;
+  overflow: visible;
+  position: relative;
+}
+.skill .progress-bar span {
+  background: #333 none repeat scroll 0 0;
+  float: right;
+  font-size: 11px;
+  margin-right: 10px;
+  margin-top: -26px;
+  position: relative;
+  padding: 0 5px;
+}
+.skill .progress-bar > span:before,.skill .progress-bar > span:after{
+  border: medium solid transparent;
+  content: " ";
+  height: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 100%;
+  width: 0;
+}
+.skill .progress-bar > span:before{
+  border-top-color: #333;
+  border-width: 5px;
+  left: 50%;
+  margin-left: -5px;
+}
+.demo1 .skill .progress:nth-child(1) .progress-bar {
+  background: #23C6EC;
+}
+.demo1 .skill .progress:nth-child(2) .progress-bar {
+  background: #EB3B60;
+}
+.demo1 .skill .progress:nth-child(3) .progress-bar {
+  background: #2BCDC0;
+}
+.demo1 .skill .progress:nth-child(4) .progress-bar {
+  background: #1116EC;
+}
+/*-----------------------
+[4. Demo-2 CSS]
+--------------------------*/
+.demo2 .skill .progress {height: 15px;}
+.demo2 .skill .progress-bar span::before {
+  border-width: 7px;
+  margin-left: -7px;
+  top: 111%;
+}
+.demo2 .skill .progress-bar span {
+  border-radius: 50%;
+  font-size: 10px;
+  height: 30px;
+  line-height: 22px;
+  margin-right: -14px;
+  padding: 0 2px;
+  top: -8px;
+  width: 30px;
+}
+.demo2 .skill .progress:nth-child(1) .progress-bar span {
+  border: 4px solid #23C6EC;
+}
+.demo2 .skill .progress:nth-child(2) .progress-bar span {
+  border: 4px solid #EB3B60;
+}
+.demo2 .skill .progress:nth-child(3) .progress-bar span {
+  border: 4px solid #2BCDC0;
+}
+.demo2 .skill .progress:nth-child(4) .progress-bar span {
+  border: 4px solid #1116EC;
+}
+.demo2 .skill .progress:nth-child(5) .progress-bar span {
+  border: 4px solid rgb(51, 122, 183);
+}
+/*-----------------------
+[5. Demo-3 CSS]
+--------------------------*/
+.demo3 .skill .progress-bar span {
+  border-radius: 25%;
+  height: 35px;
+  line-height: 26px;
+  margin-right: 0;
+  top: -2px;
+}
+.demo3 .skill .progress-bar span::before,.demo4 .skill .progress-bar span::before  {
+  display: none;
+}
+.demo3 .skill .progress:nth-child(1) .progress-bar {
+  background-color: #23C6EC;
+}
+.demo3 .skill .progress:nth-child(2) .progress-bar {
+  background-color: #EB3B60;
+}
+.demo3 .skill .progress:nth-child(3) .progress-bar {
+  background-color: #2BCDC0;
+}
+.demo3 .skill .progress:nth-child(4) .progress-bar {
+  background-color: #1116EC;
+}
+/*-----------------------
+[6. Demo-4 CSS]
+--------------------------*/
+.demo4 .skill .progress-bar span {
+  border-radius: inherit;
+  height: 32px;
+  top: 17px;
+}
+/*-------------------------------------------------------------------
+								[END]
+--------------------------------------------------------------------*/
