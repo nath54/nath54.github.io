@@ -428,7 +428,7 @@ div.panel.show {
 ============================================================*/
 
 .main_counter_area{
-    background: url(../img/counterbg.jpg) no-repeat top center;
+    background: url(../img/counterbg.gif) no-repeat top center;
     background-size: cover;
     overflow: hidden;
 }
