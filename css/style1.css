@@ -138,3 +138,31 @@
     border-radius:30px;
 }
 
+
+
+
+.cat_propose{
+    display: block;
+    max-width:128px;
+    max-height:128px;
+    width: auto;
+    height: auto;
+    border:1px solid black;
+    border-radius:5px;
+    float:left;
+    margin-right:5px;
+}
+
+.projets_logo{
+    max-width:64px;
+    max-height:64px;
+    width: auto;
+    height: auto;
+    border:1px solid black;
+    border-radius:5px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+
