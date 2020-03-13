@@ -239,8 +239,7 @@
             <hr />
         </section><!-- End of About Section-->
         
-        
-        <section id="about" class="about">
+         <section id="about" class="about">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
@@ -248,97 +247,14 @@
                             <div class="head_title center m-y-3 wow fadeInUp">
                                 <h2>Comment Y Jouer ? </h2>
                                 <p>Voici un petit guide, pour aider les gens qui n'arrivent pas à jouer au jeu.</p>
-                            </div>
-                            <!-- Jouer avec la version python -->
-                            <div>
-                                <div class="head_title center m-y-3 wow fadeInUp">
-                                    <h3>Version Python : </h3>
-                                </div>
-                                <!-- Installation de python3 -->
-                                <p>Tout d'abord, vous devez d'abord installer python3</p>
-                                <p style="font-weight:900;">Comment installer python3 sur son ordinateur ?</p>
-                                <div class="head_title center m-y-3 wow fadeInUp">
-                                    <h5 style="font-weight:900; color:grey;">linux : </h5>
-                                </div>
-                                <p>Pour installer python3 sur votre ordinateur linux, vous pouvez l'installer depuis le site de python</p>
-                                <p> - <a href="https://www.python.org/downloads/source/">Lien vers la page de téléchargement de python3 pour linux</a></p>
-                                <p>Ou tout simplement lancer la commande : </p>
-                                <code>sudo apt-get install python3 python3-pip</code>
-                                <div class="head_title center m-y-3 wow fadeInUp">
-                                    <h5 style="font-weight:900; color:grey;">Windows :</h5>
-                                </div>
-                                <p>Pour installer python3 sur votre ordinateur Windows 10, vous devez aller sur le site de python3</p>
-                                <p> - <a href="https://www.python.org/downloads/windows/">Lien vers la page de téléchargement de python3 pour windows</a></p>
-                                <p>Vous devez télécharger la dernière version qui est compatible avec votre ordinateur</p>
-                                <p>Vous installez le fichier téléchargé</p>
-                                <p style="font-weight:900; color:red;">Attention, n'oubliez pas de cocher la case <cite>"Add Python 3.x to PATH"</cite> lors de l'installation de python3, sinon vous ne pourrez pas faire la suite !</p>
-                                <img src="../py_win_installer.png"></img>
-                                <!-- Installation des dépendances -->
-                                <p>Après, vous devez installer les librairies de python3 que le jeu utilise</p>
-                                <p style="font-weight:900;">Comment installer les librairies de python3 sur son ordinateur ?</p>
-                                <div class="head_title center m-y-3 wow fadeInUp">
-                                    <h5 style="font-weight:900; color:grey;">linux et windows : </h5>
-                                </div>
-                                <p>C'est très simple, vous devez juste aller sur votre terminal, invite de commande</p>
-                                <p>N'importe quel terminal avec les commandes bash système pour Linux, CMD pour windows</p>
-                                <p>Après, le difficile est passé, vous n'avez qu'à lancer la commande : </p>
-                                <code>sudo <span style="font-weight:1000; color:red;">pip3</span> <span style="font-weight:1000; color:black;">ou</span> <span style="font-weight:1000; color:red;">pip</span> install <span style="font-weight:1000; color:black;">Les dépendances qui sont marquées au dessus de la page</span></code>
-                                <p></p>
-                                <p>ou</p>
-                                <code><span style="font-weight:1000; color:red;">pip3</span> <span style="font-weight:1000; color:black;">ou</span> <span style="font-weight:1000; color:red;">pip</span> install <span style="font-weight:1000; color:black;">Les dépendances qui sont marquées au dessus de la page</span> --user</code>
-                                <p></p>
-                                <p>Normalement, Vous avez installé python3 et les librairies nécessaires sur votre ordinateur</p>
-                                <p>Il ne vous reste plus qu'une chose : lancer le jeu et jouer !</p>
-                                <p style="font-weight:900;">Comment le jeu avec python3 sur son ordinateur ?</p>
-                                <p>Pour le lancer, il y a plusieurs manières disponibles.</p>
-                                <div class="head_title center m-y-3 wow fadeInUp">
-                                    <h4>La plus simple, utiliser un script bash/bat pour lancer le jeu : </h4>
-                                </div>
-                                <div class="head_title center m-y-3 wow fadeInUp">
-                                    <h5 style="font-weight:900; color:grey;">linux : </h5>
-                                </div>
-                                <p>Vous pouvez télécharger <a href="../jeu.sh">ce script</a></p>
-                                <p>Et vous avez juste à le modifier si il ne marche pas ( ce n'est pas très compliqué, vous n'avez qu'à suivre les commentaires que j'ai écrits dans les petits scripts ).
-                                <p>Et puis vous n'avez plus qu'à executer le script pour lancer le jeu</p>
-                                <p style="font-weight:900; color:red;">Attention, n'oubliez pas de mettre le script dans le meme dossier que le jeu, sinon, il ne marchera pas !</p>
-                                <p>Vous pourrez quand meme juste en faire un raccourci pour le mettre dans votre bureau si vous en avez envie</p>
-                                <div class="head_title center m-y-3 wow fadeInUp">
-                                    <h5 style="font-weight:900; color:grey;">windows : </h5>
-                                </div>
-                                <p>Vous pouvez télécharger <a href="../jeu.bat">ce script</a></p>
-                                <p>Et vous avez juste à le modifier si il ne marche pas ( ce n'est pas très compliqué, vous n'avez qu'à suivre les commentaires que j'ai écrits dans les petits scripts ).
-                                <p>Et puis vous n'avez plus qu'à executer le script pour lancer le jeu</p>
-                                <p style="font-weight:900; color:red;">Attention, n'oubliez pas de mettre le script dans le meme dossier que le jeu, sinon, il ne marchera pas !</p>
-                                <p>Vous pourrez quand meme juste en faire un raccourci pour le mettre dans votre bureau si vous en avez envie</p>
-                                <div class="head_title center m-y-3 wow fadeInUp">
-                                    <h4>Une un peu plus compliquée, utiliser le terminal/invite de commande pour lancer le jeu : </h4>
-                                    <p>Il n'y a que 2 commandes à éxécuter, sur linux ou windows :</p>
-                                    <code>cd <span style="font-weight:1000; color:black;">répertoire du jeu ( ex : /home/user/Download/jeu/ )</span></code>
-                                    <p></p>
-                                    <p>Et</p>
-                                    <code><span style="font-weight:1000; color:red;">python3</span><span style="font-weight:1000; color:black;">/</span><span style="font-weight:1000; color:red;">python</span><span style="font-weight:1000; color:black;">/</span><span style="font-weight:1000; color:red;">py</span> <span style="font-weight:1000; color:black;"> nom du jeu ( souvent : main.py ) </span></code>
-                                    <p></p>
-                                </div>
-                            </div>
-                            <!-- Jouer avec l'éxécutable Windows -->
-                            <div>
-                                <div class="head_title center m-y-3 wow fadeInUp">
-                                    <h3>Version Windows Executable : </h3>
-                                </div>
-                                <p>Ce n'est pas très compliqué, pour pouvoir jouer au jeu, il suffit de télécharger le fichier compressé</p>
-                                
-                                <p>Ensuite, il faut l'extraire, pour cela, vous pouvez utiliser votre gestionnaire de fichier, click doirt sur le fichier, et cliquer sur extraire.</p>
-                                
-                                <p>Après avoir extrait le fichier, il suffit de se déplacer dans le dossier qui résulte de l'extraction précédente, puis lancer le fichier executable</p>
-                                
-                                <p>En général, ce fichier se nome : <cite>"main.exe"</cite> , <cite>"jeu.exe"</cite> ... </p>
+                                <a href="../help.html">Lien vers le guide</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+             </div>
         </section>
-
+        
 
         <section id="footer" class="footer">
             <div class="container">
