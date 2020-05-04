@@ -12,9 +12,7 @@ def decomposition_somme(somme):
         if r<vm[i]: i-=1
         if r>=vm[i]:
             pieces.append(vm[i])
-            r-=vm[i]
-        
-    
+            r-=vm[i]    
     return(pieces)
 
 def main():

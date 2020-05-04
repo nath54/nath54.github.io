@@ -10,8 +10,9 @@ def decomposition_somme(somme):
     i=len(vm)-1
     while r>0:
         if r<vm[i]: i-=1
-        pieces.append(vm[i])
-        r-=vm[i]
+        if r>=vm[i]:
+            pieces.append(vm[i])
+            r-=vm[i]
         
     
     return(pieces)
