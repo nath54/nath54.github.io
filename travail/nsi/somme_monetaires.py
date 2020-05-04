@@ -17,25 +17,10 @@ def decomposition_somme(somme):
 def main():
     args=sys.argv
     decomposition_somme(int(args[1]))
-
+    #decomposition_somme(125)
+    #renvoie [50,50,20,5]
 
 main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
