@@ -14,12 +14,14 @@ def images_par_g(nbvals,pas):
     Y=[y]
     
     for i in range(1,n+1):
-        x+=x+h
-        y+=h*(math.e**x)
+        x+=h
+        y+=h*y
         X.append(x)
         Y.append(y)
     
     return("abscisses : ",X," ordonnées correspondantes : ",Y)
 
+print( images_par_g(5,-0.1) )
+print( images_par_g(5,0.1) )
 
 

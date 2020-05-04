@@ -36,7 +36,7 @@ def images_et_graph_par_g(nbvals,pas):
 #1er test : 
 print( images_et_graph_par_g(5,0.1) )
 #2eme test : 
-#images_et_graph_par_g(25,0.1)
+images_et_graph_par_g(25,0.1)
 
 
 

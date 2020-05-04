@@ -4,59 +4,65 @@
 #proc[2] = la priorité de la tache
 
 
-def eval_tp(proc):
-    temps_gache=0
-    temps_passe=0
-    for p in proc:
-        while p[0]>temps_passe:
-            temps_passe+=1
-            temps_gache+=1
-        temps_passe+=p[1]
-    return("temps passe : ",temps_passe,"temps passe : ",temps_gache)
+def exec_procs(procs):
+    proc_possibles=[]
+    seq_exec=[]
+    tp_passe=0
+    dproc_exec=None
+    while len(procs)>0:
+        #on regarde si de nouveaux processus sont possibles
+        for p in procs:
+            if tp_passe>=procs[p][0] and not p in proc_possibles:
+                proc_possibles.append(p)
+        #
+        next_ex_p="fout rien"
+        for p in proc_possibles:
+            if next_ex_p=="fout rien":
+                next_ex_p=p
+            elif procs[p][2]>procs[next_ex_p][2]:
+                next_ex_p=p
+        #
+        if next_ex_p!=dproc_exec:
+            seq_exec.append( [next_ex_p,1] )
+        else:
+            seq_exec[-1][1]+=1
+        #
+        if next_ex_p!="ne fait rien":
+            procs[p][1]-=1
+        #
+        nprocs={}
+        for p in procs.keys():
+            if procs[p][1]<=0:
+                del(proc_possibles[proc_possibles.index(p)])
+            else:
+                nprocs[p]=procs[p]
+        procs=nprocs
+        #
+        tp_passe+=1
+        dproc_exec=next_ex_p
+        #
+        #print( tp_passe , seq_exec )
+    return seq_exec    
     
-
-
-def trier_processus(proc):
-    for i in range(len(proc)):
-        for j in range(i):
-            if proc[i][0]<proc[j][0]:
-                temp=proc[i]
-                proc[i]=proc[j]
-                proc[j]=temp
-            elif proc[i][0]==proc[j][0]:
-                if proc[i][2]>proc[j][2]:
-                    temp=proc[i]
-                    proc[i]=proc[j]
-                    proc[j]=temp
-                elif proc[i][2]==proc[j][2]:
-                    if proc[i][1] < proc[j][1]:
-                        temp=proc[i]
-                        proc[i]=proc[j]
-                        proc[j]=temp
-                    
-                
-    return proc
-
+   
 
 
 def main():
-    P1 = (6, 16, 3)
-    P2 = (4, 8, 1)
-    P3 = (4, 10, 2)
-    P4 =(6, 10, 5)
-    P5 = (4, 1, 3)
+    P1 = [6, 16, 3]
+    P2 = [4, 8, 1]
+    P3 = [4, 10, 2]
+    P4 = [6, 10, 5]
+    P5 = [4, 2, 3]
 
-    procs=[
-        (6,16,3),
-        (4,8,1),
-        (4,10,2),
-        (6,10,5),
-        (4,2,3)        
-    ]
-    print( "avant : ", eval_tp(procs) )
-    nprocs=trier_processus(procs)
-    print( nprocs )
-    print( "après : ",eval_tp(nprocs) )
+    procs={
+        "P1":P1,
+        "P2":P2,
+        "P3":P3,
+        "P4":P4,
+        "P5":P5       
+    }
+    
+    print( exec_procs(procs) )
 
 main()
 
