@@ -1,5 +1,8 @@
 import math
 
+def df(x):
+    return math.e(x)
+
 
 def images_par_g(nbvals,pas):
     h=pas
@@ -15,7 +18,7 @@ def images_par_g(nbvals,pas):
     
     for i in range(1,n+1):
         x+=x+h
-        y+=h*(math.e**x)
+        y+=h*df(x)
         X.append(x)
         Y.append(y)
     
