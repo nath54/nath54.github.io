@@ -18,10 +18,11 @@ def tri1(pos):
 
 def tri2(pos):
     i=0
-    while i+1<len(pos)-1:
-        if i+1<len(pos)-1:
-            while test_col(pos[i],pos[i+1])>0:
-                del(pos[i+1])
+    while i+1<=len(pos)-1:
+        #print(pos[i],pos[i+1],test_col(pos[i],pos[i+1]))
+        while i+1<=len(pos)-1 and test_col(pos[i],pos[i+1])>0:
+            del(pos[i+1])
+        
         i+=1    
     return pos
 
