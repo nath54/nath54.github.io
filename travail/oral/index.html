@@ -10,20 +10,31 @@
     flex-direction: row;
 }
 
+.img{
+    max-width: 50%;
+    max-height: 50%;
+    margin: auto;
+}
+
+.petite_img{
+    width: 400px;
+    height: 400px;
+}
+
 </style>
 <html>
     <head>
         <meta charset="utf-8" />
         <title>Grand Oral - Fiche Maths</title>
     </head>
-    <body>
+    <body style="text-align: center;">
         <div class="column">
-            <div>
-                <img src="CodeCogsEqn.svg" />
+            <div style="margin-top: 30px; margin-bottom: 50px;">
+                <img class="img" src="CodeCogsEqn.svg" />
             </div>
             <div class="row">
-                <img src="LogisticMap_BifurcationDiagram.png" />
-                <img src="220px-LogisticCobwebChaos.gif" />
+                <img class="img" src="LogisticMap_BifurcationDiagram.png" />
+                <img style="margin-right: 100px; margin-top:50px;" class="petite_img" src="220px-LogisticCobwebChaos.gif" />
             </div>
         </div>
     </body>
