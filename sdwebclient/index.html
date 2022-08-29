@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Index - StableDiffusion</title>
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <div>
+            <p>
+                Welcome to this StableDiffusion server for generating images !
+            </p>
+            <div class="row">
+                <div class="col">
+                    <label>IP</label>
+                    <input id="input_ip" placeholder="server IP address"/>
+                </div>
+                <div class="col">
+                    <label>PORT</label>
+                    <input id="input_port" placeholder="server PORT connection"/>
+                </div>
+                <button onclick="connection();">Connect</button>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+
+function connection(){
+    var IP = document.getElementById("input_ip").value;
+    var PORT = document.getElementById("input_port").value;
+    var url = "generation.html?IP="+IP+"&PORT="+PORT
+    window.location.href=url;
+}
+
+</script>
