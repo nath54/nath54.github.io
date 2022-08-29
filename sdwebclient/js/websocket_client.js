@@ -11,7 +11,7 @@ function encode_utf8(s) {
 function start_websocket(IP,PORT) {
     console.log("Trying to connect to : "+IP+":"+PORT+"/");
     // On se connecte au websocket
-    window.websocket = new WebSocket("ws://" + IP + ":" + PORT + "/");
+    window.websocket = new WebSocket("wss://" + IP + ":" + PORT + "/");
 
     // Quand il y a des erreurs
     window.websocket.onerror = function() {
