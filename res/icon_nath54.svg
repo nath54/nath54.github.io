@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- nath54 logo -->
+
+<svg
+   width="600"
+   height="600"
+   version="1.1"
+   id="svg854"
+   sodipodi:docname="icon_nath54.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs858">
+  <linearGradient
+     inkscape:collect="always"
+     id="linearGradient5651">
+    <stop
+       style="stop-color:#000000;stop-opacity:1;"
+       offset="0"
+       id="stop5647" />
+    <stop
+       style="stop-color:#000000;stop-opacity:0;"
+       offset="1"
+       id="stop5649" />
+  </linearGradient>
+  <linearGradient
+     id="linearGradient1201"
+     inkscape:swatch="solid">
+    <stop
+       style="stop-color:#000000;stop-opacity:1;"
+       offset="0"
+       id="stop1199" />
+  </linearGradient>
+  <linearGradient
+     inkscape:collect="always"
+     xlink:href="#linearGradient5651"
+     id="linearGradient5653"
+     x1="209.19531"
+     y1="67.313189"
+     x2="328.88281"
+     y2="67.313189"
+     gradientUnits="userSpaceOnUse" />
+</defs>
+<sodipodi:namedview
+   id="namedview856"
+   pagecolor="transparent"
+   bordercolor="transparent"
+   borderopacity="0"
+   inkscape:pageshadow="0"
+   inkscape:pageopacity="0"
+   inkscape:pagecheckerboard="0"
+   showgrid="false"
+   inkscape:zoom="1.4142136"
+   inkscape:cx="204.00031"
+   inkscape:cy="324.91556"
+   inkscape:window-width="1920"
+   inkscape:window-height="1009"
+   inkscape:window-x="-8"
+   inkscape:window-y="-8"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="svg854">
+  <inkscape:grid
+     type="xygrid"
+     id="grid1275" />
+</sodipodi:namedview>
+<polyline
+   points="75,525 75,75 175,75 425,375 425,75 525,75 525,525 425,525 175,225 175,525 75,525"
+   id="polyline842"
+   style="fill:#b8b8b8;stroke:#000000;stroke-opacity:1;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-linejoin:round;paint-order:normal;stroke-linecap:round;fill-opacity:1" />
+none stroke=&quot;black&quot; stroke-width=&quot;5px&quot;/&gt;
+
+  <line
+   x1="85"
+   y1="515"
+   x2="85"
+   y2="85"
+   stroke="black"
+   stroke-width="3"
+   id="line844" />
+<line
+   x1="175"
+   y1="210"
+   x2="425"
+   y2="505"
+   stroke="black"
+   stroke-width="2"
+   id="line846" />
+<line
+   x1="175"
+   y1="202"
+   x2="425"
+   y2="497"
+   stroke="black"
+   stroke-width="2"
+   id="line848" />
+<line
+   x1="440"
+   y1="90"
+   x2="510"
+   y2="90"
+   stroke="black"
+   stroke-width="2"
+   id="line850" />
+<line
+   x1="440"
+   y1="95"
+   x2="510"
+   y2="95"
+   stroke="black"
+   stroke-width="2"
+   id="line852" />
+<text
+   xml:space="preserve"
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:97.9671px;line-height:1.25;font-family:Dubai;-inkscape-font-specification:'Dubai Bold';fill:#e8e8e8;fill-opacity:1;stroke:#000000;stroke-width:3.18393;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+   x="187.83969"
+   y="-87.343086"
+   id="text2161"
+   transform="matrix(0.64081586,0.76792721,-0.79471591,0.60815604,0,0)"><tspan
+     id="tspan2159"
+     x="187.83969"
+     y="-87.343086"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Dubai;-inkscape-font-specification:'Dubai Bold';fill:#e8e8e8;stroke:#000000;stroke-width:3.18393;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+     sodipodi:role="line">ATH54</tspan></text>
+<path
+   style="fill:none;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+   d="m 175,210 v -8 l 250,295 v 8 L 175,210"
+   id="path21904" />
+<path
+   style="fill:none;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+   d="m 440,90 v 5 h 70 v -5 h -70"
+   id="path22038" />
+<path
+   style="fill:none;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+   d="M 85,85 H 77.503034 V 515.01286 L 85,515 V 85"
+   id="path22219"
+   sodipodi:nodetypes="ccccc" />
+</svg>
