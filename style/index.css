@@ -71,7 +71,7 @@ body {
     left: 8%;
     right: 8%;
     bottom: 8%;
-    padding: 3%;
+    padding: 15px;
     background-color: rgba(215, 215, 215, 0.954);
     border: 2px solid black;
     border-radius: 25px;
@@ -105,4 +105,21 @@ body {
 .bt1:hover {
     box-shadow: black 3px 3px 3px;
     padding: 7px;
+}
+
+.page_div {
+    margin: auto;
+    margin-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 5px;
+    background-color: rgba(10, 10, 10, 0.02);
+    padding: 5px;
+    width: 80%;
+    height: 75%;
+    overflow: auto;
+    overflow-y: auto;
+    -webkit-border-radius: 5p;
+    -moz-border-radius: 5p;
+    -ms-border-radius: 5p;
+    -o-border-radius: 5p;
 }
