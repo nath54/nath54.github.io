@@ -6,7 +6,7 @@ document.getElementById("above_div").addEventListener('click', (e) => {
 });
 
 var focusedCircle = null;
-var max_radius = 100;
+var max_radius = 500;
 
 
 class Circle {
@@ -95,8 +95,9 @@ class Circle {
         }
 
         if (focusedCircle === this) {
-            var m = 0.75;
-            main_div.style.transform = `translate(${(- this.x)*(max_radius/(m*this.radius))}px, ${(- this.y)*(max_radius/(m*this.radius))}px) scale(${max_radius/(m*this.radius)})`;
+            var m = 5;
+            var scale = max_radius / ((m * this.radius));
+            main_div.style.transform = `translate(${(- this.x)*(max_radius/(m*this.radius))}px, ${(- this.y)*(max_radius/(m*this.radius))}px) scale(${scale})`;
         }
     }
 
@@ -165,39 +166,34 @@ function focus_parent() {
 }
 
 
+function createCircle(nom = "", parent = null, dist = 0, radius = 0, angle = 0, variation_angle = 0, speed = 0, bg = "", action = "", content = null) {
+    if (parent != null) {
+        var amin = angle - variation_angle / 2;
+        var amax = angle + variation_angle / 2;
+        var x = parent.x + dist * Math.cos(angle);
+        var y = parent.y + dist * Math.sin(angle);
+        var c = new Circle(x, y, radius, speed, dist, content, amin, amax, parent, bg, action);
+        parent.addChild(c);
+        return c;
+    } else {
+        console.error("Error parent is null!");
+    }
+}
+
+var global_speed_mult = 0.2;
+
+//LOGO CIRCLE
 //x, y, radius, speed, distance, content = '', angle_min, angle_max, parent = null
 var logo_circle = new Circle(window.innerWidth / 2, window.innerHeight / 2, max_radius, 0, 0, null, 0, 0, null, "res/icon_nath54.svg");
-var d1 = max_radius * 2;
-var x1 = logo_circle.x + d1 * Math.cos(290);
-var y1 = logo_circle.y + d1 * Math.sin(290);
-var d2 = max_radius * 2.3;
-var x2 = logo_circle.x + d2 * Math.cos(50);
-var y2 = logo_circle.y + d2 * Math.sin(50);
-var d3 = max_radius * 3;
-var x3 = logo_circle.x + d3 * Math.cos(100);
-var y3 = logo_circle.y + d3 * Math.sin(100);
 
-//               x,  y, radius,           speed,distance, content = '', angle_min, angle_max, parent = null
-var c1 = new Circle(x1, y1, max_radius * 0.50, 0.2, d1, null, 290, 310, logo_circle, "res/icon_profile.svg", "open_window|infos_persos");
-logo_circle.addChild(c1);
-var c2 = new Circle(x2, y2, max_radius * 0.35, 0.2, d2, null, 50, 70, logo_circle);
-logo_circle.addChild(c2);
-var c3 = new Circle(x3, y3, max_radius * 0.15, 0.2, d3, null, 100, 120, logo_circle);
-logo_circle.addChild(c3);
-
-var d4 = max_radius * 5;
-var x4 = c1.x + d4 * Math.cos(210);
-var y4 = c1.y + d4 * Math.sin(210);
-var c4 = new Circle(x4, y4, max_radius * 0.25, 0.2, max_radius * 2, null, 210, 230, c2, "res/icon_message.svg", "open_window|contact");
-c1.addChild(c4);
-
-var d5 = max_radius * 1;
-var x5 = c4.x + d5 * Math.cos(100);
-var y5 = c4.y + d5 * Math.sin(100);
-var c5 = new Circle(x5, y5, max_radius * 0.15, 0.1, d5, null, 100, 120, c4, "res/icon_github.svg", "link|https://github.com/nath54");
-c4.addChild(c5);
-
-//createChildren(c3, 3, 50, 0.1, max_radius * 2);
+// Empty Circle
+var c1 = createCircle(nom = "empty", parent = logo_circle, dist = max_radius * 2.3, radius = max_radius * 0.35, angle = 60, variation_angle = 15, speed = 10.3 * global_speed_mult, bg = "res/empty.svg");
+var c2 = createCircle(nom = "plus", parent = logo_circle, dist = max_radius * 3, radius = max_radius * 0.15, angle = 110, variation_angle = 15, speed = 7.3 * global_speed_mult, bg = "res/empty.svg");
+var c3 = createCircle(nom = "personal_infos", parent = logo_circle, dist = max_radius * 2.5, radius = max_radius * 0.5, angle = 300, variation_angle = 15, speed = 5.3 * global_speed_mult, bg = "res/icon_profile.svg", action = "open_window|infos_persos");
+var c4 = createCircle(nom = "contact", parent = c3, dist = max_radius * 1.8, radius = max_radius * 0.25, angle = 220, variation_angle = 15, speed = 8.3 * global_speed_mult, bg = "res/icon_message.svg", action = "open_window|contact");
+var c5 = createCircle(nom = "github", parent = c4, dist = max_radius * 1, radius = max_radius * 0.15, angle = 110, variation_angle = 15, speed = 14.15 * global_speed_mult, bg = "res/icon_github.svg", action = "link|https://github.com/nath54");
+var c5 = createCircle(nom = "gallery", parent = c2, dist = max_radius * 1, radius = max_radius * 0.2, angle = 100, variation_angle = 15, speed = 12.15 * global_speed_mult, bg = "res/icon_gallery.svg", action = "open_window|gallery");
+var c6 = createCircle(nom = "my games/apps", parent = c2, dist = max_radius * 1, radius = max_radius * 0.15, angle = 160, variation_angle = 15, speed = 8.15 * global_speed_mult, bg = "res/icon_apps.svg", action = "open_window|my_apps");
 
 function animate() {
     logo_circle.update();
@@ -210,7 +206,7 @@ function close_window() {
     document.getElementById("above_div").style.display = "none";
 }
 
-const win_list = ["infos_persos", "contact"];
+const win_list = ["infos_persos", "contact", "my_apps", "gallery"];
 
 function open_window(w_name) {
     //
@@ -222,3 +218,5 @@ function open_window(w_name) {
     //
     document.getElementById(w_name).style.display = "initial";
 }
+
+focus_parent();
