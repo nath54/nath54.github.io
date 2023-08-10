@@ -66,6 +66,7 @@ body {
 }
 
 #above_div {
+    font-size: large;
     position: fixed;
     top: 8%;
     left: 8%;
