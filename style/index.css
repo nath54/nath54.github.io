@@ -66,7 +66,7 @@ body {
 }
 
 #above_div {
-    position: absolute;
+    position: fixed;
     top: 8%;
     left: 8%;
     right: 8%;
