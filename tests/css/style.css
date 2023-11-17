@@ -1,15 +1,15 @@
 
 /* Animations */
-
 @keyframes horizontal_oscillation {
     0%{
-        transform: translateX(-20px);
+        transform: translateX(-4px);
     }
     50%{
-        transform: translateX(20px);
+        transform: translateX(4px);
     }
-}
-
+    100%{
+        transform: translateX(-4px);
+    } }
 
 /* -- Setup par défaut -- */
 /* Les variables sont dans le `html` */
@@ -24,7 +24,7 @@ html{
     --s2: 30px; }
 
 /* -- Setup petits écrans -- */
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1000px) and (min-height: 1300){
     /* Variables */
     html{
         /* Variables */
@@ -46,19 +46,16 @@ html{
         --small_font_size: 10px;
         --s1: 10px;
         --s2: 20px; } }
-     
 
-/* Fonts et transitions/animations */
+/* Fonts, cursor et transitions/animations */
 * {
-    /*  */
+    /* Font */
     font-size: var(--default_font_size);
-    /*  */
-    background-color: white;
     font-family: 'Merriweather', serif;
-    /*  */
-    animation-name: all;
-    animation-duration: 500ms;
-    animation-timing-function: ease;
+    /* Cursor */
+    cursor: default;
+    /* Background */
+    background-color: white;
     /*  */
     transition-duration: 500ms;
     transition-timing-function: ease; }
@@ -142,12 +139,18 @@ button:active{
 .icon_button_slop:hover{
     width: calc(var(--button_slop_height) * 0.90) }
 
-/* Fleche */
-.fleche{
+/* Fleche1 */
+.fleche1{
+    background: none;
     height: calc(var(--default_font_size)*2);
-    animation-name: horizontal_oscillations;
-    animation-duration: 500ms;
+    animation-name: horizontal_oscillation;
+    animation-duration: 1s;
     animation-iteration-count: infinite; }
+
+/* Fleche2 */
+.fleche2{
+    background: none;
+    height: calc(var(--default_font_size)*0.9); }
 
 /* ---------------------------------- */
 .vertical_center{
@@ -161,11 +164,21 @@ button:active{
 .font_center{
     text-align: center; }
 
+.color_on_hover:hover *{
+    color: rgb(80, 14, 79); }
+
 .small_font{
     font-size: var(--small_font_size); }
 
 .citation_width{
     max-width: 75%; }
+
+.cursor_default *{
+    cursor: default; }
+.cursor_pointer *{
+    cursor: pointer; }
+.cursor_crosshair *{
+    cursor:crosshair; }
 
 .w_auto{
     width: auto; }
