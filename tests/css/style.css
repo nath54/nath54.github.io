@@ -1,4 +1,15 @@
 
+/* Animations */
+
+@keyframes horizontal_oscillation {
+    0%{
+        transform: translateX(-20px);
+    }
+    50%{
+        transform: translateX(20px);
+    }
+}
+
 
 /* -- Setup par défaut -- */
 /* Les variables sont dans le `html` */
@@ -127,6 +138,13 @@ button:active{
     width: calc(var(--button_slop_height) * 0.85) }
 .icon_button_slop:hover{
     width: calc(var(--button_slop_height) * 0.90) }
+
+/* Fleche */
+.fleche{
+    height: calc(var(--default_font_size)*2);
+    animation-name: horizontal_oscillations;
+    animation-duration: 500ms;
+    animation-iteration-count: infinite; }
 
 /* ---------------------------------- */
 .vertical_center{
