@@ -1,0 +1,14 @@
+* {
+    background-color: white;
+    font-family: 'Merriweather', serif;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
