@@ -76,77 +76,81 @@
             <p>Si vous souhaitez en savoir plus sur moi:</p>
 
             <!-- Barre Div Mes centres d'intérêts -->
-            <div class="row color_on_hover cursor_pointer">
+            <div class="row color_on_hover cursor_pointer" onclick="toggle_visibility('div_ci', 'fleche2_ci');">
                 <div class="mr_s1 vertical_center">
-                    <img src="res/fleche2.png" class="fleche2">
+                    <img id="fleche2_ci" src="res/fleche2.png" class="fleche2">
                 </div>
                 <div class="vertical_center">
                     <h2>Mes centres d'intérêts</h2>
                 </div>
             </div>
             <!-- Div Mes centres d'intérêts -->
-            <div style="display:none">
+            <div id="div_ci" style="display:none">
                 <!-- TODO -->
             </div>
 
 
             <!-- Barre Div Études -->
-            <div class="row color_on_hover cursor_pointer">
+            <div class="row color_on_hover cursor_pointer" onclick="toggle_visibility('div_etudes', 'fleche2_etudes');">
                 <div class="mr_s1 vertical_center">
-                    <img src="res/fleche2.png" class="fleche2">
+                    <img id="fleche2_etudes" src="res/fleche2.png" class="fleche2">
                 </div>
                 <div class="vertical_center">
                     <h2>Études</h2>
                 </div>
             </div>
             <!-- Div Études -->
-            <div style="display:none">
+            <div id="div_etudes" style="display:none">
                 <!-- TODO -->
             </div>
 
 
             <!-- Barre Div Location -->
-            <div class="row color_on_hover cursor_pointer">
+            <div class="row color_on_hover cursor_pointer" onclick="toggle_visibility('div_location', 'fleche2_location');">
                 <div class="mr_s1 vertical_center">
-                    <img src="res/fleche2.png" class="fleche2">
+                    <img id="fleche2_location" src="res/fleche2.png" class="fleche2">
                 </div>
                 <div class="vertical_center">
                     <h2>Location</h2>
                 </div>
             </div>
             <!-- Div Location -->
-            <div style="display:none">
+            <div id="div_location" style="display:none">
                 <!-- TODO -->
             </div>
 
 
             <!-- Barre Div Mes Réseaux -->
-            <div class="row color_on_hover cursor_pointer">
+            <div class="row color_on_hover cursor_pointer" onclick="toggle_visibility('div_reseaux', 'fleche2_reseaux');">
                 <div class="mr_s1 vertical_center">
-                    <img src="res/fleche2.png" class="fleche2">
+                    <img id="fleche2_reseaux" src="res/fleche2.png" class="fleche2">
                 </div>
                 <div class="vertical_center">
                     <h2>Mes réseaux</h2>
                 </div>
             </div>
             <!-- Div Mes Réseaux -->
-            <div style="display:none">
+            <div id="div_reseaux" style="display:none">
                 <!-- TODO -->
+                <ul>
+                    <li>Github : <a href="https://github.com/nath54/">voir ma page github</a></li>
+                    <li>Linkedin : <a href="https://www.linkedin.com/in/nathan-cerisara-8669331ba/">Voir ma page Linkedin</a></li>
+                </ul>
             </div>
 
 
             <!-- Barre Div Me contacter -->
-            <div class="row color_on_hover cursor_pointer">
+            <div class="row color_on_hover cursor_pointer" onclick="toggle_visibility('div_contact', 'fleche2_contact');">
                 <div class="mr_s1 vertical_center">
-                    <img src="res/fleche2.png" class="fleche2">
+                    <img src="res/fleche2.png" id="fleche2_contact" class="fleche2">
                 </div>
                 <div class="vertical_center">
                     <h2>Me contacter</h2>
                 </div>
             </div>
             <!-- Div Me contacter -->
-            <div style="display:none">
-                <!-- TODO -->
+            <div id="div_contact" style="display:none">
+                <p>Vous pouvez me contacter à l'adresse mail suivante : <code>cerisara.nathan@protonmail.com</code></p>
             </div>
 
         </div>
@@ -155,6 +159,6 @@
 
 </body>
 
-<script src="js/index.js" type="text/javascript"></script>
+<script src="js/infos_persos.js" type="text/javascript"></script>
 
 </html>
