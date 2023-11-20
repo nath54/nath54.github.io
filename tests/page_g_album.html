@@ -11,13 +11,14 @@
     <link rel="icon" href="res/icon_nath54.svg">
     <!-- Styles -->
     <link href="css/style.css" rel="stylesheet" />
-    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/album.css" rel="stylesheet" />
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
     <!-- Lib -->
     <script src="js/lib.js" type="text/javascript"></script>
+    <script src="data/data_gallerie.js" type="text/javascript"></script>
     <!-- End of Head -->
 </head>
 
@@ -35,9 +36,9 @@
             <!-- Current path -->
             <div class="vertical_center mr_auto ml_s1">
                 <span>/</span>
-                <span class="color_on_hover cursor_pointer" onclick="window.location.href='page_gallerie.html';">Gallerie</span>
+                <span class="color_on_hover scale_on_hover cursor_pointer z11" onclick="window.location.href='page_gallerie.html';">Gallerie</span>
                 <span>/</span>
-                <span class="color_on_hover cursor_pointer" onclick="window.location.href='page_g_album.html';">Album</span>
+                <span class="color_on_hover scale_on_hover cursor_pointer z11" onclick="window.location.href='page_g_album.html';">Album</span>
             </div>
 
             <!-- Change language button -->
@@ -52,14 +53,21 @@
 
         <div class="col horizontal_center">
                 
+            <h1 id="album_titre">Album : </h1>
+
+            <p id="album_description"></p>
+
             <!-- TODO : Le contenu de la page est ici -->
-            
+            <div id="album_container" class="row_wrap">
+
+
+
+            </div>
+
         </div>
-
     </div>
-
 </body>
 
-<script src="js/index.js" type="text/javascript"></script>
+<script src="js/gallerie_album.js" type="text/javascript"></script>
 
 </html>

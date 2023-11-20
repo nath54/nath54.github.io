@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
     <!-- Lib -->
     <script src="js/lib.js" type="text/javascript"></script>
+    <script src="data/data_gallerie.js" type="text/javascript"></script>
     <!-- End of Head -->
 </head>
 
@@ -35,7 +36,7 @@
             <!-- Current path -->
             <div class="vertical_center mr_auto ml_s1">
                 <span>/</span>
-                <span class="color_on_hover cursor_pointer" onclick="window.location.href='page_gallerie.html';">Gallerie</span>
+                <span class="color_on_hover scale_on_hover cursor_pointer z11" onclick="window.location.href='page_gallerie.html';">Gallerie</span>
             </div>
 
             <!-- Change language button -->
@@ -51,13 +52,25 @@
         <div class="col horizontal_center">
                 
             <!-- TODO : Le contenu de la page est ici -->
+
+            <p>Dans chacuns des albums suivants se trouvent des images que j'ai créées. Je les surement réalisées en les générant par StableDiffusion, ou alors en faisant un rendu sur Blender, générées par un script python, ou finalement dessinées à la main.</p>
             
+            <h2>albums : </h2>
+
+            <!-- Buttons -->
+            <div id="buttons_container" class="mt_s2 mb_s2">
+
+
+
+            </div>
+
+
         </div>
 
     </div>
 
 </body>
 
-<script src="js/index.js" type="text/javascript"></script>
+<script src="js/gallerie.js" type="text/javascript"></script>
 
 </html>

@@ -1,0 +1,12 @@
+
+.img_album{
+    width: 100px;
+    min-height: 100px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 4px 2px 2px;
+}
+
+.img_album:hover{
+    width: 120px;
+}
+
