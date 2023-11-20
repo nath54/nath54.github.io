@@ -12,14 +12,15 @@
     /* Variables */
     :root{
         --width_portrait: 60px; } }
-     
-
 
 /* Image portrait */
 #img_portrait{
-    width: var(--width_portrait);
-}
+    width: var(--width_portrait); }
 
 .w_75{
-    width: 75%;
-}
+    width: 75%; }
+
+.citation_width{
+    max-width: 75%;
+    min-width: 75%;
+    width: 75%; }
