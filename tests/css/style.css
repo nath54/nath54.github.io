@@ -187,6 +187,10 @@ button:active{
 .cursor_crosshair, .cursor_crosshair *{
     cursor:crosshair; }
 
+
+.w_75{
+    width: 75%; }
+
 .w_auto{
     width: auto; }
 .h_auto{
