@@ -22,11 +22,12 @@ album_desc.innerText = description;
 
 album.forEach(image => {
     var cover_url = image["img"];
+    var url = image["img"];
     if(image["img_small"] != ""){
         cover_url = image["img_small"];
     }
     //
-    var im = create_element("img", ["img_album", "m_s1"], {}, cover_url);
+    var im = create_element("img", ["img_album", "m_s1"], {"onclick": "document.getElementById('large_picture_img').src='"+url+"'; document.getElementById('large_picture_div').style.display='initial';"}, cover_url);
     album_container.appendChild(im);
 });
 

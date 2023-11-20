@@ -190,6 +190,8 @@ button:active{
 
 .w_75{
     width: 75%; }
+.h_75{
+    height: 75%; }
 
 .w_auto{
     width: auto; }

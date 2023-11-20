@@ -10,3 +10,21 @@
     width: 120px;
 }
 
+#large_picture_div{
+    position: fixed;
+    display: flex;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 20;
+}
+
+#large_picture_subdiv{
+    background: none;
+}
+
+#large_picture_img{
+    background: none;
+}
