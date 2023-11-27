@@ -15,6 +15,7 @@
 /* Les variables sont dans le `html` */
 html{
     /* Variables */
+    --page_col_width: 75%;
     --header_h: 65px;
     --icon_home_size: 40px;
     --button_slop_height: 70px;
@@ -24,10 +25,11 @@ html{
     --s2: 30px; }
 
 /* -- Setup petits écrans -- */
-@media screen and (max-width: 1000px) and (min-height: 1300){
+@media screen and (max-width: 1000px) and (min-height: 1000px){
     /* Variables */
     html{
         /* Variables */
+        --page_col_width: 90%;
         --header_h: 125px;
         --icon_home_size: 80px;
         --button_slop_height: 130px;
@@ -39,6 +41,7 @@ html{
     /* Variables */
     html{
         /* Variables */
+        --page_col_width: 85%;
         --header_h: 50px;
         --icon_home_size: 35px;
         --button_slop_height: 50px;
@@ -46,6 +49,9 @@ html{
         --small_font_size: 10px;
         --s1: 10px;
         --s2: 20px; } }
+@media screen and (min-width: 1480px){
+    html{
+        --page_col_width: 75%; } }
 
 /* Fonts, cursor et transitions/animations */
 * {
@@ -187,6 +193,8 @@ button:active{
 .cursor_crosshair, .cursor_crosshair *{
     cursor:crosshair; }
 
+.page_col_width{
+    width: var(--page_col_width); }
 
 .w_75{
     width: 75%; }
