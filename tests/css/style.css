@@ -25,7 +25,7 @@ html{
     --s2: 30px; }
 
 /* -- Setup petits écrans -- */
-@media screen and (max-width: 1000px) and (min-height: 1000px){
+@media screen and (max-width: 1100px) and (min-height: 1000px){
     /* Variables */
     html{
         /* Variables */
