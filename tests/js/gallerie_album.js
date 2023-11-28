@@ -27,8 +27,13 @@ album.forEach(image => {
         cover_url = image["img_small"];
     }
     //
-    var im = create_element("img", ["img_album", "m_s1"], {"onclick": "document.getElementById('large_picture_img').src='"+url+"'; document.getElementById('large_picture_div').style.display='initial';"}, cover_url);
+    var im = create_element("img", ["img_album", "m_s1"], {"onclick": "onclick_pic(\""+url+"\");"}, cover_url);
     album_container.appendChild(im);
 });
 
+function onclick_pic(url){
+    document.getElementById('large_picture_img').src="res/blank.png";
+    document.getElementById('large_picture_img').src=url;
+    document.getElementById('large_picture_div').style.display='flex';
+}
 
