@@ -250,6 +250,9 @@ margin-right: 0; }
 .mb_0{
     margin-bottom: 0; }
 
+.no_bg{
+    background: none; }
+
 .bg_color1 {
     background: linear-gradient(to left, rgba(230, 204, 238, 0.5), rgba(137, 223, 237, 0.2)); }
 .bg_color1 *{
