@@ -36,18 +36,18 @@ function create_button(icon, name, description){
     var d2 = create_element("div", classes=["row", "vertical_center"]);
     var d3i = create_element("div", classes=["mr_s1"]);
     if(icon == ""){
-        var img = create_element("img", classes=["icon_button_slop"], {}, src="res/default_album.png");
+        var img = create_element("img", classes=["icon_button_slop", "vertical_center"], {}, src="res/default_album.png");
     }
     else{
-        var img = create_element("img", classes=["icon_button_slop"], {}, src=icon);
+        var img = create_element("img", classes=["icon_button_slop", "vertical_center"], {}, src=icon);
     }
     d3i.appendChild(img);
     var d4 = create_element("div", classes=["col"]);
     var d5 = create_element("div");
-    var span = create_element("span", [], {}, "", txt=name);
+    var span = create_element("span", classes=["vertical_center"], {}, "", txt=name);
     d5.appendChild(span);
     var d6 = create_element("div");
-    var i = create_element("i", classes = ["ml_s1", "small_font"], {}, "", txt=description);
+    var i = create_element("i", classes = ["ml_s1", "small_font", "vertical_center"], {}, "", txt=description);
     d6.appendChild(i);
     d4.appendChild(d5);
     d4.appendChild(d6);

@@ -297,7 +297,7 @@ var g_redpandas = [];
 
 const data_gallerie={
     "citations": {
-        "icon": "",
+        "icon": "data/Gallerie/Citations/small_In the midst of chaos, there is also opportunity..png",
         "album": g_quotes,
         "description": ""
     }

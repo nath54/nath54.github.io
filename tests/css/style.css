@@ -148,7 +148,7 @@ button:active{
 
 /* Icon Button slop */
 .icon_button_slop{
-    width: calc(var(--button_slop_height) * 0.85) }
+    width: calc(var(--button_slop_height) * 0.65) }
 .icon_button_slop:hover{
     width: calc(var(--button_slop_height) * 0.90) }
 
