@@ -76,9 +76,7 @@ html{
 .row_wrap{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-}
-
+    flex-wrap: wrap; }
 
 /* Header */
 #header{
@@ -260,7 +258,6 @@ margin-right: 0; }
 .bg_color1:hover {
     background: linear-gradient(to top, rgba(230, 204, 238, 0.5), rgba(137, 223, 237, 0.2)); }
 
-
 .z1{
     z-index: 1; }
 .z2{
@@ -283,8 +280,3 @@ margin-right: 0; }
     z-index: 10; }
 .z11{
     z-index: 11; }
-
-
-
-
-
