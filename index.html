@@ -1,94 +1,180 @@
 <!DOCTYPE html>
-<html onready="focus_parent();">
+<html>
 
 <head>
+    <!-- Begin of Head -->
     <meta charset="utf-8" />
-    <title>Nath54</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Title -->
+    <title>nath54 - Accueil</title>
+    <!-- Page Icon -->
     <link rel="icon" href="res/icon_nath54.svg">
-    <link href="style/index.css" rel="stylesheet" />
-
+    <!-- Styles -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
-
+    <!-- Lib -->
+    <script src="js/lib.js" type="text/javascript"></script>
+    <script src="data/data_citations.js" type="text/javascript"></script>
+    <!-- End of Head -->
 </head>
 
-<body onclick="focus_parent();" onready="focus_parent();">
-    <div id="main_div" onready="focus_parent();">
+<body>
+
+    <!-- Header -->
+    <div id="header" class="row">
+        <!-- Div vertical center -->
+        <div class="row w_fill vertical_center">
+            <!-- Icon home -->
+            <div class="vertical_center ml_s1 mr_s1">
+                <img src="res/icon_home_b.png" id="icon_home" onclick="go_home();" />
+            </div>
+
+            <!-- Current path -->
+            <div class="vertical_center mr_auto ml_s1">
+                <span>/</span>
+            </div>
+
+            <!-- Change language button -->
+            <div class="vertical_center ml_auto mr_s1">
+                <button>Change language</button>
+            </div>
+        </div>
     </div>
 
-    <div id="above_div" style="display:none; overflow:hidden;">
-        <div>
-            <button class="bt1" onclick="close_window();">Retour</button>
-        </div>
-        <div id="infos_persos" style="display:none;">
-            <div class="page_div">
-                <h2>Informations Personnelles</h2>
-                <div class="row">
-                    <div class="col">
-                        <img style="border:1px black; border-radius: 5px; width: 8em;" src="res/portrait.png">
-                    </div>
-                    <div class="col">
-                        <ul>
-                            <li><b>Nom : </b> CERISARA</li>
-                            <li><b>Prénom : </b> Nathan</li>
-                        </ul>
-                    </div>
-                </div>
-                <div>
-                    <p>Je suis né à Nancy. J'ai d'abord grandi dans un petit village appelé Sivry, avant de déménager à Heillecourt (juste à côté de Nancy).</p>
-                    <p>Je suis entré au lycée Henri-Poincaré, et j'ai obtenu mon baccalauréat général en 2021. Je suis ensuite parti à Paris pour deux ans de classe préparatoire aux grandes écoles (CPGE) MP2I/MPI au lycée Louis-Le-Grand.</p>
-                    <p>J'ai une pratique régulière du basket-ball et j'aime le cyclisme. Je suis aussi un grand passionné d'informatique et j'aime programmer des petits projets (sites web, jeux vidéo, applications). Je m'intéresse au domaine de l'intelligence
-                        artificielle et aussi de la réalité virtuelle.</p>
-                </div>
-            </div>
-        </div>
-        <div id="contact" style="display:none;">
-            <div class="page_div">
-                <h2>Me contacter</h2>
-                <div>
-                    <p>Vous pouvez me contacter en m'envoyant un mail à :</p>
-                    <div>
-                        <span style="background-color: rgb(200, 200, 200); padding: 5px; border-radius: 5px; margin:20px;">cerisara.nathan@protonmail.com</span>
+    <!-- Main Container -->
+    <div id="main_container" class="col p_s2">
+
+        <div class="col horizontal_center page_col_width">
+                
+            <!-- Citation -->
+            <div class="mt_s2 mb_s2">
+                <div class="citation_width horizontal_center font_center col">
+                    <i id="citation" class="mb_0">"Citation inspirante parmis un choix de citations qui me tienent à coeur, voili voilou, c'est comme ci, c'est comme ca"</i>
+
+                    <div class="row">
+                        <i id="citation_auteur" class="ml_auto">- Auteur</i>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="my_apps" style="display:none;">
-            <div class="page_div">
-                <h2>Mes applications et jeux</h2>
-                <div>
-                    <p>Vous pouvez voir dans cette catégorie les différentes applications que j'ai créées.</p>
+
+            <!-- Buttons -->
+            <div class="mt_s2 mb_s2">
+
+                <!--  -->
+                <!-- Bouton Informations Personnelles -->
+                <!--  -->
+                <div class="button_slop bg_color1 p_s1" onclick="window.location.href='page_informations_personnelles.html'">
+                    <div class="row vertical_center">
+                        <!-- Image -->
+                        <div class="mr_s1">
+                            <img src="res/icon_infos_persos.png" class="icon_button_slop" />
+                        </div>
+                        <!-- Texte -->
+                        <div class="col">
+                            <!-- Titre button -->
+                            <div>
+                                <span>Informations Personnelles</span>
+                            </div>
+
+                            <!-- Details button -->
+                            <div>
+                                <i class="ml_s1 small_font">Bio, CV, ...</i>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <b style="color: red;">Pas encore disponible, à venir.</b>
+
+
+                <!--  -->
+                <!-- Bouton Gallerie -->
+                <!--  -->
+                <div class="button_slop bg_color1 p_s1" onclick="window.location.href='page_gallerie.html'">
+                    <div class="row vertical_center">
+                        <!-- Image -->
+                        <div class="mr_s1">
+                            <img src="res/icon_gallerie.png" class="icon_button_slop" />
+                        </div>
+                        <!-- Texte -->
+                        <div class="col">
+                            <!-- Titre button -->
+                            <div>
+                                <span>Gallerie</span>
+                            </div>
+
+                            <!-- Details button -->
+                            <div>
+                                <i class="ml_s1 small_font">Contemplez de magnifiques œuvres d'art!</i>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
+
+
+                <!--  -->
+                <!-- Bouton Mes Applications & Jeux -->
+                <!--  -->
+                <div class="button_slop bg_color1 p_s1" onclick="window.location.href='page_apps.html'">
+                    <div class="row vertical_center">
+                        <!-- Image -->
+                        <div class="mr_s1">
+                            <img src="res/icon_menu_apps.png" class="icon_button_slop" />
+                        </div>
+                        <!-- Texte -->
+                        <div class="col">
+                            <!-- Titre button -->
+                            <div>
+                                <span>Mes Applications & Jeux</span>
+                            </div>
+
+                            <!-- Details button -->
+                            <div>
+                                <i class="ml_s1 small_font">Découvrez de super utiles applications et sublimes jeux!</i>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--  -->
+                <!-- Bouton Autres -->
+                <!--  -->
+                <div class="button_slop bg_color1 p_s1" onclick="window.location.href='page_autres.html'">
+                    <div class="row vertical_center">
+                        <!-- Image -->
+                        <div class="mr_s1">
+                            <img src="res/icon_autres.png" class="icon_button_slop" />
+                        </div>
+                        <!-- Texte -->
+                        <div class="col">
+                            <!-- Titre button -->
+                            <div>
+                                <span>Autres</span>
+                            </div>
+
+                            <!-- Details button -->
+                            <div>
+                                <i class="ml_s1 small_font">Tout ce qui ne rentre pas dans les catégories d'au-dessus</i>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <div id="gallery" style="display:none;">
-            <div class="page_div">
-                <h2>Gallerie</h2>
-                <div>
-                    <p>Vous pouvez voir ici les différentes images que je crée ici dans cette catégorie.</p>
-                    <p>Il suffit de cliquer sur une image pour voir les suivantes apparaître. Et pour avoir les images en gros plan, une fois que vous êtes dessus, il suffit de recliquer dessus.</p>
-                </div>
-                <div>
-                    <b style="color: red;">Pas encore disponible, à venir.</b>
-                </div>
-            </div>
-        </div>
-        <div id="template" style="display:none;">
-            <div class="page_div">
-                <h2>Titre</h2>
-                <div>
-                    <p>Texte</p>
-                </div>
-            </div>
-        </div>
+
     </div>
 
 </body>
 
 <script src="js/index.js" type="text/javascript"></script>
+<script src="js/citations.js" type="text/javascript"></script>
 
 </html>
