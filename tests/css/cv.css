@@ -1,0 +1,22 @@
+:root {}
+
+
+/* -- Setup petits écrans -- */
+
+@media screen and (max-width: 1000px) {
+    /* Variables */
+     :root {}
+}
+
+@media screen and (max-width: 700px) {
+    /* Variables */
+    /* Variables */
+     :root {}
+}
+
+
+/* -- -- */
+
+#main_pages_cv #main_pages_cv * {
+    background-color: white !important;
+}
