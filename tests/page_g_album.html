@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Title -->
-    <title>nath54 - Accueil</title>
+    <title>nath54 - Album</title>
     <!-- Page Icon -->
     <link rel="icon" href="res/icon_nath54.svg">
     <!-- Styles -->
@@ -38,7 +38,7 @@
                 <span>/</span>
                 <span class="color_on_hover scale_on_hover cursor_pointer z11" onclick="window.location.href='page_gallerie.html';">Gallerie</span>
                 <span>/</span>
-                <span class="color_on_hover scale_on_hover cursor_pointer z11" onclick="window.location.href='page_g_album.html';">Album</span>
+                <span class="color_on_hover scale_on_hover cursor_pointer z11">Album</span>
             </div>
 
             <!-- Change language button -->
@@ -52,7 +52,7 @@
     <div id="main_container" class="col p_s2">
 
         <div class="col horizontal_center page_col_width">
-                
+
             <h1 id="album_titre">Album : </h1>
 
             <p id="album_description"></p>
@@ -69,11 +69,7 @@
 
     <!-- Large Picture -->
     <div id="large_picture_div" class="row col" style="display:none;">
-        <div
-            id="large_picture_subdiv"
-            class="w_75 h_75 horizontal_center vertical_center"
-            onclick="document.getElementById('large_picture_div').style.display='none';"
-            >
+        <div id="large_picture_subdiv" class="w_75 h_75 horizontal_center vertical_center" onclick="document.getElementById('large_picture_div').style.display='none';">
 
             <div class="row horizontal_center vertical_center no_bg">
                 <img id="large_picture_img" class="horizontal_center vertical_center" style="object-fit: contain; max-width: 100%; max-height: 100%;">
