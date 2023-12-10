@@ -1,7 +1,4 @@
-
-
-var g_quotes = [
-    {
+var g_quotes = [{
         "img_small": "data/Gallerie/Citations/small_Believe you can and you_re halfway there..png",
         "img": "https://drive.google.com/uc?id=19kYp7lpqkgKHeS3HnDsxoDM3zXwFsqZv"
     },
@@ -182,10 +179,6 @@ var g_quotes = [
         "img": "https://drive.google.com/uc?id=1nVJWzZIWZ7qqDcCCTbjZzVkZLxPZ3fmZ"
     },
     {
-        "img_small": "data/Gallerie/Citations/small_the more I read.png",
-        "img": "https://drive.google.com/uc?id=1ETj6xP1swBMO2wiyauPIEj5yE3vJlkFs"
-    },
-    {
         "img_small": "data/Gallerie/Citations/small_The most beautiful things in the world cannot be seen or touched, they are felt with the heart..png",
         "img": "https://drive.google.com/uc?id=1Oue66tIppveMRgKupNP63RUG9_XvyhmK"
     },
@@ -295,7 +288,7 @@ var g_redpandas = [];
 
 
 
-const data_gallerie={
+const data_gallerie = {
     "citations": {
         "icon": "data/Gallerie/Citations/small_In the midst of chaos, there is also opportunity..png",
         "album": g_quotes,
