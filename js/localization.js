@@ -40,3 +40,21 @@ function switch_language() {
         window.location.href = url_string;
     }
 }
+
+function translate(elt, translation) {
+    console.log("Looking to translate ", elt, " with ", translation);
+    if (window.current_language == "en") {
+        elt.innerText = translation;
+    }
+}
+
+console.log("Ready!");
+
+function translate_page() {
+    if (window.current_language == "en") {
+        var elt_list = document.getElementsByClassName("to_translate");
+        for (element of elt_list) {
+            element.innerText = element.dataset.translation;
+        }
+    }
+}
