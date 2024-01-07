@@ -5,15 +5,11 @@ var url = new URL(url_string);
 var lang = url.searchParams.get("lang");
 console.log(lang);
 
-
 if (lang == "en") {
     window.current_language = "en";
 } else {
     window.current_language = "fr";
 }
-
-
-
 
 function url_language() {
     if (window.current_language) {
