@@ -36,12 +36,12 @@
             <!-- Current path -->
             <div class="vertical_center mr_auto ml_s1">
                 <span>/</span>
-                <span class="color_on_hover scale_on_hover cursor_pointer z11" onclick="window.location.href='page_gallerie.html';">Gallerie</span>
+                <span class="color_on_hover scale_on_hover cursor_pointer z11" onclick="window.location.href='page_gallerie.html'+url_language();">Gallerie</span>
             </div>
 
             <!-- Change language button -->
             <div class="vertical_center ml_auto mr_s1">
-                <button>Change language</button>
+                <button id="bt_lang" style="background-image:url(res/bt_fr_to_en.png);" onclick="switch_language();"></button>
             </div>
         </div>
     </div>
@@ -72,5 +72,6 @@
 </body>
 
 <script src="js/gallerie.js" type="text/javascript"></script>
+<script src="js/localization.js" type="text/javascript"></script>
 
 </html>

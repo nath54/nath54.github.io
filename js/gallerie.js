@@ -1,8 +1,6 @@
-
-
 /*
         d1
-        <div class="button_slop bg_color1 p_s1" onclick="window.location.href='page_informations_personnelles.html'">
+        <div class="button_slop bg_color1 p_s1" onclick="window.location.href='page_informations_personnelles.html'+url_language();">
             d2
             <div class="row vertical_center">
                 <!-- Image -->
@@ -31,23 +29,22 @@
         </div>
 */
 
-function create_button(icon, name, description){
-    var d1 = create_element("div", classes=["button_slop", "bg_color1", "p_s1"], attributes={"onclick": `window.location.href='page_g_album.html?album=${name}';`});
-    var d2 = create_element("div", classes=["row", "vertical_center"]);
-    var d3i = create_element("div", classes=["mr_s1"]);
-    if(icon == ""){
-        var img = create_element("img", classes=["icon_button_slop", "vertical_center"], {}, src="res/default_album.png");
-    }
-    else{
-        var img = create_element("img", classes=["icon_button_slop", "vertical_center"], {}, src=icon);
+function create_button(icon, name, description) {
+    var d1 = create_element("div", classes = ["button_slop", "bg_color1", "p_s1"], attributes = { "onclick": `window.location.href='page_g_album.html?album=${name}';` });
+    var d2 = create_element("div", classes = ["row", "vertical_center"]);
+    var d3i = create_element("div", classes = ["mr_s1"]);
+    if (icon == "") {
+        var img = create_element("img", classes = ["icon_button_slop", "vertical_center"], {}, src = "res/default_album.png");
+    } else {
+        var img = create_element("img", classes = ["icon_button_slop", "vertical_center"], {}, src = icon);
     }
     d3i.appendChild(img);
-    var d4 = create_element("div", classes=["col"]);
+    var d4 = create_element("div", classes = ["col"]);
     var d5 = create_element("div");
-    var span = create_element("span", classes=["vertical_center"], {}, "", txt=name);
+    var span = create_element("span", classes = ["vertical_center"], {}, "", txt = name);
     d5.appendChild(span);
     var d6 = create_element("div");
-    var i = create_element("i", classes = ["ml_s1", "small_font", "vertical_center"], {}, "", txt=description);
+    var i = create_element("i", classes = ["ml_s1", "small_font", "vertical_center"], {}, "", txt = description);
     d6.appendChild(i);
     d4.appendChild(d5);
     d4.appendChild(d6);
@@ -71,4 +68,3 @@ for (const [album_name, album_data] of Object.entries(data_gallerie)) {
     // On l'ajoute à la page
     button_containers.appendChild(div_button);
 }
-  
