@@ -36,12 +36,12 @@
             <div class="vertical_center mr_auto ml_s1">
                 <!-- TODO: A changer -->
                 <span>/</span>
-                <span class="color_on_hover scale_on_hover cursor_pointer z11" onclick="window.location.href='page_.html';">Accueil</span>
+                <span class="color_on_hover scale_on_hover cursor_pointer z11" onclick="window.location.href='page_.html'+url_language();">Accueil</span>
             </div>
 
             <!-- Change language button -->
             <div class="vertical_center ml_auto mr_s1">
-                <button>Change language</button>
+                <button id="bt_lang" style="background-image:url(res/bt_fr_to_en.png);" onclick="switch_language();"></button>
             </div>
         </div>
     </div>
@@ -50,15 +50,16 @@
     <div id="main_container" class="col p_s2">
 
         <div class="col horizontal_center page_col_width">
-                
+
             <!-- TODO : Le contenu de la page est ici -->
-            
+
         </div>
 
     </div>
 
 </body>
 
-<script src="js/index.js" type="text/javascript"></script>
+<!-- <script src="js/index.js" type="text/javascript"></script> -->
+<script src="js/localization.js" type="text/javascript"></script>
 
 </html>
