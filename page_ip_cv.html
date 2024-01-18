@@ -23,7 +23,7 @@
     <!-- End of Head -->
 </head>
 
-<body onload="translate_page();">
+<body onload="translate_page(); // export_mode();">
 
     <!-- Header -->
     <div id="header" class="row">
@@ -41,6 +41,7 @@
                 <span>/</span>
                 <span class="color_on_hover scale_on_hover cursor_pointer z11 to_translate" onclick="window.location.href='page_ip_cv.html'+url_language();" data-translation="resume">CV</span>
             </div>
+
             <!-- Change language button -->
             <div class="vertical_center ml_auto mr_s1">
                 <button id="bt_lang" style="background-image:url(res/bt_fr_to_en.png);" onclick="switch_language();"></button>
@@ -59,13 +60,19 @@
                 <div style="width: 100%; height: 7px; background-color:purple;"></div>
 
                 <div class="row mt_s1">
+                    <!--  -->
                     <div class="m_s1">
                         <img src="res/photoID.jpg" style="height: 115px;">
                     </div>
+                    <!--  -->
                     <div class=" col mt_s1">
                         <span>Nathan</span>
                         <span>CERISARA</span>
                         <b class="mt_s1 to_translate" data-translation="Engineering student in computer science and networks.">Elève ingénieur en informatique et réseaux.</b>
+                    </div>
+                    <!--  -->
+                    <div>
+
                     </div>
                 </div>
 
@@ -77,7 +84,7 @@
 
             <!-- Formation -->
 
-            <div class="col mt_s2">
+            <div class="col mt_s1">
 
                 <div class="row ">
                     <div style="width: 100%; height: 7px; background-color:purple;" class="vertical_center"></div>
@@ -89,7 +96,7 @@
 
                 <div class="col ">
                     <span>
-                        <b><span class="to_translate" data-translation="• in 1">• en 1</span><span class="to_translate" data-translation="st">ere</span><span class="to_translate" data-translation=" year at "> année à </span><i>Télécom Physique Strasbourg - <span class="to_translate" data-translation="computer science and networks">filière informatique et réseaux</span></i><span>(2023-2026)</span></b>
+                        <b><span class="to_translate" data-translation="• in 1">• en 1</span><span class="to_translate" data-translation="st">ere</span><span class="to_translate" data-translation=" year at "> année à </span><i>Télécom Physique Strasbourg - <span class="to_translate" data-translation="computer science and networks ">filière informatique et réseaux </span></i><span>(2023-2026)</span></b>
                     </span>
                     <span style="margin-top: 5px; margin-left: 15px; font-size:small;"><i class="to_translate" data-translation="Development in C, TCP/IP, hardware architectures, matrix analysis, graph theory...">Développement en C, TCP/IP, architectures matérielles, analyse matricielle, théorie des graphes...</i></span>
                 </div>
@@ -109,7 +116,7 @@
 
             <!-- Compétences -->
 
-            <div class="col  mt_s2">
+            <div class="col mt_s2">
 
                 <div class="row ">
                     <div style="width: 100%; height: 7px; background-color:purple;" class="vertical_center"></div>
@@ -119,30 +126,30 @@
                     <div style=" width: 100%; height: 7px; background-color:purple; " class="vertical_center "></div>
                 </div>
 
-                <div class="mt_s1 ">
+                <div class="" style="margin-top:0px;">
                     <div class="mt_s2 ">
                         <b class="to_translate" data-translation="Computer sciences: ">Sciences de l'informatique : </b>
                         <span class="to_translate" data-translation="Fundamentals of Algorithmics, Data Structures, Hardware Architectures">Fondamentaux d'Algorithmique, Structures de Données, Architectures Matérielles</span>
                     </div>
 
-                    <div class=" mt_s2 ">
+                    <div class="" style="margin-top:15px;">
                         <b class="to_translate" data-translation="Programming Languages: ">Langages de programmation : </b>
                         <span class="to_translate" data-translation="Python, C, Javascript, gdscript">Python, C, Javascript, gdscript</span>
                     </div>
 
-                    <div class="mt_s2 ">
+                    <div class="" style="margin-top:15px;">
                         <b class="to_translate" data-translation="Description languages:">Langages de description : </b>
                         <span class="to_translate" data-translation="HTML, XML, CSS, Latex">HTML, XML, CSS, Latex</span>
                     </div>
 
-                    <div class="mt_s2 ">
+                    <div class="" style="margin-top:15px;">
                         <b class="to_translate" data-translation="Systems: ">Systèmes : </b>
                         <span class="to_translate" data-translation="Bash, Git, SQL, Linux, Windows">Bash, Git, SQL, Linux, Windows</span>
                     </div>
 
                 </div>
 
-                <div class="mt_s2 ">
+                <div class="" style="margin-top:15px;">
                     <b class="to_translate" data-translation="Languages">Langues</b>
 
                     <ul>
@@ -175,7 +182,7 @@
 
             <!-- Projets académiques -->
 
-            <div class="col mt_s2 ">
+            <div id="div_projet_academiques" class="col mt_s1">
 
                 <div class="row ">
                     <div style="width: 100%; height: 7px; background-color:purple; " class="vertical_center "></div>
@@ -247,5 +254,6 @@
 </body>
 
 <script src="js/index.js " type="text/javascript "></script>
+<script src="js/cv.js " type="text/javascript "></script>
 
 </html>
