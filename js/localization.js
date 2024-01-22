@@ -52,6 +52,8 @@ console.log("Ready!");
 
 function translate_page() {
     if (window.current_language == "en") {
+        document.getElementById("bt_lang").style.backgroundImage = 'url("res/bt_en_to_fr.png")';
+        //
         var elt_list = document.getElementsByClassName("to_translate");
         for (element of elt_list) {
             element.innerText = element.dataset.translation;
