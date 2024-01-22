@@ -56,6 +56,7 @@ function translate_page() {
         //
         var elt_list = document.getElementsByClassName("to_translate");
         for (element of elt_list) {
+            // console.log("Translate '", element.innerText, "' with '", element.dataset.translation, "'");
             element.innerText = element.dataset.translation;
         }
     }
