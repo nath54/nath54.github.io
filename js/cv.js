@@ -1,4 +1,4 @@
-function export_mode() {
+function export_mode(page_type = 1) {
     // Disable header - page
     // Remove all absolute properties
     document.getElementById("header").style.display = "none";
@@ -8,7 +8,11 @@ function export_mode() {
     document.getElementById("main_container").style.bottom = "";
     document.getElementById("main_container").style.right = "";
     //
-    document.getElementById("main_pages_cv").style.width = "90%";
+    if (page_type == 1) {
+        document.getElementById("main_pages_cv").style.width = "90%";
+    } else {
+        document.getElementById("main_pages_cv").style.width = "100%";
+    }
     //
     document.getElementById("div_projet_academiques").style.marginTop = "60px";
 }
