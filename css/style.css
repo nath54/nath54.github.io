@@ -28,6 +28,8 @@ html {
     --small_font_size: 15px;
     --s1: 15px;
     --s2: 30px;
+    /* Background */
+    background-color: white;
 }
 
 
@@ -79,7 +81,7 @@ html {
     /* Cursor */
     cursor: default;
     /* Background */
-    background-color: white;
+    /* background-color: white; */
     /*  */
     transition-duration: 500ms;
     transition-timing-function: ease;

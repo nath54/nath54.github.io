@@ -22,7 +22,14 @@
     <!-- End of Head -->
 </head>
 
-<body onload="translate_page(); // export_mode();">
+<style>
+    html {
+        --default_font_size: 15px;
+        --small_font_size: 12px;
+    }
+</style>
+
+<body onload="translate_page(); // export_mode(2);">
 
     <!-- Header -->
     <div id="header" class="row">
@@ -49,8 +56,9 @@
     </div>
 
     <!-- Main Container -->
-    <div id="main_container" class="col p_s2">
-        <div id="main_pages_cv" class="col horizontal_center page_col_width mb_s2">
+    <div id="main_container" class="col p_s1">
+
+        <div id="main_pages_cv" class="col mb_s1">
 
             <!-- En-tête -->
 
@@ -61,13 +69,18 @@
                 <div class="row mt_s1">
                     <!--  -->
                     <div class="m_s1">
-                        <img src="res/photoID.jpg" style="height: 115px;">
+                        <img src="res/photoID.jpg" style="height: 150px;">
                     </div>
                     <!--  -->
                     <div class=" col mt_s1">
                         <span>Nathan</span>
                         <span>CERISARA</span>
                         <b class="mt_s1 to_translate" data-translation="Engineering student in computer science and networks.">Elève ingénieur en informatique et réseaux.</b>
+
+                        <div class="mt_s1">
+                            <span class="to_translate" data-translation="Looking for a 5-week worker internship abroad from June 2024.">Recherche d'un stage ouvrier d'une durée de 5 semaines à l'étranger à partir de juin 2024.</span>
+                        </div>
+
                     </div>
                     <!--  -->
                     <div>
@@ -75,174 +88,209 @@
                     </div>
                 </div>
 
-                <div>
-                    <span class="to_translate" data-translation="Looking for a 5-week worker internship abroad from June 2024.">Recherche d'un stage ouvrier d'une durée de 5 semaines à l'étranger à partir de juin 2024.</span>
-                </div>
-
             </div>
 
-            <!-- Formation -->
+            <div class="row">
 
-            <div class="col mt_s1">
+                <div class="col mr_s1" style="background-color: rgb(242,229,242);">
 
-                <div class="row ">
-                    <div style="width: 100%; height: 7px; background-color:purple;" class="vertical_center"></div>
-                    <div class="ml_s1 mr_s1">
-                        <h1 class="to_translate" data-translation="Training">Formation</h1>
+                    <!-- Personalité -->
+
+                    <div class="col mt_s2 ">
+
+                        <div class="row ">
+                            <div style="width: 100%; height: 7px; background-color:purple; " class="vertical_center "></div>
+                            <div style="min-width: 220px;" class="ml_s1 mr_s1 ">
+                                <h1>Intérêts Personnels</h1>
+                            </div>
+                            <div style="width: 100%; height: 7px; background-color:purple; " class="vertical_center "></div>
+
+                        </div>
+
+                        <div>
+
+                            <ul>
+
+                                <li><span>Sciences</span></li>
+
+                                <li><span>Informatique</span></li>
+
+                                <li><span>Intelligence Artificielle</span></li>
+
+                                <li><span>Simulations Informatiques</span></li>
+
+                                <li><span>Développement logiciel</span></li>
+
+                                <li><span>Sport </span><i>(6 ans de basketball)</i></li>
+
+                                <li><span>Jeux de rôles</span></li>
+
+                            </ul>
+                        </div>
+
                     </div>
-                    <div style="width: 100%; height: 7px; background-color:purple;" class="vertical_center"></div>
+
                 </div>
 
-                <div class="col ">
-                    <span>
+                <div class="col w_fill">
+
+                    <!-- Formation -->
+
+                    <div class="col mt_s1">
+
+                        <div class="row ">
+                            <div style="width: 100%; height: 7px; background-color:purple;" class="vertical_center"></div>
+                            <div class="ml_s1 mr_s1">
+                                <h1 class="to_translate" data-translation="Training">Formation</h1>
+                            </div>
+                            <div style="width: 100%; height: 7px; background-color:purple;" class="vertical_center"></div>
+                        </div>
+
+                        <div class="col ">
+                            <span>
                         <b><span class="to_translate" data-translation="• in 1">• en 1</span><span class="to_translate" data-translation="st">ere</span><span class="to_translate" data-translation=" year at "> année à </span><i>Télécom Physique Strasbourg - <span class="to_translate" data-translation="computer science and networks ">filière informatique et réseaux </span></i><span>(2023-2026)</span></b>
-                    </span>
-                    <span style="margin-top: 5px; margin-left: 15px; font-size:small;"><i class="to_translate" data-translation="Development in C, TCP/IP, hardware architectures, matrix analysis, graph theory...">Développement en C, TCP/IP, architectures matérielles, analyse matricielle, théorie des graphes...</i></span>
-                </div>
+                            </span>
+                            <span style="margin-top: 5px; margin-left: 15px; font-size:small;"><i class="to_translate" data-translation="Development in C, TCP/IP, hardware architectures, matrix analysis, graph theory...">Développement en C, TCP/IP, architectures matérielles, analyse matricielle, théorie des graphes...</i></span>
+                        </div>
 
-                <div class="col mt_s2">
-                    <span><b class="to_translate" data-translation="• MP2I/MPI Preparatory Class (2021-2023)">• Prépa MP2I/MPI (2021-2023)</b></span>
-                    <span style="margin-top: 5px; margin-left: 15px; font-size:small;"><i><span class="to_translate" data-translation="School">Lycée </span><b>Louis-le-Grand</b><span class="to_translate" data-translation=" school"></span>. <span class="to_translate"
-                        data-translation="(mathematics-physics-computer science preparation).">(prépa mathématiques-physique-informatique)</span>.</i>
-                    </span>
-                </div>
+                        <div class="col mt_s2">
+                            <span><b class="to_translate" data-translation="• MP2I/MPI Preparatory Class (2021-2023)">• Prépa MP2I/MPI (2021-2023)</b></span>
+                            <span style="margin-top: 5px; margin-left: 15px; font-size:small;"><i><span class="to_translate" data-translation="School">Lycée </span><b>Louis-le-Grand</b><span class="to_translate" data-translation=" school"></span>.
+                            <span class="to_translate" data-translation="(mathematics-physics-computer science preparation).">(prépa mathématiques-physique-informatique)</span>.</i>
+                            </span>
+                        </div>
 
-                <div class="mt_s2">
-                    <b class="to_translate" data-translation="Baccalaureate specializing in Maths - Digital and Computer Sciences - Physics, with honors.">Baccalauréat spécialités Maths - Numériques et Sciences de l'Informatique - Physique, mention très bien.</b>
-                </div>
+                        <div class="mt_s2">
+                            <b class="to_translate" data-translation="Baccalaureate specializing in Maths - Digital and Computer Sciences - Physics, with honors.">Baccalauréat spécialités Maths - Numériques et Sciences de l'Informatique - Physique, mention très bien.</b>
+                        </div>
 
-            </div>
-
-            <!-- Compétences -->
-
-            <div class="col mt_s2">
-
-                <div class="row ">
-                    <div style="width: 100%; height: 7px; background-color:purple;" class="vertical_center"></div>
-                    <div class="ml_s1 mr_s1">
-                        <h1 class="to_translate" data-translation="Skills">Compétences</h1>
-                    </div>
-                    <div style=" width: 100%; height: 7px; background-color:purple; " class="vertical_center "></div>
-                </div>
-
-                <div class="" style="margin-top:0px;">
-                    <div class="mt_s2 ">
-                        <b class="to_translate" data-translation="Computer sciences: ">Sciences de l'informatique : </b>
-                        <span class="to_translate" data-translation="Fundamentals of Algorithmics, Data Structures, Hardware Architectures">Fondamentaux d'Algorithmique, Structures de Données, Architectures Matérielles</span>
                     </div>
 
-                    <div class="" style="margin-top:15px;">
-                        <b class="to_translate" data-translation="Programming Languages: ">Langages de programmation : </b>
-                        <span class="to_translate" data-translation="Python, C, Javascript, gdscript">Python, C, Javascript, gdscript</span>
+                    <!-- Compétences -->
+
+                    <div class="col mt_s2">
+
+                        <div class="row ">
+                            <div style="width: 100%; height: 7px; background-color:purple;" class="vertical_center"></div>
+                            <div class="ml_s1 mr_s1">
+                                <h1 class="to_translate" data-translation="Skills">Compétences</h1>
+                            </div>
+                            <div style=" width: 100%; height: 7px; background-color:purple; " class="vertical_center "></div>
+                        </div>
+
+                        <div class="" style="margin-top:0px;">
+                            <div class="mt_s2 ">
+                                <b class="to_translate" data-translation="Computer sciences: ">Sciences de l'informatique : </b>
+                                <span class="to_translate" data-translation="Fundamentals of Algorithmics, Data Structures, Hardware Architectures">Fondamentaux d'Algorithmique, Structures de Données, Architectures Matérielles</span>
+                            </div>
+
+                            <div class="" style="margin-top:15px;">
+                                <b class="to_translate" data-translation="Programming Languages: ">Langages de programmation : </b>
+                                <span class="to_translate" data-translation="Python, C, Javascript, gdscript">Python, C, Javascript, gdscript</span>
+                            </div>
+
+                            <div class="" style="margin-top:15px;">
+                                <b class="to_translate" data-translation="Description languages:">Langages de description : </b>
+                                <span class="to_translate" data-translation="HTML, XML, CSS, Latex">HTML, XML, CSS, Latex</span>
+                            </div>
+
+                            <div class="" style="margin-top:15px;">
+                                <b class="to_translate" data-translation="Systems: ">Systèmes : </b>
+                                <span class="to_translate" data-translation="Bash, Git, SQL, Linux, Windows">Bash, Git, SQL, Linux, Windows</span>
+                            </div>
+
+                        </div>
+
+                        <div class="" style="margin-top:15px;">
+                            <b class="to_translate" data-translation="Languages">Langues</b>
+
+                            <ul>
+                                <li class="to_translate" data-translation="French (native)">Français (langue maternelle)</li>
+                                <li class="to_translate" data-translation="English (B2)">Anglais (B2)</li>
+                                <li class="to_translate" data-translation="Spanish (A1)">Espagnol (A1)</li>
+                            </ul>
+                        </div>
+
                     </div>
 
-                    <div class="" style="margin-top:15px;">
-                        <b class="to_translate" data-translation="Description languages:">Langages de description : </b>
-                        <span class="to_translate" data-translation="HTML, XML, CSS, Latex">HTML, XML, CSS, Latex</span>
+
+                    <!-- Projets -->
+
+                    <div class="row w_fill">
+
+
+                        <!-- Projets académiques -->
+
+                        <div id="div_projet_academiques" class="col mt_s1 mr_s1 w_fill">
+
+                            <div class="row ">
+                                <div style="width: 100%; height: 7px; background-color:purple; " class="vertical_center "></div>
+                                <div style="min-width: 220px; " class="ml_s1 mr_s1 ">
+                                    <h1 style="text-wrap: nowrap; text-align: center;" class="to_translate" data-translation="Academic Projects">Projets académiques</h1>
+                                </div>
+                                <div style="width: 100%; height: 7px; background-color:purple; " class="vertical_center "></div>
+                            </div>
+
+                            <div class="mt_s1 ">
+                                <b class="to_translate" data-translation="• Movie prediction algorithm based on a Netflix database">• Algorithme de prédiction des films basés sur une base de donnée de Netflix</b>
+                                <span class="to_translate" data-translation="(December 2023, group project, developed in C)">(décembre 2023, projet en groupe, développé en C)</span>
+                            </div>
+
+                            <div class="mt_s1 ">
+                                <b class="to_translate" data-translation="• Sentiment prediction model based on Transformers architecture">• Modèle de prédiction de sentiments basés sur l'architecture Transformers</b>
+                                <span class="to_translate" data-translation="(March-May 2023, individual project, python/pytorch)">(mars-mai 2023, projet individuel, python/pytorch)</span>
+                            </div>
+
+                        </div>
+
+                        <!-- Projets personnels -->
+
+                        <div class="col mt_s1 ml_s1 w_fill">
+
+                            <div class="row ">
+                                <div style="width: 100%; height: 7px; background-color:purple; " class="vertical_center "></div>
+                                <div style="min-width: 200px; " class="ml_s1 mr_s1 ">
+                                    <h1 style="text-wrap: nowrap; text-align: center;" class="to_translate" data-translation="Personal projects">Projets personnels</h1>
+                                </div>
+                                <div style="width: 100%; height: 7px; background-color:purple; " class="vertical_center "></div>
+                            </div>
+
+                            <div class="mt_s1 ">
+                                <b class="to_translate" data-translation="• Graphics library, SDL overlay">• Librairie graphique, surcouche de SDL</b>
+                                <span class="to_translate" data-translation="(December-January 2023, developped in C)">(décembre-janvier 2023, développée en C)</span>
+                            </div>
+
+                            <div class="mt_s1 ">
+                                <b class="to_translate" data-translation="• Karaoke app">• Application de karaoké</b>
+                                <span class="to_translate" data-translation="(October 2023, developed in C)">(octobre 2023, développé en C)</span>
+                            </div>
+
+                            <div class="mt_s1 ">
+                                <b class="to_translate" data-translation="• Prototype of a formal computing engine">• Prototype d'un moteur de calcul formel</b>
+                                <span class="to_translate" data-translation="(June 2023, python)">(juin 2023, python)</span>
+                            </div>
+
+                            <div class="mt_s1 ">
+                                <b class="to_translate" data-translation="• High school newspaper website">• Site de journal du lycée</b>
+                                <span class="to_translate" data-translation="(2021, HTML/CSS/JS)">(2021, HTML/CSS/JS)</span>
+                            </div>
+
+                            <div class="mt_s1 ">
+                                <b class="to_translate" data-translation="• Small 3d platformer game: Cube3">• Petit jeu 3d platformer : Cube3</b>
+                                <span class="to_translate" data-translation="(2021, godot engine/C#)">(2021, godot engine/C#)</span>
+                            </div>
+
+                            <div class="mt_s1 ">
+                                <span><span class="to_translate" data-translation="and many other projects on my ">et plein d'autres projets sur mon </span><a href="https://github.com/nath54 ">github</a>.</span>
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <div class="" style="margin-top:15px;">
-                        <b class="to_translate" data-translation="Systems: ">Systèmes : </b>
-                        <span class="to_translate" data-translation="Bash, Git, SQL, Linux, Windows">Bash, Git, SQL, Linux, Windows</span>
-                    </div>
 
                 </div>
 
-                <div class="" style="margin-top:15px;">
-                    <b class="to_translate" data-translation="Languages">Langues</b>
-
-                    <ul>
-                        <li class="to_translate" data-translation="French (native)">Français (langue maternelle)</li>
-                        <li class="to_translate" data-translation="English (B2)">Anglais (B2)</li>
-                        <li class="to_translate" data-translation="Spanish (A1)">Espagnol (A1)</li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <!-- Personalité -->
-
-            <!-- <div class="col mt_s2 ">
-
-                <div class="row ">
-                    <div style="width: 100%; height: 7px; background-color:purple; " class="vertical_center "></div>
-                    <div class="ml_s1 mr_s1 ">
-                        <h1>Personalité</h1>
-                    </div>
-                    <div style="width: 100%; height: 7px; background-color:purple; " class="vertical_center "></div>
-
-                </div>
-
-                <div>
-                    <p>Curieux, optimiste, ouvert d'esprit, à l'écoute, créatif, sportif <i>(6 ans de basketball)</i></p>
-                </div>
-
-            </div> -->
-
-            <!-- Projets académiques -->
-
-            <div id="div_projet_academiques" class="col mt_s1">
-
-                <div class="row ">
-                    <div style="width: 100%; height: 7px; background-color:purple; " class="vertical_center "></div>
-                    <div style="min-width: 220px; " class="ml_s1 mr_s1 ">
-                        <h1 style="text-wrap: nowrap; text-align: center;" class="to_translate" data-translation="Academic Projects">Projets académiques</h1>
-                    </div>
-                    <div style="width: 100%; height: 7px; background-color:purple; " class="vertical_center "></div>
-                </div>
-
-                <div class="mt_s1 ">
-                    <b class="to_translate" data-translation="• Movie prediction algorithm based on a Netflix database">• Algorithme de prédiction des films basés sur une base de donnée de Netflix</b>
-                    <span class="to_translate" data-translation="(December 2023, group project, developed in C)">(décembre 2023, projet en groupe, développé en C)</span>
-                </div>
-
-                <div class="mt_s1 ">
-                    <b class="to_translate" data-translation="• Sentiment prediction model based on Transformers architecture">• Modèle de prédiction de sentiments basés sur l'architecture Transformers</b>
-                    <span class="to_translate" data-translation="(March-May 2023, individual project, python/pytorch)">(mars-mai 2023, projet individuel, python/pytorch)</span>
-                </div>
-
-            </div>
-
-            <!-- Projets personnels -->
-
-            <div class="col mt_s2 ">
-
-                <div class="row ">
-                    <div style="width: 100%; height: 7px; background-color:purple; " class="vertical_center "></div>
-                    <div style="min-width: 200px; " class="ml_s1 mr_s1 ">
-                        <h1 style="text-wrap: nowrap; text-align: center;" class="to_translate" data-translation="Personal projects">Projets personnels</h1>
-                    </div>
-                    <div style="width: 100%; height: 7px; background-color:purple; " class="vertical_center "></div>
-                </div>
-
-                <div class="mt_s1 ">
-                    <b class="to_translate" data-translation="• Graphics library, SDL overlay">• Librairie graphique, surcouche de SDL</b>
-                    <span class="to_translate" data-translation="(December-January 2023, developped in C)">(décembre-janvier 2023, développée en C)</span>
-                </div>
-
-                <div class="mt_s1 ">
-                    <b class="to_translate" data-translation="• Karaoke app">• Application de karaoké</b>
-                    <span class="to_translate" data-translation="(October 2023, developed in C)">(octobre 2023, développé en C)</span>
-                </div>
-
-                <div class="mt_s1 ">
-                    <b class="to_translate" data-translation="• Prototype of a formal computing engine">• Prototype d'un moteur de calcul formel</b>
-                    <span class="to_translate" data-translation="(June 2023, python)">(juin 2023, python)</span>
-                </div>
-
-                <div class="mt_s1 ">
-                    <b class="to_translate" data-translation="• High school newspaper website">• Site de journal du lycée</b>
-                    <span class="to_translate" data-translation="(2021, HTML/CSS/JS)">(2021, HTML/CSS/JS)</span>
-                </div>
-
-                <div class="mt_s1 ">
-                    <b class="to_translate" data-translation="• Small 3d platformer game: Cube3">• Petit jeu 3d platformer : Cube3</b>
-                    <span class="to_translate" data-translation="(2021, godot engine/C#)">(2021, godot engine/C#)</span>
-                </div>
-
-                <div class="mt_s1 ">
-                    <span><span class="to_translate" data-translation="and many other projects on my ">et plein d'autres projets sur mon </span><a href="https://github.com/nath54 ">github</a>.</span>
-                </div>
 
             </div>
 
