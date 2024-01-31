@@ -1,3 +1,14 @@
+// Get the arguments
+var url_string = window.location;
+console.log(url_string);
+var url = new URL(url_string);
+var lang = url.searchParams.get("mode");
+console.log(lang);
+
+if (lang == "export") {
+    export_mode();
+}
+
 function export_mode(page_type = 1) {
     // Disable header - page
     // Remove all absolute properties
