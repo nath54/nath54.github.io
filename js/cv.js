@@ -6,7 +6,7 @@ var lang = url.searchParams.get("mode");
 console.log(lang);
 
 if (lang == "export") {
-    export_mode();
+    export_mode(2);
 }
 
 function export_mode(page_type = 1) {
@@ -24,6 +24,9 @@ function export_mode(page_type = 1) {
     } else {
         document.getElementById("main_pages_cv").style.width = "100%";
     }
+    document.html.style.height = "100%";
+    document.body.style.height = "100%";
+    document.getElementById("main_pages_cv").style.height = "100%";
     //
-    document.getElementById("div_projet_academiques").style.marginTop = "60px";
+    // document.getElementById("div_projet_academiques").style.marginTop = "60px";
 }
