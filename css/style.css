@@ -24,6 +24,10 @@ html {
     --header_h: 65px;
     --icon_home_size: 40px;
     --button_slop_height: 70px;
+    --h1_font_size: 40px;
+    --h2_font_size: 20px;
+    --h3_font_size: 20;
+    --large_font_size: 30px;
     --default_font_size: 20px;
     --small_font_size: 15px;
     --s1: 15px;
@@ -85,6 +89,22 @@ html {
     /*  */
     transition-duration: 500ms;
     transition-timing-function: ease;
+}
+
+h1 {
+    font-size: var(--h1_font_size);
+}
+
+h2 {
+    font-size: var(--h2_font_size);
+}
+
+h3 {
+    font-size: var(--h3_font_size);
+}
+
+.large_font {
+    font-size: var(--large_font_size);
 }
 
 
