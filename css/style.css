@@ -47,7 +47,8 @@ html {
         --header_h: 125px;
         --icon_home_size: 80px;
         --button_slop_height: 130px;
-        --default_font_size: 35px;
+        --large_font_size: 35px;
+        --default_font_size: 30px;
         --small_font_size: 20px;
         --s1: 25px;
         --s2: 40px;
@@ -58,10 +59,11 @@ html {
     /* Variables */
     html {
         /* Variables */
-        --page_col_width: 85%;
+        --page_col_width: 100%;
         --header_h: 50px;
         --icon_home_size: 35px;
         --button_slop_height: 50px;
+        --large_font_size: 20px;
         --default_font_size: 15px;
         --small_font_size: 10px;
         --s1: 10px;
