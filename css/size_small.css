@@ -1,0 +1,21 @@
+/* Variables globales de taille */
+:root{
+
+    /* Taille des polices de caractères */
+    --font_size_extra_large: 3vh;
+    --font_size_large: 2vh;
+    --font_size_larger: 1.75vh;
+    --font_size_normal: 1.5vh;
+    --font_size_smaller: 1.25vh;
+    --font_size_small: 1.0vh;
+    --font_size_extra_small: 0.5vh;
+
+    /* Taille des éléments généraux */
+    --size_extra_large: 8vh;
+    --size_large: 6vh;
+    --size_larger: 4vh;
+    --size_normal: 3vh;
+    --size_smaller: 2.5vh;
+    --size_small: 2vh;
+    --size_extra_small: 1vh;
+}
