@@ -1,8 +1,7 @@
-
-// Pour retourner à la page d'accueil
 function go_home() {
     window.location.href = "index.html" + url_language();
 }
+
 
 // Pour simplifier l'écriture de certaines fonctions
 function create_element(type = "div", classes = [], attributes = {}, src = "", txt = "") {
@@ -27,6 +26,8 @@ function create_element(type = "div", classes = [], attributes = {}, src = "", t
     //
     return node;
 }
+
+
 
 // Pour récupérer les paramètres des arguments
 // Source : https://www.sitepoint.com/get-url-parameters-with-javascript/
@@ -93,20 +94,4 @@ function getAllUrlParams(url) {
     }
 
     return obj;
-}
-
-// Pour changer la visibilité d'un élément
-function toggle_visibility(id_div, id_img){
-    var div = document.getElementById(id_div);
-    var img = document.getElementById(id_img);
-    // Cas où la div était cachée
-    if(div.style.display == "none"){
-        div.style.display = "inherit";
-        img.style.transform = "rotate(90deg)";
-    }
-    // Cas où la div était visible
-    else{
-        div.style.display = "none";
-        img.style.transform = "none";
-    }
 }

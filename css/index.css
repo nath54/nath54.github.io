@@ -1,0 +1,19 @@
+
+
+.page{
+    min-width: 65vw;
+    width: 70vw;
+    max-width: 75vw;
+    
+    min-height: 65vh;
+    height: 70vh;
+    max-height: 75vh;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+
+    overflow-x: hidden;
+    overflow-wrap: normal;
+    overflow-y: auto;
+}

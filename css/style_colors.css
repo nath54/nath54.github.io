@@ -1,0 +1,52 @@
+/*
+Styles globaux de l'application
+
+Section: Couleurs
+
+Auteur: Nathan Cerisara
+*/
+
+
+/* /-----/ Classes de base pour gérer les couleurs et le fond d'ecran \-----\ */
+
+
+.background_dark_violet_to_violet_gradient{
+    background-position: 0 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background: linear-gradient(to bottom, var(--palette_cl_5) -5%, var(--palette_cl_3) 200%);
+}
+
+.background_white_to_violet_gradient{
+    background: linear-gradient(to bottom, white  0%, var(--palette_cl_3));
+}
+
+.cl_black{
+    color: black;
+}
+
+.cl_white{
+    color: white;
+}
+
+.cl_plt_1{
+    color: var(--palette_cl_1);
+}
+
+.cl_plt_2{
+    color: var(--palette_cl_2);
+}
+
+.cl_plt_3{
+    color: var(--palette_cl_3);
+}
+
+.cl_plt_4{
+    color: var(--palette_cl_4);
+}
+
+.cl_plt_5{
+    color: var(--palette_cl_5);
+}
+
+
