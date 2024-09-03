@@ -1,16 +1,23 @@
 // Get the arguments
-var url_string = window.location;
-console.log(url_string);
-var url = new URL(url_string);
+var current_url_string = window.location;
+var url = new URL(current_url_string);
 var lang = url.searchParams.get("lang");
-console.log(lang);
 
-if (lang == "en") {
-    window.current_language = "en";
+//
+const languages = {
+    "fr": "Français",
+    "en": "Anglais"
+};
+const lkeys = Object.keys(languages);
+
+//
+if (Object.keys(languages).includes(lang)) {
+    window.current_language = lang;
 } else {
     window.current_language = "fr";
 }
 
+//
 function url_language() {
     if (window.current_language) {
         return "?lang=" + window.current_language;
@@ -19,45 +26,31 @@ function url_language() {
     }
 }
 
+//
 function switch_language() {
-    var url_string = window.location.href;
-    console.log(url_string);
-    var url = new URL(url_string);
-    var lang = url.searchParams.get("lang");
-    if (lang) {
-        if (lang == "en") {
-            window.current_language = "fr";
-            url_string = url_string.replace("lang=en", "lang=fr");
-            window.location.href = url_string;
-        } else {
-            window.current_language = "en";
-            url_string = url_string.replace("lang=fr", "lang=en");
-            window.location.href = url_string;
-        }
-    } else {
+    // Determine new Language
+    if(!window.current_language){
         window.current_language = "en";
-        url_string += "?lang=en";
-        window.location.href = url_string;
     }
+    else{
+        var i = lkeys.indexOf(window.current_language);
+        window.current_language = lkeys[ (i+1) % lkeys.length ];
+    }
+
+    // Translate the page
+    translate_page();
 }
 
-function translate(elt, translation) {
-    console.log("Looking to translate ", elt, " with ", translation);
-    if (window.current_language == "en") {
-        elt.innerText = translation;
-    }
-}
 
-console.log("Ready!");
-
-function translate_page() {
-    if (window.current_language == "en") {
-        document.getElementById("bt_lang").style.backgroundImage = 'url("res/bt_en_to_fr.png")';
-        //
-        var elt_list = document.getElementsByClassName("to_translate");
-        for (element of elt_list) {
-            // console.log("Translate '", element.innerText, "' with '", element.dataset.translation, "'");
-            element.innerText = element.dataset.translation;
+function translate_page() {    
+    //
+    var elt_list = document.getElementsByClassName("to_translate");
+    for (element of elt_list) {
+        if (window.current_language == "en" && element.dataset.translation_en != undefined) {
+            element.innerText = element.dataset.translation_en;
+        }
+        else if (window.current_language == "fr" && element.dataset.translation_fr != undefined) {
+            element.innerText = element.dataset.translation_fr;
         }
     }
 }

@@ -1,0 +1,9 @@
+/* Variables globales de style */
+:root{
+    /* Couleurs */
+    --palette_cl_1: #302A38;
+    --palette_cl_2: #59219E;
+    --palette_cl_3: #7851A9;
+    --palette_cl_4: #E0B0FF;
+    --palette_cl_5: #E5E4E2;
+}
