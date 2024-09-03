@@ -12,6 +12,7 @@
         <link rel="icon" href="res/logo.svg">
         <!-- Styles -->
         <link href="css/theme_light.css" rel="stylesheet" id="css_theme_link" />
+        <link href="css/size_normal.css" rel="stylesheet" id="css_size_link" />
         <link href="css/style.css" rel="stylesheet" />
         <link href="css/style_colors.css" rel="stylesheet" />
         <link href="css/style_fonts.css" rel="stylesheet" />
@@ -56,6 +57,11 @@
                 <!-- Espace vide de remplissage -->
                 <div class="flexgrow_10"></div>
 
+                <!-- Changement de taille -->
+                <div class="m_5p m_l_auto flexgrow_0">
+                    <button class="to_translate" data-translation_en="Zoom" data-translation_fr="Zoom" onclick="changeSize();">Zoom</button>
+                </div>
+
                 <!-- Changement de langue -->
                 <div class="m_5p m_l_auto flexgrow_0">
                     <button class="to_translate" data-translation_en="Languages" data-translation_fr="Langues" onclick="switch_language();">Langues</button>
@@ -81,8 +87,8 @@
 
                         <!-- Titre -->
                         <div class="resp_row_col left_align">
-                            <b class="m_l_5p m_r_5p m_t_0 m_b_0 font_large to_translate" data-translation_en="Nath's" data-translation_fr="Le site">Le site</b>
-                            <b class="m_l_5p m_r_5p m_b_0 m_t_0 font_large to_translate" data-translation_en="Website" data-translation_fr="de Nathan">de Nathan</b>
+                            <b class="m_l_5p m_r_5p m_t_0 m_b_0 font_large to_translate" data-translation_en="Nath's" data-translation_fr="Le site web">Le site web</b>
+                            <b class="m_l_5p m_r_5p m_b_0 m_t_0 font_large to_translate" data-translation_en="Website" data-translation_fr="de Nath">de Nath</b>
                         </div>
                     </div>
                 </div>
@@ -299,5 +305,6 @@
     <script src="js/index.js" type="text/javascript"></script>
     <script src="js/citations.js" type="text/javascript"></script>
     <script src="js/themes.js" type="text/javascript"></script>
+    <script src="js/sizes.js" type="text/javascript"></script>
 
 </html>
