@@ -991,6 +991,187 @@ Auteur: Nathan Cerisara
     margin-bottom: var(--size_extra_tiny);
 }
 
+
+.p_extra_large{
+    padding: var(--size_extra_large);
+}
+
+.p_large{
+    padding: var(--size_large);
+}
+
+.p_larger{
+    padding: var(--size_larger);
+}
+
+.p_normal{
+    padding: var(--size_normal);
+}
+
+.p_smaller{
+    padding: var(--size_smaller);
+}
+
+.p_small{
+    padding: var(--size_small);
+}
+
+.p_extra_small{
+    padding: var(--size_extra_small);
+}
+
+.p_tiny{
+    padding: var(--size_tiny);
+}
+
+.p_extra_tiny{
+    padding: var(--size_extra_tiny);
+}
+
+.p_r_extra_large{
+    padding-right: var(--size_extra_large);
+}
+
+.p_r_large{
+    padding-right: var(--size_large);
+}
+
+.p_r_larger{
+    padding-right: var(--size_larger);
+}
+
+.p_r_normal{
+    padding-right: var(--size_normal);
+}
+
+.p_r_smaller{
+    padding-right: var(--size_smaller);
+}
+
+.p_r_small{
+    padding-right: var(--size_small);
+}
+
+.p_r_extra_small{
+    padding-right: var(--size_extra_small);
+}
+
+.p_r_tiny{
+    padding-right: var(--size_tiny);
+}
+
+.p_r_extra_tiny{
+    padding-right: var(--size_extra_tiny);
+}
+
+.p_l_extra_large{
+    padding-left: var(--size_extra_large);
+}
+
+.p_l_large{
+    padding-left: var(--size_large);
+}
+
+.p_l_larger{
+    padding-left: var(--size_larger);
+}
+
+.p_l_normal{
+    padding-left: var(--size_normal);
+}
+
+.p_l_smaller{
+    padding-left: var(--size_smaller);
+}
+
+.p_l_small{
+    padding-left: var(--size_small);
+}
+
+.p_l_extra_small{
+    padding-left: var(--size_extra_small);
+}
+
+.p_l_tiny{
+    padding-left: var(--size_tiny);
+}
+
+.p_l_extra_tiny{
+    padding-left: var(--size_extra_tiny);
+}
+
+.p_t_extra_large{
+    padding-top: var(--size_extra_large);
+}
+
+.p_t_large{
+    padding-top: var(--size_large);
+}
+
+.p_t_larger{
+    padding-top: var(--size_larger);
+}
+
+.p_t_normal{
+    padding-top: var(--size_normal);
+}
+
+.p_t_smaller{
+    padding-top: var(--size_smaller);
+}
+
+.p_t_small{
+    padding-top: var(--size_small);
+}
+
+.p_t_extra_small{
+    padding-top: var(--size_extra_small);
+}
+
+.p_t_tiny{
+    padding-top: var(--size_tiny);
+}
+
+.p_t_extra_tiny{
+    padding-top: var(--size_extra_tiny);
+}
+
+.p_b_extra_large{
+    padding-bottom: var(--size_extra_large);
+}
+
+.p_b_large{
+    padding-bottom: var(--size_large);
+}
+
+.p_b_larger{
+    padding-bottom: var(--size_larger);
+}
+
+.p_b_normal{
+    padding-bottom: var(--size_normal);
+}
+
+.p_b_smaller{
+    padding-bottom: var(--size_smaller);
+}
+
+.p_b_small{
+    padding-bottom: var(--size_small);
+}
+
+.p_b_extra_small{
+    padding-bottom: var(--size_extra_small);
+}
+
+.p_b_tiny{
+    padding-bottom: var(--size_tiny);
+}
+
+.p_b_extra_tiny{
+    padding-bottom: var(--size_extra_tiny);
+}
+
 /* Avec valeurs fixes */
 
 .m_0{
@@ -1191,4 +1372,81 @@ Auteur: Nathan Cerisara
 
 .p_b_5v{
     padding-bottom: 5vw;
+}
+
+
+/* Bordures et coins */
+
+
+.br_extra_large{
+    border-radius: var(--size_extra_large);
+    -webkit-border-radius: var(--size_extra_large);
+    -moz-border-radius: var(--size_extra_large);
+    -ms-border-radius: var(--size_extra_large);
+    -o-border-radius: var(--size_extra_large);
+}
+
+.br_large{
+    border-radius: var(--size_large);
+    -webkit-border-radius: var(--size_large);
+    -moz-border-radius: var(--size_large);
+    -ms-border-radius: var(--size_large);
+    -o-border-radius: var(--size_large);
+}
+
+.br_larger{
+    border-radius: var(--size_larger);
+    -webkit-border-radius: var(--size_larger);
+    -moz-border-radius: var(--size_larger);
+    -ms-border-radius: var(--size_larger);
+    -o-border-radius: var(--size_larger);
+}
+
+.br_normal{
+    border-radius: var(--size_normal);
+    -webkit-border-radius: var(--size_normal);
+    -moz-border-radius: var(--size_normal);
+    -ms-border-radius: var(--size_normal);
+    -o-border-radius: var(--size_normal);
+}
+
+.br_smaller{
+    border-radius: var(--size_smaller);
+    -webkit-border-radius: var(--size_smaller);
+    -moz-border-radius: var(--size_smaller);
+    -ms-border-radius: var(--size_smaller);
+    -o-border-radius: var(--size_smaller);
+}
+
+.br_small{
+    border-radius: var(--size_small);
+    -webkit-border-radius: var(--size_small);
+    -moz-border-radius: var(--size_small);
+    -ms-border-radius: var(--size_small);
+    -o-border-radius: var(--size_small);
+}
+
+
+.br_extra_small{
+    border-radius: var(--size_extra_small);
+    -webkit-border-radius: var(--size_extra_small);
+    -moz-border-radius: var(--size_extra_small);
+    -ms-border-radius: var(--size_extra_small);
+    -o-border-radius: var(--size_extra_small);
+}
+
+.br_tiny{
+    border-radius: var(--size_tiny);
+    -webkit-border-radius: var(--size_tiny);
+    -moz-border-radius: var(--size_tiny);
+    -ms-border-radius: var(--size_tiny);
+    -o-border-radius: var(--size_tiny);
+}
+
+.br_extra_tiny{
+    border-radius: var(--size_extra_tiny);
+    -webkit-border-radius: var(--size_extra_tiny);
+    -moz-border-radius: var(--size_extra_tiny);
+    -ms-border-radius: var(--size_extra_tiny);
+    -o-border-radius: var(--size_extra_tiny);
 }
