@@ -65,7 +65,19 @@ Auteur: Nathan Cerisara
     justify-content: left;
 }
 
+.left_align * {
+    text-align: left;
+    align-items: left;
+    justify-content: left;
+}
+
 .right_align {
+    text-align: right;
+    align-items: right;
+    justify-content: right;
+}
+
+.right_align * {
     text-align: right;
     align-items: right;
     justify-content: right;
@@ -179,6 +191,17 @@ Auteur: Nathan Cerisara
     max-height: var(--size_extra_small);
 }
 
+.size_tiny{
+    max-width: var(--size_tiny);
+    max-height: var(--size_tiny);
+}
+
+.size_extra_tiny{
+    max-width: var(--size_extra_tiny);
+    max-height: var(--size_extra_tiny);
+}
+
+
 /* Flex */
 
 .flex{
@@ -243,6 +266,98 @@ Auteur: Nathan Cerisara
 
 /* /-----/ Classes de base pour gérer la taille des éléments \-----\ */
 
+/* Tailles responsives */
+
+
+.w_xxxl{
+    max-width: var(--size_xxxl);
+}
+
+.w_xxl{
+    max-width: var(--size_xxl);
+}
+
+.w_extra_large{
+    max-width: var(--size_extra_large);
+}
+
+.w_large{
+    max-width: var(--size_large);
+}
+
+.w_larger{
+    max-width: var(--size_larger);
+}
+
+.w_normal{
+    max-width: var(--size_normal);
+}
+
+.w_smaller{
+    max-width: var(--size_smaller);
+}
+
+.w_small{
+    max-width: var(--size_small);
+}
+
+.w_extra_small{
+    max-width: var(--size_extra_small);
+}
+
+.w_tiny{
+    max-width: var(--size_tiny);
+}
+
+.w_extra_tiny{
+    max-width: var(--size_extra_tiny);
+}
+
+.h_xxxl{
+    max-height: var(--size_xxxl);
+}
+
+.h_xxl{
+    max-height: var(--size_xxl);
+}
+
+.h_extra_large{
+    max-height: var(--size_extra_large);
+}
+
+.h_large{
+    max-height: var(--size_large);
+}
+
+.h_larger{
+    max-height: var(--size_larger);
+}
+
+.h_normal{
+    max-height: var(--size_normal);
+}
+
+.h_smaller{
+    max-height: var(--size_smaller);
+}
+
+.h_small{
+    max-height: var(--size_small);
+}
+
+.h_extra_small{
+    max-height: var(--size_extra_small);
+}
+
+.h_tiny{
+    max-height: var(--size_tiny);
+}
+
+.h_extra_tiny{
+    max-height: var(--size_extra_tiny);
+}
+
+/* Tailles fixes */
 
 .w_auto{
     width: auto;
@@ -688,6 +803,191 @@ Auteur: Nathan Cerisara
 
 
 /* /-----/ Classes de base pour gérer les marges et le padding \-----\ */
+
+
+/* Avec valeurs responsives */
+
+.m_extra_large{
+    margin: var(--size_extra_large);
+}
+
+.m_large{
+    margin: var(--size_large);
+}
+
+.m_larger{
+    margin: var(--size_larger);
+}
+
+.m_normal{
+    margin: var(--size_normal);
+}
+
+.m_smaller{
+    margin: var(--size_smaller);
+}
+
+.m_small{
+    margin: var(--size_small);
+}
+
+.m_extra_small{
+    margin: var(--size_extra_small);
+}
+
+.m_tiny{
+    margin: var(--size_tiny);
+}
+
+.m_extra_tiny{
+    margin: var(--size_extra_tiny);
+}
+
+.m_r_extra_large{
+    margin-right: var(--size_extra_large);
+}
+
+.m_r_large{
+    margin-right: var(--size_large);
+}
+
+.m_r_larger{
+    margin-right: var(--size_larger);
+}
+
+.m_r_normal{
+    margin-right: var(--size_normal);
+}
+
+.m_r_smaller{
+    margin-right: var(--size_smaller);
+}
+
+.m_r_small{
+    margin-right: var(--size_small);
+}
+
+.m_r_extra_small{
+    margin-right: var(--size_extra_small);
+}
+
+.m_r_tiny{
+    margin-right: var(--size_tiny);
+}
+
+.m_r_extra_tiny{
+    margin-right: var(--size_extra_tiny);
+}
+
+.m_l_extra_large{
+    margin-left: var(--size_extra_large);
+}
+
+.m_l_large{
+    margin-left: var(--size_large);
+}
+
+.m_l_larger{
+    margin-left: var(--size_larger);
+}
+
+.m_l_normal{
+    margin-left: var(--size_normal);
+}
+
+.m_l_smaller{
+    margin-left: var(--size_smaller);
+}
+
+.m_l_small{
+    margin-left: var(--size_small);
+}
+
+.m_l_extra_small{
+    margin-left: var(--size_extra_small);
+}
+
+.m_l_tiny{
+    margin-left: var(--size_tiny);
+}
+
+.m_l_extra_tiny{
+    margin-left: var(--size_extra_tiny);
+}
+
+.m_t_extra_large{
+    margin-top: var(--size_extra_large);
+}
+
+.m_t_large{
+    margin-top: var(--size_large);
+}
+
+.m_t_larger{
+    margin-top: var(--size_larger);
+}
+
+.m_t_normal{
+    margin-top: var(--size_normal);
+}
+
+.m_t_smaller{
+    margin-top: var(--size_smaller);
+}
+
+.m_t_small{
+    margin-top: var(--size_small);
+}
+
+.m_t_extra_small{
+    margin-top: var(--size_extra_small);
+}
+
+.m_t_tiny{
+    margin-top: var(--size_tiny);
+}
+
+.m_t_extra_tiny{
+    margin-top: var(--size_extra_tiny);
+}
+
+.m_b_extra_large{
+    margin-bottom: var(--size_extra_large);
+}
+
+.m_b_large{
+    margin-bottom: var(--size_large);
+}
+
+.m_b_larger{
+    margin-bottom: var(--size_larger);
+}
+
+.m_b_normal{
+    margin-bottom: var(--size_normal);
+}
+
+.m_b_smaller{
+    margin-bottom: var(--size_smaller);
+}
+
+.m_b_small{
+    margin-bottom: var(--size_small);
+}
+
+.m_b_extra_small{
+    margin-bottom: var(--size_extra_small);
+}
+
+.m_b_tiny{
+    margin-bottom: var(--size_tiny);
+}
+
+.m_b_extra_tiny{
+    margin-bottom: var(--size_extra_tiny);
+}
+
+/* Avec valeurs fixes */
 
 .m_0{
     margin: 0;

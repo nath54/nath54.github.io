@@ -11,6 +11,8 @@
     --font_size_extra_small: calc(min(0.5vh, 0.5vw));
 
     /* Taille des éléments généraux */
+    --size_xxxl: calc(min(13vh, 13vw));
+    --size_xxl: calc(min(10, 10));
     --size_extra_large: calc(min(8vh, 8vw));
     --size_large: calc(min(6vh, 6vw));
     --size_larger: calc(min(4vh, 4vw));
