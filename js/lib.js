@@ -110,3 +110,43 @@ function toggle_visibility(id_div, id_img){
         img.style.transform = "none";
     }
 }
+
+//
+function HtmlEncode(s)
+{
+  var el = document.createElement("span");
+  el.innerText = el.textContent = s;
+  s = el.innerHTML;
+  return s;
+}
+
+
+//
+function exportCurrentParamsToUrl(){
+    var res = "";
+    // Current Language
+    if(window.current_language != undefined){
+        res += "lang="+HtmlEncode(window.current_language)
+    }
+    // Current Theme
+    if(window.current_theme != undefined){
+        if(res != ""){
+            res += "&"
+        }
+        res += "theme="+HtmlEncode(window.current_theme)
+    }
+    // Current Size
+    if(window.current_size != undefined){
+        if(res != ""){
+            res += "&"
+        }
+        res += "size="+HtmlEncode(window.current_size)
+    }
+    //
+    if(res != ""){
+        res = "?" + res;
+    }
+    return res;
+}
+
+

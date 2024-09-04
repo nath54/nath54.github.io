@@ -1,7 +1,7 @@
 // Get the arguments
 var current_url_string = window.location;
 var url = new URL(current_url_string);
-var lang = url.searchParams.get("lang");
+var lang = url.searchParams.get("lang") || localStorage.getItem("lang") || "fr";
 
 //
 const languages = {
@@ -37,11 +37,15 @@ function switch_language() {
         window.current_language = lkeys[ (i+1) % lkeys.length ];
     }
 
+    //
+    localStorage.setItem("lang", window.current_language);
+
     // Translate the page
     translate_page();
 }
 
 
+//
 function translate_page() {    
     //
     var elt_list = document.getElementsByClassName("to_translate");
