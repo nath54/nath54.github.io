@@ -18,6 +18,10 @@ Auteur: Nathan Cerisara
     flex-direction: row;
 }
 
+.flex_wrap{
+    flex-wrap: wrap;
+}
+
 .col{
     display: flex;
     flex-direction: column;
@@ -128,31 +132,31 @@ Auteur: Nathan Cerisara
 
 /* Sizes */
 
-.font_extra_large{
+.font_extra_large, .font_extra_large *{
     font-size: var(--font_size_extra_large);
 }
 
-.font_large{
+.font_large, .font_large *{
     font-size: var(--font_size_large);
 }
 
-.font_larger{
+.font_larger, .font_larger *{
     font-size: var(--font_size_larger);
 }
 
-.font_normal{
+.font_normal, .font_normal *{
     font-size: var(--font_size_normal);
 }
 
-.font_smaller{
+.font_smaller, .font_smaller *{
     font-size: var(--font_size_smaller);
 }
 
-.font_small{
+.font_small, .font_small *{
     font-size: var(--font_size_small);
 }
 
-.font_extra_small{
+.font_extra_small, .font_extra_small *{
     font-size: var(--font_size_extra_small);
 }
 

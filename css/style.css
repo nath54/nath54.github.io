@@ -66,12 +66,14 @@ h6{
     font-size: var(--font_size_small);
 }
 
-b{
-    font-weight: 500;
+i, i *{
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 300;
+    font-style: italic;
 }
 
-i{
-    font-weight: 300;
+b, b *{
+    font-weight: 500;
 }
 
 button{
@@ -98,6 +100,10 @@ button:active{
 }
 
 
+.no_style{
+    text-decoration: none;
+    font-style: none;
+}
 
 
 .clickable:hover{
