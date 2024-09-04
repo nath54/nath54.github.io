@@ -77,10 +77,10 @@ i{
 button{
     user-select: none;
     font-size: var(--font_size_normal);
-    padding: 5px;
-    margin: 5px;
+    padding: var(--size_tiny);
+    margin: var(--size_tiny);
     border: none;
-    border-radius: 5px;
+    border-radius: var(--size_tiny);
     background-color: var(--palette_cl_5);
     color: var(--palette_cl_1);
     box-shadow: var(--palette_cl_5) 0 0 1px 1px;
@@ -88,74 +88,15 @@ button{
 button:hover{
     cursor: pointer;
     font-size: calc(var(--font_size_normal) * 1.05);
-    padding: 6px;
-    box-shadow: var(--palette_cl_5) 0 0 2px 2px;
+    padding: calc(var(--size_tiny) * 1.05);
+    box-shadow: var(--palette_cl_5) 0 0 var(--size_extra_tiny) var(--size_extra_tiny);
 }
 button:active{
     font-size: calc(var(--font_size_normal) * 0.95);
-    padding: 3px;
+    padding: calc(var(--size_tiny) * 0.95);
     box-shadow: var(--palette_cl_5) 0 0 0 0;
 }
 
-.bt_1{
-    font-size: var(--font_size_normal);
-    padding: 5px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--bg1_base);
-    box-shadow: rgba(0, 0, 0, 0.3) 0 0 2px 2px;
-}
-.bt_1:hover{
-    font-size: var(--font_size_larger);
-    background-color: var(--bg1_hover);
-    box-shadow: rgba(0, 0, 0, 0.3) 0 0 4px 3px;
-}
-.bt_1:active{
-    font-size: var(--font_size_smaller);
-    background-color: var(--bg1_active);
-    box-shadow: rgba(255, 255, 255, 0.0) 0 0 0 0;
-}
-
-.bt_2{
-    font-size: var(--font_size_normal);
-    padding: 5px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--bg2_base);
-    box-shadow: rgba(0, 0, 0, 0.3) 0 0 2px 2px;
-}
-.bt_2:hover{
-    font-size: var(--font_size_larger);
-    background-color: var(--bg2_hover);
-    box-shadow: rgba(0, 0, 0, 0.3) 0 0 4px 3px;
-}
-.bt_2:active{
-    font-size: var(--font_size_smaller);
-    background-color: var(--bg2_active);
-    box-shadow: rgba(255, 255, 255, 0.0) 0 0 0 0;
-}
-
-.bt_3{
-    font-size: var(--font_size_normal);
-    padding: 5px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--bg3_base);
-    box-shadow: rgba(0, 0, 0, 0.3) 0 0 2px 2px;
-}
-.bt_3:hover{
-    font-size: var(--font_size_larger);
-    background-color: var(--bg3_hover);
-    box-shadow: rgba(0, 0, 0, 0.3) 0 0 4px 3px;
-}
-.bt_3:active{
-    font-size: var(--font_size_smaller);
-    background-color: var(--bg3_active);
-    box-shadow: rgba(255, 255, 255, 0.0) 0 0 0 0;
-}
 
 
 
@@ -185,16 +126,6 @@ img *{
     user-select: none;
 }
 
-/* Logo principal ALE affiché en gros */
-.header_logo_ale{
-    width: var(--size_normal);
-    height: var(--size_normal);
-    margin: 5px;
-    border-radius: 50%;
-    border: 1px solid black;
-}
-
-
 #header{
     margin: 0;
     margin-bottom: auto;
@@ -202,12 +133,12 @@ img *{
 
 .progress_bar_background{
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: var(--size_tiny);
     background: none;
 }
 
 .progress_bar_foreground{
-    background-color: var(--ale_purple);
+    background-color: var(--palette_cl_3);
 }
 
 

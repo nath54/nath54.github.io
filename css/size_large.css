@@ -2,20 +2,22 @@
 :root{
 
     /* Taille des polices de caractères */
-    --font_size_extra_large: 6vh;
-    --font_size_large: 5vh;
-    --font_size_larger: 4vh;
-    --font_size_normal: 3vh;
-    --font_size_smaller: 2.5vh;
-    --font_size_small: 1.5vh;
-    --font_size_extra_small: 0.5vh;
+    --font_size_extra_large: calc(min(6vh, 6vw));
+    --font_size_large: calc(min(5vh, 5vw));
+    --font_size_larger: calc(min(4vh, 4vw));
+    --font_size_normal: calc(min(3vh, 3vw));
+    --font_size_smaller: calc(min(2.5vh, 2.5vw));
+    --font_size_small: calc(min(2vh, 2vw));
+    --font_size_extra_small: calc(min(1.5vh, 1.5vw));
 
     /* Taille des éléments généraux */
-    --size_extra_large: 12vh;
-    --size_large: 10vh;
-    --size_larger: 7vh;
-    --size_normal: 6vh;
-    --size_smaller: 5vh;
-    --size_small: 3vh;
-    --size_extra_small: 2vh;
+    --size_extra_large: calc(min(12vh, 12vw));
+    --size_large: calc(min(10vh, 10vw));
+    --size_larger: calc(min(7vh, 7vw));
+    --size_normal: calc(min(6vh, 6vw));
+    --size_smaller: calc(min(5vh, 5vw));
+    --size_small: calc(min(3vh, 3vw));
+    --size_extra_small: calc(min(2vh, 2vw));
+    --size_tiny: calc(min(1.5vh, 1.5vw));
+    --size_extra_tiny: calc(min(1vh, 1vw));
 }
