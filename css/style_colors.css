@@ -10,15 +10,18 @@ Auteur: Nathan Cerisara
 /* /-----/ Classes de base pour gérer les couleurs et le fond d'ecran \-----\ */
 
 
-.background_dark_violet_to_violet_gradient{
+.background_gradient_1{
     background-position: 0 0;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background: linear-gradient(to bottom, var(--palette_cl_5) -5%, var(--palette_cl_3) 200%);
 }
 
-.background_white_to_violet_gradient{
-    background: linear-gradient(to bottom, white  0%, var(--palette_cl_3));
+.background_gradient_2{
+    background-position: 0 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background: linear-gradient(to bottom, var(--palette_cl_5) -5%, var(--palette_cl_3) 150%);
 }
 
 .cl_black{
