@@ -682,6 +682,192 @@ Auteur: Nathan Cerisara
 
     /* /-----/ Classes de base pour gérer les marges et le padding \-----\ */
 
+
+    /* Avec valeurs responsives */
+
+    .resp_h_m_extra_large{
+        margin: var(--size_extra_large);
+    }
+
+    .resp_h_m_large{
+        margin: var(--size_large);
+    }
+
+    .resp_h_m_larger{
+        margin: var(--size_larger);
+    }
+
+    .resp_h_m_normal{
+        margin: var(--size_normal);
+    }
+
+    .resp_h_m_smaller{
+        margin: var(--size_smaller);
+    }
+
+    .resp_h_m_small{
+        margin: var(--size_small);
+    }
+
+    .resp_h_m_extra_small{
+        margin: var(--size_extra_small);
+    }
+
+    .resp_h_m_tiny{
+        margin: var(--size_tiny);
+    }
+
+    .resp_h_m_extra_tiny{
+        margin: var(--size_extra_tiny);
+    }
+
+    .resp_h_m_r_extra_large{
+        margin-right: var(--size_extra_large);
+    }
+
+    .resp_h_m_r_large{
+        margin-right: var(--size_large);
+    }
+
+    .resp_h_m_r_larger{
+        margin-right: var(--size_larger);
+    }
+
+    .resp_h_m_r_normal{
+        margin-right: var(--size_normal);
+    }
+
+    .resp_h_m_r_smaller{
+        margin-right: var(--size_smaller);
+    }
+
+    .resp_h_m_r_small{
+        margin-right: var(--size_small);
+    }
+
+    .resp_h_m_r_extra_small{
+        margin-right: var(--size_extra_small);
+    }
+
+    .resp_h_m_r_tiny{
+        margin-right: var(--size_tiny);
+    }
+
+    .resp_h_m_r_extra_tiny{
+        margin-right: var(--size_extra_tiny);
+    }
+
+    .resp_h_m_l_extra_large{
+        margin-left: var(--size_extra_large);
+    }
+
+    .resp_h_m_l_large{
+        margin-left: var(--size_large);
+    }
+
+    .resp_h_m_l_larger{
+        margin-left: var(--size_larger);
+    }
+
+    .resp_h_m_l_normal{
+        margin-left: var(--size_normal);
+    }
+
+    .resp_h_m_l_smaller{
+        margin-left: var(--size_smaller);
+    }
+
+    .resp_h_m_l_small{
+        margin-left: var(--size_small);
+    }
+
+    .resp_h_m_l_extra_small{
+        margin-left: var(--size_extra_small);
+    }
+
+    .resp_h_m_l_tiny{
+        margin-left: var(--size_tiny);
+    }
+
+    .resp_h_m_l_extra_tiny{
+        margin-left: var(--size_extra_tiny);
+    }
+
+    .resp_h_m_t_extra_large{
+        margin-top: var(--size_extra_large);
+    }
+
+    .resp_h_m_t_large{
+        margin-top: var(--size_large);
+    }
+
+    .resp_h_m_t_larger{
+        margin-top: var(--size_larger);
+    }
+
+    .resp_h_m_t_normal{
+        margin-top: var(--size_normal);
+    }
+
+    .resp_h_m_t_smaller{
+        margin-top: var(--size_smaller);
+    }
+
+    .resp_h_m_t_small{
+        margin-top: var(--size_small);
+    }
+
+    .resp_h_m_t_extra_small{
+        margin-top: var(--size_extra_small);
+    }
+
+    .resp_h_m_t_tiny{
+        margin-top: var(--size_tiny);
+    }
+
+    .resp_h_m_t_extra_tiny{
+        margin-top: var(--size_extra_tiny);
+    }
+
+    .resp_h_m_b_extra_large{
+        margin-bottom: var(--size_extra_large);
+    }
+
+    .resp_h_m_b_large{
+        margin-bottom: var(--size_large);
+    }
+
+    .resp_h_m_b_larger{
+        margin-bottom: var(--size_larger);
+    }
+
+    .resp_h_m_b_normal{
+        margin-bottom: var(--size_normal);
+    }
+
+    .resp_h_m_b_smaller{
+        margin-bottom: var(--size_smaller);
+    }
+
+    .resp_h_m_b_small{
+        margin-bottom: var(--size_small);
+    }
+
+    .resp_h_m_b_extra_small{
+        margin-bottom: var(--size_extra_small);
+    }
+
+    .resp_h_m_b_tiny{
+        margin-bottom: var(--size_tiny);
+    }
+
+    .resp_h_m_b_extra_tiny{
+        margin-bottom: var(--size_extra_tiny);
+    }
+
+    /* Avec valeurs fixes */
+
+
     .resp_h_m_0{
         margin: 0;
     }

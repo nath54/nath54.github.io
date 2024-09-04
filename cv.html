@@ -12,8 +12,10 @@
         <link rel="icon" href="res/logo.svg">
         <!-- Styles -->
         <link href="css/theme_light.css" rel="stylesheet" id="css_theme_link" />
+        <link href="css/size_normal.css" rel="stylesheet" id="css_size_link" />
         <link href="css/style.css" rel="stylesheet" />
         <link href="css/style_colors.css" rel="stylesheet" />
+        <link href="css/style_fonts.css" rel="stylesheet" />
         <link href="css/style_position_size_space.css" rel="stylesheet" />
         <link href="css/style_position_size_space_responsive_mode_horizontal.css" rel="stylesheet" />
         <link href="css/style_position_size_space_responsive_mode_vertical.css" rel="stylesheet" />
@@ -30,20 +32,56 @@
     </head>
 
     <!-- Body -->
-    <body onload="translate_page();" class="">
+    <body onload="translate_page(); setTheme(); setSize();" class="">
     
         <!-- Background Layer -->
         <div class="background_dark_violet_to_violet_gradient" style="position: absolute; left: -20px; right: -20px; top: -20px; bottom: -20px;">
         </div>
 
         <!-- Main Container Foreground Layer -->
-        <div class="main_container col">
+        <div class="main_container">
             
-            <p class="to_translate" data-translation_en="Page under construction." data-translation_fr="Page en cours de construction.">Page en cours de construction.</p>
-            <p class="to_translate" data-translation_en="Please wait a little..." data-translation_fr="Veuillez patienter un peu...">Veuillez patienter un peu...</p>
-            <!-- TODO -->
+            <!-- Margin Container -->
+            <div class="col m_normal">
+
+                <!-- Header -->
+                <div class="row">
+
+                    <!-- Photo ID -->
+                    <div class="center_v">
+                        <img class="h_xxl m_small center_v" src="res/photoID.jpg" />
+                    </div>
+
+                    <!-- Présentation -->
+                    <div class="col center_v">
+                        
+                        <!-- Nom -->
+                        <div class="row m_b_extra_tiny m_r_auto">
+                            <span class="m_r_extra_tiny">Nathan</span>
+                            <span>CERISARA</span>
+                        </div>
+
+                        <!-- Statut -->
+                        <div class="m_b_extra_tiny m_r_auto">
+                            <b>Élève ingénieur en informatique et réseaux, sciences des données et IA.</b>
+                        </div>
+
+                        <!-- Recherche -->
+                        <div class="m_r_auto">
+                            <span>Recherche d'un stage de 16 semaines à partir du 19 mai 2025</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
     </body>
+
+    <!-- Scripts -->
+    <script src="js/themes.js" type="text/javascript"></script>
+    <script src="js/sizes.js" type="text/javascript"></script>
 
 </html>
