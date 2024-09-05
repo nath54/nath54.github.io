@@ -8,16 +8,6 @@ const data_states = {
     4: "done"
 };
 
-//
-const data_states_icons = {
-    // TODO
-};
-
-//
-const data_states_styles = {
-    // TODO
-};
-
 /*
 
 #!# Project Syntax #!#
@@ -34,18 +24,33 @@ const data_states_styles = {
 const project_nalang = {
     "name": "NaLang",
     "description": {
-        "en": "A little app to learn new languages",
+        "en": "A little app to learn new languages.",
         "fr": "Une petite application pour apprendre de nouvelles langues.",
     },
     "made_by": "Nathan Cerisara",
     "made_with": "Godot Engine",
     "icon": "data/data_projects/icons/icon_NaLang.svg",
     "state": 3,
-    "objectives": {
-        "Fiche de vocabulaire custom pour les utilisateurs": 0,
-        "Ajouts d'exercices": 0,
-        "Bon module de text2speech multilangue sur toutes les plateformes d'exports": 0,
-        "Guide des leçons": 0
+    "roadmap": [
+        {
+            "fr": "Fiche de vocabulaire custom pour les utilisateurs.",
+            "en": "Custom vocabulary sheet for users."
+        },
+        {
+            "fr": "Ajout d'exercices.",
+            "en": "Adding exercices."
+        },
+        {
+            "fr": "Bon module de text2speech multilangue sur toutes les plateformes d'exportation.",
+            "en": "Good multilingual text2speech module on all export platforms."
+        },
+        {
+            "fr": "Guide des leçons.",
+            "en": "Lessons guide."
+        }
+    ],
+    "links": {
+        "github": "https://github.com/nath54/NaLang"
     }
 };
 
@@ -60,7 +65,7 @@ const project_neavity_libs = {
     "made_with": "Python/HTML/JS/CSS",
     "icon": "data/data_projects/icons/no_icon.svg",
     "state": 2,
-    "objectives": {
+    "roadmap": {
     }
 };
 
@@ -68,14 +73,14 @@ const project_neavity_libs = {
 const project_napp_engine = {
     "name": "Napp Engine",
     "description": {
-        "en": "C++ graphical app engine with android compilation support",
+        "en": "C++ graphical app engine with android compilation support.",
         "fr": "Moteur d'applications graphiques en C++ avec support pour compilation android.",
     },
     "made_by": "Nathan Cerisara",
     "made_with": "C++",
     "icon": "data/data_projects/icons/no_icon.svg",
     "state": 0,
-    "objectives": {
+    "roadmap": {
     }
 };
 
@@ -90,7 +95,7 @@ const project_nadot = {
     "made_with": "Godot Engine",
     "icon": "data/data_projects/icons/no_icon.svg",
     "state": 0,
-    "objectives": {
+    "roadmap": {
     }
 };
 
@@ -98,14 +103,14 @@ const project_nadot = {
 const project_napu = {
     "name": "NaPU",
     "description": {
-        "en": "Processing Units (CPU, GPU, NPU, ...) creator, optimiser and simulator",
-        "fr": "Créateur, Optimiseur et Simulateur d'Unités de Calculs (CPU, GPU, NPU, ...)",
+        "en": "Processing Units (CPU, GPU, NPU, ...) creator, optimiser and simulator.",
+        "fr": "Créateur, Optimiseur et Simulateur d'Unités de Calculs (CPU, GPU, NPU, ...).",
     },
     "made_by": "Nathan Cerisara",
     "made_with": "Python/HTML/JS/CSS",
     "icon": "data/data_projects/icons/no_icon.svg",
     "state": 0,
-    "objectives": {
+    "roadmap": {
     }
 };
 
@@ -120,7 +125,10 @@ const project_namath = {
     "made_with": "Python",
     "icon": "data/data_projects/icons/no_icon.svg",
     "state": 1,
-    "objectives": {
+    "roadmap": {
+    },
+    "links": {
+        "github": "https://github.com/nath54/calc_engine"
     }
 };
 
@@ -128,14 +136,14 @@ const project_namath = {
 const project_nai_gamemaster = {
     "name": "NAI GameMaster",
     "description": {
-        "en": "An AI roleplaying WebApp made with Neavity Libs",
+        "en": "An AI roleplaying WebApp made with Neavity Libs.",
         "fr": "Une WebApp pour du jeu de rôle par IA fait avec Neavity Libs.",
     },
     "made_by": "Nathan Cerisara",
     "made_with": "Python/HTML/JS/CSS",
     "icon": "data/data_projects/icons/no_icon.svg",
     "state": 0,
-    "objectives": {
+    "roadmap": {
     }
 };
 
@@ -150,7 +158,7 @@ const project_nusic = {
     "made_with": "?",
     "icon": "data/data_projects/icons/no_icon.svg",
     "state": 0,
-    "objectives": {
+    "roadmap": {
     }
 };
 
@@ -165,15 +173,12 @@ const project_dedale_llm = {
     "made_with": "Python/Pytorch",
     "icon": "data/data_projects/icons/no_icon.svg",
     "state": 0,
-    "objectives": {
+    "roadmap": {
+    },
+    "links": {
+        "github": "https://github.com/nath54/Dedale_LLM"
     }
 };
-
-
-
-
-
-
 
 
 
