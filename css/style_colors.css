@@ -24,6 +24,20 @@ Auteur: Nathan Cerisara
     background: linear-gradient(to bottom, var(--palette_cl_5) -5%, var(--palette_cl_3) 150%);
 }
 
+.background_gradient_3{
+    background-position: 0 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background: linear-gradient(to right, var(--palette_cl_5) -0%, var(--palette_cl_4) 450%);
+}
+
+.background_gradient_4{
+    background-position: 0 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background: linear-gradient(to right, var(--palette_cl_5) -0%, var(--palette_cl_4) 150%);
+}
+
 .cl_black{
     color: black;
 }
