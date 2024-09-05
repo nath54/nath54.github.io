@@ -52,4 +52,34 @@ Auteur: Nathan Cerisara
     color: var(--palette_cl_5);
 }
 
+.fill_black{
+    fill: black;
+}
+
+.fill_white{
+    fill: white;
+}
+
+.fill_plt_1{
+    fill: var(--palette_cl_1);
+}
+
+.fill_plt_2{
+    fill: var(--palette_cl_2);
+}
+
+.fill_plt_3{
+    fill: var(--palette_cl_3);
+}
+
+.fill_plt_4{
+    fill: var(--palette_cl_4);
+}
+
+.fill_plt_5{
+    fill: var(--palette_cl_5);
+}
+
+
+
 
