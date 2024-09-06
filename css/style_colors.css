@@ -66,6 +66,36 @@ Auteur: Nathan Cerisara
     color: var(--palette_cl_5);
 }
 
+
+
+.bg_black{
+    background-color: black;
+}
+
+.bg_white{
+    background-color: white;
+}
+
+.bg_plt_1{
+    background-color: var(--palette_cl_1);
+}
+
+.bg_plt_2{
+    background-color: var(--palette_cl_2);
+}
+
+.bg_plt_3{
+    background-color: var(--palette_cl_3);
+}
+
+.bg_plt_4{
+    background-color: var(--palette_cl_4);
+}
+
+.bg_plt_5{
+    background-color: var(--palette_cl_5);
+}
+
 .fill_black{
     fill: black;
 }
@@ -95,5 +125,67 @@ Auteur: Nathan Cerisara
 }
 
 
+
+/* Project status colors */
+
+.cl_status_0{
+    color: var(--cl_p_status_0);
+}
+
+.cl_status_1{
+    color: var(--cl_p_status_1);
+}
+
+.cl_status_2{
+    color: var(--cl_p_status_2);
+}
+
+.cl_status_3{
+    color: var(--cl_p_status_3);
+}
+
+.cl_status_4{
+    color: var(--cl_p_status_4);
+}
+
+.stroke_status_0{
+    stroke: var(--cl_p_status_0);
+}
+
+.stroke_status_1{
+    stroke: var(--cl_p_status_1);
+}
+
+.stroke_status_2{
+    stroke: var(--cl_p_status_2);
+}
+
+.stroke_status_3{
+    stroke: var(--cl_p_status_3);
+}
+
+.stroke_status_4{
+    stroke: var(--cl_p_status_4);
+}
+
+.fill_status_0{
+    fill: var(--cl_p_status_0);
+}
+
+.fill_status_1{
+    fill: var(--cl_p_status_1);
+}
+
+.fill_status_2{
+    fill: var(--cl_p_status_2);
+}
+
+.fill_status_3{
+    fill: var(--cl_p_status_3);
+}
+
+.fill_status_4{
+    fill: var(--cl_p_status_4);
+}
 
 

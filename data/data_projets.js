@@ -8,6 +8,33 @@ const data_states = {
     4: "done"
 };
 
+//
+const states_icon_svgs = {
+    0: `<svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <circle class="stroke_status_0" cx="100" cy="100" r="92" fill="none" stroke="black" stroke-width="8"></circle>
+  <line x1="42" y1="40" x2="162" y2="160" stroke="#0000007f" stroke-width="8"></line>
+  <line x1="42" y1="160" x2="162" y2="40" stroke="#0000007f" stroke-width="8"></line>
+  <line class="stroke_status_0" x1="40" y1="40" x2="160" y2="160" stroke="#000000" stroke-width="8"></line>
+  <line class="stroke_status_0" x1="40" y1="160" x2="160" y2="40" stroke="#000000" stroke-width="8"></line>
+</svg>`,
+    1: `<svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <circle class="stroke_status_1" cx="100" cy="100" r="92" fill="none" stroke="black" stroke-width="8"></circle>
+  <line class="stroke_status_1" x1="100" y1="20" x2="100" y2="180" stroke="#000000" stroke-width="8" />
+  <line class="stroke_status_1" x1="20" y1="100" x2="180" y2="100" stroke="#000000" stroke-width="8" />
+  <line class="stroke_status_1" x1="45" y1="45" x2="155" y2="155" stroke="#000000" stroke-width="8" />
+  <line class="stroke_status_1" x1="45" y1="155" x2="155" y2="45" stroke="#000000" stroke-width="8" />
+</svg>`,
+    2: `<svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <circle class="stroke_status_2" cx="100" cy="100" r="92" fill="none" stroke="black" stroke-width="8"></circle>
+  <path class="stroke_status_2" d="M 50 100 C 50 60 100 60 100 100 C 100 140 150 140 150 100 " fill="none" stroke="black" stroke-width="10"></path>
+</svg>`,
+    3: `<svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <circle class="stroke_status_3" cx="100" cy="100" r="92" fill="none" stroke="black" stroke-width="8"></circle>
+  <path class="stroke_status_3" d="M 50 100 C 50 60 100 60 100 100 C 100 140 150 140 150 100 " fill="none" stroke="black" stroke-width="10"></path>
+</svg>`,
+    4: ``
+}
+
 /*
 
 #!# Project Syntax #!#
@@ -172,7 +199,7 @@ const project_dedale_llm = {
     "made_by": "Nathan Cerisara",
     "made_with": "Python/Pytorch",
     "icon": "data/data_projects/icons/no_icon.svg",
-    "state": 0,
+    "state": 1,
     "roadmap": {
     },
     "links": {

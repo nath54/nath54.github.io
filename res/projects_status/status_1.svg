@@ -1,0 +1,7 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <circle class="stroke_status_1" cx="100" cy="100" r="92" fill="none" stroke="black" stroke-width="8"></circle>
+  <line class="stroke_status_1" x1="100" y1="20" x2="100" y2="180" stroke="#000000" stroke-width="8" />
+  <line class="stroke_status_1" x1="20" y1="100" x2="180" y2="100" stroke="#000000" stroke-width="8" />
+  <line class="stroke_status_1" x1="45" y1="45" x2="155" y2="155" stroke="#000000" stroke-width="8" />
+  <line class="stroke_status_1" x1="45" y1="155" x2="155" y2="45" stroke="#000000" stroke-width="8" />
+</svg>

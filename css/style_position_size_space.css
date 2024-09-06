@@ -160,6 +160,47 @@ Auteur: Nathan Cerisara
     font-size: var(--font_size_extra_small);
 }
 
+
+.size_gggl{
+    max-width: var(--size_gggl);
+    max-height: var(--size_gggl);
+}
+
+.size_ggl{
+    max-width: var(--size_ggl);
+    max-height: var(--size_ggl);
+}
+
+.size_giga_large{
+    max-width: var(--size_giga_large);
+    max-height: var(--size_giga_large);
+}
+
+.size_uuul{
+    max-width: var(--size_uuul);
+    max-height: var(--size_uuul);
+}
+
+.size_uul{
+    max-width: var(--size_uul);
+    max-height: var(--size_uul);
+}
+
+.size_ultra_large{
+    max-width: var(--size_ultra_large);
+    max-height: var(--size_ultra_large);
+}
+
+.size_xxxl{
+    max-width: var(--size_xxxl);
+    max-height: var(--size_xxxl);
+}
+
+.size_xxl{
+    max-width: var(--size_xxl);
+    max-height: var(--size_xxl);
+}
+
 .size_extra_large{
     max-width: var(--size_extra_large);
     max-height: var(--size_extra_large);
@@ -202,6 +243,280 @@ Auteur: Nathan Cerisara
 
 .size_extra_tiny{
     max-width: var(--size_extra_tiny);
+    max-height: var(--size_extra_tiny);
+}
+.min_width_gggl{
+    min-width: var(--size_gggl);
+}
+
+.min_width_ggl{
+    min-width: var(--size_ggl);
+}
+
+.min_width_giga_large{
+    min-width: var(--size_giga_large);
+}
+
+.min_width_uuul{
+    min-width: var(--size_uuul);
+}
+
+.min_width_uul{
+    min-width: var(--size_uul);
+}
+
+.min_width_large{
+    min-width: var(--size_ultra_large);
+}
+
+.min_width_xxxl{
+    min-width: var(--size_xxxl);
+}
+
+.min_width_xxl{
+    min-width: var(--size_xxl);
+}
+
+.min_width_extra_large{
+    min-width: var(--size_extra_large);
+}
+
+.min_width_large{
+    min-width: var(--size_large);
+}
+
+.min_width_larger{
+    min-width: var(--size_larger);
+}
+
+.min_width_normal{
+    min-width: var(--size_normal);
+}
+
+.min_width_smaller{
+    min-width: var(--size_smaller);
+}
+
+.min_width_small{
+    min-width: var(--size_small)
+}
+
+.min_width_extra_small{
+    min-width: var(--size_extra_small);
+}
+
+.min_width_tiny{
+    min-width: var(--size_tiny);
+}
+
+.min_width_extra_tiny{
+    min-width: var(--size_extra_tiny);
+}
+
+
+.min_height_gggl{
+    min-height: var(--size_gggl);
+}
+
+.min_height_ggl{
+    min-height: var(--size_ggl);
+}
+
+.min_height_giga_large{
+    min-height: var(--size_giga_large);
+}
+
+.min_height_uuul{
+    min-height: var(--size_uuul);
+}
+
+.min_height_uul{
+    min-height: var(--size_uul);
+}
+
+.min_height_ultra_large{
+    min-height: var(--size_ultra_large);
+}
+
+.min_height_xxxl{
+    min-height: var(--size_xxxl);
+}
+
+.min_height_xxl{
+    min-height: var(--size_xxl);
+}
+
+.min_height_extra_large{
+    min-height: var(--size_extra_large);
+}
+
+.min_height_large{
+    min-height: var(--size_large);
+}
+
+.min_height_larger{
+    min-height: var(--size_larger);
+}
+
+.min_height_normal{
+    min-height: var(--size_normal);
+}
+
+.min_height_smaller{
+    min-height: var(--size_smaller);
+}
+
+.min_height_small{
+    min-height: var(--size_small);
+}
+
+.min_height_extra_small{
+    min-height: var(--size_extra_small);
+}
+
+.min_height_tiny{
+    min-height: var(--size_tiny);
+}
+
+.min_height_extra_tiny{
+    min-height: var(--size_extra_tiny);
+}
+
+
+.max_width_gggl{
+    max-width: var(--size_gggl);
+}
+
+.max_wdith_ggl{
+    max-width: var(--size_ggl);
+}
+
+.max_width_giga_large{
+    max-width: var(--size_giga_large);
+}
+
+.max_width_uuul{
+    max-width: var(--size_uuul);
+}
+
+.max_width_uul{
+    max-width: var(--size_uul);
+}
+
+.max_width_ultra_large{
+    max-width: var(--size_ultra_large);
+}
+
+.max_width_xxxl{
+    max-width: var(--size_xxxl);
+}
+
+.max_width_xxl{
+    max-width: var(--size_xxl);
+}
+
+.max_width_extra_large{
+    max-width: var(--size_extra_large);
+}
+
+.max_width_large{
+    max-width: var(--size_large);
+}
+
+.max_width_larger{
+    max-width: var(--size_larger);
+}
+
+.max_width_normal{
+    max-width: var(--size_normal);
+}
+
+.max_width_smaller{
+    max-width: var(--size_smaller);
+}
+
+.max_width_small{
+    max-width: var(--size_small);
+}
+
+.max_width_extra_small{
+    max-width: var(--size_extra_small);
+}
+
+.max_width_tiny{
+    max-width: var(--size_tiny);
+}
+
+.max_width_extra_tiny{
+    max-width: var(--size_extra_tiny);
+}
+
+
+.max_height_gggl{
+    max-height: var(--size_gggl);
+}
+
+.max_height_ggl{
+    max-height: var(--size_ggl);
+}
+
+.max_height_giga_large{
+    max-height: var(--size_giga_large);
+}
+
+.max_height_uuul{
+    max-height: var(--size_uuul);
+}
+
+.max_height_uul{
+    max-height: var(--size_uul);
+}
+
+.max_height_ultra_large{
+    max-height: var(--size_ultra_large);
+}
+
+.max_height_xxxl{
+    max-height: var(--size_xxxl);
+}
+
+.max_height_xxl{
+    max-height: var(--size_xxl);
+}
+
+.max_height_extra_large{
+    max-height: var(--size_extra_large);
+}
+
+.max_height_large{
+    max-height: var(--size_large);
+}
+
+.max_height_larger{
+    max-height: var(--size_larger);
+}
+
+.max_height_normal{
+    max-height: var(--size_normal);
+}
+
+.max_height_smaller{
+    max-height: var(--size_smaller);
+}
+
+.max_height_small{
+    max-height: var(--size_small);
+}
+
+.max_height_extra_small{
+    max-height: var(--size_extra_small);
+}
+
+.max_height_tiny{
+    max-height: var(--size_tiny);
+}
+
+.max_height_extra_tiny{
     max-height: var(--size_extra_tiny);
 }
 

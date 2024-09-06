@@ -1,9 +1,16 @@
 /* Variables globales de style */
 :root{
-    /* Couleurs */
+    /* Couleurs de palette de base */
     --palette_cl_5: #303030;
     --palette_cl_4: #5f5f5f;
     --palette_cl_3: #7d7d7d;
     --palette_cl_2: #d7d7d7;
     --palette_cl_1: #e3e3e3;
+
+    /* Couleurs du statut des projets */
+    --cl_p_status_0: #7b7b7b;
+    --cl_p_status_1: #b7b7b7;
+    --cl_p_status_2: #848484;
+    --cl_p_status_3: #767676;
+    --cl_p_status_4: #717171;
 }

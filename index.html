@@ -31,11 +31,12 @@
         <script src="js/lib_pages.js" type="text/javascript"></script>
         <script src="js/localization.js" type="text/javascript"></script>
         <script src="data/data_citations.js" type="text/javascript"></script>
+        <script src="data/data_projets.js" type="text/javascript"></script>
         <!-- End of Head -->
     </head>
 
     <!-- Body -->
-    <body onload="translate_page(); setTheme(); setSize();" class="">
+    <body onload="translate_page(); setTheme(); setSize(); displayProjects();" class="">
     
         <!-- Background Layer -->
         <div class="background_gradient_1" style="position: absolute; left: -20px; right: -20px; top: -20px; bottom: -20px;">
@@ -286,10 +287,19 @@
             <!-- Page des projets -->
             <div id="page_projects" class="page col" style="display:none;">
                 
-                <p class="to_translate" data-translation_en="Page under construction." data-translation_fr="Page en cours de construction.">Page en cours de construction.</p>
-                <p class="to_translate" data-translation_en="Please wait a little..." data-translation_fr="Veuillez patienter un peu...">Veuillez patienter un peu...</p>
-                <!-- TODO -->
+                <div>
+                    <h2 class="to_translate" data-translation_en="Projects" data-translation_fr="Projets">Projets</h2>
+                </div>
 
+                <div>
+                    <p class="to_translate" data-translation_en="Here is a list of projects that I am currently doing or want to do." data-translation_fr="Voici une liste de projets que je suis en train de faire ou que j'ai envie de faire.">Voici une liste de projets que je suis en train de faire ou que j'ai envie de faire.</p>
+                </div>
+
+                <div id="projects_list" class="row flex_wrap m_small">
+
+                    
+
+                </div>
             </div>
 
             <!-- Page de flux média -->
@@ -309,5 +319,6 @@
     <script src="js/citations.js" type="text/javascript"></script>
     <script src="js/themes.js" type="text/javascript"></script>
     <script src="js/sizes.js" type="text/javascript"></script>
+    <script src="js/projects.js" type="text/javascript"></script>
 
 </html>
