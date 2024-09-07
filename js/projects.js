@@ -7,7 +7,7 @@ function addProject(project_dict){
 
     //
     var div_main = document.createElement("div");
-    div_main.classList.add("col", "m_small", "m_b_0", "p_tiny", "bg_plt_4", "br_small", "min_width_uuul", "max_width_uuul", "min_height_ultra_large", "max_height_ultra_large");
+    div_main.classList.add("col", "m_small", "m_b_0", "m_l_auto", "m_r_auto", "p_tiny", "bg_plt_4", "br_small", "min_width_uuul", "max_width_uuul", "min_height_ultra_large", "max_height_ultra_large");
 
     //
     var div_row_header = document.createElement("div");
