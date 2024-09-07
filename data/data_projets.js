@@ -1,11 +1,26 @@
 
 //
 const data_states = {
-    0: "not started",
-    1: "prototyped",
-    2: "in development",
-    3: "in development - beta version",
-    4: "done"
+    0: {
+        "en": "not started",
+        "fr": "non initié"
+    },
+    1: {
+        "en": "prototyped",
+        "fr": "prototype"
+    },
+    2: {
+        "en": "in development",
+        "fr": "en développement"
+    },
+    3: {
+        "en": "in development - beta version",
+        "fr": "en développement - version beta"
+    },
+    4: {
+        "en": "done",
+        "fr": "terminé"
+    }
 };
 
 //

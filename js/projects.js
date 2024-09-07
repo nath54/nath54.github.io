@@ -2,7 +2,7 @@
 
 
 
-
+//
 function addProject(project_dict){
 
     //
@@ -47,6 +47,11 @@ function addProject(project_dict){
     else{
         p_description.innerText = project_dict["description"]["fr"];
     }
+    // Add translation
+    for(lang of Object.keys(project_dict["description"])){
+        p_description.setAttribute("data-translation_"+lang, project_dict["description"][lang]);
+    }
+    p_description.classList.add("to_translate");
 
     //
     var div_status = document.createElement("div");
@@ -75,7 +80,17 @@ function addProject(project_dict){
         var status_text = document.createElement("span");
         status_text_div.appendChild(status_text);
         status_text.classList.add("font_smaller", "m_t_0", "m_b_auto", "cl_status_"+project_state);
-        status_text.innerText = data_states[project_state];
+        if(Object.keys(data_states[project_state]).includes(window.current_language)){
+            status_text.innerText = data_states[project_state][window.current_language];
+        }
+        else{
+            status_text.innerText = data_states[project_state]["en"];
+        }
+        // Add translation
+        for(lang of Object.keys(data_states[project_state])){
+            status_text.setAttribute("data-translation_"+lang, data_states[project_state][lang]);
+        }
+        status_text.classList.add("to_translate");
 
     }
 
