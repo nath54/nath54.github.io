@@ -389,6 +389,8 @@ Path: `./pages/about_me.html`
                     - System Fantasy / Isekai:
                         - Solo Leveling
                         - Re:Zero
+                        - The Beginning After the End
+                        - The Rising of the Shield Hero
 
                     - Contemplative Fantasy:
                         - Frieren
@@ -438,15 +440,22 @@ Path: `./pages/about_me.html`
             <medium_expandable_node>
                 <name>Reading Books</name>
                 <content>
-                    I like reading books. Here are some of my favorites:
+                    I like reading books.
 
-                    - Les Hauts-Conteurs - Olivier Peru and Patrick McSpare
-                    - The Witcher - Andrzej Sapkowski
-                    - Blood song - Anthony Ryan
-                    - La guilde des ombres - Anna Triss
-                    - L'assassin royal - Robin Hobb (The Farseer Trilogy)
-                    - Fondation - Isaac Asimov
-                    - Misery - Stephen King
+                    Here are some of my favorites:
+                        - Les Hauts-Conteurs - Olivier Peru and Patrick McSpare
+                        - Blood song - Anthony Ryan
+                        - The Witcher - Andrzej Sapkowski
+                        - Fondation - Isaac Asimov
+                        - Misery - Stephen King
+
+                    I am currently reading:
+                        - La guilde des ombres - Anna Triss
+                        - L'assassin royal - Robin Hobb (The Farseer Trilogy)
+
+                    My to-read pile is currently composed of:
+                        - La tour sombre - Stephen King (ep1 - le pistolero)
+                        - H2G2 - Douglas Adams
                 </content>
             </medium_expandable_node>
 
