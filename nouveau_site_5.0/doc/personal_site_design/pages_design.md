@@ -36,53 +36,35 @@ Path: `./index.html`
             <!-- Quick history section -->
             <section>
 
-                <small_expandable_node>
+                <!-- The data will be parsed from ./data/home/quick_history.md, that contains data under the format:
 
-                    <name>
-                        2023 - 2026 : Engineering school (Télécom Physique Strasbourg).
-                    </name>
+                    ## Title (EN)
 
-                    <content>
-                        In 2023, I started a 3-year engineering school (Télécom Physique Strasbourg). I am currently in the end of my last year, doing my 6-month internship in the IRIDIA lab of the Université Libre de Bruxelles.
-                    </content>
+                    Content (EN)
 
-                </small_expandable_node>
+                    ## Title (FR)
 
-                <small_expandable_node>
+                    Content (FR)
 
-                    <name>
-                        2021 - 2023 : Preparatory class (Lycée Louis-le-Grand, Paris).
-                    </name>
+                    ...
 
-                    <content>
-                        In 2021, I started a 2-year preparatory class (CPGE) in Paris (lycée Louis-le-Grand). I then passed the entrance exams for the French engineering schools (concours Mines-Télécom, Centrale-Supélec, X, ENS).
-                    </content>
+                    That data will be parsed and converted into the following format:
 
-                </small_expandable_node>
+                    <small_expandable_node>
+                        <name
+                            data-translation-en="Title in english"
+                            data-translation-fr="Title in french"
+                        >Title in english</name>
+                        <content
+                            data-translation-en="Content in english"
+                            data-translation-fr="Content in french"
+                        >Content in english</content>
+                    </small_expandable_node>
 
-                <small_expandable_node>
+                 -->
+                <!-- START OF AUTOMATICALLY GENERATED FROM ./data/home/quick_history.md -->
 
-                    <name>
-                        2015 - 2021 : Second part of my childhood and high school.
-                    </name>
-
-                    <content>
-                        In 2015, we moved into Heillecourt, a city in the suburbs of Nancy. I went to the middle school there (collège Montaigu), and then to the high school in Nancy (lycée Henri Poincaré). I graduated in 2021 with a scientific baccalauréat (Maths, Computer Science and Physics options).
-                    </content>
-
-                </small_expandable_node>
-
-                <small_expandable_node>
-
-                    <name>
-                        2003 - 2015 : First part of my childhood.
-                    </name>
-
-                    <content>
-                        I was born in Nancy, France. I lived in Sivry, a small village of 200 inhabitants, in the countryside, 20 km in the north of Nancy.
-                    </content>
-
-                </small_expandable_node>
+                <!-- END OF AUTOMATICALLY GENERATED FROM ./data/home/quick_history.md -->
 
             </section>
 
@@ -217,12 +199,22 @@ Automatically generated from `./data/about_me/`.
 
 
             For each file in ./data/about_me/ (sorted by name):
-            <large_expandable_node title="Title">
+            <large_expandable_node>
+                <name
+                    data-translation-en="Title in english"
+                    data-translation-fr="Title in french"
+                >Title in english</name>
 
                 For each `##` title in the file:
-                <medium_expandable_node title="Sub-title">
-                    <name>Sub-title</name>
-                    <content>Markdown Parsed Content</content>
+                <medium_expandable_node>
+                    <name
+                        data-translation-en="Sub-title in english"
+                        data-translation-fr="Sub-title in french"
+                    >Sub-title in english</name>
+                    <content
+                        data-translation-en="Content in english"
+                        data-translation-fr="Content in french"
+                    >Content in english</content>
                 </medium_expandable_node>
 
             </large_expandable_node>
@@ -240,7 +232,7 @@ Automatically generated from `./data/about_me/`.
 
 Path: `./pages/projects.html`
 
-Project description:
+Project description data:
 
 ```yaml
 name_en: "Project name"
@@ -289,6 +281,12 @@ Automatically generated from `./data/projects/`.
 
 Path: `./pages/museum.html`
 
+Media entry data:
+
+```yaml
+# TODO
+```
+
 ```xml
 <main_container>
     <single_column>
@@ -296,6 +294,7 @@ Path: `./pages/museum.html`
         <title_text>The Museum (Media Gallery)</title_text>
 
         <!-- TODO -->
+
     </single_column>
 </main_container>
 ```
@@ -303,6 +302,12 @@ Path: `./pages/museum.html`
 ## Page - Blog
 
 Path: `./pages/blog.html`
+
+Blog entry data:
+
+```yaml
+# TODO
+```
 
 ```xml
 <main_container>
