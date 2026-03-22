@@ -472,6 +472,19 @@ Path: `./pages/about_me.html`
                         - The walking dead
                         - Doctor Who
                         - Kaamelott
+                        - Squid Game
+                        - Hot Shot (籃球火) (2008)
+
+                    C-dramas:
+                        - Always Home
+                        - When I fly towards you
+                        - Our generation
+                        - Summit of Youth
+
+                    K-dramas:
+                        - Doctors
+                        - Resident Playbook
+                        - I am not a robot
 
                     Movies:
                         - Matrix
