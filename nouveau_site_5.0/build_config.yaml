@@ -1,0 +1,73 @@
+# Build configuration for the personal website
+# =============================================
+
+# Project paths
+source_dir: "."
+build_dir: "generated_website"
+templates_dir: "pyxml_sources"
+css_dir: "css"
+js_dir: "generated_website/js"
+data_dir: "data"
+res_dir: "res"
+
+# Site metadata
+default_lang: "en"
+site_title: "Nathan's Website"
+base_url: "https://nath54.github.io"
+languages:
+    - "en"
+    - "fr"
+
+# CSS files to include in every page (relative to build_dir)
+css_paths:
+    - "css/main.css"
+
+# JS files to include in every page (relative to build_dir)
+js_paths:
+    - "js/lib/lib_translation.js"
+
+# Static pages: template → output mapping
+# If empty, pages are auto-discovered from pyxml_sources/pages/
+static_pages: []
+#   - template: "pages/index.pyxml"
+#     output: "index.html"
+#   - template: "pages/contact_me.pyxml"
+#     output: "pages/contact_me.html"
+#   - template: "pages/about_me.pyxml"
+#     output: "pages/about_me.html"
+#   - template: "pages/projects.pyxml"
+#     output: "pages/projects.html"
+#   - template: "pages/museum.pyxml"
+#     output: "pages/museum.html"
+#   - template: "pages/blog.pyxml"
+#     output: "pages/blog.html"
+#   - template: "pages/404.pyxml"
+#     output: "404.html"
+
+# Dynamic pages: data-driven page generation
+dynamic_pages: []
+# Example:
+#   - parser: "yaml_directory"
+#     source: "data/projects"
+#     template: "pages/project_detail.pyxml"
+#     output_pattern: "pages/projects/{id}.html"
+#
+#   - parser: "yaml_directory"
+#     source: "data/media/entries"
+#     type_field: "media_type"
+#     type_templates:
+#       music: "pages/museum_entry_music.pyxml"
+#       poem: "pages/museum_entry_text.pyxml"
+#       drawing: "pages/museum_entry_image.pyxml"
+#     template: "pages/museum_entry_text.pyxml"  # fallback
+#     output_pattern: "pages/museum/entry_{id}.html"
+#
+#   - parser: "yaml_directory"
+#     source: "data/blogs/entries"
+#     template: "pages/blog_entry.pyxml"
+#     output_pattern: "pages/blog/entry_{id}.html"
+
+# Production options
+minify_css: false
+minify_js: false
+minify_html: false
