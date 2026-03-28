@@ -14,6 +14,13 @@ from typing import Any
 
 from pyxml_compiler.utils import read_file
 
+try:
+    import markdown  # type: ignore
+except ImportError as e:
+    raise ImportError(
+        "The 'markdown' package is required. Install it with: pip install markdown"
+    ) from e
+
 
 class MarkdownBilingualParser:
     """Parser for bilingual markdown files.
@@ -91,11 +98,13 @@ class MarkdownBilingualParser:
                 "sub_title_fr": (
                     sections_fr[i]["title"] if i < len(sections_fr) else ""
                 ),
-                "content_en": (
-                    sections_en[i]["content"].strip() if i < len(sections_en) else ""
+                "content_en": markdown.markdown(
+                    sections_en[i]["content"].strip() if i < len(sections_en) else "",
+                    extensions=["fenced_code", "tables", "toc"],
                 ),
-                "content_fr": (
-                    sections_fr[i]["content"].strip() if i < len(sections_fr) else ""
+                "content_fr": markdown.markdown(
+                    sections_fr[i]["content"].strip() if i < len(sections_fr) else "",
+                    extensions=["fenced_code", "tables", "toc"],
                 ),
             }
             sections.append(section)

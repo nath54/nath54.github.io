@@ -13,6 +13,7 @@ from __future__ import annotations
 from typing import Any
 from pathlib import Path
 
+import os
 import sys
 import time
 import shutil
@@ -25,6 +26,9 @@ from pyxml_compiler.compiler import compile_page
 from pyxml_compiler.context import CompilationContext
 from pyxml_compiler.utils import read_file, write_file
 from pyxml_compiler.parsers import PARSERS
+
+
+error_page_path: str = "generated_website/404.html"
 
 
 def load_config(config_path: str = "build_config.yaml") -> dict[str, Any]:
@@ -295,6 +299,13 @@ def generate_dynamic_pages(
 
             template_path: Path = templates_dir / template_file
             if not template_path.exists():
+                # Try in components/
+                template_path = templates_dir / "components" / template_file
+            if not template_path.exists() and not template_file.endswith(".xml"):
+                # Try adding .xml
+                template_path = templates_dir / "components" / f"{template_file}.xml"
+
+            if not template_path.exists():
                 print(
                     f"      ⚠️  Template not found: {template_path}, skipping entry {entry_id}"
                 )
@@ -414,9 +425,25 @@ def serve_locally(config: dict[str, Any], port: int = 8000) -> None:
     class Handler(http.server.SimpleHTTPRequestHandler):
         """HTTP handler serving files from the build directory."""
 
-        def __init__(self, *args: Any, **kwargs: Any) -> None:
-            """Initialize with the build directory."""
-            super().__init__(*args, directory=build_dir, **kwargs)
+        def do_GET(self) -> None:
+            """Handle GET requests with custom 404 support."""
+            # Use translate_path to get the actual local file path
+            path: str = self.translate_path(self.path)
+
+            # If the file doesn't exist AND it's not a directory that might have index.html
+            if not os.path.exists(path) and not os.path.isdir(path):
+                # Try to serve the custom 404 page
+                error_page: Path = Path(build_dir) / "404.html"
+                if error_page.exists():
+                    self.send_response(404)
+                    self.send_header("Content-type", "text/html")
+                    self.end_headers()
+                    with open(error_page, "rb") as f:
+                        self.wfile.write(f.read())
+                    return
+
+            # Default behavior
+            return super().do_GET()
 
     with socketserver.TCPServer(("", port), Handler) as httpd:
         print(f"🌐 Serving at http://localhost:{port}/")
@@ -471,6 +498,10 @@ def main() -> None:
 
     # Initial build
     build_site(config)
+
+    print(f"Error page path: {error_page_path}")
+    print(f"Error page exists: {os.path.exists(error_page_path)}")
+    print(f"Current working directory: {os.getcwd()}")
 
     # Watch and/or Serve
     if args.watch and args.serve:

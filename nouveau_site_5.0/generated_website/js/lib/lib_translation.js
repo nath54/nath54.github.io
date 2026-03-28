@@ -41,6 +41,11 @@ function url_language() {
     }
 }
 
+// Translate the page on load
+document.addEventListener('DOMContentLoaded', () => {
+    translate_page();
+});
+
 // That function switches the current language to the next one in the list (e.g. "fr" -> "en" -> "fr" -> ...)
 // and updates the local storage and the page
 function switch_language() {
@@ -77,10 +82,12 @@ function translate_page() {
     // For each element, translate it to the current language
     for (element of elt_list) {
         if (window.current_language == "en" && element.dataset.translation_en != undefined) {
-            element.innerText = element.dataset.translation_en;
+            // element.innerText = element.dataset.translation_en;
+            element.innerHTML = element.dataset.translation_en;
         }
         else if (window.current_language == "fr" && element.dataset.translation_fr != undefined) {
-            element.innerText = element.dataset.translation_fr;
+            // element.innerText = element.dataset.translation_fr;
+            element.innerHTML = element.dataset.translation_fr;
         }
     }
 
