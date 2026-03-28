@@ -1,0 +1,96 @@
+<main_container>
+
+    <layout_columns_2_1_mobile>
+
+        <!-- Left Index Column (header, presentation and quick history) -->
+        <left_column>
+
+            <!-- Header section -->
+            <row_head>
+
+                <logo src="res/logo.svg" />
+
+                <title_text>
+                    Nathan's website
+                </title_text>
+
+            </row_head>
+
+            <!-- Presentation section -->
+            <section>
+
+                <text
+                    data-translation-en="Hi! I'm Nathan, a computer science passionate exploring software architecture, web development, and digital arts."
+                    data-translation-fr="Bonjour ! Je suis Nathan, un passionné d'informatique explorant l'architecture logicielle, le développement web et les arts numériques."
+                >
+                    Hi! I'm Nathan, a computer science passionate exploring software architecture, web development, and digital arts.
+                </text>
+
+            </section>
+
+            <!-- Quick history section -->
+            <section>
+                <exec_generate
+                    parser="markdown_alternating"
+                    source="data/home/quick_history.md"
+                    template="history_item"
+                />
+            </section>
+
+        </left_column>
+
+        <!-- Right Index Column (links to other pages) -->
+        <right_column>
+
+            <!-- Professional links -->
+            <section>
+
+                <title>
+                    Professional links
+                </title>
+
+                <link_file icon="file" name="CV / resume (english)" url="res/cv_en.pdf" />
+                <link_file icon="file" name="CV / resume (french)" url="res/cv_fr.pdf" />
+
+                <link_url icon="github" name="Github" url="https://github.com/nath54" />
+                <link_url icon="linkedin" name="Linkedin" url="https://www.linkedin.com/in/nathan-cerisara-8669331ba/" />
+
+                <link_page icon="msg_bubble" name="Contact me" url="pages/contact_me.html" />
+
+            </section>
+
+            <!-- For my friends and family and those who want to know me -->
+            <section>
+
+                <title>
+                    For my friends and family and those who want to know me
+                </title>
+
+                <link_page icon="person" name="About me" url="pages/about_me.html" />
+                <link_page icon="projects" name="Projects" url="pages/projects.html" />
+                <link_page icon="museum" name="Museum" url="pages/museum.html" />
+                <link_page icon="blog" name="Blog" url="pages/blog.html" />
+
+            </section>
+
+            <!-- Random citation -->
+            <section>
+
+                <title>
+                    Random citation
+                </title>
+
+                <exec_generate
+                    parser="json_manifest"
+                    source="data/citations/manifest.json"
+                    template="citation_item"
+                    mode="random_one"
+                />
+
+            </section>
+
+        </right_column>
+
+    </layout_columns_2_1_mobile>
+
+</main_container>

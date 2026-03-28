@@ -37,11 +37,16 @@ class JsonManifestParser:
         data: Any = json.loads(content)
         base_dir: Path = source_path.parent
 
-        # If it's a manifest with a 'files' key
-        if isinstance(data, dict) and "files" in data:
-            all_entries: list[dict[str, Any]] = []
-            file_list: list[str] = data["files"]
+        all_entries: list[dict[str, Any]] = []
 
+        # Determine the file list to load
+        file_list: list[str] = []
+        if isinstance(data, dict) and "files" in data:
+            file_list = data["files"]
+        elif isinstance(data, list) and all(isinstance(x, str) for x in data):
+            file_list = data
+
+        if file_list:
             for ref_file in file_list:
                 file_path: Path = base_dir / ref_file
                 if not file_path.exists():
@@ -57,11 +62,11 @@ class JsonManifestParser:
 
             return all_entries
 
-        # If it's directly an array
+        # If it's directly an array of objects (the data itself)
         if isinstance(data, list):
             return data
 
-        # If it's a single object
+        # If it's a single object (the data itself)
         if isinstance(data, dict):
             return [data]
 

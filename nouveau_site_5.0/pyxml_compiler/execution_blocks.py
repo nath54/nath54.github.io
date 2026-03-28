@@ -128,11 +128,16 @@ def handle_exec_generate(node: PyxmlNode, context: CompilationContext) -> str:
     # 6. Compile each entry through the template
     template_name: str = node.attributes.get("template", "")
     template_path: Path = (
-        context.templates_dir / "components" / f"{template_name}.pyxml"
+        context.templates_dir / "components" / f"{template_name}.xml"
     )
+    if not template_path.exists():
+        # Fallback to .pyxml for backward compatibility
+        template_path = (
+            context.templates_dir / "components" / f"{template_name}.pyxml"
+        )
 
     if not template_path.exists():
-        raise CompilationError(f"Template not found: {template_path}")
+        raise CompilationError(f"Template not found: {template_name}")
 
     template_content: str = read_file(template_path)
 
@@ -270,7 +275,14 @@ def handle_exec_include(node: PyxmlNode, context: CompilationContext) -> str:
     template_path: Path = context.templates_dir / template_path_str
 
     if not template_path.exists():
-        raise CompilationError(f"Include template not found: {template_path}")
+        # Try .xml extension if not provided and file not found
+        if not template_path.suffix:
+            template_path = template_path.with_suffix(".xml")
+            if not template_path.exists():
+                template_path = template_path.with_suffix(".pyxml")
+
+    if not template_path.exists():
+        raise CompilationError(f"Include template not found: {template_path_str}")
 
     template_content: str = read_file(template_path)
 

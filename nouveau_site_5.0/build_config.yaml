@@ -28,20 +28,22 @@ js_paths:
 
 # Static pages: template → output mapping
 # If empty, pages are auto-discovered from pyxml_sources/pages/
-static_pages: []
-#   - template: "pages/index.pyxml"
+static_pages:
+  - template: "pages/index.xml"
+    output: "index.html"
+#   - template: "pages/index.xml"
 #     output: "index.html"
-#   - template: "pages/contact_me.pyxml"
+#   - template: "pages/contact_me.xml"
 #     output: "pages/contact_me.html"
-#   - template: "pages/about_me.pyxml"
+#   - template: "pages/about_me.xml"
 #     output: "pages/about_me.html"
-#   - template: "pages/projects.pyxml"
+#   - template: "pages/projects.xml"
 #     output: "pages/projects.html"
-#   - template: "pages/museum.pyxml"
+#   - template: "pages/museum.xml"
 #     output: "pages/museum.html"
-#   - template: "pages/blog.pyxml"
+#   - template: "pages/blog.xml"
 #     output: "pages/blog.html"
-#   - template: "pages/404.pyxml"
+#   - template: "pages/404.xml"
 #     output: "404.html"
 
 # Dynamic pages: data-driven page generation
@@ -49,22 +51,22 @@ dynamic_pages: []
 # Example:
 #   - parser: "yaml_directory"
 #     source: "data/projects"
-#     template: "pages/project_detail.pyxml"
+#     template: "pages/project_detail.xml"
 #     output_pattern: "pages/projects/{id}.html"
 #
 #   - parser: "yaml_directory"
 #     source: "data/media/entries"
 #     type_field: "media_type"
 #     type_templates:
-#       music: "pages/museum_entry_music.pyxml"
-#       poem: "pages/museum_entry_text.pyxml"
-#       drawing: "pages/museum_entry_image.pyxml"
-#     template: "pages/museum_entry_text.pyxml"  # fallback
+#       music: "pages/museum_entry_music.xml"
+#       poem: "pages/museum_entry_text.xml"
+#       drawing: "pages/museum_entry_image.xml"
+#     template: "pages/museum_entry_text.xml"  # fallback
 #     output_pattern: "pages/museum/entry_{id}.html"
 #
 #   - parser: "yaml_directory"
 #     source: "data/blogs/entries"
-#     template: "pages/blog_entry.pyxml"
+#     template: "pages/blog_entry.xml"
 #     output_pattern: "pages/blog/entry_{id}.html"
 
 # Production options

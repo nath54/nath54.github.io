@@ -1,0 +1,10 @@
+<small_expandable_node>
+    <name
+        data-translation-en="{sub_title_en}"
+        data-translation-fr="{sub_title_fr}"
+    >{sub_title_en}</name>
+    <content
+        data-translation-en="{content_en}"
+        data-translation-fr="{content_fr}"
+    >{content_en}</content>
+</small_expandable_node>

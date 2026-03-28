@@ -1,0 +1,12 @@
+<citation>
+    <text
+        data-translation-en="{citation_en}"
+        data-translation-fr="{citation_fr}"
+    >{citation_en}</text>
+    <row>
+        <author>{author}</author>
+        <text> - </text>
+        <date>{date}</date>
+    </row>
+    <source>{source}</source>
+</citation>

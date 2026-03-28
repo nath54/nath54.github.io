@@ -29,6 +29,7 @@ PYXML_TO_HTML: dict[str, tuple[str, str]] = {
     "main_container": ("div", "main-container"),
     "single_column": ("div", "layout-single-column"),
     "2_columns_container_1_on_mobile": ("div", "layout-two-columns"),
+    "layout_columns_2_1_mobile": ("div", "layout-two-columns"),
     "left_column": ("div", "layout-col layout-col-left"),
     "right_column": ("div", "layout-col layout-col-right"),
     "fullscreen_column": ("div", "layout-fullscreen"),

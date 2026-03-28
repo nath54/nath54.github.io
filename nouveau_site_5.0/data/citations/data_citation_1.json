@@ -1,1 +1,16 @@
-[]
+[
+    {
+        "citation_en": "The only way to do great work is to love what you do.",
+        "citation_fr": "Le seul moyen de faire du bon travail est d'aimer ce que vous faites.",
+        "author": "Steve Jobs",
+        "date": "2005",
+        "source": "Stanford Commencement Address"
+    },
+    {
+        "citation_en": "Innovation distinguishes between a leader and a follower.",
+        "citation_fr": "L'innovation distingue un leader d'un suiveur.",
+        "author": "Steve Jobs",
+        "date": "2001",
+        "source": "Apple Internal Meeting"
+    }
+]

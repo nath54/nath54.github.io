@@ -1,3 +1,6 @@
 .*
 ancienne_*/**/*.json
 res/tiles/*
+
+__pycache__
+*.pyc
