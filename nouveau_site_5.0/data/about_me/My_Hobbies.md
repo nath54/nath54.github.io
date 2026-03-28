@@ -38,7 +38,7 @@ Example of board games I like:
   Strictly 1v1 formats featuring hidden movement, tactical positioning, or collectible deck building.
   - Examples: Tag Team, Zenith, Stratego, Magic: The Gathering.
 
-## Board games and Game of Roles (FR)
+## Jeux de société et jeux de rôles (FR)
 
 J'aime jouer à des jeux de société et des jeux de rôles avec mes amis et ma famille.
 
@@ -107,7 +107,7 @@ J'aime jouer et regarder certains sports, en particulier :
 I started programming when I was very young, and started with Python and basic web development (HTML, CSS, JS).
 I started trying to programming my own video-games, and created random websites, until I did more serious projects during my studies.
 
-## Computer Science and Development (FR)
+## Informatique et développement (FR)
 
 J'ai commencé à programmer quand j'étais très jeune, et j'ai commencé avec Python et le développement web de base (HTML, CSS, JS).
 J'ai commencé à essayer de programmer mes propres jeux vidéo, et j'ai créé des sites web aléatoires, jusqu'à ce que je fasse des projets plus sérieux pendant mes études.
@@ -118,7 +118,7 @@ I like creating and making art. I like drawing, and I like making music (writing
 I also like writing stories, poems, and novels.
 I also like making 3d renderings, pixel/voxel art, and other forms of digital art.
 
-## Creation and Art (FR)
+## Créativité et art (FR)
 
 J'aime créer et faire de l'art. J'aime dessiner, et j'aime faire de la musique (écrire des paroles ou composer de la musique).
 J'aime aussi écrire des histoires, des poèmes et des romans.
@@ -226,7 +226,7 @@ J'aime aussi faire des rendus 3D, du pixel/voxel art, et d'autres formes d'art n
   - Key Artists: DPR IAN, Halsey, Neoni, ...
   - Example Tracks: DPR IAN - Don't Go Insane, Neoni - Machine, ...
 
-## Listening Music (FR)
+## Écoute musicale (FR)
 
 - **Metalcore / Post-Hardcore moderne**
     Des morceaux produits avec soin, caractérisés par un contraste entre des riffs lourds et rythmés et des couches de voix claires et mélodiques.
@@ -476,7 +476,7 @@ My to-read pile is currently composed of:
 - The Dark Tower - Stephen King (ep1 - The Gunslinger)
 - The Hitchhiker's Guide to the Galaxy - Douglas Adams
 
-## Reading Books (FR)
+## Lecture de livres (FR)
 
 J'aime lire des livres.
 
@@ -539,7 +539,7 @@ I like watching series and movies. Here are some of my favorites:
   - Your Name
   - La traversée du temps
 
-## Watching Series / Movies (FR)
+## Séries et films que j'ai aimés (FR)
 
 J'aime regarder des séries et des films. Voici quelques-uns de mes préférés:
 
