@@ -4,3 +4,6 @@ res/tiles/*
 
 __pycache__
 *.pyc
+
+.venv
+
