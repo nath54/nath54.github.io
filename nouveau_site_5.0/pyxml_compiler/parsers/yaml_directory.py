@@ -9,7 +9,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-import yaml
+import yaml  # type: ignore
 
 from pyxml_compiler.utils import read_file
 
@@ -40,8 +40,7 @@ class YamlDirectoryParser:
             yaml_files: list[Path] = [source_path]
         else:
             yaml_files = sorted(
-                list(source_path.glob("*.yaml"))
-                + list(source_path.glob("*.yml"))
+                list(source_path.glob("*.yaml")) + list(source_path.glob("*.yml"))
             )
 
         for yaml_file in yaml_files:

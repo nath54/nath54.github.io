@@ -1,0 +1,20 @@
+<main_container>
+    <single_column>
+        <title_text>Blog</title_text>
+        <text
+            data-translation-en="Where I drop my thoughts in a not very organized way."
+            data-translation-fr="Où je dépose mes pensées de manière pas très organisée."
+        >Where I drop my thoughts in a not very organized way.</text>
+
+        <blog_pages_container>
+            <exec_generate
+                parser="yaml_directory"
+                source="data/blogs"
+                template="blog_post_row"
+                sort_by="date"
+                sort_order="desc"
+                paginate="25"
+            />
+        </blog_pages_container>
+    </single_column>
+</main_container>

@@ -61,7 +61,7 @@ def build_site(config: dict[str, Any]) -> None:
     js_gen_dir: Path = build_dir / "js" / "generated"
     # res_dir: Path = source_dir / config.get("res_dir", "res")
 
-    print(f"🔨 Building site from {source_dir}...")
+    print(f"Building site from {source_dir}...")
     print(f"   Templates: {templates_dir}")
     print(f"   Output:    {build_dir}")
 
@@ -98,7 +98,7 @@ def build_site(config: dict[str, Any]) -> None:
         context, config, templates_dir, build_dir, css_paths, js_paths
     )
 
-    print(f"✅ Build complete! Output in {build_dir}/")
+    print(f"Build complete! Output in {build_dir}/")
 
 
 def clean_generated(build_dir: Path, js_lib_dir: Path) -> None:  # pylint: disable=unused-argument
@@ -145,7 +145,7 @@ def copy_static_assets(
         if css_dst.exists():
             shutil.rmtree(css_dst)
         shutil.copytree(css_src, css_dst)
-        print(f"   📁 Copied CSS: {css_src} → {css_dst}")
+        print(f"   Copied CSS: {css_src} -> {css_dst}")
 
     # Copy resources if source directory exists
     res_src: Path = source_dir / config.get("res_dir", "res")
@@ -154,7 +154,7 @@ def copy_static_assets(
         if res_dst.exists():
             shutil.rmtree(res_dst)
         shutil.copytree(res_src, res_dst)
-        print(f"   📁 Copied resources: {res_src} → {res_dst}")
+        print(f"   Copied resources: {res_src} -> {res_dst}")
 
 
 def compile_static_pages(
@@ -189,11 +189,11 @@ def compile_static_pages(
 
         template_path: Path = templates_dir / template
         if not template_path.exists():
-            print(f"   ⚠️  Template not found, skipping: {template_path}")
+            print(f"   Template not found, skipping: {template_path}")
             continue
 
         output_path: Path = build_dir / output
-        print(f"   📄 Compiling {template} → {output}")
+        print(f"   Compiling {template} -> {output}")
 
         page_context: CompilationContext = context.for_page(output)
         html: str = compile_page(

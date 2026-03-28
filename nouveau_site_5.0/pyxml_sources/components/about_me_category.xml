@@ -1,0 +1,19 @@
+<large_expandable_node>
+    <name
+        data-translation-en="{title_en}"
+        data-translation-fr="{title_fr}"
+    >{title_en}</name>
+
+    <exec_foreach var="section" in="{sections}">
+        <medium_expandable_node>
+            <name
+                data-translation-en="{section[sub_title_en]}"
+                data-translation-fr="{section[sub_title_fr]}"
+            >{section[sub_title_en]}</name>
+            <content
+                data-translation-en="{section[content_en]}"
+                data-translation-fr="{section[content_fr]}"
+            >{section[content_en]}</content>
+        </medium_expandable_node>
+    </exec_foreach>
+</large_expandable_node>

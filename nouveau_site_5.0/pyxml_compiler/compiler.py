@@ -38,6 +38,7 @@ HTML_SKELETON: str = """<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {meta_tags}
     <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="{favicon_path}">
     {css_links}
 </head>
 <body data-theme="light">
@@ -69,7 +70,7 @@ def compile_node(
         The compiled HTML string.
     """
     if isinstance(node, TextNode):
-        return escape_html(node.text)
+        return escape_html(str(context.resolve(node.text)))
 
     if isinstance(node, CommentNode):
         return f"<!-- {escape_html(node.text)} -->"
@@ -142,10 +143,30 @@ def compile_construction_node(
         html_tag = "div"
         css_classes = tag.replace("_", "-")
 
+    # Calculate relative depth (e.g., 'pages/about.html' -> '../')
+    depth: int = len(Path(context.output_path).parents) - 1
+    rel_prefix: str = "../" * depth if depth > 0 else ""
+
+    # Resolve placeholders and adjust paths
+    resolved_attributes: dict[str, str] = {}
+
+    # Add default src for logo if missing
+    if tag == "logo" and "src" not in node.attributes:
+        node.attributes["src"] = "res/logo.svg"
+    # Add default src for icon if missing and it's a specific type?
+
+    for k, v in node.attributes.items():
+        resolved_v = str(context.resolve(v))
+        # Logic to adjust relative paths for sub-folder pages:
+        # If it's a relative path to res/, css/, or js/ and it doesn't look like an absolute URL...
+        if k in ("src", "href", "url") and not (
+            resolved_v.startswith(("http", "https", "mailto:", "/"))
+        ):
+            resolved_v = f"{rel_prefix}{resolved_v}"
+        resolved_attributes[k] = resolved_v
+
     # Map PyXML attributes to HTML attributes
-    html_attrs: dict[str, str]
-    extra_classes: list[str]
-    html_attrs, extra_classes = map_pyxml_attributes(tag, node.attributes)
+    html_attrs, extra_classes = map_pyxml_attributes(tag, resolved_attributes)
 
     # Self-closing tags
     is_self_closing: bool = tag in SELF_CLOSING_TAGS and not node.children
@@ -263,20 +284,25 @@ def compile_page(
     # Compile the body
     body_html: str = compile_node(root, context)
 
+    # Calculate relative depth (e.g., 'pages/about.html' -> '../')
+    depth: int = len(Path(context.output_path).parents) - 1
+    rel_prefix: str = "../" * depth if depth > 0 else ""
+
     # Build CSS links
     if css_paths is None:
         css_paths = ["css/main.css"]
     css_links: str = "\n    ".join(
-        f'<link rel="stylesheet" href="{path}">' for path in css_paths
+        f'<link rel="stylesheet" href="{rel_prefix}{path}">' for path in css_paths
     )
 
     # Build JS script tags
     if js_paths is None:
         js_paths = [
             "js/lib/lib_translation.js",
+            "js/lib/particles.js",
         ]
     js_scripts: str = "\n    ".join(
-        f'<script src="{path}"></script>' for path in js_paths
+        f'<script src="{rel_prefix}{path}"></script>' for path in js_paths
     )
 
     # Assemble the full page
@@ -284,6 +310,7 @@ def compile_page(
         lang=context.default_lang,
         title=context.page_title or context.site_title,
         meta_tags=meta_tags_str,
+        favicon_path=f"{rel_prefix}res/logo.svg",
         css_links=css_links,
         body=body_html,
         js_scripts=js_scripts,

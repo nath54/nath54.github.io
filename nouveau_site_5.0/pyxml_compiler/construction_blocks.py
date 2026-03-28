@@ -118,6 +118,8 @@ PYXML_TO_HTML: dict[str, tuple[str, str]] = {
     "date_text": ("time", "date-text"),
     "short_description": ("p", "short-description"),
     "long_description": ("div", "long-description"),
+    "thumbnail_img": ("img", "thumbnail-img"),
+    "img": ("img", ""),
 }
 
 # Self-closing tags that produce elements with no children (void HTML elements)
@@ -133,6 +135,8 @@ SELF_CLOSING_TAGS: set[str] = {
     "image_full",
     "model_viewer",
     "interactive_canvas",
+    "thumbnail_img",
+    "img",
 }
 
 # Attributes that are internal to PyXML and should not be passed to HTML
@@ -211,6 +215,7 @@ def map_pyxml_attributes(
             html_attrs[f"data-{key}"] = value
         else:
             html_attrs[f"data-{key}"] = value
+
 
     # Add translation-related CSS classes
     if has_translation:

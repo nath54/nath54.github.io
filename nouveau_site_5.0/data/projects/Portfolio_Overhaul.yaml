@@ -1,0 +1,46 @@
+name_en: "Portfolio Website Overhaul"
+name_fr: "Refonte du site Portfolio"
+short_description_en: "A premium glassmorphism overhaul of my personal brand."
+short_description_fr: "Une refonte premium en glassmorphism de ma marque personnelle."
+project_status: "Completed"
+project_type: "Web Development"
+project_showcase_importance: 50
+icon: "res/logo.svg"
+link: "https://github.com/nath54/nath54.github.io"
+tags: ["Python", "JavaScript", "PyXML", "CSS"]
+gallery: ["res/logo.svg"]
+TODOLIST:
+  - name: "Design System"
+    checked: "true"
+  - name: "PyXML Compiler"
+    checked: "true"
+  - name: "Dynamic Generation"
+    checked: "true"
+description_en: "A complete transformation of my personal website using a custom PyXML compiler and glassmorphism design."
+description_fr: "Une transformation complète de mon site personnel utilisant un compilateur PyXML personnalisé et un design glassmorphism."
+content_en: |
+    ### The Challenge
+    The previous prototype was functional but lacked the premium feel of a modern personal brand.
+    
+    ### The Solution
+    - **PyXML Compiler**: Built a custom static site generator.
+    - **Glassmorphism**: Created a design system with backdrop filters and vibrant gradients.
+    - **Particles.js**: Integrated a lightweight background animation.
+    
+    ### Key Features
+    - Bilingual support (French/English).
+    - Dynamic page generation from YAML/Markdown.
+    - High-performance, low-dependency build pipeline.
+content_fr: |
+    ### Le Défi
+    Le prototype précédent était fonctionnel mais manquait de l'aspect premium d'une marque personnelle moderne.
+    
+    ### La Solution
+    - **Compilateur PyXML** : Création d'un générateur de site statique personnalisé.
+    - **Glassmorphism** : Création d'un système de design avec des filtres de fond et des dégradés vibrants.
+    - **Particles.js** : Intégration d'une animation légère pour le fond.
+    
+    ### Caractéristiques Clés
+    - Support bilingue (Français/Anglais).
+    - Génération de pages dynamiques à partir de YAML/Markdown.
+    - Pipeline de construction haute performance et à faibles dépendances.

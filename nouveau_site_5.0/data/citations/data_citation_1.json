@@ -12,5 +12,19 @@
         "author": "Steve Jobs",
         "date": "2001",
         "source": "Apple Internal Meeting"
+    },
+    {
+        "citation_en": "Design is not just what it looks like and feels like. Design is how it works.",
+        "citation_fr": "Le design n'est pas seulement ce à quoi il ressemble ou ce qu'on ressent. Le design est comment ça fonctionne.",
+        "author": "Steve Jobs",
+        "date": "1997",
+        "source": "Apple Interview"
+    },
+    {
+        "citation_en": "Simplicity is the ultimate sophistication.",
+        "citation_fr": "La simplicité est la sophistication ultime.",
+        "author": "Leonardo da Vinci",
+        "date": "15th Century",
+        "source": "Notebooks"
     }
 ]

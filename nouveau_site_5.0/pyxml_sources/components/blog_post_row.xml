@@ -1,0 +1,20 @@
+<blog_post_row_cardline data-tags="{tags}">
+    <column>
+        <row>
+            <title
+                data-translation-en="{title_en}"
+                data-translation-fr="{title_fr}"
+            >{title_en}</title>
+            <text> - </text>
+            <date>{date}</date>
+        </row>
+        <text
+            data-translation-en="{summary_en}"
+            data-translation-fr="{summary_fr}"
+        >{summary_en}</text>
+    </column>
+
+    <center>
+        <button_action icon="read" name="Read Article" action="navigate" url="pages/blog/entry_{_source_file}.html" />
+    </center>
+</blog_post_row_cardline>

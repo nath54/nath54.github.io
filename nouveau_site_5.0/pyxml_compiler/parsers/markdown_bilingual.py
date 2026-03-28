@@ -9,7 +9,6 @@ Sections are identified by markdown headings (# for title, ## for subsections).
 
 from __future__ import annotations
 
-import glob as glob_module
 from pathlib import Path
 from typing import Any
 
@@ -93,12 +92,10 @@ class MarkdownBilingualParser:
                     sections_fr[i]["title"] if i < len(sections_fr) else ""
                 ),
                 "content_en": (
-                    sections_en[i]["content"].strip()
-                    if i < len(sections_en) else ""
+                    sections_en[i]["content"].strip() if i < len(sections_en) else ""
                 ),
                 "content_fr": (
-                    sections_fr[i]["content"].strip()
-                    if i < len(sections_fr) else ""
+                    sections_fr[i]["content"].strip() if i < len(sections_fr) else ""
                 ),
             }
             sections.append(section)

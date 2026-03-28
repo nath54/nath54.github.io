@@ -96,12 +96,12 @@ def substitute_placeholders(template_str: str, data: dict[str, Any]) -> str:
 
     def replacer(match: re.Match[str]) -> str:
         """Replace a single placeholder match."""
-        key: str = match.group(1)
+        key: str = match.group(1).strip()
         if key in data:
-            return str(data[key])
+            return html_module.escape(str(data[key]), quote=True)
         return match.group(0)  # leave unmatched
 
-    return re.sub(r"\{(\w+)\}", replacer, template_str)
+    return re.sub(r"\{([^}]+)\}", replacer, template_str)
 
 
 def format_html_attributes(attrs: dict[str, str]) -> str:

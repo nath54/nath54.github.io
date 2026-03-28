@@ -1,0 +1,19 @@
+<main_container>
+    <single_column>
+        <title_text>The Museum</title_text>
+        <text
+            data-translation-en="Choose a gallery to visit."
+            data-translation-fr="Choisissez une galerie à visiter."
+        >Choose a gallery to visit.</text>
+
+        <categories_grid>
+            <exec_generate
+                parser="yaml_directory"
+                source="data/media"
+                template="museum_category_card"
+                mode="unique_types"
+                type_field="media_type"
+            />
+        </categories_grid>
+    </single_column>
+</main_container>

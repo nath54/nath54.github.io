@@ -1,0 +1,10 @@
+<category_card type="{media_type}" url="pages/museum/entry_{_source_file}.html">
+    <title
+        data-translation-en="{title_en}"
+        data-translation-fr="{title_fr}"
+    >{title_en}</title>
+
+    <icon url="{image_url}" />
+
+    <count>{tags}</count> <!-- Using tags as a placeholder for count for now -->
+</category_card>

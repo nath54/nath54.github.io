@@ -25,49 +25,49 @@ css_paths:
 # JS files to include in every page (relative to build_dir)
 js_paths:
     - "js/lib/lib_translation.js"
+    - "js/lib/particles.js"
 
 # Static pages: template → output mapping
 # If empty, pages are auto-discovered from pyxml_sources/pages/
 static_pages:
   - template: "pages/index.xml"
     output: "index.html"
-#   - template: "pages/index.xml"
-#     output: "index.html"
-#   - template: "pages/contact_me.xml"
-#     output: "pages/contact_me.html"
-#   - template: "pages/about_me.xml"
-#     output: "pages/about_me.html"
-#   - template: "pages/projects.xml"
-#     output: "pages/projects.html"
-#   - template: "pages/museum.xml"
-#     output: "pages/museum.html"
-#   - template: "pages/blog.xml"
-#     output: "pages/blog.html"
-#   - template: "pages/404.xml"
-#     output: "404.html"
+  - template: "pages/contact_me.xml"
+    output: "pages/contact_me.html"
+  - template: "pages/about_me.xml"
+    output: "pages/about_me.html"
+  - template: "pages/projects.xml"
+    output: "pages/projects.html"
+  - template: "pages/museum.xml"
+    output: "pages/museum.html"
+  - template: "pages/blog.xml"
+    output: "pages/blog.html"
+  - template: "pages/404.xml"
+    output: "404.html"
 
 # Dynamic pages: data-driven page generation
-dynamic_pages: []
-# Example:
-#   - parser: "yaml_directory"
-#     source: "data/projects"
-#     template: "pages/project_detail.xml"
-#     output_pattern: "pages/projects/{id}.html"
-#
-#   - parser: "yaml_directory"
-#     source: "data/media/entries"
-#     type_field: "media_type"
-#     type_templates:
-#       music: "pages/museum_entry_music.xml"
-#       poem: "pages/museum_entry_text.xml"
-#       drawing: "pages/museum_entry_image.xml"
-#     template: "pages/museum_entry_text.xml"  # fallback
-#     output_pattern: "pages/museum/entry_{id}.html"
-#
-#   - parser: "yaml_directory"
-#     source: "data/blogs/entries"
-#     template: "pages/blog_entry.xml"
-#     output_pattern: "pages/blog/entry_{id}.html"
+dynamic_pages:
+  - parser: "yaml_directory"
+    source: "data/projects"
+    template: "project_modal"  # Using modal template as entry page fallback
+    output_pattern: "pages/projects/{_source_file}.html"
+
+  - parser: "yaml_directory"
+    source: "data/media"
+    type_field: "media_type"
+    type_templates:
+      music: "museum_entry_audio"
+      poem: "museum_entry_text"
+      drawing: "museum_entry_image"
+      3d: "museum_entry_3d"
+      video: "museum_entry_video"
+    template: "museum_entry_text"  # fallback
+    output_pattern: "pages/museum/entry_{_source_file}.html"
+
+  - parser: "markdown_content"
+    source: "data/blogs"
+    template: "blog_post"
+    output_pattern: "pages/blog/{_source_file}.html"
 
 # Production options
 minify_css: false

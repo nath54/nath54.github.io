@@ -1,0 +1,20 @@
+<main_container>
+    <single_column>
+        <media_header>
+            <title_text>{title_en}</title_text>
+            <date_text>{date}</date_text>
+        </media_header>
+
+        <media_content data-type="text">
+            <text_scrollable
+                data-translation-en="{text_content_en}"
+                data-translation-fr="{text_content_fr}"
+            >{text_content_en}</text_scrollable>
+        </media_content>
+
+        <media_description
+            data-translation-en="{description_en}"
+            data-translation-fr="{description_fr}"
+        >{description_en}</media_description>
+    </single_column>
+</main_container>

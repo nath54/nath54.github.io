@@ -1,0 +1,18 @@
+<main_container>
+    <single_column>
+        <title_text>Contact Me</title_text>
+        <section>
+            <text>
+                If you want to reach out for professional inquiries, for a collaboration, or just to say hi, here are the best ways of contacting me:
+            </text>
+            <subsection>
+                <text>By sending an email to:</text>
+                <code>cerisara.nathan@protonmail.com</code>
+            </subsection>
+            <subsection>
+                <text>Or by sending a message on Linkedin:</text>
+                <link_url icon="linkedin" name="Linkedin" url="https://www.linkedin.com/in/nathan-cerisara-8669331ba/" />
+            </subsection>
+        </section>
+    </single_column>
+</main_container>

@@ -1,0 +1,15 @@
+<main_container>
+    <single_column>
+        <title_text>About Me</title_text>
+        <text
+            data-translation-en="If you want to know more about myself..."
+            data-translation-fr="Si vous voulez en savoir plus sur moi..."
+        >If you want to know more about myself...</text>
+
+        <exec_generate
+            parser="markdown_alternating"
+            source="data/about_me/"
+            template="about_me_category"
+        />
+    </single_column>
+</main_container>

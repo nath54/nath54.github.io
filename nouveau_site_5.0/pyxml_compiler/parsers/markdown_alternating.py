@@ -70,13 +70,23 @@ class MarkdownAlternatingParser:
         """
         lines: list[str] = content.split("\n")
         title_en: str = ""
+        title_fr: str = ""
         raw_sections: list[dict[str, str]] = []
         current: dict[str, str] | None = None
 
         for line in lines:
             if line.startswith("# ") and not line.startswith("## "):
                 if not title_en:  # Take the first main heading as title
-                    title_en = line[2:].strip()
+                    full_title: str = line[2:].strip()
+                    if " | " in full_title:
+                        title_en, title_fr = [
+                            t.strip() for t in full_title.split(" | ", 1)
+                        ]
+                        # Remove (EN) / (FR) if present
+                        title_en = re.sub(r"\s*\(EN\)\s*$", "", title_en, flags=re.I)
+                        title_fr = re.sub(r"\s*\(FR\)\s*$", "", title_fr, flags=re.I)
+                    else:
+                        title_en = full_title
             elif line.startswith("## "):
                 if current:
                     raw_sections.append(current)
@@ -96,7 +106,9 @@ class MarkdownAlternatingParser:
             en: dict[str, str] = raw_sections[i]
             # Handle cases where there might not be an even number of sections
             fr: dict[str, str] = (
-                raw_sections[i + 1] if i + 1 < len(raw_sections) else {"title": "", "content": ""}
+                raw_sections[i + 1]
+                if i + 1 < len(raw_sections)
+                else {"title": "", "content": ""}
             )
 
             # Clean up (EN) or (FR) from titles if present for better display
@@ -115,5 +127,6 @@ class MarkdownAlternatingParser:
 
         return {
             "title_en": title_en,
+            "title_fr": title_fr or title_en,
             "sections": paired_sections,
         }

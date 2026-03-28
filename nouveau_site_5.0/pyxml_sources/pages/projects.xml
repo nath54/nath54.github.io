@@ -1,0 +1,37 @@
+<main_container>
+    <single_column>
+        <title_text>My Projects</title_text>
+
+        <filter_bar>
+            <search_input placeholder="Search projects..." />
+            <filter_group>
+                <filter_button active="true" data-filter="all">All</filter_button>
+                <filter_button data-filter="personal">Personal</filter_button>
+                <filter_button data-filter="academic">Academic</filter_button>
+                <filter_button data-filter="professional">Professional</filter_button>
+            </filter_group>
+        </filter_bar>
+
+        <projects_grid>
+            <exec_generate
+                parser="yaml_directory"
+                source="data/projects/"
+                template="project_card"
+                filter="project_showcase_importance >= 40"
+                sort_by="project_showcase_importance"
+                sort_order="desc"
+            />
+        </projects_grid>
+
+        <modals_container>
+            <exec_generate
+                parser="yaml_directory"
+                source="data/projects/"
+                template="project_modal"
+                filter="project_showcase_importance >= 40"
+                sort_by="project_showcase_importance"
+                sort_order="desc"
+            />
+        </modals_container>
+    </single_column>
+</main_container>

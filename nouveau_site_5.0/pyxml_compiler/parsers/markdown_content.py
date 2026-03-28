@@ -12,6 +12,14 @@ from typing import Any
 from pyxml_compiler.utils import read_file
 
 
+try:
+    import markdown  # type: ignore
+except ImportError as e:
+    raise ImportError(
+        "The 'markdown' package is required. Install it with: pip install markdown"
+    ) from e
+
+
 class MarkdownContentParser:
     """Parser that renders markdown files to HTML.
 
@@ -33,13 +41,6 @@ class MarkdownContentParser:
                 - content_html (str): the rendered HTML
                 - content_raw (str): the raw markdown
         """
-        try:
-            import markdown
-        except ImportError as e:
-            raise ImportError(
-                "The 'markdown' package is required. "
-                "Install it with: pip install markdown"
-            ) from e
 
         entries: list[dict[str, Any]] = []
 
@@ -54,10 +55,12 @@ class MarkdownContentParser:
                 raw,
                 extensions=["fenced_code", "tables", "toc"],
             )
-            entries.append({
-                "_source_file": md_file.stem,
-                "content_html": html,
-                "content_raw": raw,
-            })
+            entries.append(
+                {
+                    "_source_file": md_file.stem,
+                    "content_html": html,
+                    "content_raw": raw,
+                }
+            )
 
         return entries

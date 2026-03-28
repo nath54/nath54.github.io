@@ -56,6 +56,7 @@ class CompilationContext:
         self.page_title: str = page_title
         self.languages: list[str] = languages if languages is not None else ["en", "fr"]
         self.variables: dict[str, Any] = {}
+        self.output_path: str = ""
 
     def set(self, key: str, value: Any) -> None:
         """Set a variable in the context.
@@ -111,20 +112,46 @@ class CompilationContext:
             and stripped.count("{") == 1
             and stripped.count("}") == 1
         ):
-            key: str = stripped[1:-1]
-            if key in self.variables:
-                return self.variables[key]
+            key: str = stripped[1:-1].strip()
+            val = self.resolve_key(key)
+            if val is not None:
+                return val
             return placeholder  # unresolved
 
         # Mixed content with placeholders
         def replacer(match: re.Match[str]) -> str:
             """Replace a single placeholder in mixed content."""
-            k: str = match.group(1)
-            if k in self.variables:
-                return str(self.variables[k])
+            k: str = match.group(1).strip()
+            val = self.resolve_key(k)
+            if val is not None:
+                return str(val)
             return match.group(0)
 
-        return re.sub(r"\{(\w+)\}", replacer, placeholder)
+        return re.sub(r"\{([^}]+)\}", replacer, placeholder)
+
+    def resolve_key(self, key: str) -> Any:
+        """Resolve a complex key (e.g. 'obj[field]' or 'obj.field') from variables."""
+        # Simple lookup
+        if key in self.variables:
+            return self.variables[key]
+
+        # Handle nested access: obj[field] or obj.field
+        # This is a basic implementation for the requested patterns
+        match = re.match(r"(\w+)\[(['\"]?)(\w+)\2\]", key)
+        if match:
+            obj_name, _, field = match.groups()
+            obj = self.variables.get(obj_name)
+            if isinstance(obj, dict):
+                return obj.get(field)
+
+        match = re.match(r"(\w+)\.(\w+)", key)
+        if match:
+            obj_name, field = match.groups()
+            obj = self.variables.get(obj_name)
+            if isinstance(obj, dict):
+                return obj.get(field)
+
+        return None
 
     def copy(self) -> CompilationContext:
         """Create a shallow copy of this context.
@@ -146,12 +173,13 @@ class CompilationContext:
             languages=list(self.languages),
         )
         new_ctx.variables = copy.copy(self.variables)
+        new_ctx.output_path = self.output_path
         return new_ctx
 
     def for_page(self, output_path: str) -> CompilationContext:
         """Create a sub-context for compiling a specific page.
 
-        Sets the page_title from the output path.
+        Sets the page_title and output_path.
 
         Args:
             output_path: The relative output path of the page (e.g. 'pages/about.html').
@@ -160,6 +188,7 @@ class CompilationContext:
             A new CompilationContext configured for this page.
         """
         ctx: CompilationContext = self.copy()
+        ctx.output_path = output_path
         # Derive a page title from the path
         page_name: str = Path(output_path).stem.replace("_", " ").title()
         ctx.page_title = f"{page_name} — {self.site_title}"
