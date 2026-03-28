@@ -1,16 +1,15 @@
 # edit_site.ps1
+$VENV_DIR = "$PSScriptRoot\.venv"
+$PYTHON = "$VENV_DIR\Scripts\python.exe"
+$PIP = "$VENV_DIR\Scripts\pip.exe"
 
-# 1. Setup Virtual Environment
-if (-not (Test-Path ".venv")) {
-    Write-Host "📦 Creating virtual environment..." -ForegroundColor Yellow
-    python -m venv .venv
+if (-not (Test-Path "$VENV_DIR")) {
+    Write-Host "Creating virtual environment..." -ForegroundColor Yellow
+    python -m venv "$VENV_DIR"
 }
 
-# 2. Install/Update Requirements
-Write-Host "🚀 Checking dependencies..." -ForegroundColor Cyan
-& ".\.venv\Scripts\pip" install -r requirements.txt --quiet
+Write-Host "Checking dependencies..." -ForegroundColor Cyan
+& "$PIP" install -r "$PSScriptRoot\requirements.txt" --quiet
 
-# 3. Run Build & Serve in Watch Mode
-Write-Host "🛠️ Starting Edit/Watch Mode..." -ForegroundColor Yellow
-Write-Host "The site will auto-rebuild on every save." -ForegroundColor Gray
-& ".\.venv\Scripts\python" build.py --watch --serve
+Write-Host "Starting Edit/Watch Mode..." -ForegroundColor Yellow
+& "$PYTHON" "$PSScriptRoot\build.py" --watch --serve
