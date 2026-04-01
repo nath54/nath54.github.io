@@ -1,10 +1,10 @@
 <main_container>
     <single_column>
-        <title_text>Blog</title_text>
+        <title_text name_en="Blog" name_fr="Blog" />
         <text
-            data-translation-en="Where I drop my thoughts in a not very organized way."
-            data-translation-fr="Où je dépose mes pensées de manière pas très organisée."
-        >Where I drop my thoughts in a not very organized way.</text>
+            name_en="Where I drop my thoughts in a not very organized way."
+            name_fr="Où je dépose mes pensées de manière pas très organisée."
+        />
 
         <blog_pages_container>
             <exec_generate

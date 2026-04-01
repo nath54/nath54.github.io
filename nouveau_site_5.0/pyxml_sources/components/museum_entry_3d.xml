@@ -1,7 +1,7 @@
 <main_container>
     <single_column>
         <media_header>
-            <title_text>{title_en}</title_text>
+            <title_text name_en="{title_en}" name_fr="{title_fr}" />
             <date_text>{date}</date_text>
         </media_header>
 
@@ -9,9 +9,6 @@
             <model_viewer src="{file_url}" interactive="true" />
         </media_content>
 
-        <media_description
-            data-translation-en="{description_en}"
-            data-translation-fr="{description_fr}"
-        >{description_en}</media_description>
+        <media_description name_en="{description_en}" name_fr="{description_fr}" />
     </single_column>
 </main_container>

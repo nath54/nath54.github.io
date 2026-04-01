@@ -1,10 +1,10 @@
 <main_container>
     <single_column>
-        <title_text>The Museum</title_text>
+        <title_text name_en="The Museum" name_fr="Le musée" />
         <text
-            data-translation-en="Choose a gallery to visit."
-            data-translation-fr="Choisissez une galerie à visiter."
-        >Choose a gallery to visit.</text>
+            name_en="Choose a gallery to visit."
+            name_fr="Choisissez une galerie à visiter."
+        />
 
         <categories_grid>
             <exec_generate

@@ -1,10 +1,10 @@
 <main_container>
     <single_column>
-        <title_text>404 - Page Not Found</title_text>
+        <title_text name_en="404 - Page Not Found" name_fr="404 - Page non trouvée" />
         <text
-            data-translation-en="The page you are looking for does not exist."
-            data-translation-fr="La page que vous recherchez n'existe pas."
-        >The page you are looking for does not exist.</text>
-        <link_page icon="home" name="Back to Home" url="index.html" />
+            name_en="The page you are looking for does not exist."
+            name_fr="La page que vous recherchez n'existe pas."
+        />
+        <link_page icon="home" name_en="Back to Home" name_fr="Retour à l'accueil" url="index.html" />
     </single_column>
 </main_container>

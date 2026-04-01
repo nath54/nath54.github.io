@@ -1,13 +1,10 @@
 <project_modal id="modal_project_{_source_file}" class="hidden">
     <modal_header>
-        <title>{name_en}</title>
+        <title name_en="{name_en}" name_fr="{name_fr}" />
         <button_close target="modal_project_{_source_file}" />
     </modal_header>
     <modal_body>
-        <long_description
-            data-translation-en="{description_en}"
-            data-translation-fr="{description_fr}"
-        >{description_en}</long_description>
+        <long_description name_en="{description_en}" name_fr="{description_fr}" />
 
         <image_carousel>
             <exec_foreach var="img" in="{gallery}">

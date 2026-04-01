@@ -245,6 +245,32 @@ def compile_construction_node(
     if tag in ("button_action", "button_close") and not children_html:
         children_html = get_button_content(tag, node.attributes)
 
+    # Generic fallback for any other node with a name attribute and no children
+    if not children_html and tag not in (
+        "link_url",
+        "link_page",
+        "link_file",
+        "button_action",
+        "button_close",
+        "logo",
+        "icon",
+        "img",
+        "thumbnail_img",
+        "search_input",
+    ):
+        name: str = resolved_attributes.get("name", "")
+        # If no name, check name_en then any name_XX
+        if not name:
+            name = resolved_attributes.get("name_en", "")
+        if not name:
+            # Get first name_XX attribute if any
+            for k, v in resolved_attributes.items():
+                if k.startswith("name_"):
+                    name = v
+                    break
+        if name:
+            children_html = escape_html(name)
+
     opening = build_opening_tag(
         html_tag,
         css_classes,

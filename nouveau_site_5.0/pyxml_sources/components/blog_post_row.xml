@@ -1,20 +1,14 @@
 <blog_post_row_cardline data-tags="{tags}">
     <column>
         <row>
-            <title
-                data-translation-en="{title_en}"
-                data-translation-fr="{title_fr}"
-            >{title_en}</title>
+            <title name_en="{title_en}" name_fr="{title_fr}" />
             <text> - </text>
             <date>{date}</date>
         </row>
-        <text
-            data-translation-en="{summary_en}"
-            data-translation-fr="{summary_fr}"
-        >{summary_en}</text>
+        <text name_en="{summary_en}" name_fr="{summary_fr}" />
     </column>
 
     <center>
-        <button_action icon="read" name="Read Article" action="navigate" url="pages/blog/entry_{_source_file}.html" />
+        <button_action icon="read" name_en="Read Article" name_fr="Lire l'article" action="navigate" url="pages/blog/entry_{_source_file}.html" />
     </center>
 </blog_post_row_cardline>

@@ -1,14 +1,14 @@
 <main_container>
     <single_column>
-        <title_text>My Projects</title_text>
+        <title_text name_en="My Projects" name_fr="Mes projets" />
 
         <filter_bar>
             <search_input placeholder="Search projects..." />
             <filter_group>
-                <filter_button active="true" data-filter="all">All</filter_button>
-                <filter_button data-filter="personal">Personal</filter_button>
-                <filter_button data-filter="academic">Academic</filter_button>
-                <filter_button data-filter="professional">Professional</filter_button>
+                <filter_button active="true" data-filter="all" name_en="All" name_fr="Tous" />
+                <filter_button data-filter="personal" name_en="Personal" name_fr="Personnel" />
+                <filter_button data-filter="academic" name_en="Academic" name_fr="Académique" />
+                <filter_button data-filter="professional" name_en="Professional" name_fr="Professionnel" />
             </filter_group>
         </filter_bar>
 

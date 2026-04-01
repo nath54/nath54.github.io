@@ -10,9 +10,7 @@
 
                 <logo src="res/logo.svg" />
 
-                <title_text>
-                    Nathan's website
-                </title_text>
+                <title_text name_en="Nathan's website" name_fr="Site de Nathan" />
 
             </row_head>
 
@@ -20,11 +18,9 @@
             <section>
 
                 <text
-                    data-translation-en="Hi! I'm Nathan, a computer science passionate exploring software architecture, web development, and digital arts."
-                    data-translation-fr="Bonjour ! Je suis Nathan, un passionné d'informatique explorant l'architecture logicielle, le développement web et les arts numériques."
-                >
-                    Hi! I'm Nathan, a computer science passionate exploring software architecture, web development, and digital arts.
-                </text>
+                    name_en="Hi! I'm Nathan, a computer science passionate exploring software architecture, web development, and digital arts."
+                    name_fr="Bonjour ! Je suis Nathan, un passionné d'informatique explorant l'architecture logicielle, le développement web et les arts numériques."
+                />
 
             </section>
 
@@ -45,40 +41,34 @@
             <!-- Professional links -->
             <section>
 
-                <title>
-                    Professional links
-                </title>
+                <title name_en="Professional links" name_fr="Liens professionnels" />
 
-                <link_file icon="file" name="CV / resume (english)" url="res/cv_en.pdf" />
-                <link_file icon="file" name="CV / resume (french)" url="res/cv_fr.pdf" />
+                <link_file icon="file" name_en="CV / resume (english)" name_fr="CV / resume (anglais)" url="res/cv_en.pdf" />
+                <link_file icon="file" name_en="CV / resume (french)" name_fr="CV / resume (français)" url="res/cv_fr.pdf" />
 
                 <link_url icon="github" name="Github" url="https://github.com/nath54" />
                 <link_url icon="linkedin" name="Linkedin" url="https://www.linkedin.com/in/nathan-cerisara-8669331ba/" />
 
-                <link_page icon="msg_bubble" name="Contact me" url="pages/contact_me.html" />
+                <link_page icon="msg_bubble" name_en="Contact me" name_fr="Me contacter" url="pages/contact_me.html" />
 
             </section>
 
             <!-- For my friends and family and those who want to know me -->
             <section>
 
-                <title>
-                    For my friends and family and those who want to know me
-                </title>
+                <title name_en="For my friends and family and those who want to know me" name_fr="Pour mes amis, ma famille et ceux qui veulent me connaître" />
 
-                <link_page icon="person" name="About me" url="pages/about_me.html" />
-                <link_page icon="projects" name="Projects" url="pages/projects.html" />
-                <link_page icon="museum" name="Museum" url="pages/museum.html" />
-                <link_page icon="blog" name="Blog" url="pages/blog.html" />
+                <link_page icon="person" name_en="About me" name_fr="À propos" url="pages/about_me.html" />
+                <link_page icon="projects" name_en="Projects" name_fr="Projets" url="pages/projects.html" />
+                <link_page icon="museum" name_en="Museum" name_fr="Musée" url="pages/museum.html" />
+                <link_page icon="blog" name_en="Blog" name_fr="Blog" url="pages/blog.html" />
 
             </section>
 
             <!-- Random citation -->
             <section>
 
-                <title>
-                    Random citation
-                </title>
+                <title name_en="Random citation" name_fr="Citation aléatoire" />
 
                 <exec_generate
                     parser="json_manifest"

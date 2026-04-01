@@ -211,11 +211,23 @@ def map_pyxml_attributes(
         elif key == "name":
             # name is used as display text for links/buttons, handled in content
             html_attrs["data-name"] = value
+        elif key.startswith("name_"):
+            # name_en, name_fr etc. attributes
+            lang_code = key.split("name_")[1]
+            html_attrs[f"data-translation_{lang_code}"] = value
+            # Only add to_translate if NOT a link or button (since they handle it internally)
+            if tag not in (
+                "link_url",
+                "link_page",
+                "link_file",
+                "button_action",
+                "button_close",
+            ):
+                has_translation = True
         elif key in INTERNAL_ATTRIBUTES:
             html_attrs[f"data-{key}"] = value
         else:
             html_attrs[f"data-{key}"] = value
-
 
     # Add translation-related CSS classes
     if has_translation:
@@ -285,9 +297,26 @@ def get_link_content(tag: str, attrs: dict[str, str]) -> str:
     if icon:
         parts.append(f'<span class="link-icon" data-icon="{escape_html(icon)}"></span>')
 
+    # Handle translatable name
     name: str = attrs.get("name", "")
-    if name:
-        parts.append(f'<span class="link-text">{escape_html(name)}</span>')
+    translations: dict[str, str] = {
+        k.split("name_")[1]: v for k, v in attrs.items() if k.startswith("name_")
+    }
+
+    if not name and translations:
+        # Default to English if available, else first translation
+        name = translations.get("en", next(iter(translations.values())))
+
+    if name or translations:
+        span_attrs: list[str] = ['class="link-text']
+        if translations:
+            span_attrs[0] += ' to_translate"'
+            for lang, val in translations.items():
+                span_attrs.append(f'data-translation_{lang}="{escape_html(val)}"')
+        else:
+            span_attrs[0] += '"'
+
+        parts.append(f"<span {' '.join(span_attrs)}>{escape_html(name)}</span>")
 
     return "".join(parts)
 
@@ -308,8 +337,25 @@ def get_button_content(tag: str, attrs: dict[str, str]) -> str:
     if icon:
         parts.append(f'<span class="btn-icon" data-icon="{escape_html(icon)}"></span>')
 
+    # Handle translatable name
     name: str = attrs.get("name", "")
-    if name:
-        parts.append(f'<span class="btn-text">{escape_html(name)}</span>')
+    translations: dict[str, str] = {
+        k.split("name_")[1]: v for k, v in attrs.items() if k.startswith("name_")
+    }
+
+    if not name and translations:
+        # Default to English if available, else first translation
+        name = translations.get("en", next(iter(translations.values())))
+
+    if name or translations:
+        span_attrs: list[str] = ['class="btn-text']
+        if translations:
+            span_attrs[0] += ' to_translate"'
+            for lang, val in translations.items():
+                span_attrs.append(f'data-translation_{lang}="{escape_html(val)}"')
+        else:
+            span_attrs[0] += '"'
+
+        parts.append(f"<span {' '.join(span_attrs)}>{escape_html(name)}</span>")
 
     return "".join(parts)

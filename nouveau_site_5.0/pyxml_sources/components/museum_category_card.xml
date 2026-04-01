@@ -1,8 +1,5 @@
 <category_card type="{media_type}" url="pages/museum/entry_{_source_file}.html">
-    <title
-        data-translation-en="{title_en}"
-        data-translation-fr="{title_fr}"
-    >{title_en}</title>
+    <title name_en="{title_en}" name_fr="{title_fr}" />
 
     <icon url="{image_url}" />
 

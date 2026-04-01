@@ -2,10 +2,7 @@
     <single_column>
         <article_header>
             <article_cover src="{cover_image}" />
-            <title_text
-                data-translation-en="{title_en}"
-                data-translation-fr="{title_fr}"
-            >{title_en}</title_text>
+            <title_text name_en="{title_en}" name_fr="{title_fr}" />
             <article_metadata>
                 <date>{date}</date>
                 <author>{author}</author>
@@ -19,15 +16,13 @@
 
         <article_body>
             <markdown_render
-                data-translation-en="{markdown_content_en_html}"
-                data-translation-fr="{markdown_content_fr_html}"
-            >
-                {markdown_content_en_html}
-            </markdown_render>
+                name_en="{markdown_content_en_html}"
+                name_fr="{markdown_content_fr_html}"
+            />
         </article_body>
 
         <article_footer>
-            <button_action icon="back" name="Back to Blog" action="navigate" url="pages/blog.html" />
+            <button_action icon="back" name_en="Back to Blog" name_fr="Retour au blog" action="navigate" url="pages/blog.html" />
         </article_footer>
     </single_column>
 </main_container>

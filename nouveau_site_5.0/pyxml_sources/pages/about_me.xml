@@ -1,10 +1,10 @@
 <main_container>
     <single_column>
-        <title_text>About Me</title_text>
+        <title_text name_en="About Me" name_fr="À propos de moi" />
         <text
-            data-translation-en="If you want to know more about myself..."
-            data-translation-fr="Si vous voulez en savoir plus sur moi..."
-        >If you want to know more about myself...</text>
+            name_en="If you want to know more about myself..."
+            name_fr="Si vous voulez en savoir plus sur moi..."
+        />
 
         <exec_generate
             parser="markdown_alternating"

@@ -1,10 +1,4 @@
 <small_expandable_node>
-    <name
-        data-translation-en="{sub_title_en}"
-        data-translation-fr="{sub_title_fr}"
-    >{sub_title_en}</name>
-    <content
-        data-translation-en="{content_en}"
-        data-translation-fr="{content_fr}"
-    >{content_en}</content>
+    <name name_en="{sub_title_en}" name_fr="{sub_title_fr}" />
+    <content name_en="{content_en}" name_fr="{content_fr}" />
 </small_expandable_node>
