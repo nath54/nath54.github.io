@@ -51,6 +51,7 @@ def execute_execution_block(node: PyxmlNode, context: CompilationContext) -> str
         "exec_if": handle_exec_if,
         "exec_include": handle_exec_include,
         "exec_markdown": handle_exec_markdown,
+        "exec_random_from_manifest": handle_exec_random_from_manifest,
     }
 
     handler = handlers.get(tag)
@@ -144,8 +145,6 @@ def handle_exec_generate(node: PyxmlNode, context: CompilationContext) -> str:
     html_parts: list[str] = []
     current_page: list[dict[str, Any]] = pages[0] if pages else []
 
-    mode: str = node.attributes.get("mode", "")
-
     for entry in current_page:
         # Substitute placeholders in the template with entry data
         instantiated: str = substitute_placeholders(template_content, entry)
@@ -159,17 +158,6 @@ def handle_exec_generate(node: PyxmlNode, context: CompilationContext) -> str:
 
         # Compile
         html_parts.append(compile_node(entry_node, sub_context))
-
-    # Handle special mode
-    if mode == "random_one":
-        # Wrap each item in a hidden container; JS will reveal one randomly
-        wrapped: list[str] = []
-        for i, part in enumerate(html_parts):
-            wrapped.append(
-                f'<div class="random-item" data-random-index="{i}" '
-                f'style="display:none;">{part}</div>'
-            )
-        return "\n".join(wrapped)
 
     return "\n".join(html_parts)
 
@@ -440,3 +428,111 @@ def evaluate_condition(condition: str, context: CompilationContext) -> bool:
 
     # Simple truthy check
     return bool(resolved) and resolved not in ("", "None", "False", "0", "{}")
+
+
+def handle_exec_random_from_manifest(
+    node: PyxmlNode, context: CompilationContext
+) -> str:
+    """Handle <exec_random_from_manifest> blocks.
+
+    Emits a placeholder div and an inline script that fetches a JSON
+    manifest at runtime, picks one random entry, and renders it using
+    an inline HTML template.
+
+    Required attributes:
+        source: Path to the manifest JSON relative to the project root
+                (e.g. "data/citations/manifest.json")
+        template_html: An inline HTML template string with {field}
+                       placeholders for each entry field.
+
+    Optional attributes:
+        container_class: CSS class(es) for the placeholder div
+                         (default: "random-widget")
+
+    Args:
+        node: The exec_random_from_manifest node.
+        context: The compilation context.
+
+    Returns:
+        The generated HTML (div + inline script).
+    """
+    import uuid  # pylint: disable=import-outside-toplevel
+
+    source: str = node.attributes.get("source", "")
+    template_html: str = node.attributes.get("template_html", "")
+    container_class: str = node.attributes.get("container_class", "random-widget")
+
+    if not source or not template_html:
+        raise CompilationError(
+            "exec_random_from_manifest requires 'source' and 'template_html' attributes"
+        )
+
+    # Calculate relative depth for the fetch URL
+    depth: int = len(Path(context.output_path).parents) - 1
+    rel_prefix: str = "../" * depth if depth > 0 else ""
+
+    # Generate a unique ID for this widget instance, or use provided id
+    widget_id: str = node.attributes.get("id", f"random-widget-{uuid.uuid4().hex[:8]}")
+
+    # Build the manifest URL relative to the generated HTML page
+    manifest_url: str = f"{rel_prefix}{source}"
+    # The manifest references sibling data files, so we need the base dir
+    # e.g. "data/citations/manifest.json" -> "data/citations/"
+    source_base: str = "/".join(source.replace("\\", "/").split("/")[:-1])
+    base_url: str = f"{rel_prefix}{source_base}/" if source_base else rel_prefix
+
+    # Escape the template for embedding in a JS string literal
+    # Replace backticks and ${} to avoid template literal conflicts
+    js_template: str = template_html.replace("\\", "\\\\").replace("`", "\\`").replace("${", "\\${")
+
+    script: str = f"""<script>
+(function() {{
+    window._widgets = window._widgets || {{}};
+    var widgetId = '{widget_id}';
+    
+    window._widgets[widgetId] = {{
+        entries: [],
+        refresh: function() {{
+            var container = document.getElementById(widgetId);
+            if (!container || this.entries.length === 0) return;
+            
+            var entry = this.entries[Math.floor(Math.random() * this.entries.length)];
+            var tpl = `{js_template}`;
+            
+            var html = tpl.replace(/\\{{([^\\}}]+)\\}}/g, function(match, key) {{
+                key = key.trim();
+                return entry[key] !== undefined ? entry[key] : '';
+            }});
+            
+            container.innerHTML = html;
+            if (typeof translate_page === 'function') {{
+                translate_page();
+            }}
+        }}
+    }};
+
+    fetch('{manifest_url}')
+        .then(function(r) {{ return r.json(); }})
+        .then(function(manifest) {{
+            var fetches = manifest.map(function(f) {{
+                return fetch('{base_url}' + f).then(function(r) {{ return r.json(); }});
+            }});
+            return Promise.all(fetches);
+        }})
+        .then(function(allData) {{
+            var entries = [];
+            allData.forEach(function(d) {{
+                if (Array.isArray(d)) {{ entries = entries.concat(d); }}
+                else {{ entries.push(d); }}
+            }});
+            
+            window._widgets[widgetId].entries = entries;
+            window._widgets[widgetId].refresh();
+        }})
+        .catch(function(err) {{
+            console.error('Random widget error:', err);
+        }});
+}})()
+</script>"""
+
+    return f'<div id="{widget_id}" class="{container_class}"></div>\n{script}'

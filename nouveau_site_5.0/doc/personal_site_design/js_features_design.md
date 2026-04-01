@@ -454,8 +454,6 @@ class RandomCitation:
 
         self.container.querySelector(".citation .text").textContent = text
         self.container.querySelector(".citation .citation-author").textContent = citation["author"]
-        self.container.querySelector(".citation .citation-date").textContent = citation["date"]
-        self.container.querySelector(".citation .citation-source").textContent = citation["source"]
 ```
 
 ---

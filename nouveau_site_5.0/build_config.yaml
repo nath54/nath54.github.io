@@ -25,6 +25,7 @@ css_paths:
 # JS files to include in every page (relative to build_dir)
 js_paths:
     - "js/lib/lib_translation.js"
+    - "js/lib/lib_interactions.js"
     - "js/lib/particles.js"
 
 # Static pages: template → output mapping

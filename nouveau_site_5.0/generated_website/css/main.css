@@ -209,3 +209,33 @@ body {
     background: var(--color-primary-100);
     color: var(--color-primary-800);
 }
+
+/* --- Citation Widget --- */
+.citation {
+    padding: var(--space-2) var(--space-3);
+    margin: 0;
+}
+
+.citation .citation-text {
+    margin: 0 0 var(--space-1) 0;
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+    color: var(--color-neutral-700);
+}
+
+.citation .citation-author {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--color-neutral-500);
+    text-align: right;
+}
+
+.interactive {
+    cursor: pointer;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.interactive:hover {
+    opacity: 0.8;
+    transform: scale(1.02);
+}

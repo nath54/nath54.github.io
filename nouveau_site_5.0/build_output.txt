@@ -1,0 +1,20 @@
+﻿Building site from ....
+   Templates: pyxml_sources
+   Output:    generated_website
+   Copied CSS: css -> generated_website\css
+   Copied resources: res -> generated_website\res
+   Copied data: data -> generated_website\data
+   Compiling pages/index.xml -> index.html
+   Compiling pages/contact_me.xml -> pages/contact_me.html
+   Compiling pages/about_me.xml -> pages/about_me.html
+   Compiling pages/projects.xml -> pages/projects.html
+   Compiling pages/museum.xml -> pages/museum.html
+   Compiling pages/blog.xml -> pages/blog.html
+   Compiling pages/404.xml -> 404.html
+   📦 Generating 1 pages from data/projects
+   📦 Generating 0 pages from data/media
+   📦 Generating 1 pages from data/blogs
+Build complete! Output in generated_website/
+Error page path: generated_website/404.html
+Error page exists: True
+Current working directory: C:\Users\Nathan Cerisara\Documents\github\nath54.github.io\nouveau_site_5.0

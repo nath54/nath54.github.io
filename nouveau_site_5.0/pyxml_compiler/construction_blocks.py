@@ -224,6 +224,12 @@ def map_pyxml_attributes(
                 "button_close",
             ):
                 has_translation = True
+        elif key == "action":
+            html_attrs["data-action"] = value
+            # Add interactive class for cursor: pointer
+            extra_classes.append("interactive")
+        elif key == "target":
+            html_attrs["data-action-target"] = value
         elif key in INTERNAL_ATTRIBUTES:
             html_attrs[f"data-{key}"] = value
         else:

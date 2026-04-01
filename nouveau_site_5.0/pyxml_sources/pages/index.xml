@@ -68,13 +68,16 @@
             <!-- Random citation -->
             <section>
 
-                <title name_en="Random citation" name_fr="Citation aléatoire" />
+                <title name_en="Random citation" name_fr="Citation aléatoire" action="refresh_target" target="citation-widget" />
 
-                <exec_generate
-                    parser="json_manifest"
+                <exec_random_from_manifest
+                    id="citation-widget"
                     source="data/citations/manifest.json"
-                    template="citation_item"
-                    mode="random_one"
+                    container_class="citation"
+                    template_html='
+                        &lt;p class="citation-text to_translate" data-translation_en="{citation_en}" data-translation_fr="{citation_fr}"&gt;{citation_en}&lt;/p&gt;
+                        &lt;p class="citation-author"&gt;&lt;em&gt;— {author}&lt;/em&gt;&lt;/p&gt;
+                    '
                 />
 
             </section>

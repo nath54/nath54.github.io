@@ -160,6 +160,15 @@ def copy_static_assets(
         shutil.copytree(res_src, res_dst)
         print(f"   Copied resources: {res_src} -> {res_dst}")
 
+    # Copy data directory so JSON manifests are accessible at runtime via fetch()
+    data_src: Path = source_dir / config.get("data_dir", "data")
+    data_dst: Path = build_dir / "data"
+    if data_src.exists() and data_src != data_dst:
+        if data_dst.exists():
+            shutil.rmtree(data_dst)
+        shutil.copytree(data_src, data_dst)
+        print(f"   Copied data: {data_src} -> {data_dst}")
+
 
 def compile_static_pages(
     context: CompilationContext,
