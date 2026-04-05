@@ -39,6 +39,7 @@ HTML_SKELETON: str = """<!DOCTYPE html>
     {meta_tags}
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="{favicon_path}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     {css_links}
 </head>
 <body data-theme="light">

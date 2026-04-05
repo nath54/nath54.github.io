@@ -68,7 +68,7 @@ PYXML_TO_HTML: dict[str, tuple[str, str]] = {
     "medium_expandable_node": ("details", "expandable expandable-md"),
     "large_expandable_node": ("details", "expandable expandable-lg"),
     "name": ("summary", "expandable-title"),
-    "content": ("div", "expandable-content"),
+    "content": ("div", "expandable-content markdown-render"),
     # --- Containers ---
     "filter_bar": ("div", "filter-bar"),
     "search_input": ("input", "search-input"),
@@ -89,13 +89,13 @@ PYXML_TO_HTML: dict[str, tuple[str, str]] = {
     # --- Media ---
     "media_header": ("header", "media-header"),
     "media_content": ("div", "media-content"),
-    "media_description": ("div", "media-description"),
+    "media_description": ("div", "media-description markdown-render"),
     "audio_player": ("div", "audio-player"),
     "image_full": ("figure", "image-full"),
     "model_viewer": ("div", "model-viewer"),
     "interactive_canvas": ("div", "interactive-canvas"),
     "image_carousel": ("div", "image-carousel"),
-    "text_scrollable": ("div", "text-scrollable"),
+    "text_scrollable": ("div", "text-scrollable markdown-render"),
     # --- Modal ---
     "project_modal": ("dialog", "modal modal-project"),
     "modal_header": ("div", "modal-header"),
@@ -104,7 +104,7 @@ PYXML_TO_HTML: dict[str, tuple[str, str]] = {
     "article_header": ("header", "article-header"),
     "article_cover": ("img", "article-cover"),
     "article_metadata": ("div", "article-metadata"),
-    "article_body": ("div", "article-body"),
+    "article_body": ("div", "article-body markdown-render"),
     "article_footer": ("footer", "article-footer"),
     "markdown_render": ("div", "markdown-render"),
     # --- Misc ---
@@ -117,7 +117,7 @@ PYXML_TO_HTML: dict[str, tuple[str, str]] = {
     "plaque_date": ("time", "plaque-date"),
     "date_text": ("time", "date-text"),
     "short_description": ("p", "short-description"),
-    "long_description": ("div", "long-description"),
+    "long_description": ("div", "long-description markdown-render"),
     "thumbnail_img": ("img", "thumbnail-img"),
     "img": ("img", ""),
 }
