@@ -17,9 +17,9 @@ All paths in the manifest or in the nascene files must start with a keyword, eit
 
 Example:
 
-`add_image(id=1, src="nascene_root:/scene_1/image.png", position="0 0", size="100% 100%", opacity="1")`
+`add_image(id=1, src="nascene_root:/scene_1/image.png", pos_x=0.0, pos_y=0.0, size_x="100%", size_y="100%", anchor_x=0.0, anchor_y=0.0, scale_x=1.0, scale_y=1.0, rotation=0.0, opacity="1", object_fit="cover")`
 
-`add_image(id=2, src="local:/image.png", position="0 0", size="100% 100%", opacity="1")`
+`add_image(id=2, src="local:/image.png", pos_x=0.0, pos_y=0.0, size_x="100%", size_y="100%", anchor_x=0.0, anchor_y=0.0, scale_x=1.0, scale_y=1.0, rotation=0.0, opacity="1", object_fit="cover")`
 
 ## Scenes
 
@@ -27,9 +27,9 @@ Inside a `.nascene` file, you define **scenes** with the scene_id followed by `:
 
 ```
 scene_1:
-  add_image(id=1, src="nascene_root:/scene_1/image.png", position="0 0", size="100% 100%", opacity="1")
-  add_text(id=2, text="Hello wanderer !", position="0 0", size="100% 100%", opacity="1")
-  add_button(id=3, text="Click me", position="0 0", size="100% 100%", opacity="1")
+  add_image(id=1, src="nascene_root:/scene_1/image.png", pos_x=0.5, pos_y=0.5, size_x="100%", size_y="100%", anchor_x=0.5, anchor_y=0.5, scale_x=1.0, scale_y=1.0, rotation=0.0, opacity="1", object_fit="cover")
+  add_text(id=2, text="Hello wanderer !", pos_x=0.5, pos_y=1.0, size_x="100%", size_y="50px", anchor_x=0.5, anchor_y=1.0, scale_x=1.0, scale_y=1.0, rotation=0.0, opacity="1", color="#ffffff", font_size=24, align_v="center", align_h="center", wrap=True, overflow="visible")
+  add_button(id=3, text="Click me", pos_x=0.5, pos_y=0.5, size_x="200px", size_y="50px", anchor_x=0.5, anchor_y=0.5, scale_x=1.0, scale_y=1.0, rotation=0.0, opacity="1", color="#000000", font_size=20, on_clicked="button_clicked_scene")
 ```
 
 Scenes are like functions. But more like in an assembly language, you only have one indent level. You can't nest code for conditions or loops, instead you put nested code in other scenes that you can call with the special rooting commands.
@@ -43,7 +43,7 @@ Example:
 ```
 my_scene:
     # This is a comment
-    add_image(id=1, src="nascene_root:/scene_1/image.png", position="0 0", size="100% 100%", opacity="1")
+    add_image(id=1, src="nascene_root:/scene_1/image.png", pos_x=0.5, pos_y=0.5, size_x="100%", size_y="100%", anchor_x=0.5, anchor_y=0.5, scale_x=1.0, scale_y=1.0, rotation=0.0, opacity="1", object_fit="cover")
 ```
 
 There are no multiline comments. You have to begin each commented line with `#`.
@@ -65,9 +65,17 @@ my_scene:
     add_image(
         id=1,
         src="nascene_root:/scene_1/image.png",
-        position="0 0",
-        size="100% 100%",
-        opacity="1"
+        pos_x=0.5,
+        pos_y=0.5,
+        size_x="100%",
+        size_y="100%",
+        anchor_x=0.5,
+        anchor_y=0.5,
+        scale_x=1.0,
+        scale_y=1.0,
+        rotation=0.0,
+        opacity="1",
+        object_fit="cover"
     )
 ```
 
@@ -91,7 +99,15 @@ You can't mix values types in a list, or dictionary.
 
 ### The element system
 
-All elements have an `id` (int), a `position_and_size` (str), and an `opacity` (str).
+All elements share a common set of geometric and display properties. You cannot create two elements with the same id:
+
+- `id` (int): Unique identifier.
+- `pos_x` (float), `pos_y` (float): Normalized screen position (0.0 to 1.0).
+- `size_x` (str), `size_y` (str): Size, e.g., "100%" or "50px" or "auto".
+- `anchor_x` (float), `anchor_y` (float): The pivot point (0.0 to 1.0) on the element mapped to `pos_x`, `pos_y` (e.g., 0.5 for center).
+- `scale_x` (float), `scale_y` (float): Scale multipliers.
+- `rotation` (float): Rotation angle in degrees.
+- `opacity` (str): The opacity of the element.
 Depending on their types, they will have other arguments too.
 
 You can't create two elements with the same id.
@@ -102,7 +118,10 @@ The nascene engine generaly assigns a 2D canvas as the `screen`.
 The screen size is responsive and may vary depending on the device or the place it is contained in.
 All elements are positioned into a normalized 2D space, where the top-left corner is (0, 0) and the bottom-right corner is (1, 1).
 
-TODO: centering, covering, croping, scaling, rotation, screen ratio / orientation conditions, ...
+Read-only system variables are available for conditionally adapting to the screen:
+- `$sys_aspect_ratio` (float)
+- `$sys_is_portrait` (bool)
+- `$sys_is_landscape` (bool)
 
 ### Elements modification related commands
 
@@ -125,6 +144,26 @@ TODO: centering, covering, croping, scaling, rotation, screen ratio / orientatio
     - `id` (int): The id of the element to update.
     - `attribute` (str): The attribute to update.
     - `value` (bool): The new value of the attribute.
+
+#### Animations
+
+These commands transition an attribute from its current value to a new value over time.
+
+- `animate_element_int_attribute`: Animate an integer attribute.
+    - `id` (int): The id of the element.
+    - `attribute` (str): The attribute name.
+    - `target_value` (int): The value to reach.
+    - `duration` (float): Duration in seconds.
+    - `easing` (str): The easing function (`linear`, `ease_in`, `ease_out`, `ease_in_out`, `bounce`).
+    - `wait` (bool): If True, stops script execution until the animation finishes.
+- `animate_element_float_attribute`: Animate a float attribute.
+    - `id` (int): The id of the element.
+    - `attribute` (str): The attribute name.
+    - `target_value` (float): The value to reach.
+    - `duration` (float): Duration in seconds.
+    - `easing` (str): The easing function (`linear`, `ease_in`, `ease_out`, `ease_in_out`, `bounce`).
+    - `wait` (bool): If True, stops script execution until the animation finishes.
+
 - `disable_element`: Disable an element (like a button or a text input).
     - `id` (int): The id of the element to disable.
 - `enable_element`: Enable an element (like a button or a text input).
@@ -137,12 +176,15 @@ You can use the default low level graphical elements:
 - `add_image`: Add an image element to the screen.
     - `id` (int): The id of the image.
     - `src` (str): The source of the image.
-    - `position_and_size` (str): The position and size of the image.
+    - `pos_x` (float), `pos_y` (float), `size_x` (str), `size_y` (str)
+    - `anchor_x` (float), `anchor_y` (float), `scale_x` (float), `scale_y` (float), `rotation` (float)
     - `opacity` (str): The opacity of the image.
+    - `object_fit` (str): The method to fit the image ("cover", "contain", "fill", "none").
 - `add_text`: Add a text element to the screen. The text is rendered in a container. If some text characters exceed the container size, they can be hidden.
     - `id` (int): The id of the text.
     - `text` (str): The text to add. The text supports beautiful text formatting syntax, allowing to add effects.
-    - `position_and_size` (str): The position and size of the text container.
+    - `pos_x` (float), `pos_y` (float), `size_x` (str), `size_y` (str)
+    - `anchor_x` (float), `anchor_y` (float), `scale_x` (float), `scale_y` (float), `rotation` (float)
     - `opacity` (str): The opacity of the text.
     - `color` (str): The color of the text.
     - `font_size` (int): The font size of the text.
@@ -153,7 +195,8 @@ You can use the default low level graphical elements:
 - `add_button`: Add a button to the screen.
     - `id` (int): The id of the button.
     - `text` (str): The text of the button.
-    - `position_and_size` (str): The position and size of the button.
+    - `pos_x` (float), `pos_y` (float), `size_x` (str), `size_y` (str)
+    - `anchor_x` (float), `anchor_y` (float), `scale_x` (float), `scale_y` (float), `rotation` (float)
     - `opacity` (str): The opacity of the button.
     - `color` (str): The color of the button.
     - `font_size` (int): The font size of the button.
@@ -161,7 +204,8 @@ You can use the default low level graphical elements:
 - `add_text_input`: Add a text input to the screen.
     - `id` (int): The id of the text input.
     - `text` (str): The text of the text input.
-    - `position_and_size` (str): The position and size of the text input.
+    - `pos_x` (float), `pos_y` (float), `size_x` (str), `size_y` (str)
+    - `anchor_x` (float), `anchor_y` (float), `scale_x` (float), `scale_y` (float), `rotation` (float)
     - `opacity` (str): The opacity of the text input.
     - `color` (str): The color of the text input.
     - `font_size` (int): The font size of the text input.
@@ -405,6 +449,8 @@ If a "scene_name" argument is not empty and doesn't exists, it will raise an err
 ### Custom events
 
 - `pause`: Pause the execution, and wait for an event like a mouse click or a space bar press.
+- `wait`: Wait for a specific duration.
+    - `duration` (float): The time to wait in seconds.
 - `end`: End the execution of the NaScene.
 
 - `unregister_event`: Unregister an event.
