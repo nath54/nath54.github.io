@@ -120,6 +120,8 @@ PYXML_TO_HTML: dict[str, tuple[str, str]] = {
     "long_description": ("div", "long-description markdown-render"),
     "thumbnail_img": ("img", "thumbnail-img"),
     "img": ("img", ""),
+    # --- NaScene ---
+    "nascene": ("div", "nascene-container"),
 }
 
 # Self-closing tags that produce elements with no children (void HTML elements)
@@ -189,6 +191,8 @@ def map_pyxml_attributes(
             html_attrs["id"] = value
         elif key == "class":
             extra_classes.append(value)
+        elif key == "style":
+            html_attrs["style"] = value
         elif key == "placeholder":
             html_attrs["placeholder"] = value
         elif key == "autoplay":

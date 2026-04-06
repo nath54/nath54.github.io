@@ -160,7 +160,7 @@ def compile_construction_node(
         resolved_v = str(context.resolve(v))
         # Logic to adjust relative paths for sub-folder pages:
         # If it's a relative path to res/, css/, or js/ and it doesn't look like an absolute URL...
-        if k in ("src", "href", "url") and not (
+        if k in ("src", "href", "url", "scene_data") and not (
             resolved_v.startswith(("http", "https", "mailto:", "/"))
         ):
             resolved_v = f"{rel_prefix}{resolved_v}"
@@ -327,6 +327,7 @@ def compile_page(
         js_paths = [
             "js/lib/lib_translation.js",
             "js/lib/particles.js",
+            "js/lib/nascene_engine.js",
         ]
     js_scripts: str = "\n    ".join(
         f'<script src="{rel_prefix}{path}"></script>' for path in js_paths
