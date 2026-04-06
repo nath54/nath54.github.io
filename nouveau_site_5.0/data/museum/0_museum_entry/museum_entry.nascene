@@ -1,0 +1,17 @@
+museum_entry:
+    bar_show()
+    add_image(id=1, src="", position_and_size="fullscreen", opacity="1", )
+    load_var(var_name="first_time_played", type="bool", default_value=False)
+    if(cond_var_name="first_time_played", true_scene_name="first_time", false_scene_name="")
+    pause()
+    end()
+
+
+first_time:
+    bar_clear()
+    bar_append_text(text="Hello wanderer !")
+    save_var(var_name="first_time_played", value=True, type="bool")
+    pause()
+    bar_clear()
+    bar_append_text(text="Welcome to my museum.")
+    pause()
