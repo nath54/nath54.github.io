@@ -442,7 +442,10 @@ PYXML_TO_HTML = {
 /* Tailles */
 .expandable-sm .expandable-title { font-size: var(--font-size-sm); }
 .expandable-md .expandable-title { font-size: var(--font-size-base); }
-.expandable-lg .expandable-title { font-size: var(--font-size-lg); font-weight: var(--font-weight-semibold); }
+.expandable-lg .expandable-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+}
 
 @keyframes expand-in {
     from { opacity: 0; transform: translateY(-8px); }

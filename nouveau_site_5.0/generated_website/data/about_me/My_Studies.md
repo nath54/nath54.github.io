@@ -4,7 +4,7 @@
 
 I am currently in the end of my last year of engineering school (Télécom Physique Strasbourg).
 
-## école d'ingénieur (2023 - 2026) (FR)
+## École d'ingénieur (2023 - 2026) (FR)
 
 Je suis actuellement en fin de dernière année d'école d'ingénieur (Télécom Physique Strasbourg).
 
@@ -12,7 +12,7 @@ Je suis actuellement en fin de dernière année d'école d'ingénieur (Télécom
 
 I did a 2-year preparatory class (CPGE) in Paris (lycée Louis-le-Grand).
 
-## classe préparatoire (2021 - 2023) (FR)
+## Classe préparatoire (2021 - 2023) (FR)
 
 J'ai fait une classe préparatoire (CPGE) de 2 ans à Paris (lycée Louis-le-Grand).
 
