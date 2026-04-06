@@ -308,12 +308,32 @@ def compile_page(
     pyxml_content: str = read_file(pyxml_path)
     root: PyxmlNode = parse_pyxml(pyxml_content)
 
-    # Compile the body
-    body_html: str = compile_node(root, context)
-
     # Calculate relative depth (e.g., 'pages/about.html' -> '../')
     depth: int = len(Path(context.output_path).parents) - 1
     rel_prefix: str = "../" * depth if depth > 0 else ""
+
+    # Compile the body
+    body_html: str = compile_node(root, context)
+
+    # Inject OS style title bar if not index
+    is_index: bool = context.output_path == "index.html"
+    if not is_index:
+        page_title = context.page_title or context.site_title
+        os_bar = f"""
+    <div class="os-title-bar">
+        <a href="{rel_prefix}index.html" class="os-btn-back">
+            <i class="fas fa-arrow-left"></i> 
+            <span data-translation-en="Back" data-translation-fr="Retour">Back</span>
+        </a>
+        <div class="os-title" data-translation-en="{page_title}" data-translation-fr="{page_title}">{page_title}</div>
+        <div class="os-controls">
+            <span class="os-btn-min"></span>
+            <span class="os-btn-max"></span>
+            <span class="os-btn-close"></span>
+        </div>
+    </div>
+"""
+        body_html = os_bar + body_html
 
     # Build CSS links
     if css_paths is None:

@@ -1,27 +1,68 @@
 museum_entry:
+    clear()
     bar_show()
     add_image(id=1, src="", position_and_size="fullscreen", opacity="1", )
     load_var(var_name="first_time_played", type="bool", default_value=False)
-    if(cond_var_name="first_time_played", true_scene_name="hello_again", false_scene_name="first_time")
-    pause()
-    bar_clear()
-    bar_append_text(text="Test...")
-    end()
+    if(
+        cond_var_name="first_time_played",
+        true_scene_name="hello_again",
+        false_scene_name="first_time"
+    )
 
 
 first_time:
     bar_clear()
-    bar_append_text(text="Hello wanderer !")
+    bar_append_text(text_en="Hello wanderer !", text_fr="Bonjour voyageur !")
     save_var(var_name="first_time_played", value=True, type="bool")
     pause()
     bar_clear()
-    bar_append_text(text="Welcome to my museum.")
+    bar_append_text(text_en="Welcome to my museum.", text_fr="Bienvenue dans mon musée.")
     pause()
+    goto(scene_name="museum_next")
 
 hello_again:
     bar_clear()
-    bar_append_text(text="Hello again wanderer !")
+    bar_append_text(text_en="Hello again wanderer !", text_fr="Bonjour voyageur !")
     pause()
     bar_clear()
-    bar_append_text(text="Let's continue where we left off.")
+    bar_append_text(text_en="Let's continue where we left off.", text_fr="Continuons là où nous nous sommes arrêtés.")
+    goto(scene_name="museum_next")
+
+soft_restart_scene:
+    goto(scene_name="museum_entry")
+
+hard_restart_scene:
+    clear_var(var_name="first_time_played")
+    goto(scene_name="museum_entry")
+
+museum_next:
     pause()
+    bar_clear()
+    bar_append_text(text_en="The museum is a work in progress. Please come back later.", text_fr="Le musée est en cours de construction. Veuillez revenir plus tard.")
+    goto(scene_name="museum_end")
+
+museum_end:
+    add_button(
+        id=btn_soft,
+        text_en="Soft Restart",
+        text_fr="Recommencer (doux)",
+        action="jump",
+        target="soft_restart_scene",
+        pos_x=0.3,
+        pos_y=0.4,
+        anchor_x=0.5,
+        anchor_y=0.5
+    )
+    add_button(
+        id=btn_hard,
+        text_en="Hard Restart (Reset)",
+        text_fr="Réinitialiser tout",
+        action="jump",
+        target="hard_restart_scene",
+        pos_x=0.7,
+        pos_y=0.4,
+        anchor_x=0.5,
+        anchor_y=0.5
+    )
+    pause()
+    end()

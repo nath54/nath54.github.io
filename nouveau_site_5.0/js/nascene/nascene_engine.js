@@ -122,13 +122,18 @@ class NaSceneEngine {
 
         this.scenes = {};
         this.vars = {
-            sys_language: document.documentElement.lang || "en",
             sys_aspect_ratio: this.container.clientWidth / (this.container.clientHeight || 1),
             sys_is_portrait: this.container.clientWidth < this.container.clientHeight,
             sys_is_landscape: this.container.clientWidth >= this.container.clientHeight
         };
 
+        Object.defineProperty(this.vars, 'sys_language', {
+            get: function () { return window.current_language || document.documentElement.lang || "en"; }
+        });
+
         this.elements = {}; // id -> DOM element
+        this.runId = 0;
+        this.resolvePause = null;
 
         // Ensure container is absolute/relative to wrap absolute children
         if (window.getComputedStyle(this.container).position === "static") {
@@ -156,7 +161,7 @@ class NaSceneEngine {
             if (manifest.landing_place) {
                 // landing_place could be "nascene_root:/0_museum_entry/museum_entry.nascene:museum_entry"
                 let target = manifest.landing_place;
-                await this.jumpTo(target);
+                await this.jumpTo(target, false);
             }
         } catch (e) {
             console.error("Failed to load NaScene manifest:", e);
@@ -198,7 +203,7 @@ class NaSceneEngine {
         }
     }
 
-    async jumpTo(targetStr) {
+    async jumpTo(targetStr, isSequential = true) {
         // targetStr format: "nascene_root:/path/to/file.nascene:scene_id" or just "scene_id" for local scene jumps
         let sceneId = targetStr;
 
@@ -214,6 +219,12 @@ class NaSceneEngine {
             sceneId = parts[1];
         }
 
+        let currentRunId = ++this.runId;
+        if (this.resolvePause) {
+            this.resolvePause();
+            this.resolvePause = null;
+        }
+
         if (filePath) {
             await this.loadSceneFile(filePath);
         }
@@ -223,8 +234,10 @@ class NaSceneEngine {
             return;
         }
 
-        await this.playScene(sceneId);
-        throw new Error("NaScene_Jump");
+        await this.playScene(sceneId, currentRunId);
+        if (isSequential) {
+            throw new Error("NaScene_Jump");
+        }
     }
 
     // Replace $var_name in strings
@@ -290,6 +303,24 @@ class NaSceneEngine {
         }
 
         switch (command) {
+            case "clear": {
+                for (let id in this.elements) {
+                    if (this.elements[id].parentNode) {
+                        this.elements[id].parentNode.removeChild(this.elements[id]);
+                    }
+                }
+                this.elements = {};
+                break;
+            }
+            case "remove": {
+                if (args.id && this.elements[args.id]) {
+                    if (this.elements[args.id].parentNode) {
+                        this.elements[args.id].parentNode.removeChild(this.elements[args.id]);
+                    }
+                    delete this.elements[args.id];
+                }
+                break;
+            }
             case "add_image": {
                 const el = document.createElement("img");
                 const id = args.id;
@@ -312,9 +343,13 @@ class NaSceneEngine {
             case "add_text": {
                 const el = document.createElement("div");
                 const id = args.id;
-                // Use Option A: Language-Specific Attributes
-                const text = this.evaluateString(this.getLangArg(args, "text"));
-                el.innerHTML = text; // allow UI formatting
+
+                el.className = "to_translate";
+                ['en', 'fr'].forEach(lang => {
+                    const txt = this.evaluateString(args["text_" + lang] || args["text"]);
+                    if (txt) el.dataset["translation_" + lang] = txt;
+                });
+                el.innerHTML = this.evaluateString(this.getLangArg(args, "text"));
 
                 if (args.color) el.style.color = args.color;
                 if (args.font_size) el.style.fontSize = args.font_size + "px";
@@ -330,11 +365,54 @@ class NaSceneEngine {
                 this.container.appendChild(el);
                 break;
             }
+            case "add_button": {
+                const el = document.createElement("button");
+                const id = args.id;
+
+                el.className = "to_translate";
+                ['en', 'fr'].forEach(lang => {
+                    const txt = this.evaluateString(args["text_" + lang] || args["text"]);
+                    if (txt) el.dataset["translation_" + lang] = txt;
+                });
+                el.innerHTML = this.evaluateString(this.getLangArg(args, "text"));
+
+                el.style.backgroundColor = args.color || "rgba(255,255,255,0.2)";
+                el.style.color = args.text_color || "white";
+                el.style.padding = "10px 20px";
+                el.style.border = "1px solid white";
+                el.style.cursor = "pointer";
+                el.style.borderRadius = "8px";
+                el.style.pointerEvents = "auto";
+                el.style.zIndex = "2000";
+
+                if (args.font_size) el.style.fontSize = args.font_size + "px";
+
+                this.applyGeometry(el, args);
+
+                el.addEventListener("click", (e) => {
+                    e.stopPropagation(); // prevent bubbling to the pause() click handler
+                    if (args.action === "jump" && args.target) {
+                        this.jumpTo(args.target, false).catch(console.error);
+                    } else if (args.action === "clear_var" && args.var_name) {
+                        window.localStorage.removeItem("nascene_" + args.var_name);
+                        delete this.vars[args.var_name];
+                        if (args.target) this.jumpTo(args.target, false).catch(console.error);
+                    }
+                });
+
+                this.elements[id] = el;
+                this.container.appendChild(el);
+                break;
+            }
             case "save_var":
                 if (args.value !== undefined) {
                     this.vars[args.var_name] = args.value;
                 }
                 window.localStorage.setItem("nascene_" + args.var_name, this.vars[args.var_name]);
+                break;
+            case "clear_var":
+                window.localStorage.removeItem("nascene_" + args.var_name);
+                delete this.vars[args.var_name];
                 break;
             case "load_var":
                 let item = window.localStorage.getItem("nascene_" + args.var_name);
@@ -355,10 +433,18 @@ class NaSceneEngine {
                 }
                 break;
             }
+            case "goto": {
+                if (args.scene_name) {
+                    await this.jumpTo(this.evaluateString(args.scene_name));
+                }
+                break;
+            }
             case "pause": {
                 return new Promise(resolve => {
+                    this.resolvePause = resolve;
                     const clickHandler = () => {
                         this.container.removeEventListener('click', clickHandler);
+                        this.resolvePause = null;
                         resolve();
                     };
                     this.container.addEventListener('click', clickHandler);
@@ -397,8 +483,15 @@ class NaSceneEngine {
             }
             case "bar_append_text": {
                 if (this.vnBarText) {
-                    const text = this.evaluateString(this.getLangArg(args, "text"));
-                    this.vnBarText.innerHTML += text + "<br>";
+                    const span = document.createElement("span");
+                    span.className = "to_translate";
+                    ['en', 'fr'].forEach(lang => {
+                        const txt = this.evaluateString(args["text_" + lang] || args["text"]);
+                        if (txt) span.dataset["translation_" + lang] = txt;
+                    });
+                    span.innerHTML = this.evaluateString(this.getLangArg(args, "text"));
+                    this.vnBarText.appendChild(span);
+                    this.vnBarText.appendChild(document.createElement("br"));
                 }
                 break;
             }
@@ -406,11 +499,12 @@ class NaSceneEngine {
         }
     }
 
-    async playScene(sceneId) {
+    async playScene(sceneId, expectedRunId) {
         const sceneCommands = this.scenes[sceneId];
         if (!sceneCommands) return;
 
         for (let i = 0; i < sceneCommands.length; i++) {
+            if (this.runId !== expectedRunId) break;
             try {
                 await this.executeCommand(sceneCommands[i]);
             } catch (e) {
