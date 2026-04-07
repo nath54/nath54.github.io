@@ -51,7 +51,7 @@ static_pages:
 dynamic_pages:
   - parser: "yaml_directory"
     source: "data/projects"
-    template: "project_modal"  # Using modal template as entry page fallback
+    template: "pages/project_page.xml"
     output_pattern: "pages/projects/{_source_file}.html"
 
   - parser: "yaml_directory"

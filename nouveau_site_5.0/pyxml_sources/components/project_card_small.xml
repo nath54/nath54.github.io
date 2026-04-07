@@ -1,10 +1,10 @@
-<project_card class="card-project-small" data-type="{project_type}" data-importance="{project_showcase_importance}" action="open_modal" target="modal_project_{_source_file}">
+<project_card class="card-project-small" data-type="{project_type}" data-importance="{project_showcase_importance}" action="navigate" url="pages/projects/{_source_file}.html">
     <icon src="{icon}" />
     <div class="card-info">
         <name name_en="{name_en}" name_fr="{name_fr}" />
         <short_description name_en="{short_description_en}" name_fr="{short_description_fr}" />
     </div>
     <div class="card-actions">
-        <btn_get name_en="Get" name_fr="Ouvrir" />
+        <btn_get name_en="Get" name_fr="Ouvrir" action="navigate" url="pages/projects/{_source_file}.html" />
     </div>
 </project_card>

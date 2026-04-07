@@ -14,7 +14,7 @@
         </div>
 
         <!-- Hero Section: Featured Project -->
-        <section class="projects-section featured-hero">
+        <section class="projects-section featured-hero" data-section-filter="all">
             <exec_generate
                 parser="yaml_directory"
                 source="data/projects/"
@@ -25,7 +25,7 @@
         </section>
 
         <!-- Must-Have Apps (Top rated) -->
-        <section class="projects-section">
+        <section class="projects-section" data-section-filter="all">
             <title name_en="Must-Have Projects" name_fr="Projets Incontournables" />
             <projects_grid>
                 <exec_generate
@@ -84,15 +84,6 @@
                 />
             </projects_grid>
         </section>
-
-        <!-- Modals Hidden Container -->
-        <modals_container>
-            <exec_generate
-                parser="yaml_directory"
-                source="data/projects/"
-                template="project_modal"
-            />
-        </modals_container>
     </div>
 
     <!-- Interaction Script -->
@@ -100,16 +91,22 @@
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.getElementById('project-search');
             const categoryTabs = document.querySelectorAll('.category-tab');
-            const projectSections = document.querySelectorAll('.projects-section[data-section-filter]');
+            const projectSections = document.querySelectorAll('.projects-section');
             const allCards = document.querySelectorAll('.card-project, .card-project-hero');
 
             function filterProjects() {
                 const searchTerm = searchInput.value.toLowerCase();
-                const activeFilter = document.querySelector('.category-tab.active').dataset.filter;
+                const activeTab = document.querySelector('.category-tab.active');
+                if (!activeTab) return;
+                
+                const activeFilter = activeTab.dataset.filter;
 
-                // Filter sections
+                // Filter sections based on category
                 projectSections.forEach(section => {
-                    if (activeFilter === 'all' || section.dataset.sectionFilter === activeFilter) {
+                    const sectionFilter = section.dataset.sectionFilter;
+                    // If filter is 'all', show all sections
+                    // Otherwise, only show 'all' sections OR the specific category section
+                    if (activeFilter === 'all' || sectionFilter === 'all' || sectionFilter === activeFilter) {
                         section.style.display = 'flex';
                     } else {
                         section.style.display = 'none';
@@ -139,6 +136,9 @@
                     filterProjects();
                 });
             });
+            
+            // Initial run
+            filterProjects();
         });
     </script>
 </main_container>

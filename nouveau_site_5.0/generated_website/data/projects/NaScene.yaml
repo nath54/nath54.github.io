@@ -7,7 +7,24 @@ project_type: "Professional"
 project_showcase_importance: 90
 icon: "res/icons/game.svg"
 link: "https://github.com/nath54/nascene"
+github_link: "https://github.com/nath54/nascene"
+demo_link: "https://nath54.github.io/pages/museum.html"
+app_version: "2.4.1"
+download_size: "42 MB"
 tags: ["C++", "Graphics", "Engine"]
-gallery: ["res/icons/game.svg"]
+gallery: ["res/icons/game.svg", "res/logo.svg"]
 description_en: "A state-of-the-art engine for creating interactive stories with a focus on modularity and high performance."
 description_fr: "Un moteur de pointe pour créer des histoires interactives avec un accent sur la modularité et les hautes performances."
+funny_comments:
+  - user: "GamerPro99"
+    rating: 5
+    text_en: "Finally an engine that doesn't explode when I add more than 3 characters! Love it."
+    text_fr: "Enfin un moteur qui n'explose pas quand j'ajoute plus de 3 personnages ! J'adore."
+  - user: "SyntaxError"
+    rating: 4
+    text_en: "Wait, this is actually good? I wanted to complain but I can't find anything."
+    text_fr: "Attendez, c'est vraiment bien ? Je voulais me plaindre mais je ne trouve rien."
+  - user: "Nathan's Mom"
+    rating: 5
+    text_en: "My son is a genius, obviously. 5 stars."
+    text_fr: "Mon fils est un génie, évidemment. 5 étoiles."

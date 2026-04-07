@@ -187,12 +187,22 @@ def handle_exec_foreach(node: PyxmlNode, context: CompilationContext) -> str:
 
     if not isinstance(list_data, (list, tuple)):
         # Try to handle as a string that looks like a list
-        if isinstance(list_data, str) and list_data.startswith("["):
-            # Simple parsing: ['a', 'b', 'c'] or ["a", "b", "c"]
-            try:
-                list_data = ast.literal_eval(list_data)
-            except (ValueError, SyntaxError):
-                list_data = [list_data]
+        if isinstance(list_data, str):
+            if list_data.startswith("["):
+                # Simple parsing: ['a', 'b', 'c'] or ["a", "b", "c"]
+                try:
+                    list_data = ast.literal_eval(list_data)
+                except (ValueError, SyntaxError):
+                    list_data = [list_data]
+            elif list_data.startswith("range("):
+                # Handle range(n)
+                try:
+                    n = int(list_data.replace("range(", "").replace(")", "").strip())
+                    list_data = list(range(n))
+                except ValueError:
+                    list_data = []
+            else:
+                list_data = [list_data] if list_data else []
         else:
             list_data = [list_data] if list_data else []
 

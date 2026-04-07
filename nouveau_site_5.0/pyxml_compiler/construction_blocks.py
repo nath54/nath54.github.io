@@ -128,6 +128,13 @@ PYXML_TO_HTML: dict[str, tuple[str, str]] = {
     # --- NaScene ---
     "nascene": ("div", "nascene-container"),
     "script": ("script", ""),
+    # --- Product Page ---
+    "product_header": ("header", "product-header"),
+    "stat_group": ("div", "stat-group"),
+    "stat_item": ("div", "stat-item"),
+    "reviews_section": ("section", "reviews-section"),
+    "comment_card": ("article", "comment-card"),
+    "rating_stars": ("div", "rating-stars"),
 }
 
 # Self-closing tags that produce elements with no children (void HTML elements)

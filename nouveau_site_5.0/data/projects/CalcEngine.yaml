@@ -7,7 +7,19 @@ project_type: "Academic"
 project_showcase_importance: 85
 icon: "res/icons/math.svg"
 link: "https://github.com/nath54/calc_engine"
+github_link: "https://github.com/nath54/calc_engine"
+app_version: "1.0.4"
+download_size: "1.2 MB"
 tags: ["Python", "Mathematics", "PyTest"]
 gallery: ["res/icons/math.svg"]
 description_en: "A comprehensive symbolic engine that handles polynomial addition, products, and derivations with extreme precision."
 description_fr: "Un moteur symbolique complet qui gère l'addition de polynômes, les produits et les dérivations avec une précision extrême."
+funny_comments:
+  - user: "MathLover"
+    rating: 5
+    text_en: "Finally I can calculate my homework without crying. Best thing ever."
+    text_fr: "Enfin je peux faire mes devoirs sans pleurer. La meilleure chose au monde."
+  - user: "DivideByZero"
+    rating: 3
+    text_en: "It still doesn't let me divide by zero. Boring."
+    text_fr: "Ça ne me laisse toujours pas diviser par zéro. Ennuyeux."

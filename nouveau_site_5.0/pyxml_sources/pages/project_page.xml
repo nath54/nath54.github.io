@@ -1,0 +1,89 @@
+<main_container>
+    <div class="project-detail-page">
+        <!-- App Store Header -->
+        <product_header>
+            <div class="header-main">
+                <icon src="{icon}" />
+                <div class="header-info">
+                    <h1 class="product-title to_translate" data-translation_en="{name_en}" data-translation_fr="{name_fr}">{name_en}</h1>
+                    <p class="product-developer">Nathan Cerisara</p>
+                    <div class="header-actions">
+                        <btn_get name_en="Get" name_fr="Ouvrir" action="navigate" url="{link}" />
+                        <button class="btn-code" action="navigate" url="{github_link}">
+                            <i class="fab fa-github"></i> <span name_en="Source" name_fr="Code" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </product_header>
+
+        <!-- Stats Grid -->
+        <stat_group>
+            <stat_item>
+                <div class="label" name_en="Importance" name_fr="Importance" />
+                <div class="value">{project_showcase_importance}</div>
+            </stat_item>
+            <stat_item>
+                <div class="label" name_en="Category" name_fr="Catégorie" />
+                <div class="value">{project_type}</div>
+            </stat_item>
+            <stat_item>
+                <div class="label" name_en="Version" name_fr="Version" />
+                <div class="value">{app_version}</div>
+            </stat_item>
+            <stat_item>
+                <div class="label" name_en="Size" name_fr="Taille" />
+                <div class="value">{download_size}</div>
+            </stat_item>
+        </stat_group>
+
+        <!-- Gallery -->
+        <section class="section">
+            <h2 class="section-title" name_en="Gallery" name_fr="Galerie" />
+            <image_carousel>
+                <exec_foreach var="img" in="{gallery}">
+                    <img src="{img}" />
+                </exec_foreach>
+            </image_carousel>
+        </section>
+
+        <!-- Description -->
+        <section class="section">
+            <h2 class="section-title" name_en="About" name_fr="À propos" />
+            <long_description name_en="{description_en}" name_fr="{description_fr}" />
+            <div class="tags-list">
+                <exec_foreach var="t" in="{tags}">
+                    <tag>{t}</tag>
+                </exec_foreach>
+            </div>
+        </section>
+
+        <!-- Funny Comments Section -->
+        <reviews_section>
+            <div class="reviews-header">
+                <h2 class="section-title" name_en="Ratings &amp; Reviews" name_fr="Notes et avis" />
+                <div class="see-all" name_en="See All" name_fr="Tout afficher" />
+            </div>
+            <div class="comments-grid">
+                <exec_foreach var="comment" in="{funny_comments}">
+                    <comment_card>
+                        <div class="comment-head">
+                            <span class="comment-user">{comment[user]}</span>
+                            <span class="comment-date">2d ago</span>
+                        </div>
+                        <rating_stars>
+                            <exec_foreach var="i" in="range(comment[rating])">
+                                <i class="fas fa-star"></i>
+                            </exec_foreach>
+                        </rating_stars>
+                        <div class="comment-text to_translate" 
+                             data-translation_en="{comment[text_en]}" 
+                             data-translation_fr="{comment[text_fr]}">
+                             {comment[text_en]}
+                        </div>
+                    </comment_card>
+                </exec_foreach>
+            </div>
+        </reviews_section>
+    </div>
+</main_container>
