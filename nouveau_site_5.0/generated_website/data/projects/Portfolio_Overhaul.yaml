@@ -3,8 +3,8 @@ name_fr: "Refonte du site Portfolio"
 short_description_en: "A premium glassmorphism overhaul of my personal brand."
 short_description_fr: "Une refonte premium en glassmorphism de ma marque personnelle."
 project_status: "In-development"
-project_type: "Web Development"
-project_showcase_importance: 50
+project_type: "Professional"
+project_showcase_importance: 95
 icon: "res/logo.svg"
 link: "https://github.com/nath54/nath54.github.io"
 tags: ["Python", "JavaScript", "PyXML", "CSS"]

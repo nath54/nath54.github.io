@@ -54,6 +54,7 @@ PYXML_TO_HTML: dict[str, tuple[str, str]] = {
     "button_close": ("button", "btn btn-close"),
     # --- Cards ---
     "project_card": ("article", "card card-project"),
+    "project_card_hero": ("article", "project-hero card-project-hero"),
     "media_card": ("article", "card card-media"),
     "category_card": ("a", "card card-category"),
     "blog_post_row_cardline": ("article", "card card-blog-row"),
@@ -112,6 +113,10 @@ PYXML_TO_HTML: dict[str, tuple[str, str]] = {
     "todo_item": ("li", "todo-item"),
     "icon": ("img", "icon"),
     "status": ("span", "badge badge-status"),
+    "btn_get": ("button", "btn-get btn-action"),
+    "hero_content": ("div", "hero-content"),
+    "hero_tagline": ("p", "hero-tagline"),
+    "hero_title": ("h1", "hero-title"),
     "count": ("span", "count"),
     "plaque_title": ("h3", "plaque-title"),
     "plaque_date": ("time", "plaque-date"),
@@ -122,6 +127,7 @@ PYXML_TO_HTML: dict[str, tuple[str, str]] = {
     "img": ("img", ""),
     # --- NaScene ---
     "nascene": ("div", "nascene-container"),
+    "script": ("script", ""),
 }
 
 # Self-closing tags that produce elements with no children (void HTML elements)

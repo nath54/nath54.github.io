@@ -1,0 +1,230 @@
+/* css/components/projects.css — App Store Vibe Redesign */
+
+/* --- Layout Sections --- */
+.projects-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.projects-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.projects-section .section-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-neutral-900);
+    border-bottom: none;
+    margin-bottom: var(--space-2);
+    text-align: left;
+}
+
+/* --- Hero Section (Featured) --- */
+.project-hero {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    min-height: 350px;
+    border-radius: var(--border-radius-xl);
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-primary-400), var(--color-primary-700));
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    padding: var(--space-8);
+    box-shadow: var(--shadow-xl);
+    transition: transform var(--transition-normal);
+}
+
+.project-hero:hover {
+    transform: scale(1.01);
+}
+
+.hero-content {
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    padding: var(--space-6);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+}
+
+.hero-tagline {
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.8;
+    margin-bottom: var(--space-1);
+}
+
+.hero-title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-2);
+}
+
+/* --- Tabs (iOS Style) --- */
+.category-tabs {
+    display: flex;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-1);
+    align-self: center;
+    margin-bottom: var(--space-4);
+    box-shadow: var(--shadow-sm);
+}
+
+.category-tab {
+    padding: var(--space-2) var(--space-6);
+    border-radius: var(--border-radius-sm);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-weight: var(--font-weight-medium);
+    transition: all var(--transition-fast);
+    color: var(--color-neutral-600);
+}
+
+.category-tab.active {
+    background: white;
+    box-shadow: var(--shadow-sm);
+    color: var(--color-primary-600);
+}
+
+/* --- Project Cards (App Style) --- */
+.card-project {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-4);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-4);
+    transition: all var(--transition-normal);
+}
+
+.card-project:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.card-project .icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px; /* iOS icon radius */
+    box-shadow: var(--shadow-md);
+    flex-shrink: 0;
+}
+
+.card-info {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.card-info .name {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-neutral-900);
+    margin: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.card-info .short-description {
+    font-size: var(--font-size-sm);
+    color: var(--color-neutral-500);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.btn-get {
+    background: var(--color-primary-50);
+    color: var(--color-primary-600);
+    border-radius: var(--border-radius-full);
+    padding: var(--space-1) var(--space-4);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+}
+
+/* --- Grids --- */
+.grid-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-4);
+}
+
+/* --- Small/Micro Cards --- */
+.card-project-small {
+    padding: var(--space-3);
+    gap: var(--space-3);
+}
+
+.card-project-small .icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+}
+
+/* --- Filtering UI --- */
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: var(--space-2);
+}
+
+.search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: var(--space-3) var(--space-6);
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--border-radius-full);
+    color: var(--color-neutral-900);
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-fast);
+    outline: none;
+}
+
+.search-input:focus {
+    background: rgba(255, 255, 255, 0.6);
+    border-color: var(--color-primary-300);
+    box-shadow: 0 0 0 4px var(--color-primary-100);
+    width: 100%;
+    max-width: 550px;
+}
+
+.search-input::placeholder {
+    color: var(--color-neutral-400);
+}
+
+/* Hide projects based on filter class */
+.project-hidden {
+    display: none !important;
+}

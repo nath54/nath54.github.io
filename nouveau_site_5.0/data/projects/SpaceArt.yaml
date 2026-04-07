@@ -1,0 +1,13 @@
+name_en: "Space Art"
+name_fr: "Art Spatial"
+short_description_en: "Procedurally generated celestial bodies and nebulae."
+short_description_fr: "Corps célestes et nébuleuses générés de manière procédurale."
+project_status: "Active"
+project_type: "Personal"
+project_showcase_importance: 60
+icon: "res/icons/stars.svg"
+link: "https://example.com"
+tags: ["GLSL", "Three.js", "Art"]
+gallery: ["res/icons/stars.svg"]
+description_en: "An artistic exploration of the cosmos using WebGL shaders."
+description_fr: "Une exploration artistique du cosmos utilisant des shaders WebGL."

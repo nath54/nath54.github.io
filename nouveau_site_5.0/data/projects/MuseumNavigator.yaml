@@ -1,0 +1,13 @@
+name_en: "Museum Navigator"
+name_fr: "Navigateur de Musée"
+short_description_en: "Interactive map and guide for digital art museums."
+short_description_fr: "Carte interactive et guide pour les musées d'art numérique."
+project_status: "In-development"
+project_type: "Professional"
+project_showcase_importance: 80
+icon: "res/icons/map.svg"
+link: "https://example.com"
+tags: ["JavaScript", "SVG", "Web"]
+gallery: ["res/icons/map.svg"]
+description_en: "A web-based tool for exploring virtual museum spaces with ease."
+description_fr: "Un outil web pour explorer facilement les espaces de musées virtuels."

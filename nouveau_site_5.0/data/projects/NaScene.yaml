@@ -1,0 +1,13 @@
+name_en: "NaScene Engine"
+name_fr: "Moteur NaScene"
+short_description_en: "A declarative visual novel engine built with C++ and PyXML."
+short_description_fr: "Un moteur de visual novel déclaratif construit avec C++ et PyXML."
+project_status: "Active"
+project_type: "Professional"
+project_showcase_importance: 90
+icon: "res/icons/game.svg"
+link: "https://github.com/nath54/nascene"
+tags: ["C++", "Graphics", "Engine"]
+gallery: ["res/icons/game.svg"]
+description_en: "A state-of-the-art engine for creating interactive stories with a focus on modularity and high performance."
+description_fr: "Un moteur de pointe pour créer des histoires interactives avec un accent sur la modularité et les hautes performances."

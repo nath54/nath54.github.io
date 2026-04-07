@@ -1,0 +1,13 @@
+name_en: "CalcEngine"
+name_fr: "Moteur de calcul"
+short_description_en: "A robust symbolic calculation engine for algebraic simplifications."
+short_description_fr: "Un moteur de calcul symbolique robuste pour les simplifications algébriques."
+project_status: "Active"
+project_type: "Academic"
+project_showcase_importance: 85
+icon: "res/icons/math.svg"
+link: "https://github.com/nath54/calc_engine"
+tags: ["Python", "Mathematics", "PyTest"]
+gallery: ["res/icons/math.svg"]
+description_en: "A comprehensive symbolic engine that handles polynomial addition, products, and derivations with extreme precision."
+description_fr: "Un moteur symbolique complet qui gère l'addition de polynômes, les produits et les dérivations avec une précision extrême."

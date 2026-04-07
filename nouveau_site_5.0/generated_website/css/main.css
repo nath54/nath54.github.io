@@ -5,6 +5,7 @@
 @import url('base/reset.css');
 @import url('base/typography.css');
 @import url('components/markdown.css');
+@import url('components/projects.css');
 
 /* --- Global Layouts --- */
 body {

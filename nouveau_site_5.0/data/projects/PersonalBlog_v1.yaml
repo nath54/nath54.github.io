@@ -1,0 +1,13 @@
+name_en: "Personal Blog v1"
+name_fr: "Blog Personnel v1"
+short_description_en: "The first iteration of my personal tech documentation blog."
+short_description_fr: "La première itération de mon blog de documentation tech personnel."
+project_status: "Active"
+project_type: "Personal"
+project_showcase_importance: 55
+icon: "res/icons/blog.svg"
+link: "https://example.com"
+tags: ["Jekyll", "Liquid", "Sass"]
+gallery: ["res/icons/blog.svg"]
+description_en: "A static blog built on Jekyll with custom themes and layouts."
+description_fr: "Un blog statique construit sur Jekyll avec des thèmes et des mises en page personnalisés."

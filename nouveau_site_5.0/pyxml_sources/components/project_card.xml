@@ -1,22 +1,16 @@
-<project_card data-type="{project_type}" data-importance="{project_showcase_importance}">
-    <card_header>
-        <icon src="{icon}" />
+<project_card data-type="{project_type}" data-importance="{project_showcase_importance}" action="open_modal" target="modal_project_{_source_file}">
+    <icon src="{icon}" />
+    <div class="card-info">
         <name name_en="{name_en}" name_fr="{name_fr}" />
-        <status badge="{project_status}">{project_status}</status>
-    </card_header>
-
-    <card_body>
         <short_description name_en="{short_description_en}" name_fr="{short_description_fr}" />
-
         <tags_list>
-            <exec_foreach var="tag" in="{tags}">
+            <exec_foreach var="tag" in="{tags}" limit="2">
                 <tag>{tag}</tag>
             </exec_foreach>
         </tags_list>
-    </card_body>
-
-    <card_actions>
-        <link_url icon="github" name="Source" url="{link}" />
-        <button_action icon="expand" name_en="Details" name_fr="Détails" action="open_modal" target="modal_project_{_source_file}" />
-    </card_actions>
+    </div>
+    <div class="card-actions">
+        <btn_get name_en="Get" name_fr="Ouvrir" />
+        <status badge="{project_status}">{project_status}</status>
+    </div>
 </project_card>

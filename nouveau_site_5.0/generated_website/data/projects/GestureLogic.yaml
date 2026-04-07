@@ -1,0 +1,13 @@
+name_en: "Gesture Logic"
+name_fr: "Logique Gesture"
+short_description_en: "Real-time hand tracking and gesture recognition using AI."
+short_description_fr: "Suivi des mains en temps réel et reconnaissance de gestes par IA."
+project_status: "Active"
+project_type: "Academic"
+project_showcase_importance: 75
+icon: "res/icons/gesture.svg"
+link: "https://example.com"
+tags: ["Python", "AI", "OpenCV"]
+gallery: ["res/icons/gesture.svg"]
+description_en: "A research project focusing on low-latency gesture detection for accessibility."
+description_fr: "Un projet de recherche axé sur la détection de gestes à faible latence pour l'accessibilité."

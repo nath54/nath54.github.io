@@ -52,11 +52,12 @@ HTML_SKELETON: str = """<!DOCTYPE html>
 def compile_node(
     node: PyxmlNode | TextNode | CommentNode,
     context: CompilationContext,
+    escape_text: bool = True,
 ) -> str:
     """Compile a single AST node into HTML.
 
     Dispatches to the appropriate handler based on node type:
-    - TextNode: returns escaped text
+    - TextNode: returns escaped text (unless escape_text is False)
     - CommentNode: returns an HTML comment
     - PyxmlNode with exec_* tag: passes to execution block handler
     - PyxmlNode with known tag: passes to construction block handler
@@ -66,12 +67,14 @@ def compile_node(
     Args:
         node: The AST node to compile.
         context: The current compilation context.
+        escape_text: Whether to escape HTML special characters in text nodes.
 
     Returns:
         The compiled HTML string.
     """
     if isinstance(node, TextNode):
-        return escape_html(str(context.resolve(node.text)))
+        text_content = str(context.resolve(node.text))
+        return escape_html(text_content) if escape_text else text_content
 
     if isinstance(node, CommentNode):
         return f"<!-- {escape_html(node.text)} -->"
@@ -99,19 +102,21 @@ def compile_node(
 def compile_children(
     node: PyxmlNode,
     context: CompilationContext,
+    escape_text: bool = True,
 ) -> str:
     """Compile all children of a node and concatenate the results.
 
     Args:
         node: The parent node whose children to compile.
         context: The current compilation context.
+        escape_text: Whether to escape child text nodes.
 
     Returns:
         The concatenated HTML of all children.
     """
     parts: list[str] = []
     for child in node.children:
-        parts.append(compile_node(child, context))
+        parts.append(compile_node(child, context, escape_text=escape_text))
     return "".join(parts)
 
 
@@ -236,7 +241,12 @@ def compile_construction_node(
         )
 
     # Non self-closing: compile children
-    children_html: str = compile_children(node, context)
+    # Script and style tags should NOT escape their content
+    no_escape_tags: set[str] = {"script", "style"}
+    # We check if the PyXML tag OR the mapped HTML tag is in no_escape_tags
+    should_escape: bool = (tag not in no_escape_tags) and (html_tag not in no_escape_tags)
+    
+    children_html: str = compile_children(node, context, escape_text=should_escape)
 
     # For links with children (non self-closing link)
     if tag in ("link_url", "link_page", "link_file") and not children_html:
