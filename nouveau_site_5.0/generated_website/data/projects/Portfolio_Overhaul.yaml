@@ -7,6 +7,8 @@ project_type: "Professional"
 project_showcase_importance: 95
 icon: "res/logo.svg"
 link: "https://github.com/nath54/nath54.github.io"
+app_version: "5.0.0"
+download_size: "15 MB"
 tags: ["Python", "JavaScript", "PyXML", "CSS"]
 gallery: ["res/logo.svg"]
 TODOLIST:

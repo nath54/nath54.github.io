@@ -7,6 +7,8 @@ project_type: "Personal"
 project_showcase_importance: 60
 icon: "res/icons/stars.svg"
 link: "https://example.com"
+app_version: "0.9.2"
+download_size: "124 MB"
 tags: ["GLSL", "Three.js", "Art"]
 gallery: ["res/icons/stars.svg"]
 description_en: "An artistic exploration of the cosmos using WebGL shaders."

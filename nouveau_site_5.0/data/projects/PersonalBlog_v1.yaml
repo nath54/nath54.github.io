@@ -7,6 +7,8 @@ project_type: "Personal"
 project_showcase_importance: 55
 icon: "res/icons/blog.svg"
 link: "https://example.com"
+app_version: "1.0.0"
+download_size: "2.3 MB"
 tags: ["Jekyll", "Liquid", "Sass"]
 gallery: ["res/icons/blog.svg"]
 description_en: "A static blog built on Jekyll with custom themes and layouts."

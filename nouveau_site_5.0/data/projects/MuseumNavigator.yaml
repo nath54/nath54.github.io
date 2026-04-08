@@ -7,6 +7,8 @@ project_type: "Professional"
 project_showcase_importance: 80
 icon: "res/icons/map.svg"
 link: "https://example.com"
+app_version: "1.2.5"
+download_size: "45 MB"
 tags: ["JavaScript", "SVG", "Web"]
 gallery: ["res/icons/map.svg"]
 description_en: "A web-based tool for exploring virtual museum spaces with ease."

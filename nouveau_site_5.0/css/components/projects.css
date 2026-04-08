@@ -377,3 +377,64 @@
 .project-hidden {
     display: none !important;
 }
+
+/* --- Mobile Responsiveness (Project Details) --- */
+@media (max-width: 768px) {
+    .project-detail-page {
+        gap: var(--space-6);
+        padding: 0 var(--space-2);
+    }
+
+    .product-header .header-main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: var(--space-4);
+    }
+
+    .product-header .icon {
+        width: 110px;
+        height: 110px;
+        border-radius: 24px;
+    }
+
+    .header-info {
+        align-items: center;
+    }
+
+    .product-title {
+        font-size: var(--font-size-2xl);
+        line-height: var(--line-height-tight);
+    }
+
+    .header-actions {
+        justify-content: center;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .stat-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4) 0;
+        padding: var(--space-4) 0;
+    }
+
+    .stat-item {
+        border-right: none;
+        padding: 0 var(--space-2);
+    }
+
+    /* Add border between grid rows if needed, or just keep it clean */
+    .stat-item:nth-child(2n) {
+        border-left: 1px solid var(--color-neutral-200);
+    }
+
+    .comments-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-projects {
+        grid-template-columns: 1fr;
+    }
+}
