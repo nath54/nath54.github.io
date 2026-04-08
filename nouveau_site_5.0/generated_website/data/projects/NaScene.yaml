@@ -28,3 +28,44 @@ funny_comments:
     rating: 5
     text_en: "My son is a genius, obviously. 5 stars."
     text_fr: "Mon fils est un génie, évidemment. 5 étoiles."
+  - user: "DramaQueen"
+    rating: 5
+    text_en: "I made a choice and my favorite character died. I've been crying for 3 days. 10/10."
+    text_fr: "J'ai fait un choix et mon personnage préféré est mort. Je pleure depuis 3 jours. 10/10."
+  - user: "RouteSeeker"
+    rating: 4
+    text_en: "How do I unlock the secret 'Dev is lazy' ending? Asking for a friend."
+    text_fr: "Comment on débloque la fin secrète 'Le dev est un flemmard' ? C'est pour un ami."
+  - user: "WaifuCollector"
+    rating: 5
+    text_en: "The sprites are so clean I can see the lack of a social life of the illustrator."
+    text_fr: "Les sprites sont tellement propres qu'on voit l'absence de vie sociale de l'illustrateur."
+  - user: "VisualNovelty"
+    rating: 5
+    text_en: "Finally, a VN engine where I can script a story about a taco and it actually works."
+    text_fr: "Enfin un moteur de VN où je peux scripter une histoire de taco et ça marche vraiment."
+  - user: "FourthWallBreaker"
+    rating: 3
+    text_en: "The main character looked at me and asked why I haven't showered. Unsubscribe."
+    text_fr: "Le personnage principal m'a regardé et m'a demandé pourquoi j'ai pas pris de douche. Désabonnement."
+  - user: "SoundtrackJunky"
+    rating: 5
+    text_en: "The music loop is so good I forgot I was supposed to be reading."
+    text_fr: "La boucle musicale est si bonne que j'ai oublié que je devais lire."
+  - user: "TyperWriter"
+    rating: 4
+    text_en: "The text typing effect is faster than my thoughts. Which isn't saying much, but still."
+    text_fr: "L'effet de texte qui défile est plus rapide que mes pensées. C'est pas un exploit, mais quand même."
+  - user: "ChoiceHater"
+    rating: 2
+    text_en: "Too many choices. I just want to be told what to do, like in real life."
+    text_fr: "Trop de choix. Je veux juste qu'on me dise quoi faire, comme dans la vraie vie."
+  - user: "EngineEnthusiast"
+    rating: 5
+    text_en: "Declarative syntax is the future. My brain stopped hurting after the first 500 lines."
+    text_fr: "La syntaxe déclarative c'est le futur. Mon cerveau a arrêté de me faire mal après les 500 premières lignes."
+  - user: "BackgroundHunter"
+    rating: 5
+    text_en: "The backgrounds are so cozy I tried to move into the library scene."
+    text_fr: "Les décors sont si cosy que j'ai essayé d'emménager dans la scène de la bibliothèque."
+

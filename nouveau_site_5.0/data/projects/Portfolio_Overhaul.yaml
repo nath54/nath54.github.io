@@ -21,12 +21,12 @@ description_fr: "Une transformation complète de mon site personnel utilisant un
 content_en: |
     ### The Challenge
     The previous prototype was functional but lacked the premium feel of a modern personal brand.
-    
+
     ### The Solution
     - **PyXML Compiler**: Built a custom static site generator.
     - **Glassmorphism**: Created a design system with backdrop filters and vibrant gradients.
     - **Particles.js**: Integrated a lightweight background animation.
-    
+
     ### Key Features
     - Bilingual support (French/English).
     - Dynamic page generation from YAML/Markdown.
@@ -34,13 +34,55 @@ content_en: |
 content_fr: |
     ### Le Défi
     Le prototype précédent était fonctionnel mais manquait de l'aspect premium d'une marque personnelle moderne.
-    
+
     ### La Solution
     - **Compilateur PyXML** : Création d'un générateur de site statique personnalisé.
     - **Glassmorphism** : Création d'un système de design avec des filtres de fond et des dégradés vibrants.
     - **Particles.js** : Intégration d'une animation légère pour le fond.
-    
+
     ### Caractéristiques Clés
     - Support bilingue (Français/Anglais).
     - Génération de pages dynamiques à partir de YAML/Markdown.
     - Pipeline de construction haute performance et à faibles dépendances.
+funny_comments:
+  - user: "ShinySeeker"
+    rating: 5
+    text_en: "So much glassmorphism. I tried to clean my screen because it looked so transparent."
+    text_fr: "Tellement de glassmorphism. J'ai essayé de nettoyer mon écran parce qu'il avait l'air trop transparent."
+  - user: "ParticleAddict"
+    rating: 4
+    text_en: "I've been chasing the background particles for 20 minutes. Please send help."
+    text_fr: "Je poursuis les particules du fond depuis 20 minutes. Envoyez de l'aide."
+  - user: "BugHunter"
+    rating: 5
+    text_en: "I found a bug. Oh wait, it was just a smudge on my monitor. 5 stars."
+    text_fr: "J'ai trouvé un bug. Ah non, c'était juste une tache sur mon écran. 5 étoiles."
+  - user: "MinimalistMax"
+    rating: 2
+    text_en: "Too many features. I like my websites to be a single 'Hello World' in Times New Roman."
+    text_fr: "Trop de fonctionnalités. J'aime que mes sites soient un simple 'Hello World' en Times New Roman."
+  - user: "CodePeeker"
+    rating: 5
+    text_en: "The PyXML compiler is so fast I didn't even see it build. Is it magic?"
+    text_fr: "Le compilateur PyXML est si rapide que je ne l'ai même pas vu construire le site. C'est de la magie ?"
+  - user: "HoverHater"
+    rating: 5
+    text_en: "The hover effects are so smooth I'm getting motion sickness. Best design ever."
+    text_fr: "Les effets au survol sont si fluides que j'ai le mal de mer. Meilleur design du monde."
+  - user: "RecursiveNathan"
+    rating: 5
+    text_en: "I am viewing the portfolio project inside the portfolio project. My brain is melting."
+    text_fr: "Je regarde le projet portfolio à l'intérieur du projet portfolio. Mon cerveau fond."
+  - user: "FutureInvestor"
+    rating: 5
+    text_en: "Hire this man. Or don't, so I can keep him all to myself. Wait, that sounded weird."
+    text_fr: "Embauchez cet homme. Ou ne le faites pas, comme ça je le garde pour moi. Attendez, c'est bizarre dit comme ça."
+  - user: "DarkModeWarrior"
+    rating: 4
+    text_en: "It's perfect. My eyes find peace in this dark, glassy void."
+    text_fr: "C'est parfait. Mes yeux trouvent la paix dans ce vide sombre et vitreux."
+  - user: "SarcasticSteve"
+    rating: 5
+    text_en: "Wow, another portfolio site. How original. (Actually it's pretty cool, don't tell him I said that)."
+    text_fr: "Wow, encore un site portfolio. Quelle originalité. (En vrai c'est super cool, lui dites pas que j'ai dit ça)."
+

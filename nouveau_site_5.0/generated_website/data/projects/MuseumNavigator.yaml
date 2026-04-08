@@ -11,3 +11,45 @@ tags: ["JavaScript", "SVG", "Web"]
 gallery: ["res/icons/map.svg"]
 description_en: "A web-based tool for exploring virtual museum spaces with ease."
 description_fr: "Un outil web pour explorer facilement les espaces de musées virtuels."
+funny_comments:
+  - user: "LostInPixels"
+    rating: 5
+    text_en: "I spent 3 hours looking for the bathroom. 10/10 realism."
+    text_fr: "J'ai passé 3 heures à chercher les toilettes. Réalisme 10/10."
+  - user: "ArtSnob"
+    rating: 4
+    text_en: "The digital wine at the opening was a bit dry."
+    text_fr: "Le vin numérique au vernissage était un peu sec."
+  - user: "ClickHappy"
+    rating: 5
+    text_en: "I clicked on a painting and it didn't call security. Best museum ever."
+    text_fr: "J'ai cliqué sur un tableau et la sécurité n'est pas venue. Meilleur musée du monde."
+  - user: "VRHead"
+    rating: 5
+    text_en: "I tried to lean against a digital wall and fell off my chair. Worth it."
+    text_fr: "J'ai voulu m'appuyer contre un mur numérique et je suis tombé de ma chaise. Ça valait le coup."
+  - user: "FrameByFrame"
+    rating: 3
+    text_en: "The gift shop only sells NFTs of digital postcards. My digital wallet is crying."
+    text_fr: "La boutique de souvenirs ne vend que des NFT de cartes postales. Mon portefeuille numérique pleure."
+  - user: "MonetHoney"
+    rating: 5
+    text_en: "The colors are so vibrant my monitor started sweating."
+    text_fr: "Les couleurs sont tellement vibrantes que mon écran s'est mis à transpirer."
+  - user: "GhostGuide"
+    rating: 2
+    text_en: "I followed the arrows and ended up in a 404 error room. Spooky."
+    text_fr: "J'ai suivi les flèches et j'ai fini dans une pièce 'Erreur 404'. Flippant."
+  - user: "StatueMime"
+    rating: 5
+    text_en: "I stood still for 20 minutes to see if anyone would notice. I am now part of the collection."
+    text_fr: "Je suis resté immobile 20 minutes pour voir si quelqu'un remarquerait. Je fais maintenant partie de la collection."
+  - user: "PixelPusher"
+    rating: 4
+    text_en: "The zoom feature let me see the artist's digital brush strokes. Or maybe it was just compression noise."
+    text_fr: "Le zoom m'a permis de voir les coups de pinceau numériques. Ou alors c'était juste du bruit de compression."
+  - user: "TourGroupHater"
+    rating: 5
+    text_en: "Finally, a museum where I don't have to listen to a group of school kids screaming."
+    text_fr: "Enfin un musée où je n'ai pas à écouter une classe d'école hurler."
+
