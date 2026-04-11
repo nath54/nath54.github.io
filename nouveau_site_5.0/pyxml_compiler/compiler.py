@@ -329,11 +329,21 @@ def compile_page(
     is_index: bool = context.output_path == "index.html"
     if not is_index:
         page_title = context.page_title or context.site_title
+        
+        # Customizable navigation
+        back_url = root.attributes.get("back_url", "index.html")
+        back_url = str(context.resolve(back_url))
+        if not back_url.startswith(("http", "https", "mailto:", "/")):
+            back_url = f"{rel_prefix}{back_url}"
+            
+        back_lbl_en = str(context.resolve(root.attributes.get("back_lbl_en", "Back")))
+        back_lbl_fr = str(context.resolve(root.attributes.get("back_lbl_fr", "Retour")))
+
         os_bar = f"""
     <div class="os-title-bar">
-        <a href="{rel_prefix}index.html" class="os-btn-back">
+        <a href="{back_url}" class="os-btn-back">
             <i class="fas fa-arrow-left"></i> 
-            <span data-translation-en="Back" data-translation-fr="Retour">Back</span>
+            <span data-translation-en="{back_lbl_en}" data-translation-fr="{back_lbl_fr}">{back_lbl_en}</span>
         </a>
         <div class="os-title" data-translation-en="{page_title}" data-translation-fr="{page_title}">{page_title}</div>
         <div class="os-controls">

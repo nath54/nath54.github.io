@@ -6,6 +6,7 @@
 @import url('base/typography.css');
 @import url('components/markdown.css');
 @import url('components/projects.css');
+@import url('components/gazette.css');
 
 /* --- Global Layouts --- */
 body {

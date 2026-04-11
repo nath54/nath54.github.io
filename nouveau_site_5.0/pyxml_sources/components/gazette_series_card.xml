@@ -1,0 +1,23 @@
+<div class="gazette-card gazette-series-card" data-category="Series" data-search="{title_en} {title_fr} {description_en} {description_fr}">
+    <div class="gazette-card-meta">
+        <span class="gazette-card-category badge">Playlist</span>
+    </div>
+
+    <exec_if condition="'{cover_image}' != '' and '{cover_image}' != '{{cover_image}}'">
+        <img src="{cover_image}" style="width: 100%; height: 120px; object-fit: contain; margin-bottom: var(--space-3);" />
+    </exec_if>
+
+    <h2 class="gazette-card-title">
+        <a href="pages/blog/series_{_source_file}.html">
+            <span name_en="{title_en}" name_fr="{title_fr}">{title_en}</span>
+        </a>
+    </h2>
+    
+    <p class="gazette-card-excerpt">
+        <span name_en="{description_en}" name_fr="{description_fr}">{description_en}</span>
+    </p>
+
+    <div style="margin-top: var(--space-4);">
+        <button_action icon="read" name_en="View Series" name_fr="Voir la série" action="navigate" url="pages/blog/series_{_source_file}.html" />
+    </div>
+</div>

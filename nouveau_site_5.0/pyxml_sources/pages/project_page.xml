@@ -1,4 +1,4 @@
-<main_container>
+<main_container back_url="pages/projects.html" back_lbl_en="Projects" back_lbl_fr="Projets">
     <div class="project-detail-page">
         <!-- App Store Header -->
         <product_header>

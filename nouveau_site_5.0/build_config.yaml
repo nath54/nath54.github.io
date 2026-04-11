@@ -66,10 +66,15 @@ dynamic_pages:
     template: "museum_entry_text"  # fallback
     output_pattern: "pages/museum/entry_{_source_file}.html"
 
-  - parser: "markdown_content"
+  - parser: "markdown_gazette"
     source: "data/blogs"
-    template: "blog_post_row"
+    template: "blog_entry"
     output_pattern: "pages/blog/{_source_file}.html"
+
+  - parser: "yaml_directory"
+    source: "data/blog_series"
+    template: "pages/series_overview.xml"
+    output_pattern: "pages/blog/series_{_source_file}.html"
 
 # Production options
 minify_css: false

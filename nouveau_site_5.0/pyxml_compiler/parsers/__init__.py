@@ -12,6 +12,7 @@ from pyxml_compiler.parsers.markdown_bilingual import MarkdownBilingualParser
 from pyxml_compiler.parsers.markdown_content import MarkdownContentParser
 from pyxml_compiler.parsers.markdown_alternating import MarkdownAlternatingParser
 from pyxml_compiler.parsers.yaml_directory import YamlDirectoryParser
+from pyxml_compiler.parsers.markdown_gazette import MarkdownGazetteParser
 
 
 PARSERS: dict[str, type] = {
@@ -21,4 +22,5 @@ PARSERS: dict[str, type] = {
     "json_manifest": JsonManifestParser,
     "json_array": JsonManifestParser,  # alias
     "markdown_content": MarkdownContentParser,
+    "markdown_gazette": MarkdownGazetteParser,
 }

@@ -105,6 +105,7 @@ def handle_exec_generate(node: PyxmlNode, context: CompilationContext) -> str:
     # 3. Apply filter
     filter_expr: str = node.attributes.get("filter", "")
     if filter_expr:
+        filter_expr = str(context.resolve(filter_expr))
         raw_data = apply_filter(raw_data, filter_expr)
 
     # 4. Apply sort

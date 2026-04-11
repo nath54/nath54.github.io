@@ -1,28 +1,36 @@
-<main_container>
-    <single_column>
-        <article_header>
-            <article_cover src="{cover_image}" />
-            <title_text name_en="{title_en}" name_fr="{title_fr}" />
-            <article_metadata>
-                <date>{date}</date>
-                <author>{author}</author>
-                <tags_list>
-                    <exec_foreach var="tag" in="{tags}">
-                        <tag>{tag}</tag>
-                    </exec_foreach>
-                </tags_list>
-            </article_metadata>
-        </article_header>
+<main_container back_url="pages/blog.html" back_lbl_en="The Gazette" back_lbl_fr="La Gazette">
+    <div class="article-container">
+        
+        <exec_if condition="'{series}' != '' and '{series}' != '{{series}}' and '{series}' != 'None'">
+            <div style="background: var(--color-primary-50); padding: var(--space-4); border-radius: var(--border-radius-md); margin-bottom: var(--space-6); text-align: center;">
+                <span style="font-family: var(--font-family-serif); font-size: var(--font-size-lg); color: var(--color-primary-800);">
+                    Part of Series: <a href="pages/blog/series_{series}.html" style="font-weight: bold; text-decoration: underline;">View Series Overview</a>
+                </span>
+            </div>
+        </exec_if>
 
-        <article_body>
-            <markdown_render
-                name_en="{markdown_content_en_html}"
-                name_fr="{markdown_content_fr_html}"
-            />
-        </article_body>
+        <header class="article-header">
+            <div class="article-metadata">
+                <span>{date}</span> • 
+                <span>{author}</span> •
+                <span class="badge">{category}</span>
+            </div>
+            <h1 class="article-title">
+                <span name_en="{title_en}" name_fr="{title_fr}">{title_en}</span>
+            </h1>
+        </header>
 
-        <article_footer>
-            <button_action icon="back" name_en="Back to Blog" name_fr="Retour au blog" action="navigate" url="pages/blog.html" />
-        </article_footer>
-    </single_column>
+        <div class="article-body">
+            <div class="translation_visibility" data-langcode="en">
+                {markdown_content_en_html}
+            </div>
+            <div class="translation_visibility" data-langcode="fr">
+                {markdown_content_fr_html}
+            </div>
+        </div>
+
+        <footer style="margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--color-neutral-200); text-align: center;">
+            <button_action icon="back" name_en="Back to Feed" name_fr="Retour au flux" action="navigate" url="pages/blog.html" />
+        </footer>
+    </div>
 </main_container>
