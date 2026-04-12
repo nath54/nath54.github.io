@@ -13,7 +13,7 @@
             <div class="article-metadata">
                 <span>{date}</span> •
                 <span>{author}</span> •
-                <span class="badge">{category}</span>
+                <link_page action="navigate" url="pages/blog.html?category={category}" name="{category}" class="badge" style="text-decoration: none; cursor: pointer;" />
             </div>
             <h1 class="article-title">
                 <span name_en="{title_en}" name_fr="{title_fr}">{title_en}</span>

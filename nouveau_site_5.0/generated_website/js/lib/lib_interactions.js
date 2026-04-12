@@ -17,7 +17,15 @@ var ACTION_HANDLERS = {
         if (url) {
             // Preserve language parameter
             if (typeof url_language === 'function') {
-                window.location.href = url + url_language();
+                var langParam = url_language();
+                if (langParam) {
+                    if (url.indexOf('?') !== -1) {
+                        langParam = langParam.replace('?', '&');
+                    }
+                    window.location.href = url + langParam;
+                } else {
+                    window.location.href = url;
+                }
             } else {
                 window.location.href = url;
             }
