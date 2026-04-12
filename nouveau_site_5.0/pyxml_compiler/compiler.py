@@ -180,7 +180,7 @@ def compile_construction_node(
     if is_self_closing:
         # Special handling for links (need inner content from attrs)
         if tag in ("link_url", "link_page", "link_file"):
-            content: str = get_link_content(tag, node.attributes)
+            content: str = get_link_content(tag, resolved_attributes)
             opening: str = build_opening_tag(
                 html_tag,
                 css_classes,
@@ -191,7 +191,7 @@ def compile_construction_node(
 
         # Special handling for buttons
         if tag in ("button_action", "button_close"):
-            content = get_button_content(tag, node.attributes)
+            content = get_button_content(tag, resolved_attributes)
             opening = build_opening_tag(
                 html_tag,
                 css_classes,
