@@ -28,6 +28,7 @@ js_paths:
     - "js/lib/lib_interactions.js"
     - "js/lib/particles.js"
     - "js/lib/nascene_engine.js"
+    - "js/lib/abstract_art.js"
 
 # Static pages: template → output mapping
 # If empty, pages are auto-discovered from pyxml_sources/pages/

@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     containers.forEach(container => {
         const imgSrc = container.getAttribute('src');
         // Handle un-resolved placeholder or empty string
-        if (!imgSrc || imgSrc.includes('{image}') || imgSrc === 'None') {
+        if (!imgSrc || imgSrc.includes('{') || imgSrc === 'None') {
             const canvas = document.createElement('canvas');
             canvas.width = 600;
             canvas.height = 300;
