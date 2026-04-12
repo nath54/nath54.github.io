@@ -494,27 +494,29 @@ def handle_exec_random_from_manifest(
 
     # Escape the template for embedding in a JS string literal
     # Replace backticks and ${} to avoid template literal conflicts
-    js_template: str = template_html.replace("\\", "\\\\").replace("`", "\\`").replace("${", "\\${")
+    js_template: str = (
+        template_html.replace("\\", "\\\\").replace("`", "\\`").replace("${", "\\${")
+    )
 
     script: str = f"""<script>
 (function() {{
     window._widgets = window._widgets || {{}};
     var widgetId = '{widget_id}';
-    
+   
     window._widgets[widgetId] = {{
         entries: [],
         refresh: function() {{
             var container = document.getElementById(widgetId);
             if (!container || this.entries.length === 0) return;
-            
+           
             var entry = this.entries[Math.floor(Math.random() * this.entries.length)];
             var tpl = `{js_template}`;
-            
+           
             var html = tpl.replace(/\\{{([^\\}}]+)\\}}/g, function(match, key) {{
                 key = key.trim();
                 return entry[key] !== undefined ? entry[key] : '';
             }});
-            
+           
             container.innerHTML = html;
             if (typeof translate_page === 'function') {{
                 translate_page();
@@ -536,7 +538,7 @@ def handle_exec_random_from_manifest(
                 if (Array.isArray(d)) {{ entries = entries.concat(d); }}
                 else {{ entries.push(d); }}
             }});
-            
+           
             window._widgets[widgetId].entries = entries;
             window._widgets[widgetId].refresh();
         }})

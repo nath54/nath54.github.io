@@ -58,34 +58,40 @@ class MarkdownGazetteParser:
     def _parse_gazette_format(self, content: str) -> dict[str, Any]:
         """Parses the custom HEADER, CONTENT EN, CONTENT FR blocks."""
         # Using a regex to find the blocks safely
-        # We look for lines that are exactly '---', followed by a block name, followed by '---'
-        
+        # We look for lines that are exactly '## Header', '## Content EN', '## Content FR'
+
         blocks: dict[str, str] = {}
-        
-        # Split by lines that start and end with --- and contain a known block keyword
-        pattern = re.compile(r"^---\n(HEADER|CONTENT EN|CONTENT FR)\n---$", re.MULTILINE)
-        
+
+        # Split by lines that start with ## and contain a known block keyword
+        pattern = re.compile(
+            r"^##\s+(Header|Content EN|Content FR)\s*$", re.MULTILINE | re.IGNORECASE
+        )
+
         matches = list(pattern.finditer(content))
-        
+
         if not matches:
             # Fallback if the format is fundamentally broken, just parse as generic markdown
-            return {"content_html": markdown.markdown(content, extensions=["fenced_code", "tables", "toc"])}
-            
+            return {
+                "content_html": markdown.markdown(
+                    content, extensions=["fenced_code", "tables", "toc"]
+                )
+            }
+
         for i, match in enumerate(matches):
-            block_name = match.group(1)
+            block_name = match.group(1).upper()
             start_idx = match.end()
-            
+
             if i + 1 < len(matches):
-                end_idx = matches[i+1].start()
+                end_idx = matches[i + 1].start()
             else:
                 end_idx = len(content)
-                
+
             block_content = content[start_idx:end_idx].strip()
             blocks[block_name] = block_content
 
         # Process the blocks
         result: dict[str, Any] = {}
-        
+
         # Parse YAML header
         if "HEADER" in blocks:
             try:
@@ -94,23 +100,23 @@ class MarkdownGazetteParser:
                     result.update(header_data)
             except yaml.YAMLError as e:
                 print(f"Error parsing YAML header: {e}")
-                
+
         # Ensure series is at least empty string for filter logic
         if "series" not in result:
             result["series"] = ""
-                
+
         # Parse EN Content
         if "CONTENT EN" in blocks:
             result["markdown_content_en_raw"] = blocks["CONTENT EN"]
             result["markdown_content_en_html"] = markdown.markdown(
                 blocks["CONTENT EN"], extensions=["fenced_code", "tables", "toc"]
             )
-            
+
         # Parse FR Content
         if "CONTENT FR" in blocks:
             result["markdown_content_fr_raw"] = blocks["CONTENT FR"]
             result["markdown_content_fr_html"] = markdown.markdown(
                 blocks["CONTENT FR"], extensions=["fenced_code", "tables", "toc"]
             )
-            
+
         return result

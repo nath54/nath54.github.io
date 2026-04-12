@@ -18,21 +18,21 @@
 (function() {
     window._widgets = window._widgets || {};
     var widgetId = 'citation-widget';
-    
+   
     window._widgets[widgetId] = {
         entries: [],
         refresh: function() {
             var container = document.getElementById(widgetId);
             if (!container || this.entries.length === 0) return;
-            
+           
             var entry = this.entries[Math.floor(Math.random() * this.entries.length)];
             var tpl = `                         <p class="citation-text to_translate" data-translation_en="{citation_en}" data-translation_fr="{citation_fr}">{citation_en}</p>                         <p class="citation-author"><em>— {author}</em></p>                     `;
-            
+           
             var html = tpl.replace(/\{([^\}]+)\}/g, function(match, key) {
                 key = key.trim();
                 return entry[key] !== undefined ? entry[key] : '';
             });
-            
+           
             container.innerHTML = html;
             if (typeof translate_page === 'function') {
                 translate_page();
@@ -54,7 +54,7 @@
                 if (Array.isArray(d)) { entries = entries.concat(d); }
                 else { entries.push(d); }
             });
-            
+           
             window._widgets[widgetId].entries = entries;
             window._widgets[widgetId].refresh();
         })

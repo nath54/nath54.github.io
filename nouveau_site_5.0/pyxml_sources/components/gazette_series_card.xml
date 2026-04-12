@@ -12,7 +12,7 @@
             <span name_en="{title_en}" name_fr="{title_fr}">{title_en}</span>
         </a>
     </h2>
-    
+   
     <p class="gazette-card-excerpt">
         <span name_en="{description_en}" name_fr="{description_fr}">{description_en}</span>
     </p>

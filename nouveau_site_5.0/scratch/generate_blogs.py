@@ -70,7 +70,6 @@ blogs = [
         "content_en": "It's the pseudo-code like readability.",
         "content_fr": "C'est la lisibilité similaire au pseudo-code.",
     },
-    
     # Series: PyXML Chronicles
     {
         "id": "PyXML_Part1",
@@ -111,7 +110,6 @@ blogs = [
         "content_en": "Context management is key in templating...",
         "content_fr": "La gestion de contexte est clé dans le templating...",
     },
-
     # Series: Echoes of the Void
     {
         "id": "Echoes_Part1",
@@ -139,7 +137,6 @@ blogs = [
         "content_en": "It wasn't static. It was structured.",
         "content_fr": "Ce n'était pas de l'électricité statique. C'était structuré.",
     },
-    
     # Random short entries
     {
         "id": "Short_Joke_1",
@@ -171,19 +168,21 @@ blogs = [
 
 # Generate more random ones to reach ~20
 for i in range(1, 9):
-    blogs.append({
-        "id": f"Random_Thoughts_{i}",
-        "title_en": f"Random Thought #{i}",
-        "title_fr": f"Pensée Aléatoire #{i}",
-        "date": f"2025-08-0{i}",
-        "category": "Lifestyle",
-        "series": "",
-        "series_order": 0,
-        "summary_en": "Just thinking out loud.",
-        "summary_fr": "Juste en train de penser à voix haute.",
-        "content_en": "This is a random thought.",
-        "content_fr": "C'est une pensée aléatoire.",
-    })
+    blogs.append(
+        {
+            "id": f"Random_Thoughts_{i}",
+            "title_en": f"Random Thought #{i}",
+            "title_fr": f"Pensée Aléatoire #{i}",
+            "date": f"2025-08-0{i}",
+            "category": "Lifestyle",
+            "series": "",
+            "series_order": 0,
+            "summary_en": "Just thinking out loud.",
+            "summary_fr": "Juste en train de penser à voix haute.",
+            "content_en": "This is a random thought.",
+            "content_fr": "C'est une pensée aléatoire.",
+        }
+    )
 
 template = """---
 HEADER
@@ -211,7 +210,7 @@ for b in blogs:
     series_line = ""
     if b["series"]:
         series_line = f'series: "{b["series"]}"\nseries_order: {b["series_order"]}'
-        
+
     content = template.format(
         title_en=b["title_en"],
         title_fr=b["title_fr"],
@@ -221,10 +220,10 @@ for b in blogs:
         summary_fr=b["summary_fr"],
         series_line=series_line,
         content_en=b["content_en"],
-        content_fr=b["content_fr"]
+        content_fr=b["content_fr"],
     )
-    
-    with open(os.path.join(blog_dir, f'{b["id"]}.md'), "w", encoding="utf-8") as f:
+
+    with open(os.path.join(blog_dir, f"{b['id']}.md"), "w", encoding="utf-8") as f:
         f.write(content)
 
 print(f"Generated {len(blogs)} blog posts.")

@@ -1,19 +1,21 @@
 /* css/components/markdown.css */
 
 .markdown-render {
-    line-height: var(--line-height-loose); /* Increased from normal to loose (1.75) for better readability */
+    line-height: var(--line-height-loose);
+    /* Increased from normal to loose (1.75) for better readability */
     color: var(--color-neutral-800);
 }
 
 /* Headings spacing */
-.markdown-render h1, 
-.markdown-render h2, 
-.markdown-render h3, 
-.markdown-render h4, 
-.markdown-render h5, 
+.markdown-render h1,
+.markdown-render h2,
+.markdown-render h3,
+.markdown-render h4,
+.markdown-render h5,
 .markdown-render h6 {
     margin-top: var(--space-10);
-    margin-bottom: var(--space-6); /* Increased from 4 */
+    margin-bottom: var(--space-6);
+    /* Increased from 4 */
     color: var(--color-primary-700);
     line-height: var(--line-height-tight);
 }
@@ -31,23 +33,28 @@
 .markdown-render blockquote,
 .markdown-render pre,
 .markdown-render table {
-    margin-bottom: var(--space-6); /* Increased from 4 for more breathing room */
+    margin-bottom: var(--space-6);
+    /* Increased from 4 for more breathing room */
 }
 
 /* Lists and list items */
-.markdown-render ul, 
+.markdown-render ul,
 .markdown-render ol {
-    margin-bottom: var(--space-8); /* Significant gap after lists */
-    padding-left: var(--space-8); /* More indentation */
+    margin-bottom: var(--space-8);
+    /* Significant gap after lists */
+    padding-left: var(--space-8);
+    /* More indentation */
     list-style-position: outside;
 }
 
 .markdown-render li {
-    margin-bottom: var(--space-4); /* Space between top-level items */
+    margin-bottom: var(--space-4);
+    /* Space between top-level items */
 }
 
 .markdown-render li li {
-    margin-bottom: 0; /* Compact nested items */
+    margin-bottom: 0;
+    /* Compact nested items */
 }
 
 /* Specific list styles to override reset */
@@ -60,19 +67,19 @@
 }
 
 /* Nested lists layout */
-.markdown-render li > ul,
-.markdown-render li > ol {
+.markdown-render li>ul,
+.markdown-render li>ol {
     margin-top: var(--space-4);
     margin-bottom: var(--space-4);
     padding-left: var(--space-6);
 }
 
-.markdown-render ul ul, 
+.markdown-render ul ul,
 .markdown-render ol ul {
     list-style-type: circle;
 }
 
-.markdown-render ul ul ul, 
+.markdown-render ul ul ul,
 .markdown-render ol ul ul {
     list-style-type: square;
 }
@@ -83,7 +90,8 @@
 }
 
 .markdown-render li p:last-child {
-    margin-bottom: 0; /* Let the li margin handle it */
+    margin-bottom: 0;
+    /* Let the li margin handle it */
 }
 
 /* Blockquotes styling */
@@ -93,7 +101,8 @@
     margin-left: 0;
     font-style: italic;
     color: var(--color-neutral-600);
-    background: rgba(124, 58, 237, 0.05); /* Very subtle primary tint */
+    background: rgba(124, 58, 237, 0.05);
+    /* Very subtle primary tint */
     border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
 }
 
@@ -134,7 +143,7 @@
     box-shadow: var(--shadow-sm);
 }
 
-.markdown-render th, 
+.markdown-render th,
 .markdown-render td {
     border-bottom: 1px solid var(--color-neutral-200);
     border-right: 1px solid var(--color-neutral-200);
@@ -142,7 +151,7 @@
     text-align: left;
 }
 
-.markdown-render th:last-child, 
+.markdown-render th:last-child,
 .markdown-render td:last-child {
     border-right: none;
 }
@@ -177,6 +186,6 @@
 }
 
 .markdown-render a:hover i {
-    color: inherit; /* Maintain contrast on hover */
+    color: inherit;
+    /* Maintain contrast on hover */
 }
-

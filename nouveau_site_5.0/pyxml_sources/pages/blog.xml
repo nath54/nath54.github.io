@@ -10,7 +10,7 @@
                 source="data/blog_series"
                 template="gazette_series_card"
             />
-            
+           
             <!-- Render individual blog articles -->
             <exec_generate
                 parser="markdown_gazette"
@@ -35,13 +35,13 @@
                 const query = searchInput.value.toLowerCase();
                 const activeChip = document.querySelector('.gazette-chip.active');
                 if (!activeChip) return;
-                
+               
                 const activeFilter = activeChip.dataset.filter;
 
                 cards.forEach(card => {
                     const category = card.dataset.category || '';
                     const searchData = card.dataset.search || '';
-                    
+                   
                     const matchesCategory = (activeFilter === 'all' || category === activeFilter);
                     const matchesSearch = query === '' || searchData.toLowerCase().includes(query);
 
@@ -83,7 +83,7 @@
                         foundMatch = true;
                     }
                 });
-                
+               
                 if (!foundMatch) {
                     // Create temporary chip or just force filter without a visual chip
                     // A simple hack is to set the search to the category name, or just filter it manually:

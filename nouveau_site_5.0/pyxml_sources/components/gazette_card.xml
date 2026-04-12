@@ -3,17 +3,15 @@
         <span class="gazette-card-date">{date}</span>
         <a href="pages/blog.html?category={category}" class="gazette-card-category badge" style="text-decoration: none;">{category}</a>
     </div>
-    
-    <exec_if condition="'{image}' != '' and '{image}' != '{{image}}'">
-        <img src="{image}" style="width: 100%; height: 150px; object-fit: cover; border-radius: var(--border-radius-sm); margin-bottom: var(--space-3);" />
-    </exec_if>
+
+    <div class="gazette-card-art-container" src="{image}" data-title="{title_en}" data-category="{category}" style="margin-bottom: var(--space-3); border-radius: var(--border-radius-sm); overflow: hidden; width: 100%; height: 150px; background: var(--color-neutral-100);"></div>
 
     <h2 class="gazette-card-title">
         <a href="pages/blog/{_source_file}.html">
             <span name_en="{title_en}" name_fr="{title_fr}">{title_en}</span>
         </a>
     </h2>
-    
+
     <p class="gazette-card-excerpt">
         <span name_en="{summary_en}" name_fr="{summary_fr}">{summary_en}</span>
     </p>

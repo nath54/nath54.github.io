@@ -98,7 +98,7 @@
                 const searchTerm = searchInput.value.toLowerCase();
                 const activeTab = document.querySelector('.category-tab.active');
                 if (!activeTab) return;
-                
+               
                 const activeFilter = activeTab.dataset.filter;
 
                 // Filter sections based on category
@@ -118,7 +118,7 @@
                     const nameEn = card.getAttribute('data-translation_en') || '';
                     const nameFr = card.getAttribute('data-translation_fr') || '';
                     const matchesSearch = nameEn.toLowerCase().includes(searchTerm) || nameFr.toLowerCase().includes(searchTerm);
-                    
+                   
                     if (matchesSearch) {
                         card.classList.remove('project-hidden');
                     } else {
@@ -136,7 +136,7 @@
                     filterProjects();
                 });
             });
-            
+           
             // Initial run
             filterProjects();
         });

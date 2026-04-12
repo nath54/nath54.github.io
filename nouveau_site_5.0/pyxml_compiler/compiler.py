@@ -241,11 +241,13 @@ def compile_construction_node(
         )
 
     # Non self-closing: compile children
-    # Script and style tags should NOT escape their content
-    no_escape_tags: set[str] = {"script", "style"}
+    # Script, style and markdown tags should NOT escape their content
+    no_escape_tags: set[str] = {"script", "style", "markdown_render"}
     # We check if the PyXML tag OR the mapped HTML tag is in no_escape_tags
-    should_escape: bool = (tag not in no_escape_tags) and (html_tag not in no_escape_tags)
-    
+    should_escape: bool = (tag not in no_escape_tags) and (
+        html_tag not in no_escape_tags
+    )
+
     children_html: str = compile_children(node, context, escape_text=should_escape)
 
     # For links with children (non self-closing link)
@@ -329,20 +331,20 @@ def compile_page(
     is_index: bool = context.output_path == "index.html"
     if not is_index:
         page_title = context.page_title or context.site_title
-        
+
         # Customizable navigation
         back_url = root.attributes.get("back_url", "index.html")
         back_url = str(context.resolve(back_url))
         if not back_url.startswith(("http", "https", "mailto:", "/")):
             back_url = f"{rel_prefix}{back_url}"
-            
+
         back_lbl_en = str(context.resolve(root.attributes.get("back_lbl_en", "Back")))
         back_lbl_fr = str(context.resolve(root.attributes.get("back_lbl_fr", "Retour")))
 
         os_bar = f"""
     <div class="os-title-bar">
         <a href="{back_url}" class="os-btn-back">
-            <i class="fas fa-arrow-left"></i> 
+            <i class="fas fa-arrow-left"></i>
             <span data-translation-en="{back_lbl_en}" data-translation-fr="{back_lbl_fr}">{back_lbl_en}</span>
         </a>
         <div class="os-title" data-translation-en="{page_title}" data-translation-fr="{page_title}">{page_title}</div>
@@ -362,12 +364,12 @@ def compile_page(
         f'<link rel="stylesheet" href="{rel_prefix}{path}">' for path in css_paths
     )
 
-    # Build JS script tags
     if js_paths is None:
         js_paths = [
             "js/lib/lib_translation.js",
             "js/lib/particles.js",
             "js/lib/nascene_engine.js",
+            "js/lib/abstract_art.js",
         ]
     js_scripts: str = "\n    ".join(
         f'<script src="{rel_prefix}{path}"></script>' for path in js_paths
