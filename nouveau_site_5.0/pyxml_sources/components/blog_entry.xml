@@ -1,10 +1,10 @@
 <main_container back_url="pages/blog.html" back_lbl_en="The Gazette" back_lbl_fr="La Gazette">
     <div class="article-container">
 
-        <exec_if condition="'{series}' != '' and '{series}' != '{{series}}' and '{series}' != 'None'">
+        <exec_if condition="'{series}' != ''">
             <div style="background: var(--color-primary-50); padding: var(--space-4); border-radius: var(--border-radius-md); margin-bottom: var(--space-6); text-align: center;">
                 <span style="font-family: var(--font-family-serif); font-size: var(--font-size-lg); color: var(--color-primary-800);">
-                    Part of Series: <a href="pages/blog/series_{series}.html" style="font-weight: bold; text-decoration: underline;">View Series Overview</a>
+                    Part of Series: <link_page url="pages/blog/series_{series}.html" action="navigate" name_en="View Series Overview" name_fr="Voir l'aperçu de la série" style="font-weight: bold; text-decoration: underline;" />
                 </span>
             </div>
         </exec_if>
