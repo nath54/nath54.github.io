@@ -1,0 +1,91 @@
+<page>
+<main_container>
+
+    <layout_columns_2_1_mobile>
+
+        <!-- Left Index Column (header, presentation and quick history) -->
+        <left_column>
+
+            <!-- Header section -->
+            <row_head>
+
+                <logo src="res/logo.svg" />
+
+                <title_text name_en="Nathan's website" name_fr="Site de Nathan" />
+
+            </row_head>
+
+            <!-- Presentation section -->
+            <section>
+
+                <text
+                    name_en="Hi! I'm Nathan, a computer science passionate exploring software architecture, web development, and digital arts."
+                    name_fr="Bonjour ! Je suis Nathan, un passionné d'informatique explorant l'architecture logicielle, le développement web et les arts numériques."
+                />
+
+            </section>
+
+            <!-- Quick history section -->
+            <section>
+                <exec_generate
+                    parser="markdown_alternating"
+                    source="data/home/quick_history.md"
+                    template="history_item"
+                />
+            </section>
+
+        </left_column>
+
+        <!-- Right Index Column (links to other pages) -->
+        <right_column>
+
+            <!-- Professional links -->
+            <section>
+
+                <title name_en="Professional links" name_fr="Liens professionnels" />
+
+                <link_file icon="file" name_en="CV / resume (english)" name_fr="CV / resume (anglais)" url="res/cv_en.pdf" />
+                <link_file icon="file" name_en="CV / resume (french)" name_fr="CV / resume (français)" url="res/cv_fr.pdf" />
+
+                <link_url icon="github" name="Github" url="https://github.com/nath54" />
+                <link_url icon="linkedin" name="Linkedin" url="https://www.linkedin.com/in/nathan-cerisara-8669331ba/" />
+
+                <link_page icon="msg_bubble" name_en="Contact me" name_fr="Me contacter" url="pages/contact_me.html" />
+
+            </section>
+
+            <!-- For my friends and family and those who want to know me -->
+            <section>
+
+                <title name_en="For my friends and family and those who want to know me" name_fr="Pour mes amis, ma famille et ceux qui veulent me connaître" />
+
+                <link_page icon="person" name_en="About me" name_fr="À propos" url="pages/about_me.html" />
+                <link_page icon="projects" name_en="Projects" name_fr="Projets" url="pages/projects.html" />
+                <link_page icon="museum" name_en="Museum" name_fr="Musée" url="pages/museum.html" />
+                <link_page icon="blog" name_en="Blog" name_fr="Blog" url="pages/blog.html" />
+
+            </section>
+
+            <!-- Random citation -->
+            <section>
+
+                <title name_en="Random citation" name_fr="Citation aléatoire" action="refresh_target" target="citation-widget" />
+
+                <exec_random_from_manifest
+                    id="citation-widget"
+                    source="data/citations/manifest.json"
+                    container_class="citation"
+                    template_html='
+                        &lt;p class="citation-text to_translate" data-translation_en="{citation_en}" data-translation_fr="{citation_fr}"&gt;{citation_en}&lt;/p&gt;
+                        &lt;p class="citation-author"&gt;&lt;em&gt;— {author}&lt;/em&gt;&lt;/p&gt;
+                    '
+                />
+
+            </section>
+
+        </right_column>
+
+    </layout_columns_2_1_mobile>
+
+</main_container>
+</page>

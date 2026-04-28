@@ -1,0 +1,5 @@
+name: Nathan Cerisara - Nouveau Site 5.0
+main_page: pages/index.naxml
+initial_state:
+  current_page: home
+  language: en

@@ -1,0 +1,21 @@
+<project_modal id="modal_project_{_source_file}" class="hidden">
+    <modal_header>
+        <title name_en="{name_en}" name_fr="{name_fr}" />
+        <button_close target="modal_project_{_source_file}" />
+    </modal_header>
+    <modal_body>
+        <long_description name_en="{description_en}" name_fr="{description_fr}" />
+
+        <image_carousel>
+            <exec_foreach var="img" in="{gallery}">
+                <img src="{img}" />
+            </exec_foreach>
+        </image_carousel>
+
+        <todo_list>
+            <exec_foreach var="todo" in="{TODOLIST}">
+                <todo_item data-checked="{todo[checked]}">{todo[name]}</todo_item>
+            </exec_foreach>
+        </todo_list>
+    </modal_body>
+</project_modal>

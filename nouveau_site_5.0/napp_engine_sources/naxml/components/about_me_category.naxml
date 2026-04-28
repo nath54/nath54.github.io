@@ -1,0 +1,10 @@
+<large_expandable_node>
+    <name name_en="{title_en}" name_fr="{title_fr}" />
+
+    <exec_foreach var="section" in="{sections}">
+        <medium_expandable_node>
+            <name name_en="{section[sub_title_en]}" name_fr="{section[sub_title_fr]}" />
+            <content name_en="{section[content_en]}" name_fr="{section[content_fr]}" />
+        </medium_expandable_node>
+    </exec_foreach>
+</large_expandable_node>

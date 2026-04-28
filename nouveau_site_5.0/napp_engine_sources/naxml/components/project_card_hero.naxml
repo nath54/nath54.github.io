@@ -1,0 +1,10 @@
+<project_card_hero data-type="{project_type}" data-importance="{project_showcase_importance}" action="navigate" url="pages/projects/{_source_file}.html">
+    <hero_content>
+        <hero_tagline name_en="Featured Project" name_fr="Projet à la Une" />
+        <hero_title name_en="{name_en}" name_fr="{name_fr}" />
+        <short_description name_en="{short_description_en}" name_fr="{short_description_fr}" />
+        <card_actions>
+            <btn_get name_en="View Details" name_fr="Voir Détails" action="navigate" url="pages/projects/{_source_file}.html" />
+        </card_actions>
+    </hero_content>
+</project_card_hero>

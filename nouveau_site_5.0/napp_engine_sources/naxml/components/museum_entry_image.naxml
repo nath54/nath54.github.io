@@ -1,0 +1,14 @@
+<main_container back_url="pages/museum.html" back_lbl_en="Museum" back_lbl_fr="Musée">
+    <single_column>
+        <media_header>
+            <title_text name_en="{title_en}" name_fr="{title_fr}" />
+            <date_text>{date}</date_text>
+        </media_header>
+
+        <media_content data-type="image">
+            <image_full src="{image_url}" alt="{title_en}" />
+        </media_content>
+
+        <media_description name_en="{description_en}" name_fr="{description_fr}" />
+    </single_column>
+</main_container>

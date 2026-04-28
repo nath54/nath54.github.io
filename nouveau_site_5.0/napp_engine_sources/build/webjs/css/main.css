@@ -1,0 +1,313 @@
+/*
+ * NApp Base Styles
+ * Provides the core layout and premium aesthetic for NaCode Web targets.
+ */
+
+:root {
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --bg-color: #ffffff;
+    --text-color: #1f2937;
+    --border-color: #e5e7eb;
+    --surface-color: #f9fafb;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+/* Layout Containers */
+.app-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 3rem;
+    width: 90%;
+    box-sizing: border-box;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.flex-container, .column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+.interactive-canvas {
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    background-color: #eee; /* Light gray placeholder background */
+    max-width: 100%;
+}
+
+/* Grid & Responsive Layouts */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.responsive-grid-2-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .responsive-grid-2-1 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.scroll-area {
+    overflow: auto;
+    max-height: 80vh;
+}
+
+/* Legacy Layout Styles (Website Compatibility) */
+.layout-two-columns {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 900px) {
+    .layout-two-columns {
+        grid-template-columns: 1fr;
+    }
+}
+
+.layout-col-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.layout-col-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.row-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.link-file {
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.link-file:hover {
+    text-decoration: underline;
+}
+
+/* Typography */
+.title-text {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: #111827;
+}
+
+.title-text h1, .title-text label {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.text {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Interaction */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.btn-action {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-action:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+/* NaScene Visual Novel Engine */
+.nascene-container {
+    background-color: #000;
+    border-radius: 1rem;
+    min-height: 450px;
+    position: relative;
+    overflow: hidden;
+    margin: 2rem 0;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+    border: 2px solid #222;
+}
+
+.nascene-runtime-active {
+    cursor: pointer;
+}
+
+.nascene-container img, .nascene-container div {
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Dynamic Content */
+.napp-repeat-container {
+    display: contents;
+    /* Allows repeat container to not disrupt flex/grid layout */
+}
+
+/* Images & Logos */
+.site-logo {
+    max-height: 3rem;
+    width: auto;
+}
+
+.icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* Terminal Widget */
+.napp-terminal-container {
+    background-color: #0d1117;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem 0;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #30363d;
+}
+
+.terminal-output {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    color: #e6edf3;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #161b22;
+    border-top: 1px solid #30363d;
+}
+
+.terminal-prompt {
+    color: #3fb950;
+    margin-right: 0.75rem;
+    font-weight: bold;
+}
+
+.terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #f0f6fc;
+    outline: none;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    font-size: 0.9rem;
+}
+
+.terminal-error { color: #f85149; }
+.terminal-user-input { color: #58a6ff; }
+
+/* Expandable Nodes */
+.expandable-node {
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.expandable-header {
+    background-color: var(--surface-color);
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.expandable-header:hover {
+    background-color: #f3f4f6;
+}
+
+.expandable-header::after {
+    content: '?';
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+.expandable-node.expanded .expandable-header::after {
+    transform: rotate(180deg);
+}
+
+.expandable-content {
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    display: none; /* Hidden by default */
+}
+
+.expandable-node.expanded .expandable-content {
+    display: block;
+}

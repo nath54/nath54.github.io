@@ -1,0 +1,105 @@
+<page>
+<main_container>
+    <div class="layout-single-column">
+        <exec_include template="components/gazette_masthead" />
+        <exec_include template="components/gazette_filter_bar" />
+
+        <div class="gazette-feed">
+            <!-- Render Playlists / Series first -->
+            <exec_generate
+                parser="yaml_directory"
+                source="data/blog_series"
+                template="gazette_series_card"
+            />
+           
+            <!-- Render individual blog articles -->
+            <exec_generate
+                parser="markdown_gazette"
+                source="data/blogs"
+                template="gazette_card"
+                filter="series == ''"
+                sort_by="date"
+                sort_order="desc"
+                paginate="25"
+            />
+        </div>
+    </div>
+
+    <!-- Gazette feed logic (Search and filtering) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('gazette-search');
+            const chips = document.querySelectorAll('.gazette-chip');
+            const cards = document.querySelectorAll('.gazette-card');
+
+            function filterFeed() {
+                const query = searchInput.value.toLowerCase();
+                const activeChip = document.querySelector('.gazette-chip.active');
+                if (!activeChip) return;
+               
+                const activeFilter = activeChip.dataset.filter;
+
+                cards.forEach(card => {
+                    const category = card.dataset.category || '';
+                    const searchData = card.dataset.search || '';
+                   
+                    const matchesCategory = (activeFilter === 'all' || category === activeFilter);
+                    const matchesSearch = query === '' || searchData.toLowerCase().includes(query);
+
+                    if (matchesCategory) {
+                        if (matchesSearch) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            if (searchInput) {
+                searchInput.addEventListener('input', filterFeed);
+            }
+
+            chips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    chips.forEach(c => c.classList.remove('active'));
+                    chip.classList.add('active');
+                    filterFeed();
+                });
+            });
+
+            // Initial Filter
+            // Check for URL parameter ?category=
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryParam = urlParams.get('category');
+            if (categoryParam) {
+                // Find matching chip
+                let foundMatch = false;
+                chips.forEach(c => {
+                    if (c.dataset.filter === categoryParam) {
+                        chips.forEach(chip => chip.classList.remove('active'));
+                        c.classList.add('active');
+                        foundMatch = true;
+                    }
+                });
+               
+                if (!foundMatch) {
+                    // Create temporary chip or just force filter without a visual chip
+                    // A simple hack is to set the search to the category name, or just filter it manually:
+                    chips.forEach(chip => chip.classList.remove('active'));
+                    cards.forEach(card => {
+                        card.style.display = (card.dataset.category === categoryParam) ? 'block' : 'none';
+                    });
+                } else {
+                    filterFeed();
+                }
+            } else {
+                filterFeed();
+            }
+        });
+    </script>
+</main_container>
+
+</page>

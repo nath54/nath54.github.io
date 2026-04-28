@@ -1,0 +1,73 @@
+/* NaCode PySide6 Base Styles - Dark Mode */
+
+QMainWindow {
+    background-color: #121212;
+    color: #E0E0E0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+QWidget {
+    background-color: transparent;
+    color: #E0E0E0;
+}
+
+/* Containers */
+QWidget#main_container, QWidget#flex_container, QWidget#section_title {
+    background-color: #1E1E1E;
+    border-radius: 12px;
+    margin: 4px;
+}
+
+/* Typography */
+QLabel {
+    font-size: 14px;
+    padding: 2px;
+}
+
+QLabel#title_text_5, QLabel#label_7 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00D1FF;
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+QPushButton {
+    background-color: #2D2D2D;
+    color: #FFFFFF;
+    border: 1px solid #3D3D3D;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+}
+
+QPushButton:hover {
+    background-color: #3D3D3D;
+    border: 1px solid #00D1FF;
+}
+
+QPushButton:pressed {
+    background-color: #00D1FF;
+    color: #000000;
+}
+
+/* Specific button styles for actions */
+QPushButton[class="action"] {
+    background-color: #00D1FF;
+    color: #000000;
+}
+
+/* Inputs (for future) */
+QLineEdit {
+    background-color: #252525;
+    border: 1px solid #3D3D3D;
+    border-radius: 6px;
+    padding: 8px;
+    color: white;
+}
+
+/* Scroll Area */
+QScrollArea {
+    border: none;
+    background-color: transparent;
+}

@@ -1,0 +1,4 @@
+<small_expandable_node>
+    <name name_en="{sub_title_en}" name_fr="{sub_title_fr}" />
+    <content name_en="{content_en}" name_fr="{content_fr}" />
+</small_expandable_node>

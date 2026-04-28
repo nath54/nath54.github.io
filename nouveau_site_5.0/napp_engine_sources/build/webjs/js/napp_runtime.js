@@ -1,0 +1,614 @@
+window.NApp = {
+    // Global Buffer (Persistent State) - data is stored here
+    _data: {},
+
+    // Reactive Buffer Proxy
+    buffer: null,
+
+    // UI Binding Map (property_path -> list of update functions)
+    bindings: new Map(),
+
+    /**
+     * Initializes the GlobalBuffer with nested reactive capabilities.
+     * config: { storage: { mode: 'local'|'immutable', id: 'napp_xxx' } }
+     */
+    init(initialState = {}, config = {}) {
+        this.config = config;
+        this._data = initialState;
+
+        // Flatten 'state' into the root for legacy compatibility (Stage 6.1)
+        if (initialState.state) {
+            for (const key in initialState.state) {
+                this._data[key] = initialState.state[key];
+            }
+        }
+
+        // History Management
+        this._history = [];
+        this._redoStack = [];
+        this._inHistoryMove = false;
+
+        // Handle Persistence (Stage 6)
+        if (config.storage && config.storage.mode === 'local') {
+            this._loadLocal();
+        }
+
+        this.buffer = this._createReactive(this._data);
+        // Expose buffer globally for NaCode logic
+        window.buffer = this.buffer;
+
+        // Expose state roots globally on window for transparent access
+        for (const key in this._data) {
+            Object.defineProperty(window, key, {
+                get: () => this.buffer[key],
+                set: (val) => { this.buffer[key] = val; },
+                configurable: true
+            });
+        }
+        console.log(`[NApp] Runtime Initialized (${config.storage?.mode || 'memory'})`);
+    },
+
+    _loadLocal() {
+        const key = this.config.storage.id;
+        try {
+            const saved = localStorage.getItem(key);
+            if (saved) {
+                const localData = JSON.parse(saved);
+                // Non-destructive merge (Structural Grafting)
+                // We keep local values but add new keys from seed
+                this._merge(this._data, localData);
+                console.log("[NApp] Persistent state loaded from localStorage");
+            }
+        } catch (e) {
+            console.error("[NApp] Failed to load local storage:", e);
+        }
+    },
+
+    _saveLocal() {
+        if (this.config.storage && this.config.storage.mode === 'local') {
+            const key = this.config.storage.id;
+            localStorage.setItem(key, JSON.stringify(this._data));
+        }
+    },
+
+    _merge(target, source) {
+        for (const key in source) {
+            if (source[key] !== null && typeof source[key] === 'object' && !Array.isArray(source[key])) {
+                if (!target[key]) target[key] = {};
+                this._merge(target[key], source[key]);
+            } else {
+                target[key] = source[key];
+            }
+        }
+    },
+
+    /**
+     * Creates a recursive Proxy to handle nested property changes.
+     */
+    _createReactive(obj, path = []) {
+        const self = this;
+        return new Proxy(obj, {
+            get(target, prop) {
+                const val = target[prop];
+                if (val !== null && typeof val === 'object' && !Array.isArray(val)) {
+                    return self._createReactive(val, [...path, prop]);
+                }
+                return val;
+            },
+            set(target, prop, value) {
+                if (target[prop] === value) return true;
+
+                // Mirror root properties to window for transparent global access (Stage 6.2)
+                if (path.length === 0 && !(prop in window)) {
+                    Object.defineProperty(window, prop, {
+                        get: () => self.buffer[prop],
+                        set: (val) => { self.buffer[prop] = val; },
+                        configurable: true
+                    });
+                }
+
+                const fullPath = [...path, prop].join('.');
+                const oldVal = target[prop];
+
+                target[prop] = value;
+
+                // Record history (if not in undo/redo)
+                if (!self._inHistoryMove) {
+                    self._history.push({ path: fullPath, old: oldVal, new: value });
+                    self._redoStack = [];
+                }
+
+                self._notify(fullPath, value);
+
+                // Persistence Sync
+                self._saveLocal();
+
+                return true;
+            }
+        });
+    },
+
+    /**
+     * Subscribes a callback to a buffer property change (e.g., 'user.name').
+     */
+    subscribe(propPath, callback) {
+        if (!this.bindings.has(propPath)) {
+            this.bindings.set(propPath, []);
+        }
+        this.bindings.get(propPath).push(callback);
+    },
+
+    _notify(propPath, value) {
+        // Notify the exact path
+        this._trigger(propPath, value);
+
+        // Notify parent paths (e.g., if 'user.name' changed, 'user' also changed)
+        const parts = propPath.split('.');
+        while (parts.length > 1) {
+            parts.pop();
+            const parentPath = parts.join('.');
+            // For parent updates, we pass the current state of that branch
+            this._trigger(parentPath, this._getDeep(this._data, parentPath));
+        }
+    },
+
+    _trigger(path, value) {
+        if (this.bindings.has(path)) {
+            this.bindings.get(path).forEach(callback => {
+                try {
+                    callback(value);
+                } catch (e) {
+                    console.error(`[NApp] Update failed for ${path}:`, e);
+                }
+            });
+        }
+    },
+
+    _getDeep(obj, path) {
+        return path.split('.').reduce((acc, part) => acc && acc[part], obj);
+    },
+
+    /**
+     * Helper to bind an element's text content to a buffer property.
+     */
+    bindText(elementId, propPath) {
+        const update = (value) => {
+            const el = document.getElementById(elementId);
+            if (el) el.innerHTML = value;
+        };
+        this.subscribe(propPath, update);
+        // Initial value
+        update(this._getDeep(this._data, propPath));
+    },
+
+    /**
+     * Binds a collection to a container using a template function.
+     */
+    bindRepeat(containerId, collectionPath, templateFn) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        const update = (list) => {
+            if (!Array.isArray(list)) return;
+            container.innerHTML = list.map((item, index) => templateFn(item, index)).join('');
+        };
+
+        this.subscribe(collectionPath, update);
+        // Initial render
+        update(this._getDeep(this._data, collectionPath));
+    },
+
+    /**
+     * Helper to bind an element's text content to a dynamic template.
+     * dependencies: array of property paths to watch
+     * templateFn: function that returns the formatted string
+     */
+    bindTemplate(elementId, dependencies, templateFn) {
+        const update = () => {
+            const el = document.getElementById(elementId);
+            if (el) el.innerHTML = templateFn();
+        };
+        
+        dependencies.forEach(path => this.subscribe(path, update));
+        // Initial render
+        update();
+    },
+
+    /**
+     * Helper to bind an input element's value (two-way binding).
+     */
+    bindInput(elementId, propPath) {
+        const el = document.getElementById(elementId);
+        if (!el) return;
+
+        // Forward: State -> Input
+        const update = (value) => {
+            if (el.value !== String(value)) {
+                el.value = value;
+            }
+        };
+        this.subscribe(propPath, update);
+
+        // Initial value
+        update(this._getDeep(this._data, propPath));
+
+        // Reverse: Input -> State
+        el.addEventListener('input', (e) => {
+            // Split path and update recursively (via proxy)
+            const parts = propPath.split('.');
+            let target = this.buffer;
+            for (let i = 0; i < parts.length - 1; i++) {
+                target = target[parts[i]];
+            }
+            target[parts[parts.length - 1]] = e.target.value;
+        });
+    },
+
+    /**
+     * Initializes a random widget that fetches a manifest and displays a random item.
+     */
+    initRandomWidget(elementId, source, containerClass, templateHtml) {
+        const container = document.getElementById(elementId);
+        if (!container) return;
+
+        const refresh = async () => {
+            try {
+                const response = await fetch(source);
+                const data = await response.json();
+                let items = Array.isArray(data) ? data : data.items;
+                if (!items && typeof data === 'object') items = Object.values(data);
+                
+                if (items && items.length > 0) {
+                    const item = items[Math.floor(Math.random() * items.length)];
+                    // Simple substitution in template
+                    let html = templateHtml;
+                    for (const key in item) {
+                        const regex = new RegExp(`\\{${key}\\}`, 'g');
+                        html = html.replace(regex, item[key]);
+                    }
+                    container.innerHTML = `<div class="${containerClass}">${html}</div>`;
+                }
+            } catch (e) {
+                console.error("[NApp] Random widget failed:", e);
+            }
+        };
+
+        refresh();
+        // Expose refresh to gs
+        if (!window.gs.refresh_target) window.gs.refresh_target = {};
+        window.gs.refresh_target[elementId] = refresh;
+    },
+
+    undo() {
+        if (this._history.length === 0) return;
+        const last = this._history.pop();
+        this._redoStack.push({ ...last, new: this._getDeep(this._data, last.path) });
+        this._inHistoryMove = true;
+        this._setDeep(this.buffer, last.path, last.old);
+        this._inHistoryMove = false;
+    },
+
+    redo() {
+        if (this._redoStack.length === 0) return;
+        const last = this._redoStack.pop();
+        this._history.push({ ...last, old: this._getDeep(this._data, last.path) });
+        this._inHistoryMove = true;
+        this._setDeep(this.buffer, last.path, last.new);
+        this._inHistoryMove = false;
+    },
+
+    _setDeep(obj, path, value) {
+        const parts = path.split('.');
+        let curr = obj;
+        for (let i = 0; i < parts.length - 1; i++) {
+            curr = curr[parts[i]];
+        }
+        curr[parts[parts.length - 1]] = value;
+    },
+
+    terminal: {
+        container: null,
+        output: null,
+        inputField: null,
+        resolveInput: null,
+
+        mount(containerId) {
+            this.container = document.getElementById(containerId);
+            if (!this.container) return;
+            // Register this terminal instance globally
+            window.NApp.terminals[containerId] = this;
+
+            this.container.classList.add('napp-terminal-active');
+            this.container.innerHTML = `
+                <div class="terminal-output" style="flex: 1; overflow-y: auto; white-space: pre-wrap; font-family: 'JetBrains Mono', 'Consolas', monospace; padding: 20px; color: #e0e0e0; font-size: 14px; line-height: 1.5;"></div>
+                <div class="terminal-input-line" style="display: flex; align-items: center; padding: 10px 20px; background: #1a1a1a; border-top: 1px solid #333;">
+                    <span class="terminal-prompt" style="color: #50fa7b; margin-right: 10px; font-weight: bold;">&gt;</span>
+                    <input type="text" class="terminal-input" style="flex: 1; background: transparent; border: none; color: #f8f8f2; outline: none; font-family: 'JetBrains Mono', 'Consolas', monospace; font-size: 14px;" autofocus>
+                </div>
+            `;
+            this.output = this.container.querySelector('.terminal-output');
+            this.inputField = this.container.querySelector('.terminal-input');
+
+            this.inputField.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && this.resolveInput) {
+                    const val = this.inputField.value;
+                    this.print(val, 'terminal-user-input');
+                    this.inputField.value = '';
+                    const resolve = this.resolveInput;
+                    this.resolveInput = null;
+                    resolve(val);
+                }
+            });
+
+            // Focus input on click anywhere in terminal
+            this.container.addEventListener('click', () => this.inputField.focus());
+        },
+
+        print(text, className = '') {
+            if (!this.output) return;
+            const line = document.createElement('div');
+            if (className) line.classList.add(className);
+            line.textContent = String(text);
+
+            // Basic support for color codes or style classes
+            if (className === 'terminal-error') line.style.color = '#ff5555';
+            if (className === 'terminal-user-input') line.style.color = '#8be9fd';
+
+            this.output.appendChild(line);
+            this.output.scrollTop = this.output.scrollHeight;
+        },
+
+        print_err(text) {
+            this.print(text, 'terminal-error');
+        },
+
+        async input(prompt) {
+            if (prompt) this.print(prompt);
+            this.inputField.focus();
+            return new Promise(resolve => {
+                this.resolveInput = resolve;
+            });
+        },
+
+        async input_int(prompt) {
+            const val = await this.input(prompt);
+            return parseInt(val) || 0;
+        }
+    },
+    terminals: {}
+};
+
+/**
+ * Global System (gs) Implementation
+ */
+window.gs = {
+    _args: (args, ...keys) => {
+        if (args.length === 1 && typeof args[0] === 'object' && args[0] !== null && !Array.isArray(args[0])) {
+            const obj = args[0];
+            // Check if it looks like named args (contains at least one expected key)
+            if (keys.some(k => k in obj)) {
+                return keys.map(k => obj[k]);
+            }
+        }
+        return args;
+    },
+
+    log: (...args) => console.log("[NaCode]", ...args),
+    canvases: {},
+    terminals: {},
+    refresh_target: {},
+
+    refresh_widget: (...args) => {
+        const [targetId] = window.gs._args(args, "target");
+        if (window.gs.refresh_target[targetId]) {
+            window.gs.refresh_target[targetId]();
+        }
+    },
+
+    print: (...args) => {
+        const [text, terminal_id] = window.gs._args(args, "text", "terminal_id");
+
+        // Build final message from positional args and keyword 'text'
+        let msg = args.filter(a => typeof a !== 'object' || a === null).map(String).join(' ');
+        if (text !== undefined && text !== null) {
+            msg = msg ? `${msg} ${text}` : String(text);
+        }
+
+        // ALWAYS log to browser console for debugging
+        console.log(`[NaCode] ${msg}`);
+
+        // Route to specific terminal or default
+        if (terminal_id && window.NApp.terminals[terminal_id]) {
+            window.NApp.terminals[terminal_id].print(msg);
+        } else if (window.NApp.terminal && window.NApp.terminal.output) {
+            window.NApp.terminal.print(msg);
+        }
+    },
+
+    print_err: (text) => window.NApp.terminal.print_err(text),
+    input: async (prompt) => await window.NApp.terminal.input(prompt),
+    input_int: async (prompt) => await window.NApp.terminal.input_int(prompt),
+    input_float: async (prompt) => {
+        const val = await window.NApp.terminal.input(prompt);
+        return parseFloat(val) || 0.0;
+    },
+
+    // --- Variable Manipulation ---
+
+    var_decl: (...args) => {
+        const [name, value] = window.gs._args(args, "name", "value");
+        window.NApp._setDeep(window.NApp.buffer, name, value);
+    },
+
+    var_set: (...args) => {
+        const [name, value] = window.gs._args(args, "name", "value");
+        window.NApp._setDeep(window.NApp.buffer, name, value);
+    },
+
+    var_get: (...args) => {
+        const [name, defaultValue] = window.gs._args(args, "name", "default_value");
+        const val = window.NApp._getDeep(window.NApp._data, name);
+        return val !== undefined && val !== null ? val : (defaultValue !== undefined ? defaultValue : null);
+    },
+
+    var_del: (...args) => {
+        const [name] = window.gs._args(args, "name");
+        window.NApp._setDeep(window.NApp.buffer, name, null);
+    },
+
+    // --- List Manipulation ---
+
+    list_decl: (...args) => {
+        const [name, value] = window.gs._args(args, "name", "value");
+        window.gs.var_decl(name, [...value]);
+    },
+
+    list_set: (...args) => {
+        const [name, value] = window.gs._args(args, "name", "value");
+        window.gs.var_set(name, [...value]);
+    },
+
+    list_get: (...args) => {
+        const [name, defaultValue] = window.gs._args(args, "name", "default_value");
+        return window.gs.var_get(name, defaultValue || []);
+    },
+
+    list_len: (...args) => {
+        const [name] = window.gs._args(args, "name");
+        const lst = window.gs.list_get(name);
+        return Array.isArray(lst) ? lst.length : 0;
+    },
+
+    list_append: (...args) => {
+        const [name, value] = window.gs._args(args, "name", "value");
+        const lst = [...window.gs.list_get(name)];
+        lst.push(value);
+        window.gs.list_set(name, lst);
+    },
+
+    list_pop: (...args) => {
+        const [name, idx] = window.gs._args(args, "name", "idx");
+        const actualIdx = (idx === undefined || idx === -1) ? -1 : idx;
+        const lst = [...window.gs.list_get(name)];
+        if (lst.length === 0) return null;
+        const targetIdx = actualIdx === -1 ? lst.length - 1 : actualIdx;
+        if (targetIdx >= 0 && targetIdx < lst.length) {
+            const val = lst.splice(targetIdx, 1)[0];
+            window.gs.list_set(name, lst);
+            return val;
+        }
+        return null;
+    },
+
+    list_get_item: (...args) => {
+        const [name, idx] = window.gs._args(args, "name", "idx");
+        const lst = window.gs.list_get(name);
+        return (idx >= 0 && idx < lst.length) ? lst[idx] : null;
+    },
+
+    list_insert: (...args) => {
+        const [name, idx, value] = window.gs._args(args, "name", "idx", "value");
+        const lst = [...window.gs.list_get(name)];
+        lst.splice(idx, 0, value);
+        window.gs.list_set(name, lst);
+    },
+
+    list_remove_by_idx: (...args) => {
+        const [name, idx] = window.gs._args(args, "name", "idx");
+        const lst = [...window.gs.list_get(name)];
+        if (idx >= 0 && idx < lst.length) {
+            lst.splice(idx, 1);
+            window.gs.list_set(name, lst);
+        }
+    },
+
+    list_clear: (...args) => {
+        const [name] = window.gs._args(args, "name");
+        window.gs.list_set(name, []);
+    },
+
+    // --- Dict Manipulation ---
+
+    dict_decl: (...args) => {
+        const [name, value] = window.gs._args(args, "name", "value");
+        window.gs.var_decl(name, { ...value });
+    },
+
+    dict_set: (...args) => {
+        const [name, value] = window.gs._args(args, "name", "value");
+        window.gs.var_set(name, { ...value });
+    },
+
+    dict_get: (...args) => {
+        const [name, defaultValue] = window.gs._args(args, "name", "default_value");
+        return window.gs.var_get(name, defaultValue || {});
+    },
+
+    dict_set_item: (...args) => {
+        const [name, key, value] = window.gs._args(args, "name", "key", "value");
+        const dct = { ...window.gs.dict_get(name) };
+        dct[key] = value;
+        window.gs.dict_set(name, dct);
+    },
+
+    dict_get_item: (...args) => {
+        const [name, key, defaultValue] = window.gs._args(args, "name", "key", "default_value");
+        const dct = window.gs.dict_get(name);
+        return dct.hasOwnProperty(key) ? dct[key] : (defaultValue !== undefined ? defaultValue : null);
+    },
+
+    dict_remove_item: (...args) => {
+        const [name, key] = window.gs._args(args, "name", "key");
+        const dct = { ...window.gs.dict_get(name) };
+        if (dct.hasOwnProperty(key)) {
+            delete dct[key];
+            window.gs.dict_set(name, dct);
+        }
+    },
+
+    dict_contains: (...args) => {
+        const [name, key] = window.gs._args(args, "name", "key");
+        return window.gs.dict_get(name).hasOwnProperty(key);
+    },
+
+    dict_len: (...args) => {
+        const [name] = window.gs._args(args, "name");
+        return Object.keys(window.gs.dict_get(name)).length;
+    },
+
+    dict_clear: (...args) => {
+        const [name] = window.gs._args(args, "name");
+        window.gs.dict_set(name, {});
+    },
+
+    navigate: (page) => {
+        window.location.href = page;
+    },
+
+    shell: {
+        open: (url) => window.open(url, '_blank')
+    },
+
+    io: {
+        read_text: (key) => localStorage.getItem(key) || "",
+        write_text: (key, content) => {
+            try {
+                localStorage.setItem(key, content);
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
+    },
+
+    history: {
+        undo: () => window.NApp.undo(),
+        redo: () => window.NApp.redo()
+    },
+
+    canvas: (id) => {
+        const c = window.NaCanvas.instances[id] || window.NaCanvas.get(id);
+        if (!c) console.error(`[gs] Canvas "${id}" not found!`);
+        return c;
+    }
+};

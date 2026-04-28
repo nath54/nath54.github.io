@@ -1,0 +1,18 @@
+<page>
+<main_container>
+    <single_column>
+        <title_text name_en="About Me" name_fr="À propos de moi" />
+        <text
+            name_en="If you want to know more about myself..."
+            name_fr="Si vous voulez en savoir plus sur moi..."
+        />
+
+        <exec_generate
+            parser="markdown_alternating"
+            source="data/about_me/"
+            template="about_me_category"
+        />
+    </single_column>
+</main_container>
+
+</page>
