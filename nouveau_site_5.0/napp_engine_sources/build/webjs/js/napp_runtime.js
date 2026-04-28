@@ -1,3 +1,4 @@
+window.gs = window.gs || {};
 window.NApp = {
     // Global Buffer (Persistent State) - data is stored here
     _data: {},
@@ -46,6 +47,7 @@ window.NApp = {
             });
         }
         console.log(`[NApp] Runtime Initialized (${config.storage?.mode || 'memory'})`);
+        console.log(`[NApp] Initial data:`, this._data);
     },
 
     _loadLocal() {
@@ -141,6 +143,7 @@ window.NApp = {
     _notify(propPath, value) {
         // Notify the exact path
         this._trigger(propPath, value);
+        console.log(`[NApp] Property changed: ${propPath}`, value);
 
         // Notify parent paths (e.g., if 'user.name' changed, 'user' also changed)
         const parts = propPath.split('.');
@@ -157,7 +160,69 @@ window.NApp = {
     },
 
     navigate: (page) => {
+        // Save current page to history before navigating
+        try {
+            const history = JSON.parse(sessionStorage.getItem('napp_history') || '[]');
+            const currentPath = window.location.pathname;
+            
+            // Only push if it's a new page entry
+            const lastEntry = history[history.length - 1];
+            if (!lastEntry || lastEntry.page !== currentPath) {
+                history.push({ type: 'page', page: currentPath, timestamp: Date.now() });
+                if (history.length > 50) history.shift();
+                sessionStorage.setItem('napp_history', JSON.stringify(history));
+            }
+        } catch (e) {
+            console.warn("[NApp] History tracking failed:", e);
+        }
+        
         window.location.href = page;
+    },
+
+    recordAction: (label) => {
+        try {
+            const history = JSON.parse(sessionStorage.getItem('napp_history') || '[]');
+            history.push({ type: 'action', label: label, timestamp: Date.now() });
+            if (history.length > 50) history.shift();
+            sessionStorage.setItem('napp_history', JSON.stringify(history));
+            console.log(`[NApp] Action recorded: ${label}`);
+        } catch (e) { }
+    },
+
+    back: () => {
+        try {
+            const history = JSON.parse(sessionStorage.getItem('napp_history') || '[]');
+            if (history.length > 0) {
+                const last = history.pop();
+                sessionStorage.setItem('napp_history', JSON.stringify(history));
+                
+                if (last.type === 'page') {
+                    const currentPath = window.location.pathname;
+                    if (last.page === currentPath && history.length > 0) {
+                        return window.NApp.back();
+                    }
+                    window.location.href = last.page;
+                    return;
+                } else if (last.type === 'action') {
+                    return window.NApp.back();
+                }
+            }
+        } catch (e) {
+            console.warn("[NApp] Back navigation failed:", e);
+        }
+        
+        // Final fallback: use relative path to index
+        const currentPath = window.location.pathname;
+        const segments = currentPath.split(/[\\\/]/);
+        const pagesIdx = segments.indexOf('pages');
+        if (pagesIdx !== -1) {
+            const depth = segments.length - pagesIdx - 1;
+            window.location.href = '../'.repeat(depth) + 'index.html';
+        } else if (currentPath.endsWith('index.html') || currentPath.endsWith('/')) {
+            // Already at index, nothing to do
+        } else {
+            window.location.href = 'index.html';
+        }
     },
 
     /**
@@ -166,12 +231,10 @@ window.NApp = {
      */
     toggleExpandable: (header) => {
         const parent = header.parentElement;
-        const content = header.nextElementSibling || parent.querySelector('.expandable-content');
-        if (content) {
-            const isExpanded = content.style.display === 'block';
-            content.style.display = isExpanded ? 'none' : 'block';
-            header.classList.toggle('expanded', !isExpanded);
-            parent.classList.toggle('is-open', !isExpanded);
+        const isOpening = !parent.open;
+        if (isOpening) {
+            const title = header.textContent.trim();
+            window.NApp.recordAction(`Expand: ${title}`);
         }
     },
 
@@ -188,6 +251,7 @@ window.NApp = {
     },
 
     _getDeep(obj, path) {
+        if (!path || path === 'null') return undefined;
         return path.split('.').reduce((acc, part) => acc && acc[part], obj);
     },
 
@@ -212,11 +276,33 @@ window.NApp = {
         if (!container) return;
 
         const update = (list) => {
-            if (!Array.isArray(list)) return;
-            container.innerHTML = list.map((item, index) => templateFn(item, index)).join('');
+            if (!Array.isArray(list)) {
+                console.warn(`[NApp] bindRepeat(${containerId}): data is not an array`, list);
+                return;
+            }
+            console.log(`[NApp] bindRepeat(${containerId}) updating with ${list.length} items`);
+            const html = list.map((item, index) => {
+                const fragment = templateFn(item, index);
+                console.log(`[NApp]   Item ${index} fragment length: ${fragment.length}`);
+                return fragment;
+            }).join('');
+            container.innerHTML = html;
         };
 
+        // Handle literal JSON lists (Stage 6 Static Unrolling)
+        if (collectionPath && collectionPath.startsWith('[')) {
+            try {
+                const list = JSON.parse(collectionPath);
+                update(list);
+                return;
+            } catch (e) {
+                console.warn("[NApp] bindRepeat: invalid literal list:", e);
+            }
+        }
+
         this.subscribe(collectionPath, update);
+        this.subscribe('state.language', update);
+        this.subscribe('language', update); // Support both paths
         // Initial render
         update(this._getDeep(this._data, collectionPath));
     },
@@ -233,6 +319,8 @@ window.NApp = {
         };
 
         dependencies.forEach(path => this.subscribe(path, update));
+        this.subscribe('state.language', update);
+        this.subscribe('language', update);
         // Initial render
         update();
     },
@@ -245,7 +333,9 @@ window.NApp = {
             const el = document.getElementById(elementId);
             if (!el) return;
             const res = conditionFn();
-            el.innerHTML = res ? thenFn() : (elseFn ? elseFn() : "");
+            const html = res ? thenFn() : (elseFn ? elseFn() : "");
+            console.log(`[NApp] bindConditional(${elementId}) result: ${res}, HTML length: ${html.length}`);
+            el.innerHTML = html;
         };
 
         // This is a bit complex as we don't know the dependencies of conditionFn.

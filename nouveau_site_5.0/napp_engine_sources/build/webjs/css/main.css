@@ -142,7 +142,13 @@ body {
     font-family: var(--font-family-main);
     font-size: var(--font-size-base);
     color: var(--color-neutral-900);
-    background-color: var(--color-neutral-50);
+    background: radial-gradient(circle at 50% 50%, #f0e6ff 0%, #dcd0ff 100%);
+    padding: var(--space-8);
+}
+
+.page-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -202,12 +208,16 @@ a:hover {
     line-height: var(--line-height-tight);
 }
 
-/* Remove margin-top from first heading */
+/* Ensure first child has enough space and isn't cropped */
+.markdown-render > *:first-child {
+    margin-top: var(--space-4) !important;
+}
+
 .markdown-render h1:first-child,
 .markdown-render h2:first-child,
 .markdown-render h3:first-child,
 .markdown-render h4:first-child {
-    margin-top: 0;
+    margin-top: var(--space-4) !important;
 }
 
 /* Paragraphs and general block elements */
@@ -352,19 +362,20 @@ a:hover {
     background: var(--color-neutral-50);
 }
 
-/* Icons styling */
+/* Icons styling - Force colors to be consistent */
+.fa-youtube {
+    color: #FF0000 !important;
+}
+
+.fa-spotify {
+    color: #1DB954 !important;
+}
+
 .markdown-render a i {
     margin-right: 0.4em;
-    font-size: 0.95em;
+    font-size: 1.1em; /* Slightly larger for better visibility */
     vertical-align: middle;
-}
-
-.markdown-render a .fa-youtube {
-    color: #FF0000;
-}
-
-.markdown-render a .fa-spotify {
-    color: #1DB954;
+    display: inline-block;
 }
 
 .markdown-render a:hover i {
@@ -970,9 +981,9 @@ body {
 
 /* --- Expandables --- */
 .expandable {
-    margin-bottom: var(--space-2);
-    border-radius: var(--border-radius-md);
-    overflow: hidden;
+    margin-bottom: var(--space-4);
+    border-radius: var(--border-radius-lg);
+    /* overflow: visible;  -- Changed from hidden to avoid cropping bullets/icons */
     background: rgba(255, 255, 255, 0.2);
 }
 
@@ -994,8 +1005,9 @@ body {
 }
 
 .expandable-content {
-    padding: var(--space-4);
+    padding: var(--space-6) var(--space-6) var(--space-8) var(--space-6);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: visible !important; /* Ensure bullets/content are never cropped */
 }
 
 
