@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nathan Cerisara - Nouveau Site 5.0</title>
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/nascene_engine.js"></script>
-    <script src="js/nacanvas.js"></script>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/nascene_engine.js"></script>
+    <script src="../js/nacanvas.js"></script>
 </head>
 <body>
-    <div class="app-page"><div class="main-container"><div class="single-column"><h1 class="title-text" name_en="About Me" name_fr="À propos de moi">About Me</h1><p class="text" name_en="If you want to know more about myself..." name_fr="Si vous voulez en savoir plus sur moi...">If you want to know more about myself...</p><div class="expandable-header" id="napp_gen_1"></div><div class="exec-foreach" var="section" id="napp_gen_2"><div class="expandable-node medium" id="napp_gen_3"><div class="expandable-header" id="napp_gen_4"></div><div class="expandable-content" id="napp_gen_5"></div></div></div><div class="expandable-header" id="napp_gen_6"></div><div class="exec-foreach" var="section" id="napp_gen_7"><div class="expandable-node medium" id="napp_gen_8"><div class="expandable-header" id="napp_gen_9"></div><div class="expandable-content" id="napp_gen_10"></div></div></div><div class="expandable-header" id="napp_gen_11"></div><div class="exec-foreach" var="section" id="napp_gen_12"><div class="expandable-node medium" id="napp_gen_13"><div class="expandable-header" id="napp_gen_14"></div><div class="expandable-content" id="napp_gen_15"></div></div></div></div></div></div>
+    <div class="app-page"><div class="main-container"><div class="single-column"><h1 class="title-text" name_en="About Me" name_fr="À propos de moi">About Me</h1><p class="text" name_en="If you want to know more about myself..." name_fr="Si vous voulez en savoir plus sur moi...">If you want to know more about myself...</p><div class="expandable-node large"><div class="expandable-title" onclick="NApp.toggleExpandable(this)" style="cursor: pointer;" id="napp_gen_1"></div><div id="napp_gen_2" class="napp-repeat-container"></div></div><div class="expandable-node large"><div class="expandable-title" onclick="NApp.toggleExpandable(this)" style="cursor: pointer;" id="napp_gen_3"></div><div id="napp_gen_4" class="napp-repeat-container"></div></div><div class="expandable-node large"><div class="expandable-title" onclick="NApp.toggleExpandable(this)" style="cursor: pointer;" id="napp_gen_5"></div><div id="napp_gen_6" class="napp-repeat-container"></div></div></div></div></div>
 
-    <script src="js/napp_runtime.js"></script>
-    <script src="js/app_logic.js"></script>
+    <script src="../js/napp_runtime.js"></script>
+    <script src="../js/app_logic.js"></script>
     <script>
         window.addEventListener('DOMContentLoaded', () => {
 
@@ -25,55 +25,19 @@
             ["title_fr"].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_1'); if (el) el.setAttribute('name_fr', title_fr); }));
             { const el = document.getElementById('napp_gen_1'); if (el) el.setAttribute('name_fr', title_fr); }
             NApp.bindTemplate('napp_gen_1', ["title_en"], () => title_en);
-            ["sections"].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_2'); if (el) el.setAttribute('in', sections); }));
-            { const el = document.getElementById('napp_gen_2'); if (el) el.setAttribute('in', sections); }
-            const exp_napp_gen_3 = document.getElementById('napp_gen_3'); const header_napp_gen_3 = exp_napp_gen_3.querySelector('.expandable-header'); const content_napp_gen_3 = exp_napp_gen_3.querySelector('.expandable-content'); if (header_napp_gen_3 && content_napp_gen_3) {   header_napp_gen_3.addEventListener('click', () => {     const isHidden = content_napp_gen_3.style.display === 'none';     content_napp_gen_3.style.display = isHidden ? 'block' : 'none';     exp_napp_gen_3.classList.toggle('expanded', isHidden);   }); }
-            [].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_4'); if (el) el.setAttribute('name_en', section[sub_title_en]); }));
-            { const el = document.getElementById('napp_gen_4'); if (el) el.setAttribute('name_en', section[sub_title_en]); }
-            [].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_4'); if (el) el.setAttribute('name_fr', section[sub_title_fr]); }));
-            { const el = document.getElementById('napp_gen_4'); if (el) el.setAttribute('name_fr', section[sub_title_fr]); }
-            NApp.bindTemplate('napp_gen_4', [], () => section[sub_title_en]);
-            [].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_5'); if (el) el.setAttribute('name_en', section[content_en]); }));
-            { const el = document.getElementById('napp_gen_5'); if (el) el.setAttribute('name_en', section[content_en]); }
-            [].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_5'); if (el) el.setAttribute('name_fr', section[content_fr]); }));
-            { const el = document.getElementById('napp_gen_5'); if (el) el.setAttribute('name_fr', section[content_fr]); }
-            NApp.bindTemplate('napp_gen_5', [], () => section[content_en]);
-            ["title_en"].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_6'); if (el) el.setAttribute('name_en', title_en); }));
-            { const el = document.getElementById('napp_gen_6'); if (el) el.setAttribute('name_en', title_en); }
-            ["title_fr"].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_6'); if (el) el.setAttribute('name_fr', title_fr); }));
-            { const el = document.getElementById('napp_gen_6'); if (el) el.setAttribute('name_fr', title_fr); }
-            NApp.bindTemplate('napp_gen_6', ["title_en"], () => title_en);
-            ["sections"].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_7'); if (el) el.setAttribute('in', sections); }));
-            { const el = document.getElementById('napp_gen_7'); if (el) el.setAttribute('in', sections); }
-            const exp_napp_gen_8 = document.getElementById('napp_gen_8'); const header_napp_gen_8 = exp_napp_gen_8.querySelector('.expandable-header'); const content_napp_gen_8 = exp_napp_gen_8.querySelector('.expandable-content'); if (header_napp_gen_8 && content_napp_gen_8) {   header_napp_gen_8.addEventListener('click', () => {     const isHidden = content_napp_gen_8.style.display === 'none';     content_napp_gen_8.style.display = isHidden ? 'block' : 'none';     exp_napp_gen_8.classList.toggle('expanded', isHidden);   }); }
-            [].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_9'); if (el) el.setAttribute('name_en', section[sub_title_en]); }));
-            { const el = document.getElementById('napp_gen_9'); if (el) el.setAttribute('name_en', section[sub_title_en]); }
-            [].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_9'); if (el) el.setAttribute('name_fr', section[sub_title_fr]); }));
-            { const el = document.getElementById('napp_gen_9'); if (el) el.setAttribute('name_fr', section[sub_title_fr]); }
-            NApp.bindTemplate('napp_gen_9', [], () => section[sub_title_en]);
-            [].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_10'); if (el) el.setAttribute('name_en', section[content_en]); }));
-            { const el = document.getElementById('napp_gen_10'); if (el) el.setAttribute('name_en', section[content_en]); }
-            [].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_10'); if (el) el.setAttribute('name_fr', section[content_fr]); }));
-            { const el = document.getElementById('napp_gen_10'); if (el) el.setAttribute('name_fr', section[content_fr]); }
-            NApp.bindTemplate('napp_gen_10', [], () => section[content_en]);
-            ["title_en"].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_11'); if (el) el.setAttribute('name_en', title_en); }));
-            { const el = document.getElementById('napp_gen_11'); if (el) el.setAttribute('name_en', title_en); }
-            ["title_fr"].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_11'); if (el) el.setAttribute('name_fr', title_fr); }));
-            { const el = document.getElementById('napp_gen_11'); if (el) el.setAttribute('name_fr', title_fr); }
-            NApp.bindTemplate('napp_gen_11', ["title_en"], () => title_en);
-            ["sections"].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_12'); if (el) el.setAttribute('in', sections); }));
-            { const el = document.getElementById('napp_gen_12'); if (el) el.setAttribute('in', sections); }
-            const exp_napp_gen_13 = document.getElementById('napp_gen_13'); const header_napp_gen_13 = exp_napp_gen_13.querySelector('.expandable-header'); const content_napp_gen_13 = exp_napp_gen_13.querySelector('.expandable-content'); if (header_napp_gen_13 && content_napp_gen_13) {   header_napp_gen_13.addEventListener('click', () => {     const isHidden = content_napp_gen_13.style.display === 'none';     content_napp_gen_13.style.display = isHidden ? 'block' : 'none';     exp_napp_gen_13.classList.toggle('expanded', isHidden);   }); }
-            [].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_14'); if (el) el.setAttribute('name_en', section[sub_title_en]); }));
-            { const el = document.getElementById('napp_gen_14'); if (el) el.setAttribute('name_en', section[sub_title_en]); }
-            [].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_14'); if (el) el.setAttribute('name_fr', section[sub_title_fr]); }));
-            { const el = document.getElementById('napp_gen_14'); if (el) el.setAttribute('name_fr', section[sub_title_fr]); }
-            NApp.bindTemplate('napp_gen_14', [], () => section[sub_title_en]);
-            [].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_15'); if (el) el.setAttribute('name_en', section[content_en]); }));
-            { const el = document.getElementById('napp_gen_15'); if (el) el.setAttribute('name_en', section[content_en]); }
-            [].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_15'); if (el) el.setAttribute('name_fr', section[content_fr]); }));
-            { const el = document.getElementById('napp_gen_15'); if (el) el.setAttribute('name_fr', section[content_fr]); }
-            NApp.bindTemplate('napp_gen_15', [], () => section[content_en]);
+            NApp.bindRepeat('napp_gen_2', 'sections', (section, index) => `<div class="-repeat-template-"><div class="expandable-node medium"><div class="expandable-title" name_en="${section[sub_title_en]}" name_fr="${section[sub_title_fr]}" onclick="NApp.toggleExpandable(this)" style="cursor: pointer;">${section[sub_title_en]}</div><div class="expandable-content" name_en="${section[content_en]}" name_fr="${section[content_fr]}">${section[content_en]}</div></div></div>`);
+            ["title_en"].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_3'); if (el) el.setAttribute('name_en', title_en); }));
+            { const el = document.getElementById('napp_gen_3'); if (el) el.setAttribute('name_en', title_en); }
+            ["title_fr"].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_3'); if (el) el.setAttribute('name_fr', title_fr); }));
+            { const el = document.getElementById('napp_gen_3'); if (el) el.setAttribute('name_fr', title_fr); }
+            NApp.bindTemplate('napp_gen_3', ["title_en"], () => title_en);
+            NApp.bindRepeat('napp_gen_4', 'sections', (section, index) => `<div class="-repeat-template-"><div class="expandable-node medium"><div class="expandable-title" name_en="${section[sub_title_en]}" name_fr="${section[sub_title_fr]}" onclick="NApp.toggleExpandable(this)" style="cursor: pointer;">${section[sub_title_en]}</div><div class="expandable-content" name_en="${section[content_en]}" name_fr="${section[content_fr]}">${section[content_en]}</div></div></div>`);
+            ["title_en"].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_5'); if (el) el.setAttribute('name_en', title_en); }));
+            { const el = document.getElementById('napp_gen_5'); if (el) el.setAttribute('name_en', title_en); }
+            ["title_fr"].forEach(dep => NApp.subscribe(dep, () => { const el = document.getElementById('napp_gen_5'); if (el) el.setAttribute('name_fr', title_fr); }));
+            { const el = document.getElementById('napp_gen_5'); if (el) el.setAttribute('name_fr', title_fr); }
+            NApp.bindTemplate('napp_gen_5', ["title_en"], () => title_en);
+            NApp.bindRepeat('napp_gen_6', 'sections', (section, index) => `<div class="-repeat-template-"><div class="expandable-node medium"><div class="expandable-title" name_en="${section[sub_title_en]}" name_fr="${section[sub_title_fr]}" onclick="NApp.toggleExpandable(this)" style="cursor: pointer;">${section[sub_title_en]}</div><div class="expandable-content" name_en="${section[content_en]}" name_fr="${section[content_fr]}">${section[content_en]}</div></div></div>`);
         });
     </script>
 </body>

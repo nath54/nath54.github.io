@@ -147,8 +147,31 @@ window.NApp = {
         while (parts.length > 1) {
             parts.pop();
             const parentPath = parts.join('.');
-            // For parent updates, we pass the current state of that branch
             this._trigger(parentPath, this._getDeep(this._data, parentPath));
+        }
+
+        // Notify global subscribers (e.g., for conditionals without explicit deps)
+        if (this._globalSubscribers) {
+            this._globalSubscribers.forEach(cb => cb());
+        }
+    },
+
+    navigate: (page) => {
+        window.location.href = page;
+    },
+
+    /**
+     * Toggles the visibility of an expandable node.
+     * @param {HTMLElement} header - The header element that was clicked.
+     */
+    toggleExpandable: (header) => {
+        const parent = header.parentElement;
+        const content = header.nextElementSibling || parent.querySelector('.expandable-content');
+        if (content) {
+            const isExpanded = content.style.display === 'block';
+            content.style.display = isExpanded ? 'none' : 'block';
+            header.classList.toggle('expanded', !isExpanded);
+            parent.classList.toggle('is-open', !isExpanded);
         }
     },
 
@@ -208,8 +231,35 @@ window.NApp = {
             const el = document.getElementById(elementId);
             if (el) el.innerHTML = templateFn();
         };
-        
+
         dependencies.forEach(path => this.subscribe(path, update));
+        // Initial render
+        update();
+    },
+
+    /**
+     * Helper to bind an element's visibility/content to a condition.
+     */
+    bindConditional(elementId, conditionFn, thenFn, elseFn) {
+        const update = () => {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            const res = conditionFn();
+            el.innerHTML = res ? thenFn() : (elseFn ? elseFn() : "");
+        };
+
+        // This is a bit complex as we don't know the dependencies of conditionFn.
+        // For now, we subscribe to ALL changes, or the generator could pass them.
+        // Stage 6 Improvement: Use a global observer or pass deps.
+        // For now, we'll just subscribe to the whole state for simplicity if needed,
+        // or rely on the fact that most conditions use observable properties.
+        // Actually, we can just use a timer or hook into NApp._notify.
+
+        // Better: The generator should analyze deps.
+        // For now, we'll hook it into the global notify for any change.
+        this._globalSubscribers = this._globalSubscribers || [];
+        this._globalSubscribers.push(update);
+
         // Initial render
         update();
     },
@@ -257,10 +307,10 @@ window.NApp = {
                 const data = await response.json();
                 let items = Array.isArray(data) ? data : data.items;
                 if (!items && typeof data === 'object') items = Object.values(data);
-                
+
                 if (items && items.length > 0) {
                     let item = items[Math.floor(Math.random() * items.length)];
-                    
+
                     // If the item is a string, assume it's a file path to the actual data list
                     if (typeof item === 'string') {
                         const sourceDir = source.substring(0, source.lastIndexOf('/') + 1);
@@ -269,7 +319,7 @@ window.NApp = {
                         const subData = await subRes.json();
                         let subItems = Array.isArray(subData) ? subData : subData.items;
                         if (!subItems && typeof subData === 'object') subItems = Object.values(subData);
-                        
+
                         if (subItems && subItems.length > 0) {
                             item = subItems[Math.floor(Math.random() * subItems.length)];
                         } else {
@@ -599,7 +649,7 @@ window.gs = {
     },
 
     navigate: (page) => {
-        window.location.href = page;
+        NApp.navigate(page);
     },
 
     shell: {
