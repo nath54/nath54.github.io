@@ -259,7 +259,24 @@ window.NApp = {
                 if (!items && typeof data === 'object') items = Object.values(data);
                 
                 if (items && items.length > 0) {
-                    const item = items[Math.floor(Math.random() * items.length)];
+                    let item = items[Math.floor(Math.random() * items.length)];
+                    
+                    // If the item is a string, assume it's a file path to the actual data list
+                    if (typeof item === 'string') {
+                        const sourceDir = source.substring(0, source.lastIndexOf('/') + 1);
+                        const subUrl = sourceDir + item;
+                        const subRes = await fetch(subUrl);
+                        const subData = await subRes.json();
+                        let subItems = Array.isArray(subData) ? subData : subData.items;
+                        if (!subItems && typeof subData === 'object') subItems = Object.values(subData);
+                        
+                        if (subItems && subItems.length > 0) {
+                            item = subItems[Math.floor(Math.random() * subItems.length)];
+                        } else {
+                            throw new Error("Sub-manifest empty or invalid");
+                        }
+                    }
+
                     // Simple substitution in template
                     let html = templateHtml;
                     for (const key in item) {

@@ -252,6 +252,21 @@ class RandomManifestWidget(QWidget):
                 import random
                 item = random.choice(data)
                 
+                if isinstance(item, str):
+                    source_dir = os.path.dirname(self.source)
+                    sub_path = os.path.join(source_dir, item)
+                    if os.path.exists(sub_path):
+                        with open(sub_path, 'r', encoding='utf-8') as sf:
+                            sub_data = json.load(sf)
+                        if isinstance(sub_data, list) and sub_data:
+                            item = random.choice(sub_data)
+                        elif isinstance(sub_data, dict) and "items" in sub_data:
+                            item = random.choice(sub_data["items"])
+                        else:
+                            raise ValueError("Sub-manifest empty or invalid format")
+                    else:
+                        raise ValueError(f"Sub-manifest not found: {sub_path}")
+
                 # Simple substitution
                 html = self.template
                 for key, val in item.items():

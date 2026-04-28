@@ -9,6 +9,7 @@ from nascene_engine import NaSceneWidget
 from nacanvas import NaCanvas2D, NaCanvasGL
 from logic.app_logic import *
 import asyncio
+import webbrowser
 
 class Pages_projectsWindow(QMainWindow):
     def __init__(self, buffer):

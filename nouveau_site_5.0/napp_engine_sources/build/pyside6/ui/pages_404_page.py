@@ -9,6 +9,7 @@ from nascene_engine import NaSceneWidget
 from nacanvas import NaCanvas2D, NaCanvasGL
 from logic.app_logic import *
 import asyncio
+import webbrowser
 
 class Pages_404Window(QMainWindow):
     def __init__(self, buffer):
@@ -60,6 +61,7 @@ class Pages_404Window(QMainWindow):
         self.link_page_9.setObjectName('link_page')
         self.link_page_9.setText('Back to Home')
         self.link_page_9.setText('Back to Home')
+        self.link_page_9.clicked.connect(lambda _, url='index.html': webbrowser.open(url))
         self.single_column_layout_6.addWidget(self.link_page_9)
         self.main_container_layout_4.addWidget(self.single_column_5)
         self.root_layout_2.addWidget(self.main_container_3)

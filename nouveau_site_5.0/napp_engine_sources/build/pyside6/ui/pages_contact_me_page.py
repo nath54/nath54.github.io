@@ -9,6 +9,7 @@ from nascene_engine import NaSceneWidget
 from nacanvas import NaCanvas2D, NaCanvasGL
 from logic.app_logic import *
 import asyncio
+import webbrowser
 
 class Pages_contact_meWindow(QMainWindow):
     def __init__(self, buffer):
@@ -82,9 +83,9 @@ class Pages_contact_meWindow(QMainWindow):
         self.text_17.setObjectName('text')
         self.text_17.setText('Or by sending a message on Linkedin:')
         self.subsection_layout_16.addWidget(self.text_17)
-        self.link_url_18 = QLabel()
-        self.link_url_18.setWordWrap(True)
+        self.link_url_18 = QPushButton()
         self.link_url_18.setObjectName('link_url')
+        self.link_url_18.clicked.connect(lambda _, url='https://www.linkedin.com/in/nathan-cerisara-8669331ba/': webbrowser.open(url))
         self.subsection_layout_16.addWidget(self.link_url_18)
         self.section_layout_9.addWidget(self.subsection_15)
         self.single_column_layout_6.addWidget(self.section_8)

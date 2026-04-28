@@ -9,6 +9,7 @@ from nascene_engine import NaSceneWidget
 from nacanvas import NaCanvas2D, NaCanvasGL
 from logic.app_logic import *
 import asyncio
+import webbrowser
 
 class Pages_about_meWindow(QMainWindow):
     def __init__(self, buffer):
@@ -56,9 +57,41 @@ class Pages_about_meWindow(QMainWindow):
         self.text_8.setObjectName('text')
         self.text_8.setText('If you want to know more about myself...')
         self.single_column_layout_6.addWidget(self.text_8)
+        self.name_9 = QLabel()
+        self.name_9.setWordWrap(True)
+        self.name_9.setObjectName('name')
+        self.name_9.setText(str(gs.var_get('title_en')))
+        self.name_9.setText(str(gs.var_get('title_fr')))
+        self.single_column_layout_6.addWidget(self.name_9)
+        self.exec_foreach_10 = QWidget()
+        self.exec_foreach_10.setObjectName('exec_foreach')
+        self.single_column_layout_6.addWidget(self.exec_foreach_10)
+        self.name_11 = QLabel()
+        self.name_11.setWordWrap(True)
+        self.name_11.setObjectName('name')
+        self.name_11.setText(str(gs.var_get('title_en')))
+        self.name_11.setText(str(gs.var_get('title_fr')))
+        self.single_column_layout_6.addWidget(self.name_11)
+        self.exec_foreach_12 = QWidget()
+        self.exec_foreach_12.setObjectName('exec_foreach')
+        self.single_column_layout_6.addWidget(self.exec_foreach_12)
+        self.name_13 = QLabel()
+        self.name_13.setWordWrap(True)
+        self.name_13.setObjectName('name')
+        self.name_13.setText(str(gs.var_get('title_en')))
+        self.name_13.setText(str(gs.var_get('title_fr')))
+        self.single_column_layout_6.addWidget(self.name_13)
+        self.exec_foreach_14 = QWidget()
+        self.exec_foreach_14.setObjectName('exec_foreach')
+        self.single_column_layout_6.addWidget(self.exec_foreach_14)
         self.main_container_layout_4.addWidget(self.single_column_5)
         self.root_layout_2.addWidget(self.main_container_3)
         self.root_layout_2.addStretch()
 
     def setup_bindings(self):
-        pass
+        self.buffer.subscribe('title_en', lambda val: self.name_9.setText(str(val)))
+        self.buffer.subscribe('title_fr', lambda val: self.name_9.setText(str(val)))
+        self.buffer.subscribe('title_en', lambda val: self.name_11.setText(str(val)))
+        self.buffer.subscribe('title_fr', lambda val: self.name_11.setText(str(val)))
+        self.buffer.subscribe('title_en', lambda val: self.name_13.setText(str(val)))
+        self.buffer.subscribe('title_fr', lambda val: self.name_13.setText(str(val)))
