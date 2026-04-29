@@ -48,6 +48,12 @@ window.NApp = {
         }
         console.log(`[NApp] Runtime Initialized (${config.storage?.mode || 'memory'})`);
         console.log(`[NApp] Initial data:`, this._data);
+
+        // Auto-translate on language change
+        this.subscribe('state.language', () => this.translatePage());
+        this.subscribe('language', () => this.translatePage());
+        // Initial translation
+        setTimeout(() => this.translatePage(), 0);
     },
 
     _loadLocal() {
@@ -235,6 +241,33 @@ window.NApp = {
         if (isOpening) {
             const title = header.textContent.trim();
             window.NApp.recordAction(`Expand: ${title}`);
+        }
+    },
+
+    /**
+     * Translates the entire page based on to_translate class and data-translation_xx attributes.
+     */
+    translatePage() {
+        const lang = this.buffer?.language || this._data.language || 'en';
+        console.log(`[NApp] Translating page to: ${lang}`);
+        
+        // 1. Text Content Translation
+        const elements = document.getElementsByClassName('to_translate');
+        for (const el of elements) {
+            const translation = el.getAttribute(`data-translation_${lang}`);
+            if (translation !== null) {
+                el.innerHTML = translation;
+            }
+        }
+        
+        // 2. Visibility Translation
+        const visibilityElements = document.getElementsByClassName('translation_visibility');
+        for (const el of visibilityElements) {
+            const langCode = el.getAttribute('data-langcode');
+            if (langCode) {
+                // If it's a block element in CSS, we might want to be careful, but '' usually restores default
+                el.style.display = (langCode === lang) ? '' : 'none';
+            }
         }
     },
 
