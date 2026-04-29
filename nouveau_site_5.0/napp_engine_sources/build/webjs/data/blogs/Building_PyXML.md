@@ -9,6 +9,7 @@ image: "res/logo.svg"
 tags: ["Python", "Static Site Generator", "Compilers"]
 summary_en: "A deep dive into why and how I built a custom XML-based static site generator for my portfolio."
 summary_fr: "Une exploration profonde sur pourquoi et comment j'ai construit un générateur de site statique personnalisé basé sur XML."
+category: "Tech"
 
 ## Content EN
 ### Why PyXML?
