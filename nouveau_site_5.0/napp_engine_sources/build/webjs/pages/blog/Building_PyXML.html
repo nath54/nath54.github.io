@@ -14,9 +14,9 @@
 <body>
     
     <div class="os-title-bar">
-        <a href="../../index.html" class="os-btn-back" onclick="NApp.back(); return false;">
+        <a href="../../pages/blog.html" class="os-btn-back" onclick="NApp.navigate('../../pages/blog.html'); return false;">
             <i class="fas fa-arrow-left"></i>
-            <span class="to_translate" data-translation_en="Back" data-translation_fr="Retour">Back</span>
+            <span class="to_translate" data-translation_en="The Gazette" data-translation_fr="La Gazette">The Gazette</span>
         </a>
         <div class="os-title">Nathan Cerisara - Nouveau Site 5.0</div>
         <div class="os-controls">
@@ -28,7 +28,7 @@
         
 
     <div class="page-content-wrapper">
-        <div back_url="pages/blog.html" back_lbl_en="The Gazette" back_lbl_fr="La Gazette" class="main-container"><div class="article-container"><div id="napp_gen_1" class="napp-conditional-container"></div><div class="header article-header"><div class="article-metadata"><div class="span">2026-03-27</div>•<div class="span">Nathan Cerisara</div>•<a href="../../pages/blog.html?category=Tech" name="Tech" style="text-decoration: none; cursor: pointer;" class="link link-page badge" onclick="NApp.navigate('../../pages/blog.html?category=Tech'); return false;"><span class="btn-text">Tech</span></a></div><div class="h1 article-title"><div data-langcode="fr" data-translation_en="Building My Own PyXML Compiler" data-translation_fr="Construire Mon Propre Compilateur PyXML" class="span to_translate">Building My Own PyXML Compiler</div></div></div><div class="article-body"><div data-langcode="en" class="markdown-render"><h3>Why PyXML?</h3>
+        <div back_url="pages/blog.html" back_lbl_en="The Gazette" back_lbl_fr="La Gazette" class="main-container"><div class="article-container"><div id="napp_gen_1" class="napp-conditional-container"></div><div class="header article-header"><div class="article-metadata"><div class="span">2026-03-27</div>•<div class="span">Nathan Cerisara</div>•<a href="../../pages/blog.html?category=Tech" name="Tech" style="text-decoration: none; cursor: pointer;" class="link link-page badge" onclick="NApp.navigate('../../pages/blog.html?category=Tech'); return false;"><span class="btn-text">Tech</span></a></div><div class="h1 article-title"><div data-langcode="fr" data-translation_en="Building My Own PyXML Compiler" data-translation_fr="Construire Mon Propre Compilateur PyXML" class="span to_translate">Building My Own PyXML Compiler</div></div></div><div class="article-body"><div data-langcode="en" class="markdown-render translation_visibility"><h3>Why PyXML?</h3>
 <p>Standard SSGs like Jekyll or Hugo use Markdown + YAML Frontmatter. While powerful, they often feel disconnected from the HTML structure. PyXML allows me to define <strong>custom semantic tags</strong> that map directly to high-level UI components.</p>
 <h3>Implementation Details</h3>
 <ul>
@@ -44,7 +44,7 @@
 <p>The journey of building a custom XML parser began out of frustration with rigid static site generators.</p>
 <p>Jekyll, Hugo, and others are fantastic tools, but they often abstract the DOM in ways that make creating highly custom UI components difficult and verbose.</p>
 <p>By leveraging Python's built-in element tree, the compiler directly manipulates the DOM structure, translating custom XML tags into raw, performant HTML.</p>
-<p>Working with Python's deep standard library revealed how much power is hidden behind standard patterns, especially when handling text encodings and recursive traversal.</p></div><div data-langcode="fr" class="markdown-render"><h3>Pourquoi PyXML ?</h3>
+<p>Working with Python's deep standard library revealed how much power is hidden behind standard patterns, especially when handling text encodings and recursive traversal.</p></div><div data-langcode="fr" class="markdown-render translation_visibility"><h3>Pourquoi PyXML ?</h3>
 <p>Les générateurs de sites statiques standards comme Jekyll ou Hugo utilisent Markdown + YAML Frontmatter. Bien que puissants, ils donnent souvent l'impression d'être déconnectés de la structure HTML. PyXML me permet de définir des <strong>balises sémantiques personnalisées</strong> qui correspondent directement à des composants d'interface utilisateur de haut niveau.</p>
 <h3>Détails d'implémentation</h3>
 <ul>
