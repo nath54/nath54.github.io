@@ -1523,3 +1523,64 @@ body {
         font-size: 2.2rem;
     }
 }
+
+/* --- NaScene Engine Styling --- */
+.nascene-container {
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    user-select: none;
+}
+
+.nascene-runtime-active {
+    cursor: pointer;
+}
+
+/* Dialogue Bar */
+.nascene-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+    border-top: 2px solid var(--color-primary-600);
+    padding: var(--space-4) var(--space-8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 100;
+    transition: transform var(--transition-normal);
+}
+
+.nascene-bar.hidden {
+    transform: translateY(100%);
+}
+
+.nascene-bar-text {
+    color: white;
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+    font-weight: var(--font-weight-medium);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+/* Buttons and Choices */
+.nascene-choice-button, .nascene-button {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--border-radius-md);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: center;
+}
+
+.nascene-choice-button:hover, .nascene-button:hover {
+    background: var(--color-primary-600);
+    border-color: var(--color-primary-400);
+    transform: scale(1.05);
+}

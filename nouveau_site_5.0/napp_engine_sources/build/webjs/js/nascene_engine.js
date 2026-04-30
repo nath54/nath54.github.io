@@ -11,9 +11,10 @@ class NaSceneEngine {
         // Data comes from the manifest or pre-loaded IR data
         this.scenes = options.scenes || {};
         this.manifest = options.manifest || {};
+        this.baseData = options.baseData || (window.buffer ? window.buffer.data : {});
 
-        // State variables are mirrored from NApp.buffer
-        this.vars = this.app.buffer;
+        // State variables are mirrored from NApp.buffer (Reactive Buffer)
+        this.vars = window.buffer || {};
 
         // System variables
         this.sysVars = {
@@ -25,6 +26,8 @@ class NaSceneEngine {
         this.elements = {}; // id -> DOM element
         this.runId = 0;
         this.resolvePause = null;
+        this.bar = null;
+        this.barText = null;
 
         this._setupContainer();
     }
@@ -34,7 +37,50 @@ class NaSceneEngine {
             this.container.style.position = "relative";
         }
         this.container.style.overflow = "hidden";
+        this.container.classList.add("nascene-container");
         this.container.classList.add("nascene-runtime-active");
+
+        // Add click listener for pause/next
+        this.container.addEventListener("click", () => {
+            if (this.resolvePause) {
+                const res = this.resolvePause;
+                this.resolvePause = null;
+                res();
+            }
+        });
+    }
+
+    async loadManifest() {
+        if (this.manifest && this.manifest.landing_place) {
+            // landing_place format: nascene_root:/path/to/file.nascene:scene_id
+            const lastColon = this.manifest.landing_place.lastIndexOf(":");
+            if (lastColon !== -1) {
+                const fullPath = this.manifest.landing_place.substring(0, lastColon);
+                const startScene = this.manifest.landing_place.substring(lastColon + 1);
+                
+                const rawPath = fullPath.replace("nascene_root:", "");
+                // Resolve path to data key (e.g. /dir/file.nascene -> dir.file)
+                const dataKey = rawPath.replace(".nascene", "").replace(/^\//, "").replace(/\//g, ".");
+
+                // Navigate through baseData or window.buffer.data to find the scenes
+                let current = this.baseData || window.buffer.data;
+                const pathParts = dataKey.split(".");
+                console.log("[NaScene] Navigating dataKey:", dataKey, "Starting at:", current);
+                for (const p of pathParts) {
+                    if (current[p]) {
+                        console.log("[NaScene] Found key:", p, "Next level:", current[p]);
+                        current = current[p];
+                    } else {
+                        console.warn("[NaScene] Key NOT found:", p, "Available keys:", Object.keys(current));
+                        break;
+                    }
+                }
+
+                this.scenes = current;
+                console.log("[NaScene] Manifest loaded. Path:", rawPath, "Scenes available:", Object.keys(this.scenes || {}), "Starting scene:", startScene);
+                await this.start(startScene);
+            }
+        }
     }
 
     async start(sceneId) {
@@ -44,32 +90,74 @@ class NaSceneEngine {
 
     evaluateString(str) {
         if (typeof str !== 'string') return String(str);
-        // Replace $var_name with values from this.vars (Reactive Buffer)
+
+        // Handle bilingual objects or simple strings
+        const currentLang = (this.app && this.app.state && this.app.state.language) || "en";
+
+        // Replace $var_name with values from this.vars
         return str.replace(/\$(\w+)/g, (match, varName) => {
-            if (this.vars[varName] !== undefined) return this.vars[varName];
+            // Check state/buffer
+            if (window.buffer && window.buffer[varName] !== undefined) return window.buffer[varName];
             if (this.sysVars[varName] !== undefined) return this.sysVars[varName];
             return match;
         });
     }
 
+    _ensureBar() {
+        if (this.bar) return;
+        this.bar = document.createElement("div");
+        this.bar.className = "nascene-bar";
+        this.barText = document.createElement("div");
+        this.barText.className = "nascene-bar-text";
+        this.bar.appendChild(this.barText);
+        this.container.appendChild(this.bar);
+    }
+
     async executeCommand(cmd) {
         const { command, args } = cmd;
-        const self = this;
-
-        // Pre-evaluate common geometry args
-        const evalGeom = (name, def) => args[name] !== undefined ? args[name] : def;
+        const currentLang = (window.buffer && window.buffer.language) || "en";
 
         switch (command) {
             case "clear":
                 this.container.innerHTML = "";
                 this.elements = {};
+                this.bar = null;
                 break;
+
+            case "bar_show":
+                this._ensureBar();
+                this.bar.classList.remove("hidden");
+                break;
+
+            case "bar_hide":
+                if (this.bar) this.bar.classList.add("hidden");
+                break;
+
+            case "bar_clear":
+                if (this.barText) this.barText.innerHTML = "";
+                break;
+
+            case "bar_append_text": {
+                this._ensureBar();
+                const text = args[`text_${currentLang}`] || args.text || "";
+                this.barText.innerHTML += this.evaluateString(text);
+                break;
+            }
 
             case "add_image": {
                 const el = document.createElement("img");
                 el.src = this.evaluateString(args.src);
                 el.style.objectFit = args.object_fit || "cover";
-                this._applyGeometry(el, args);
+
+                if (args.position_and_size === "fullscreen") {
+                    Object.assign(el.style, {
+                        position: "absolute",
+                        top: 0, left: 0, width: "100%", height: "100%"
+                    });
+                } else {
+                    this._applyGeometry(el, args);
+                }
+
                 this.container.appendChild(el);
                 if (args.id) this.elements[args.id] = el;
                 break;
@@ -77,7 +165,8 @@ class NaSceneEngine {
 
             case "add_text": {
                 const el = document.createElement("div");
-                el.innerHTML = this.evaluateString(args.text);
+                const text = args[`text_${currentLang}`] || args.text || "";
+                el.innerHTML = this.evaluateString(text);
                 if (args.color) el.style.color = args.color;
                 if (args.font_size) el.style.fontSize = args.font_size + "px";
                 this._applyGeometry(el, args);
@@ -86,23 +175,17 @@ class NaSceneEngine {
                 break;
             }
 
-            case "add_choice": {
+            case "add_choice":
+            case "add_button": {
                 const el = document.createElement("button");
-                el.innerHTML = this.evaluateString(args.text || "Choice");
-                el.className = "nascene-choice-button";
+                const text = args[`text_${currentLang}`] || args.text || "Choice";
+                el.innerHTML = this.evaluateString(text);
+                el.className = "nascene-button";
 
-                // Styling handled by base_styles.css or inline
-                Object.assign(el.style, {
-                    backgroundColor: "rgba(40, 40, 40, 0.8)",
-                    color: "white",
-                    border: "1px solid #777",
-                    borderRadius: "4px",
-                    padding: "8px",
-                    cursor: "pointer"
-                });
-
-                el.onclick = () => {
-                    this.start(args.target);
+                el.onclick = (e) => {
+                    e.stopPropagation();
+                    const target = args.target || args.scene_name;
+                    if (target) this.start(target);
                 };
 
                 this._applyGeometry(el, args);
@@ -111,24 +194,41 @@ class NaSceneEngine {
                 break;
             }
 
+            case "load_var":
+                if (window.buffer[args.var_name] === undefined) {
+                    window.buffer[args.var_name] = args.default_value;
+                }
+                break;
+
+            case "save_var":
             case "set_var_int":
             case "set_var_str":
             case "set_var_bool":
-            case "set_var_float":
-                this.vars[args.var_name] = args.value;
+                window.buffer[args.var_name] = args.value;
                 break;
+
+            case "clear_var":
+                delete window.buffer[args.var_name];
+                break;
+
+            case "if": {
+                const val = window.buffer[args.cond_var_name];
+                const target = val ? args.true_scene_name : args.false_scene_name;
+                if (target) {
+                    await this.start(target);
+                    throw new Error("NaScene_Interrupt");
+                }
+                break;
+            }
 
             case "pause":
                 return new Promise(resolve => {
-                    const handler = () => {
-                        this.container.removeEventListener("click", handler);
-                        resolve();
-                    };
-                    this.container.addEventListener("click", handler);
+                    this.resolvePause = resolve;
                 });
 
+            case "goto":
             case "jump":
-                await this.start(args.target);
+                await this.start(args.target || args.scene_name);
                 throw new Error("NaScene_Interrupt");
 
             case "end":
@@ -140,8 +240,9 @@ class NaSceneEngine {
         el.style.position = "absolute";
         el.style.width = args.size_x || "auto";
         el.style.height = args.size_y || "auto";
-        el.style.left = (args.pos_x * 100) + "%";
-        el.style.top = (args.pos_y * 100) + "%";
+
+        if (args.pos_x !== undefined) el.style.left = (args.pos_x * 100) + "%";
+        if (args.pos_y !== undefined) el.style.top = (args.pos_y * 100) + "%";
 
         const ax = args.anchor_x !== undefined ? args.anchor_x : 0;
         const ay = args.anchor_y !== undefined ? args.anchor_y : 0;
@@ -154,8 +255,11 @@ class NaSceneEngine {
     }
 
     async playScene(sceneId, runId) {
-        const cmds = this.scenes[sceneId];
-        if (!cmds) return;
+        const cmds = this.scenes && this.scenes[sceneId];
+        if (!cmds) {
+            console.error(`[NaScene] Scene not found: ${sceneId}. Available scenes:`, Object.keys(this.scenes || {}));
+            return;
+        }
 
         for (const cmd of cmds) {
             if (this.runId !== runId) break;
