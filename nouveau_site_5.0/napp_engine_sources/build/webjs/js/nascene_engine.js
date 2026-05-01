@@ -65,19 +65,15 @@ class NaSceneEngine {
                 // Navigate through baseData or window.buffer.data to find the scenes
                 let current = this.baseData || window.buffer.data;
                 const pathParts = dataKey.split(".");
-                console.log("[NaScene] Navigating dataKey:", dataKey, "Starting at:", current);
                 for (const p of pathParts) {
                     if (current[p]) {
-                        console.log("[NaScene] Found key:", p, "Next level:", current[p]);
                         current = current[p];
                     } else {
-                        console.warn("[NaScene] Key NOT found:", p, "Available keys:", Object.keys(current));
                         break;
                     }
                 }
 
                 this.scenes = current;
-                console.log("[NaScene] Manifest loaded. Path:", rawPath, "Scenes available:", Object.keys(this.scenes || {}), "Starting scene:", startScene);
                 await this.start(startScene);
             }
         }
@@ -257,7 +253,7 @@ class NaSceneEngine {
     async playScene(sceneId, runId) {
         const cmds = this.scenes && this.scenes[sceneId];
         if (!cmds) {
-            console.error(`[NaScene] Scene not found: ${sceneId}. Available scenes:`, Object.keys(this.scenes || {}));
+            console.error(`[NaScene] Scene not found: ${sceneId}`);
             return;
         }
 
