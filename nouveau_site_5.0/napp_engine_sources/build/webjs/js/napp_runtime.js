@@ -320,10 +320,16 @@ window.NApp = {
                 return fragment;
             }).join('');
             container.innerHTML = html;
+            window.NApp.translatePage();
         };
 
-        // Handle literal JSON lists (Stage 6 Static Unrolling)
-        if (collectionPath && collectionPath.startsWith('[')) {
+        // Handle literal JSON lists or already-parsed arrays (Stage 6 Static Unrolling)
+        if (Array.isArray(collectionPath)) {
+            update(collectionPath);
+            return;
+        }
+
+        if (typeof collectionPath === 'string' && collectionPath.startsWith('[')) {
             try {
                 const list = JSON.parse(collectionPath);
                 update(list);
@@ -369,6 +375,7 @@ window.NApp = {
             const html = res ? thenFn() : (elseFn ? elseFn() : "");
             console.log(`[NApp] bindConditional(${elementId}) result: ${res}, HTML length: ${html.length}`);
             el.innerHTML = html;
+            window.NApp.translatePage();
         };
 
         // This is a bit complex as we don't know the dependencies of conditionFn.

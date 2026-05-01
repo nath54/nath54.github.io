@@ -1,4 +1,5 @@
-<project_card data-type="{project_type}" data-importance="{project_showcase_importance}" action="navigate" url="pages/projects/{_source_file}.html">
+<project_card visible="{matches_search(name_en, name_fr)}" data-type="{project_type}" data-importance="{project_showcase_importance}" action="navigate" url="pages/projects/{_source_file}.html">
+
     <icon src="{icon}" />
     <div class="card-info">
         <name name_en="{name_en}" name_fr="{name_fr}" />

@@ -1,0 +1,65 @@
+name_en: "CalcEngine"
+name_fr: "Moteur de calcul"
+short_description_en: "A robust symbolic calculation engine for algebraic simplifications."
+short_description_fr: "Un moteur de calcul symbolique robuste pour les simplifications algébriques."
+project_status: "Active"
+project_type: "Academic"
+project_showcase_importance: 85
+icon: "res/icons/math.svg"
+link: "https://github.com/nath54/calc_engine"
+github_link: "https://github.com/nath54/calc_engine"
+app_version: "1.0.4"
+download_size: "1.2 MB"
+tags: ["Python", "Mathematics", "PyTest"]
+gallery: ["res/icons/math.svg"]
+description_en: "A comprehensive symbolic engine that handles polynomial addition, products, and derivations with extreme precision."
+description_fr: "Un moteur symbolique complet qui gère l'addition de polynômes, les produits et les dérivations avec une précision extrême."
+funny_comments:
+  - user: "MathLover"
+    rating: 5
+    text_en: "Finally I can calculate my homework without crying. Best thing ever."
+    text_fr: "Enfin je peux faire mes devoirs sans pleurer. La meilleure chose au monde."
+  - user: "DivideByZero"
+    rating: 3
+    text_en: "It still doesn't let me divide by zero. Boring."
+    text_fr: "Ça ne me laisse toujours pas diviser par zéro. Ennuyeux."
+  - user: "Newton_Lover"
+    rating: 5
+    text_en: "I tried this on my taxes. IRS didn't appreciate the symbolic representation of my debt, but I did."
+    text_fr: "J'ai essayé ça pour mes impôts. Le fisc n'a pas apprécié la représentation symbolique de ma dette, mais moi si."
+  - user: "ChaosTheory"
+    rating: 4
+    text_en: "It simplified my 100-page derivation into '0'. I'm not sure if I should be happy or if I just failed my thesis."
+    text_fr: "Ça a simplifié ma dérivation de 100 pages en '0'. Je ne sais pas si je dois être content ou si je viens de rater ma thèse."
+  - user: "PolyNomNom"
+    rating: 5
+    text_en: "Delicious simplification. 10/10 would derive again."
+    text_fr: "Simplification délicieuse. 10/10 je dériverais à nouveau."
+  - user: "GhostInTheMachine"
+    rating: 2
+    text_en: "It told me that 1+1=2. Too mainstream for me."
+    text_fr: "Il m'a dit que 1+1=2. Trop grand public pour moi."
+  - user: "IntegrationNation"
+    rating: 5
+    text_en: "Finally, an engine that doesn't judge me for forgetting the +C."
+    text_fr: "Enfin, un moteur qui ne me juge pas parce que j'ai oublié le +C."
+  - user: "PiRate"
+    rating: 4
+    text_en: "Arrgh! It found the area of my treasure map circle in seconds."
+    text_fr: "Arrgh ! Il a trouvé l'aire de mon cercle sur ma carte au trésor en quelques secondes."
+  - user: "SchrodingerCat"
+    rating: 3
+    text_en: "The answer is both correct and incorrect until I check the console."
+    text_fr: "La réponse est à la fois juste et fausse jusqu'à ce que je vérifie la console."
+  - user: "LimitSeeker"
+    rating: 5
+    text_en: "I pushed it to the limit. It didn't break. I'm scared."
+    text_fr: "Je l'ai poussé à bout. Ça n'a pas cassé. J'ai peur."
+  - user: "AlgebraGrip"
+    rating: 5
+    text_en: "Better than my high school teacher. And it doesn't have bad breath."
+    text_fr: "Meilleur que mon prof de lycée. Et il n'a pas mauvaise haleine."
+  - user: "NumberCruncher"
+    rating: 1
+    text_en: "I asked for the meaning of life and it gave me '42.0'. Too many decimals."
+    text_fr: "J'ai demandé le sens de la vie et il m'a donné '42.0'. Trop de décimales."

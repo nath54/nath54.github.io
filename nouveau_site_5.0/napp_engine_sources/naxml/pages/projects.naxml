@@ -3,145 +3,101 @@
     <div class="projects-page">
         <!-- Search Bar at the Top (Google Play Style) -->
         <filter_bar>
-            <search_input id="project-search" placeholder="Search projects..." />
+            <search_input id="project-search" placeholder="Search projects..." value="{gs.var_get(name='search_query', default_value='')}" on_input="{update_search(value);}" />
         </filter_bar>
 
         <!-- Category Tabs (iOS Style) -->
         <div class="category-tabs">
-            <button class="category-tab active" data-filter="all" name_en="All" name_fr="Tous">All</button>
-            <button class="category-tab" data-filter="Professional" name_en="Professional" name_fr="Professionnel">Professional</button>
-            <button class="category-tab" data-filter="Academic" name_en="Academic" name_fr="Académique">Academic</button>
-            <button class="category-tab" data-filter="Personal" name_en="Personal" name_fr="Personnel">Personal</button>
+            <button class="category-tab active" data-filter="all" name_en="All" name_fr="Tous" on_click="{set_filter('all');}">All</button>
+            <button class="category-tab" data-filter="Professional" name_en="Professional" name_fr="Professionnel" on_click="{set_filter('Professional');}">Professional</button>
+            <button class="category-tab" data-filter="Academic" name_en="Academic" name_fr="Académique" on_click="{set_filter('Academic');}">Academic</button>
+            <button class="category-tab" data-filter="Personal" name_en="Personal" name_fr="Personnel" on_click="{set_filter('Personal');}">Personal</button>
         </div>
 
         <!-- Hero Section: Featured Project -->
-        <section class="projects-section featured-hero" data-section-filter="all">
-            <exec_generate
-                parser="yaml_directory"
-                source="data/projects/"
-                template="project_card_hero"
-                filter="project_showcase_importance >= 90"
-                limit="1"
-            />
-        </section>
+        <exec_if condition="{gs.var_get(name='active_filter', default_value='all') == 'all'}">
+            <section class="projects-section featured-hero" data-section-filter="all">
+                <exec_generate
+                    parser="yaml_directory"
+                    source="data/projects/"
+                    template="project_card_hero"
+                    filter="project_showcase_importance >= 90"
+                    limit="1"
+                />
+            </section>
+        </exec_if>
 
         <!-- Must-Have Apps (Top rated) -->
-        <section class="projects-section" data-section-filter="all">
-            <title name_en="Must-Have Projects" name_fr="Projets Incontournables" />
-            <projects_grid>
-                <exec_generate
-                    parser="yaml_directory"
-                    source="data/projects/"
-                    template="project_card"
-                    filter="project_showcase_importance >= 75"
-                    sort_by="project_showcase_importance"
-                    sort_order="desc"
-                    limit="3"
-                />
-            </projects_grid>
-        </section>
+        <exec_if condition="{gs.var_get(name='active_filter', default_value='all') == 'all'}">
+            <section class="projects-section" data-section-filter="all">
+                <title name_en="Must-Have Projects" name_fr="Projets Incontournables" />
+                <projects_grid>
+                    <exec_generate
+                        parser="yaml_directory"
+                        source="data/projects/"
+                        template="project_card"
+                        filter="project_showcase_importance >= 75"
+                        sort_by="project_showcase_importance"
+                        sort_order="desc"
+                        limit="3"
+                    />
+                </projects_grid>
+            </section>
+        </exec_if>
 
         <!-- Professional Collections -->
-        <section class="projects-section" data-section-filter="Professional">
-            <title name_en="Professional Gallery" name_fr="Galerie Professionnelle" />
-            <projects_grid>
-                <exec_generate
-                    parser="yaml_directory"
-                    source="data/projects/"
-                    template="project_card_small"
-                    filter="project_type == 'Professional'"
-                    sort_by="project_showcase_importance"
-                    sort_order="desc"
-                />
-            </projects_grid>
-        </section>
+        <exec_if condition="{gs.var_get(name='active_filter', default_value='all') == 'all' or gs.var_get(name='active_filter') == 'Professional'}">
+            <section class="projects-section" data-section-filter="Professional">
+                <title name_en="Professional Gallery" name_fr="Galerie Professionnelle" />
+                <projects_grid>
+                    <exec_generate
+                        parser="yaml_directory"
+                        source="data/projects/"
+                        template="project_card_small"
+                        filter="project_type == 'Professional'"
+                        sort_by="project_showcase_importance"
+                        sort_order="desc"
+                    />
+                </projects_grid>
+            </section>
+        </exec_if>
 
         <!-- Academic & Research -->
-        <section class="projects-section" data-section-filter="Academic">
-            <title name_en="Academic Research" name_fr="Recherche Académique" />
-            <projects_grid>
-                <exec_generate
-                    parser="yaml_directory"
-                    source="data/projects/"
-                    template="project_card_small"
-                    filter="project_type == 'Academic'"
-                    sort_by="project_showcase_importance"
-                    sort_order="desc"
-                />
-            </projects_grid>
-        </section>
+        <exec_if condition="{gs.var_get(name='active_filter', default_value='all') == 'all' or gs.var_get(name='active_filter') == 'Academic'}">
+            <section class="projects-section" data-section-filter="Academic">
+                <title name_en="Academic Research" name_fr="Recherche Académique" />
+                <projects_grid>
+                    <exec_generate
+                        parser="yaml_directory"
+                        source="data/projects/"
+                        template="project_card_small"
+                        filter="project_type == 'Academic'"
+                        sort_by="project_showcase_importance"
+                        sort_order="desc"
+                    />
+                </projects_grid>
+            </section>
+        </exec_if>
 
         <!-- Personal & Side Projects -->
-        <section class="projects-section" data-section-filter="Personal">
-            <title name_en="Personal Side-Projects" name_fr="Projets Personnels" />
-            <projects_grid>
-                <exec_generate
-                    parser="yaml_directory"
-                    source="data/projects/"
-                    template="project_card_small"
-                    filter="project_type == 'Personal'"
-                    sort_by="project_showcase_importance"
-                    sort_order="desc"
-                />
-            </projects_grid>
-        </section>
+        <exec_if condition="{gs.var_get(name='active_filter', default_value='all') == 'all' or gs.var_get(name='active_filter') == 'Personal'}">
+            <section class="projects-section" data-section-filter="Personal">
+                <title name_en="Personal Side-Projects" name_fr="Projets Personnels" />
+                <projects_grid>
+                    <exec_generate
+                        parser="yaml_directory"
+                        source="data/projects/"
+                        template="project_card_small"
+                        filter="project_type == 'Personal'"
+                        sort_by="project_showcase_importance"
+                        sort_order="desc"
+                    />
+                </projects_grid>
+            </section>
+        </exec_if>
     </div>
 
-    <!-- Interaction Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const searchInput = document.getElementById('project-search');
-            const categoryTabs = document.querySelectorAll('.category-tab');
-            const projectSections = document.querySelectorAll('.projects-section');
-            const allCards = document.querySelectorAll('.card-project, .card-project-hero');
+    <!-- Interaction Script removed in favor of NaCode logic -->
 
-            function filterProjects() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const activeTab = document.querySelector('.category-tab.active');
-                if (!activeTab) return;
-               
-                const activeFilter = activeTab.dataset.filter;
-
-                // Filter sections based on category
-                projectSections.forEach(section => {
-                    const sectionFilter = section.dataset.sectionFilter;
-                    // If filter is 'all', show all sections
-                    // Otherwise, only show 'all' sections OR the specific category section
-                    if (activeFilter === 'all' || sectionFilter === 'all' || sectionFilter === activeFilter) {
-                        section.style.display = 'flex';
-                    } else {
-                        section.style.display = 'none';
-                    }
-                });
-
-                // Filter individual cards within visible sections (for search)
-                allCards.forEach(card => {
-                    const nameEn = card.getAttribute('data-translation_en') || '';
-                    const nameFr = card.getAttribute('data-translation_fr') || '';
-                    const matchesSearch = nameEn.toLowerCase().includes(searchTerm) || nameFr.toLowerCase().includes(searchTerm);
-                   
-                    if (matchesSearch) {
-                        card.classList.remove('project-hidden');
-                    } else {
-                        card.classList.add('project-hidden');
-                    }
-                });
-            }
-
-            searchInput.addEventListener('input', filterProjects);
-
-            categoryTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    categoryTabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-                    filterProjects();
-                });
-            });
-           
-            // Initial run
-            filterProjects();
-        });
-    </script>
 </main_container>
-
 </page>

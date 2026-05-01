@@ -1,0 +1,38 @@
+func main() -> void {
+    /*
+    Initializes the global state for search and filtering.
+    */
+    gs.var_set(name="active_filter", value="all");
+    gs.var_set(name="search_query", value="");
+}
+
+func set_filter(filter: str) -> void {
+    /*
+    Sets the active category filter for projects.
+    
+    Args:
+        filter (str): The category name or 'all'.
+    */
+    gs.var_set(name="active_filter", value=filter);
+}
+
+func update_search(query: str) -> void {
+    /*
+    Updates the search query for projects.
+    
+    Args:
+        query (str): The search string.
+    */
+    gs.var_set(name="search_query", value=query);
+}
+
+func matches_search(name_en: str, name_fr: str) -> bool {
+    /*
+    Checks if the search query matches the given names.
+    */
+    str q = str_lower(gs.var_get(name="search_query", default_value=""));
+    if (q == "") {
+        return true;
+    }
+    return str_contains(str_lower(name_en), q) or str_contains(str_lower(name_fr), q);
+}
