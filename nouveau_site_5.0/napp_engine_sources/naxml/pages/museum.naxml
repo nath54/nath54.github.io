@@ -1,4 +1,5 @@
 <page>
+<exec_include template="components/os_title_bar" back_url="index.html" back_label_en="Home" back_label_fr="Accueil" />
 <main_container>
     <single_column>
         <title_text name_en="The Museum" name_fr="Le musée" />

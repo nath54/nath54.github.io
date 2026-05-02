@@ -1,4 +1,5 @@
 <page>
+<exec_include template="components/os_title_bar" back_url="index.html" back_label_en="Home" back_label_fr="Accueil" />
 <main_container>
     <div class="projects-page">
         <!-- Search Bar at the Top (Google Play Style) -->

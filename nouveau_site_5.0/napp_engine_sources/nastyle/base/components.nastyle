@@ -1,0 +1,498 @@
+// NaStyle — Base Component Styles
+// Defines styling rules for NaXML tags and CSS classes
+
+
+// === Layout ===
+
+tag page {
+    size min_height = 100vh;
+    font_family font_family = $font_main;
+    color text_color = $neutral_900;
+    color background_color = $bg_body_start;
+}
+
+tag br {
+    str display = "block";
+    size width = 100%;
+    size height = 0;
+}
+
+tag separator_h {
+    size width = 100%;
+    size height = 1px;
+    color background_color = $neutral_300;
+    size margin_y = $space_1;
+}
+
+tag separator_v {
+    size width = 1px;
+    size height = $space_6;
+    color background_color = $neutral_300;
+    size margin_x = $space_4;
+    str display = "inline-block";
+}
+
+tag main_container {
+    font_family font_family = $font_main;
+    color text_color = $neutral_900;
+    size padding_x = $space_6;
+    size padding_y = $space_8;
+    size max_width = 1200px;
+    size margin_left = "auto";
+    size margin_right = "auto";
+}
+
+class layout_single_column {
+    size max_width = 900px;
+}
+
+class layout_two_columns {
+    str display = "flex";
+    size gap = $space_6;
+}
+
+class layout_col {
+    str flex = "1";
+}
+
+tag section {
+    str display = "flex";
+    str flex_direction = "row";
+    str flex_wrap = "wrap";
+    size gap = $space_1;
+    size margin_bottom = $space_2;
+    color background_color = $neutral_200;
+    size border_radius = $radius_lg;
+    size padding = $space_4;
+}
+
+class row_head {
+    size padding_bottom = $space_1;
+    str display = "flex";
+    str flex_direction = "row";
+    str flex_wrap = "wrap";
+    size gap = $space_2;
+}
+
+(class row_head) > (tag title_text) {
+    size margin_top = "auto";
+    size margin_bottom = "auto";
+}
+
+// === Typography ===
+
+tag title_text {
+    size font_size = $font_size_4xl;
+    int font_weight = $font_weight_bold;
+    color text_color = $primary_700;
+}
+
+tag title {
+    size font_size = $font_size_2xl;
+    int font_weight = $font_weight_semibold;
+    color text_color = $neutral_800;
+}
+
+tag text {
+    size font_size = $font_size_base;
+    color text_color = $neutral_700;
+}
+
+class section_title {
+    size font_size = $font_size_xl;
+    int font_weight = $font_weight_semibold;
+    color text_color = $neutral_800;
+}
+
+class hero_title {
+    size font_size = $font_size_4xl;
+    int font_weight = $font_weight_bold;
+    color text_color = $primary_700;
+}
+
+class hero_tagline {
+    size font_size = $font_size_lg;
+    color text_color = $neutral_600;
+}
+
+// === Buttons ===
+
+tag button_action {
+    color background_color = $primary_600;
+    color text_color = $neutral_50;
+    size border_radius = $radius_md;
+    size padding_x = $space_4;
+    size padding_y = $space_2;
+    int font_weight = $font_weight_medium;
+
+    state hover {
+        color background_color = $primary_700;
+    }
+
+    state disabled {
+        float opacity = 0.5;
+    }
+}
+
+class btn {
+    color background_color = $primary_600;
+    color text_color = $neutral_50;
+    size border_radius = $radius_md;
+    size padding_x = $space_4;
+    size padding_y = $space_2;
+    str cursor = "pointer";
+
+    state hover {
+        color background_color = $primary_700;
+    }
+}
+
+class btn_action {
+    color background_color = $primary_600;
+    color text_color = $neutral_50;
+    size border_radius = $radius_md;
+
+    state hover {
+        color background_color = $primary_700;
+    }
+}
+
+// === Links ===
+
+class link {
+    color background_color = $primary_600;
+    color text_color = $neutral_50;
+    size border_radius = $radius_md;
+    size padding_x = $space_2;
+    size padding_y = $space_2;
+    size margin = $space_1;
+    str cursor = "pointer";
+    str display = "inline-block";
+    str wrap = "no-wrap";
+    str text_decoration = "none";
+
+    state hover {
+        color background_color = $primary_700;
+    }
+}
+
+// === Cards ===
+
+class card {
+    color background_color = rgba(#ffffff, 0.7);
+    size border_radius = $radius_lg;
+    filter backdrop_filter = blur(radius=10px);
+    line border = line(width=1px, style="solid", color=rgba(#ffffff, 0.3));
+
+    state hover {
+        line border = line(width=1px, style="solid", color=$primary_300);
+    }
+}
+
+class glass_card {
+    color background_color = rgba(#ffffff, 0.6);
+    size border_radius = $radius_lg;
+    filter backdrop_filter = blur(radius=10px);
+    line border = line(width=1px, style="solid", color=rgba(#ffffff, 0.3));
+
+    state hover {
+        line border = line(width=1px, style="solid", color=$primary_400);
+    }
+
+    state mobile {
+        size border_radius = $radius_md;
+    }
+}
+
+class project_card {
+    color background_color = rgba(#ffffff, 0.7);
+    size border_radius = $radius_xl;
+    filter backdrop_filter = blur(radius=12px);
+    line border = line(width=1px, style="solid", color=rgba(#ffffff, 0.3));
+
+    state hover {
+        line border = line(width=1px, style="solid", color=$primary_400);
+        shadow box_shadow = drop_shadow(offset_x=0px, offset_y=8px, blur=24px, spread=-4px, color=rgba($primary_500, 0.2));
+    }
+}
+
+// === OS Title Bar ===
+
+class os_title_bar {
+    color background_color = $neutral_300;
+    color text_color = $neutral_50;
+    size padding_x = $space_1;
+    size padding_y = $space_1;
+    size font_size = $font_size_sm;
+    str display = "flex";
+    str flex_direction = "row";
+    str justify_content = "space-between";
+    str z_index = "10";
+    size border_radius = $radius_md;
+}
+
+class os_btn_back {
+
+    color text_color = $neutral_50;
+    color background_color = $primary_600;
+    size font_size = $font_size_sm;
+
+    state hover {
+        color background_color = $primary_700;
+    }
+}
+
+class os_title {
+    size font_size = $font_size_sm;
+    int font_weight = $font_weight_semibold;
+    color text_color = $neutral_200;
+}
+
+class os_controls {
+    size padding_x = $space_2;
+    str display = "flex";
+    str flex_direction = "row";
+    str justify_content = "space-between";
+}
+
+class os_btn_min {
+    size width = 12px;
+    size height = 12px;
+    size border_radius = $radius_full;
+    color background_color = #fbbf24;
+    size margin = $space_1;
+    size margin_top = "auto";
+    size margin_bottom = "auto";
+}
+
+class os_btn_max {
+    size width = 12px;
+    size height = 12px;
+    size border_radius = $radius_full;
+    color background_color = #22c55e;
+    size margin = $space_1;
+    size margin_top = "auto";
+    size margin_bottom = "auto";
+}
+
+class os_btn_close {
+    size width = 12px;
+    size height = 12px;
+    size border_radius = $radius_full;
+    color background_color = #ef4444;
+    size margin = $space_1;
+    size margin_top = "auto";
+    size margin_bottom = "auto";
+}
+
+// === Navigation ===
+
+class nav_pill {
+    color background_color = rgba($primary_100, 0.5);
+    size border_radius = $radius_full;
+    size padding_x = $space_4;
+    size padding_y = $space_2;
+    size font_size = $font_size_sm;
+    color text_color = $neutral_600;
+
+    state hover {
+        color background_color = $primary_200;
+        color text_color = $primary_700;
+    }
+}
+
+class category_tab {
+    size padding_x = $space_4;
+    size padding_y = $space_2;
+    size border_radius = $radius_full;
+    size font_size = $font_size_sm;
+    color text_color = $neutral_600;
+    str cursor = "pointer";
+    line border = line(width=1px, style="solid", color=$neutral_200);
+
+    state hover {
+        color text_color = $primary_600;
+        line border = line(width=1px, style="solid", color=$primary_300);
+    }
+}
+
+// === Search ===
+
+class search_input {
+    color background_color = rgba(#ffffff, 0.8);
+    size border_radius = $radius_full;
+    line border = line(width=1px, style="solid", color=$neutral_200);
+    size padding_x = $space_4;
+    size padding_y = $space_3;
+    size font_size = $font_size_base;
+    color text_color = $neutral_800;
+
+    state focus {
+        line border = line(width=2px, style="solid", color=$primary_500);
+    }
+}
+
+tag input_text {
+    color background_color = rgba(#ffffff, 0.8);
+    size border_radius = $radius_md;
+    line border = line(width=1px, style="solid", color=$neutral_300);
+    size padding_x = $space_3;
+    size padding_y = $space_2;
+    size font_size = $font_size_base;
+    color text_color = $neutral_800;
+
+    state focus {
+        line border = line(width=2px, style="solid", color=$primary_500);
+    }
+}
+
+// === Blog / Gazette ===
+
+class gazette_card {
+    color background_color = rgba(#ffffff, 0.6);
+    size border_radius = $radius_lg;
+    filter backdrop_filter = blur(radius=8px);
+    line border = line(width=1px, style="solid", color=rgba(#ffffff, 0.25));
+
+    state hover {
+        line border = line(width=1px, style="solid", color=$primary_300);
+    }
+}
+
+class gazette_chip {
+    color background_color = rgba($primary_100, 0.6);
+    size border_radius = $radius_full;
+    size padding_x = $space_3;
+    size padding_y = $space_1;
+    size font_size = $font_size_xs;
+    color text_color = $primary_700;
+
+    state hover {
+        color background_color = $primary_200;
+    }
+}
+
+class gazette_series_card {
+    color background_color = rgba(#ffffff, 0.7);
+    size border_radius = $radius_lg;
+    line border = line(width=1px, style="solid", color=rgba(#ffffff, 0.3));
+
+    state after {
+        str content = "SERIES";
+        str position = "absolute";
+        size top = 8px;
+        size right = 8px;
+        color background_color = $primary_600;
+        color text_color = #ffffff;
+        size padding_x = 8px;
+        size padding_y = 4px;
+        size border_radius = $radius_full;
+        size font_size = $font_size_xs;
+    }
+}
+
+// === Sections ===
+
+class subsection {
+    size padding_y = $space_4;
+}
+
+// === Grids ===
+
+class grid {
+    str display = "flex";
+    str flex_wrap = "wrap";
+    size gap = $space_4;
+}
+
+class grid_projects {
+    str display = "flex";
+    str flex_wrap = "wrap";
+    size gap = $space_6;
+}
+
+// === Expandable ===
+
+class expandable {
+    size border_radius = $radius_md;
+    line border = line(width=1px, style="solid", color=$neutral_200);
+    size margin = $space_2;
+}
+
+class expandable_sm {
+    size margin = $space_1;
+}
+
+class expandable_title {
+    int font_weight = $font_weight_semibold;
+    color text_color = $neutral_800;
+    str cursor = "pointer";
+    size padding = $space_2;
+
+    state hover {
+        color text_color = $primary_600;
+    }
+}
+
+class expandable_content {
+    size padding_x = $space_2;
+    size padding_y = $space_2;
+    color text_color = $neutral_700;
+}
+
+// === Badge ===
+
+class badge {
+    color background_color = $primary_100;
+    color text_color = $primary_700;
+    size border_radius = $radius_full;
+    size padding_x = $space_2;
+    size padding_y = $space_1;
+    size font_size = $font_size_xs;
+    int font_weight = $font_weight_medium;
+}
+
+// === Stat Items ===
+
+class stat_item {
+    size padding_y = $space_2;
+    line border_bottom = line(width=1px, style="solid", color=$neutral_100);
+}
+
+// === Interactive Canvas ===
+
+class interactive {
+    size border_radius = $radius_md;
+    line border = line(width=1px, style="solid", color=$neutral_200);
+    str cursor = "pointer";
+
+    state hover {
+        line border = line(width=1px, style="solid", color=$primary_400);
+    }
+}
+
+// === NaScene ===
+
+class nascene_container {
+    size border_radius = $radius_lg;
+}
+
+class nascene_bar {
+    color background_color = rgba($primary_900, 0.9);
+    color text_color = $neutral_50;
+    size padding_x = $space_4;
+    size padding_y = $space_2;
+}
+
+class nascene_button {
+    color background_color = rgba(#ffffff, 0.15);
+    color text_color = $neutral_50;
+    size border_radius = $radius_sm;
+    size padding_x = $space_3;
+    size padding_y = $space_1;
+    str cursor = "pointer";
+
+    state hover {
+        color background_color = rgba(#ffffff, 0.3);
+    }
+}

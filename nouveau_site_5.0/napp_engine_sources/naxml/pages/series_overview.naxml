@@ -1,5 +1,6 @@
 <page>
-<main_container back_url="pages/blog.html" back_lbl_en="The Gazette" back_lbl_fr="La Gazette">
+<exec_include template="components/os_title_bar" back_url="pages/blog.html" back_label_en="The Gazette" back_label_fr="La Gazette" />
+<main_container>
     <div class="article-container">
         <header class="article-header">
             <div class="article-metadata">

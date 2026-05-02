@@ -1,0 +1,82 @@
+// NaStyle — Light Theme Variables
+// Extracted from the existing base_styles.css :root block
+
+theme Light {
+    // === Primary Palette (violet vibrant) ===
+    color primary_50 = #f8f4ff;
+    color primary_100 = #f0e7ff;
+    color primary_200 = #dcd0ff;
+    color primary_300 = #c1aeff;
+    color primary_400 = #a88dff;
+    color primary_500 = #8b5cf6;
+    color primary_600 = #7c3aed;
+    color primary_700 = #6d28d9;
+    color primary_800 = #5b21b6;
+    color primary_900 = #4c1d95;
+
+    // === Neutral Grays ===
+    color neutral_50 = #fafafa;
+    color neutral_100 = #f4f4f5;
+    color neutral_200 = #e4e4e7;
+    color neutral_300 = #d4d4d8;
+    color neutral_400 = #a1a1aa;
+    color neutral_500 = #71717a;
+    color neutral_600 = #52525b;
+    color neutral_700 = #3f3f46;
+    color neutral_800 = #27272a;
+    color neutral_900 = #18181b;
+
+    // === Semantic Colors ===
+    color success = #22c55e;
+    color warning = #f59e0b;
+    color error = #ef4444;
+    color info = #3b82f6;
+
+    // === Typography ===
+    font_family font_main = "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+    font_family font_mono = "'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace";
+    font_family font_serif = "'Playfair Display', Georgia, 'Times New Roman', serif";
+
+    size font_size_xs = 0.75rem;
+    size font_size_sm = 0.875rem;
+    size font_size_base = 1rem;
+    size font_size_lg = 1.125rem;
+    size font_size_xl = 1.25rem;
+    size font_size_2xl = 1.5rem;
+    size font_size_3xl = 1.875rem;
+    size font_size_4xl = 2.25rem;
+
+    int font_weight_normal = 400;
+    int font_weight_medium = 500;
+    int font_weight_semibold = 600;
+    int font_weight_bold = 700;
+
+    // === Spacing ===
+    size space_1 = 0.25rem;
+    size space_2 = 0.5rem;
+    size space_3 = 0.75rem;
+    size space_4 = 1rem;
+    size space_5 = 1.25rem;
+    size space_6 = 1.5rem;
+    size space_8 = 2rem;
+    size space_10 = 2.5rem;
+    size space_12 = 3rem;
+    size space_16 = 4rem;
+
+    // === Border Radii ===
+    size radius_sm = 4px;
+    size radius_md = 8px;
+    size radius_lg = 12px;
+    size radius_xl = 16px;
+    size radius_full = 9999px;
+
+    // === Transitions ===
+    time trans_fast = 150ms;
+    time trans_normal = 250ms;
+    time trans_slow = 350ms;
+
+    // === Background ===
+    color bg_body_start = #fcfaff;
+    color bg_body_mid = #f0e7ff;
+    color bg_body_end = #e0d4ff;
+}

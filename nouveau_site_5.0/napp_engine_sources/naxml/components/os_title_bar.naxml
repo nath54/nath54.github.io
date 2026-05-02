@@ -1,0 +1,14 @@
+<component>
+<!-- OS-style window title bar with back navigation and decorative controls -->
+<row class="os-title-bar">
+    <link_page class="os-btn-back" icon="fas fa-arrow-left"
+        name_en="{back_label_en}" name_fr="{back_label_fr}"
+        url="{back_url}" />
+    <text class="os-title">{title}</text>
+    <row class="os-controls">
+        <div class="os-btn-min" />
+        <div class="os-btn-max" />
+        <div class="os-btn-close" />
+    </row>
+</row>
+</component>

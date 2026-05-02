@@ -1,5 +1,10 @@
 name: Nathan Cerisara - Nouveau Site 5.0
 main_page: pages/index.naxml
+default_theme: Light
 initial_state:
   current_page: home
   language: en
+  app_theme: light
+storage:
+  mode: local
+  id: nath54_website

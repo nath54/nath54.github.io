@@ -52,8 +52,39 @@ window.NApp = {
         // Auto-translate on language change
         this.subscribe('state.language', () => this.translatePage());
         this.subscribe('language', () => this.translatePage());
-        // Initial translation
-        setTimeout(() => this.translatePage(), 0);
+
+        // Auto-theme on theme change
+        this.subscribe('app_theme', (theme) => {
+            document.body.setAttribute('data-theme', theme.toLowerCase());
+        });
+        this.subscribe('state.app_theme', (theme) => {
+            document.body.setAttribute('data-theme', theme.toLowerCase());
+        });
+
+        // Initial translation and theme
+        setTimeout(() => {
+            this.translatePage();
+            if (this.buffer.app_theme) {
+                document.body.setAttribute('data-theme', this.buffer.app_theme.toLowerCase());
+            }
+        }, 0);
+
+        // Keyboard Shortcuts (Ctrl+T for Theme, Ctrl+L for Language)
+        window.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.altKey && e.key.toLowerCase() === 't') {
+                console.log("aaaaaaaaaaaaaa");
+                e.preventDefault();
+                const currentTheme = this.buffer.app_theme || 'light';
+                this.buffer.app_theme = (currentTheme === 'light') ? 'dark' : 'light';
+                console.log(`[NApp] Theme switched to: ${this.buffer.app_theme}`);
+            }
+            if (e.ctrlKey && e.key.toLowerCase() === 'l') {
+                e.preventDefault();
+                const currentLang = this.buffer.language || 'en';
+                this.buffer.language = (currentLang === 'en') ? 'fr' : 'en';
+                console.log(`[NApp] Language switched to: ${this.buffer.language}`);
+            }
+        });
     },
 
     _loadLocal() {
@@ -170,7 +201,7 @@ window.NApp = {
         try {
             const history = JSON.parse(sessionStorage.getItem('napp_history') || '[]');
             const currentPath = window.location.pathname;
-            
+
             // Only push if it's a new page entry
             const lastEntry = history[history.length - 1];
             if (!lastEntry || lastEntry.page !== currentPath) {
@@ -181,7 +212,7 @@ window.NApp = {
         } catch (e) {
             console.warn("[NApp] History tracking failed:", e);
         }
-        
+
         window.location.href = page;
     },
 
@@ -201,7 +232,7 @@ window.NApp = {
             if (history.length > 0) {
                 const last = history.pop();
                 sessionStorage.setItem('napp_history', JSON.stringify(history));
-                
+
                 if (last.type === 'page') {
                     const currentPath = window.location.pathname;
                     if (last.page === currentPath && history.length > 0) {
@@ -216,7 +247,7 @@ window.NApp = {
         } catch (e) {
             console.warn("[NApp] Back navigation failed:", e);
         }
-        
+
         // Final fallback: use relative path to index
         const currentPath = window.location.pathname;
         const segments = currentPath.split(/[\\\/]/);
@@ -250,7 +281,7 @@ window.NApp = {
     translatePage() {
         const lang = this.buffer?.language || this._data.language || 'en';
         console.log(`[NApp] Translating page to: ${lang}`);
-        
+
         // 1. Text Content Translation
         const elements = document.getElementsByClassName('to_translate');
         for (const el of elements) {
@@ -259,7 +290,7 @@ window.NApp = {
                 el.innerHTML = translation;
             }
         }
-        
+
         // 2. Visibility Translation
         const visibilityElements = document.getElementsByClassName('translation_visibility');
         for (const el of visibilityElements) {
