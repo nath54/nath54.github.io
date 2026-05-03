@@ -7,6 +7,7 @@ project_type: "Academic"
 project_showcase_importance: 75
 icon: "res/icons/gesture.svg"
 link: "https://example.com"
+github_link: "https://example.com"
 app_version: "2.1.0"
 download_size: "0.8 MB"
 tags: ["Python", "AI", "OpenCV"]

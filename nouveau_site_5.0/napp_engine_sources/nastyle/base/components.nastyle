@@ -38,14 +38,14 @@ tag main_container {
     size padding_x = $space_6;
     size padding_y = $space_8;
     size max_width = 1200px;
-    size margin_left = "auto";
-    size margin_right = "auto";
+    str margin_left = "auto";
+    str margin_right = "auto";
 }
 
 class single_column {
     size max_width = 900px;
-    size margin_left = "auto";
-    size margin_right = "auto";
+    str margin_left = "auto";
+    str margin_right = "auto";
     str display = "flex";
     str flex_direction = "column";
     // str justify_content = "center";
@@ -54,8 +54,8 @@ class single_column {
 
 class subsection_column {
     size max_width = 100%;
-    size margin_left = "auto";
-    size margin_right = "auto";
+    str margin_left = "auto";
+    str margin_right = "auto";
     str display = "flex";
     str flex_direction = "column";
     // str justify_content = "center";
@@ -64,8 +64,8 @@ class subsection_column {
 
 class layout_single_column {
     size max_width = 900px;
-    size margin_left = "auto";
-    size margin_right = "auto";
+    str margin_left = "auto";
+    str margin_right = "auto";
     str display = "flex";
     str flex_direction = "column";
     // str justify_content = "center";
@@ -75,8 +75,8 @@ class layout_single_column {
 class layout_two_columns {
     str display = "flex";
     size gap = $space_6;
-    size margin_left = "auto";
-    size margin_right = "auto";
+    str margin_left = "auto";
+    str margin_right = "auto";
 }
 
 class layout_col {
@@ -111,8 +111,8 @@ class row_head {
 }
 
 (class row_head) > (tag title_text) {
-    size margin_top = "auto";
-    size margin_bottom = "auto";
+    str margin_top = "auto";
+    str margin_bottom = "auto";
 }
 
 // === Typography ===
@@ -193,7 +193,14 @@ class btn_action {
     }
 }
 
-// === Links ===
+tag separator_v {
+    size width = 1px;
+    size height = $space_6;
+    color background_color = $neutral_200;
+    str display = "inline-block";
+}
+
+// === Cards ===
 
 class link {
     color background_color = $primary_600;
@@ -219,17 +226,14 @@ class icon {
     size height = 64px;
 
     str display = "flex";
-
-    size margin_left = "auto";
-    size margin_right = "auto";
 }
 
 class project_icon {
     size width = 64px;
     size height = 64px;
 
-    size margin_left = "auto";
-    size margin_right = "auto";
+    str margin_left = "auto";
+    str margin_right = "auto";
 }
 
 class project_name {
@@ -552,8 +556,8 @@ class category_tabs {
     str display = "flex";
     str flex_direction = "row";
     str justify_content = "space-between";
-    size margin_left = "auto";
-    size margin_right = "auto";
+    str margin_left = "auto";
+    str margin_right = "auto";
     size margin_bottom = $space_2;
     size max_width = 35%;
 }
@@ -592,8 +596,8 @@ class search_input {
     str display = "flex";
     str justify_content = "center";
     str align_items = "center";
-    size margin_left = "auto";
-    size margin_right = "auto";
+    str margin_left = "auto";
+    str margin_right = "auto";
     size margin_bottom = $space_2;
     size width = 35%;
     str text_align = "center";
@@ -1017,11 +1021,259 @@ class badge {
     str letter_spacing = "0.5px";
 }
 
-// === Stat Items ===
+// === Project Page Redesign ===
 
-class stat_item {
+tag product_header {
+    size margin_bottom = $space_10;
+    size width = 100%;
+}
+
+class header_main {
+    str display = "flex";
+    str flex_direction = "row";
+    str align_items = "center";
+    size gap = $space_8;
+}
+
+class product_icon_large {
+    size width = 160px;
+    size height = 160px;
+    size border_radius = $radius_xl;
+    shadow box_shadow = drop_shadow(offset_x=0px, offset_y=20px, blur=40px, spread=0px, color=rgba(0,0,0,0.12));
+    str object_fit = "cover";
+    line border = line(width=1px, style="solid", color=$neutral_100);
+}
+
+class header_info {
+    str display = "flex";
+    str flex_direction = "column";
+    size gap = $space_2;
+}
+
+class product_title {
+    size font_size = $font_size_4xl;
+    int font_weight = $font_weight_bold;
+    color text_color = $neutral_900;
+    size margin = 0;
+}
+
+class product_developer {
+    size font_size = $font_size_lg;
+    color text_color = $primary_600;
+    int font_weight = $font_weight_medium;
+    size margin = 0;
+}
+
+class header_actions {
+    str display = "flex";
+    str flex_direction = "row";
+    size gap = $space_4;
+    size margin_top = $space_4;
+}
+
+class btn_code {
+    color background_color = $primary_50;
+    color text_color = $primary_600;
+    size border_radius = $radius_full;
+    size padding_x = $space_6;
     size padding_y = $space_2;
+    size font_size = $font_size_xs;
+    int font_weight = $font_weight_bold;
+    str text_transform = "uppercase";
+    str cursor = "pointer";
+    line border = line(width=1px, style="solid", color=$primary_200);
+    str transition = "all $trans_fast";
+
+    state hover {
+        color background_color = $primary_100;
+        str transform = "scale(1.05)";
+    }
+}
+
+tag stat_group {
+    str display = "flex";
+    str flex_direction = "row";
+    str align_items = "center";
+    str justify_content = "space-between";
+    size padding_y = $space_6;
+    size margin_bottom = $space_8;
+    line border_top = line(width=1px, style="solid", color=$neutral_100);
     line border_bottom = line(width=1px, style="solid", color=$neutral_100);
+    size width = 100%;
+}
+
+tag stat_item {
+    str display = "flex";
+    str flex_direction = "column";
+    str align_items = "center";
+    str flex = "1";
+    size gap = $space_1;
+}
+
+class stat_label {
+    size font_size = 10px;
+    color text_color = $neutral_400;
+    int font_weight = $font_weight_bold;
+    str text_transform = "uppercase";
+    str letter_spacing = "1px";
+}
+
+class stat_value {
+    size font_size = $font_size_lg;
+    color text_color = $neutral_700;
+    int font_weight = $font_weight_semibold;
+}
+
+class gallery_section {
+    size margin_bottom = $space_10;
+    size width = 100%;
+}
+
+(tag image_carousel) > (class napp_repeat_container) {
+    str display = "flex";
+    str flex_direction = "row";
+    str overflow_x = "auto";
+    size max_height = 600px;
+    size gap = $space_4;
+    size padding_y = $space_4;
+    str scroll_snap_type = "x mandatory";
+    str webkit_overflow_scrolling = "touch";
+}
+
+(class tags_list) > (class napp_repeat_container) {
+    str display = "flex";
+    str flex_direction = "row";
+    str overflow_x = "auto";
+    size gap = $space_4;
+    size padding_y = $space_4;
+    str scroll_snap_type = "x mandatory";
+    str webkit_overflow_scrolling = "touch";
+}
+
+
+class gallery_item {
+    str flex = "0 0 auto";
+    str scroll_snap_align = "start";
+    size width = 280px;
+    size height = 500px;
+    size border_radius = $radius_lg;
+    str overflow = "hidden";
+    line border = line(width=1px, style="solid", color=$neutral_100);
+    shadow box_shadow = drop_shadow(offset_x=0px, offset_y=10px, blur=20px, spread=0px, color=rgba(0,0,0,0.05));
+}
+
+(class gallery_item) > (tag img) {
+    size width = 100%;
+    size height = 100%;
+    str object_fit = "cover";
+}
+
+class description_section {
+    size margin_y = $space_10;
+    size width = 100%;
+}
+
+class description_content {
+    size font_size = $font_size_base;
+    color text_color = $neutral_700;
+    str line_height = "1.6";
+    size margin_bottom = $space_6;
+}
+
+class tags_list {
+    str display = "flex";
+    str flex_wrap = "wrap";
+    size gap = $space_2;
+}
+
+tag tag {
+    color background_color = $neutral_100;
+    color text_color = $neutral_600;
+    size border_radius = $radius_md;
+    size padding_x = $space_3;
+    size padding_y = $space_1;
+    size font_size = $font_size_xs;
+    int font_weight = $font_weight_medium;
+}
+
+tag reviews_section {
+    size margin_top = $space_10;
+    size width = 100%;
+}
+
+class reviews_header {
+    str display = "flex";
+    str justify_content = "space-between";
+    str align_items = "baseline";
+    size margin_bottom = $space_6;
+}
+
+class see_all {
+    color text_color = $primary_600;
+    size font_size = $font_size_sm;
+    int font_weight = $font_weight_medium;
+    str cursor = "pointer";
+
+    state hover {
+        str text_decoration = "underline";
+    }
+}
+
+class comments_grid {
+    str display = "grid";
+    str grid_template_columns = "repeat(2, 1fr)";
+    size gap = $space_6;
+}
+
+(class comments_grid) > (class napp_repeat_container) {
+    size min_width = 100%;
+}
+
+tag comment_card {
+    size padding = $space_6;
+    str display = "flex";
+    str flex_direction = "column";
+    size gap = $space_3;
+    color background_color = $primary_50;
+    size border_radius = $radius_md;
+    size margin = $space_4;
+    size width = 90%;
+}
+
+class comment_head {
+    str display = "flex";
+    str justify_content = "space-between";
+    str align_items = "flex-start";
+}
+
+class user_info {
+    str display = "flex";
+    str flex_direction = "column";
+    size gap = 0px;
+}
+
+class comment_user {
+    size font_size = $font_size_sm;
+    int font_weight = $font_weight_bold;
+    color text_color = $neutral_900;
+}
+
+class comment_date {
+    size font_size = $font_size_xs;
+    color text_color = $neutral_400;
+}
+
+tag rating_stars {
+    color text_color = $warning;
+    size font_size = 10px;
+    str display = "flex";
+    size gap = 2px;
+}
+
+class comment_text {
+    size font_size = $font_size_sm;
+    color text_color = $neutral_700;
+    str line_height = "1.5";
 }
 
 // === Interactive Canvas ===

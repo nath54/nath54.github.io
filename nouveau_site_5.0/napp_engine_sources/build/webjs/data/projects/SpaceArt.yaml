@@ -7,6 +7,7 @@ project_type: "Personal"
 project_showcase_importance: 60
 icon: "res/icons/stars.svg"
 link: "https://example.com"
+github_link: "https://example.com"
 app_version: "0.9.2"
 download_size: "124 MB"
 tags: ["GLSL", "Three.js", "Art"]

@@ -7,6 +7,7 @@ project_type: "Professional"
 project_showcase_importance: 80
 icon: "res/icons/map.svg"
 link: "https://example.com"
+github_link: "https://example.com"
 app_version: "1.2.5"
 download_size: "45 MB"
 tags: ["JavaScript", "SVG", "Web"]

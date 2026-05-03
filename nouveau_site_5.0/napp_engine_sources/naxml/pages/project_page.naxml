@@ -5,15 +5,17 @@
         <!-- App Store Header -->
         <product_header>
             <div class="header-main">
-                <icon src="{icon}" />
+                <icon src="{icon}" class="product-icon-large" />
                 <div class="header-info">
                     <h1 class="product-title to_translate" data-translation_en="{name_en}" data-translation_fr="{name_fr}">{name_en}</h1>
                     <p class="product-developer">Nathan Cerisara</p>
                     <div class="header-actions">
                         <btn_get name_en="Get" name_fr="Ouvrir" action="navigate" url="{link}" />
-                        <button class="btn-code" action="navigate" url="{github_link}">
-                            <i class="fab fa-github"></i> <span name_en="Source" name_fr="Code" />
-                        </button>
+                        <exec_if var="github_link">
+                            <button class="btn-code" action="navigate" url="{github_link}">
+                                <i class="fab fa-github"></i> <span name_en="Source" name_fr="Code" />
+                            </button>
+                        </exec_if>
                     </div>
                 </div>
             </div>
@@ -22,43 +24,54 @@
         <!-- Stats Grid -->
         <stat_group>
             <stat_item>
-                <div class="label" name_en="Importance" name_fr="Importance" />
-                <div class="value">{project_showcase_importance}</div>
+                <div class="stat-label" name_en="Importance" name_fr="Importance" />
+                <div class="stat-value">{project_showcase_importance}</div>
             </stat_item>
+            <separator_v />
             <stat_item>
-                <div class="label" name_en="Category" name_fr="Catégorie" />
-                <div class="value">{project_type}</div>
+                <div class="stat-label" name_en="Category" name_fr="Catégorie" />
+                <div class="stat-value">{project_type}</div>
             </stat_item>
+            <separator_v />
             <stat_item>
-                <div class="label" name_en="Version" name_fr="Version" />
-                <div class="value">{app_version}</div>
+                <div class="stat-label" name_en="Version" name_fr="Version" />
+                <div class="stat-value">{app_version}</div>
             </stat_item>
+            <separator_v />
             <stat_item>
-                <div class="label" name_en="Size" name_fr="Taille" />
-                <div class="value">{download_size}</div>
+                <div class="stat-label" name_en="Size" name_fr="Taille" />
+                <div class="stat-value">{download_size}</div>
             </stat_item>
         </stat_group>
 
         <!-- Gallery -->
-        <section class="row_section">
+        <section class="gallery-section">
             <h2 class="section-title" name_en="Gallery" name_fr="Galerie" />
             <image_carousel>
                 <exec_foreach var="img" in="{gallery}">
-                    <img src="{img}" />
+                    <div class="gallery-item">
+                        <img src="{img}" />
+                    </div>
                 </exec_foreach>
             </image_carousel>
         </section>
 
+        <separator_h />
+
         <!-- Description -->
-        <section class="col_section">
+        <section class="description-section">
             <h2 class="section-title" name_en="About" name_fr="À propos" />
-            <long_description name_en="{description_en}" name_fr="{description_fr}" />
+            <div class="description-content">
+                <long_description name_en="{description_en}" name_fr="{description_fr}" />
+            </div>
             <div class="tags-list">
                 <exec_foreach var="t" in="{tags}">
                     <tag>{t}</tag>
                 </exec_foreach>
             </div>
         </section>
+
+        <separator_h />
 
         <!-- Funny Comments Section -->
         <reviews_section>
@@ -68,16 +81,18 @@
             </div>
             <div class="comments-grid">
                 <exec_foreach var="comment" in="{funny_comments}">
-                    <comment_card>
+                    <comment_card class="glass_card">
                         <div class="comment-head">
-                            <span class="comment-user">{comment[user]}</span>
-                            <span class="comment-date">2d ago</span>
+                            <div class="user-info">
+                                <span class="comment-user">{comment[user]}</span>
+                                <span class="comment-date">2d ago</span>
+                            </div>
+                            <rating_stars>
+                                <exec_foreach var="i" in="range(comment[rating])">
+                                    <i class="fas fa-star"></i>
+                                </exec_foreach>
+                            </rating_stars>
                         </div>
-                        <rating_stars>
-                            <exec_foreach var="i" in="range(comment[rating])">
-                                <i class="fas fa-star"></i>
-                            </exec_foreach>
-                        </rating_stars>
                         <div class="comment-text to_translate"
                              data-translation_en="{comment[text_en]}"
                              data-translation_fr="{comment[text_fr]}">
