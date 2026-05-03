@@ -1292,24 +1292,46 @@ class interactive {
 
 class nascene_container {
     size border_radius = $radius_lg;
+    color background_color = "#000000";
+    color background = "#000000";
+}
+
+class nascene_bar_text {
+    size margin_left = "auto";
+    size margin_right = "auto";
+    size margin_top = "auto";
+    size margin_bottom = "auto";
+    str text_align = "center";
+    color text_color = "#ffffff";
 }
 
 class nascene_bar {
-    color background_color = rgba($primary_900, 0.9);
+    str position = "absolute";
+    size left = 0;
+    size bottom = 0;
+    size right = 0;
+    size top = 60%;
+    color background_color = rgba("#444444", 0.9);
+    line border_top = line(width=3px, style="solid", color=$primary_700);
     color text_color = $neutral_50;
     size padding_x = $space_4;
     size padding_y = $space_2;
+    str display = "flex";
+    str flex_direction = "row";
+    str align_items = "center";
+    str justify_content = "space-between";
 }
 
 class nascene_button {
-    color background_color = rgba($primary_200, 0.15);
-    color text_color = $neutral_50;
+    color background_color = $primary_100;
+    color text_color = $primary_900;
     size border_radius = $radius_sm;
-    size padding_x = $space_3;
-    size padding_y = $space_1;
+    size padding_x = $space_4;
+    size padding_y = $space_4;
     str cursor = "pointer";
+    line border = "none";
 
     state hover {
-        color background_color = rgba($primary_200, 0.3);
+        color background_color = $primary_600;
     }
 }

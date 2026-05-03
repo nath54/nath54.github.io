@@ -8,7 +8,7 @@
             name_fr="Choisissez une galerie à visiter."
         />
 
-        <nascene scene_data="data/museum/manifest.json" style="height: 60vh; width: 100%; border-radius: 12px; margin-bottom: 2rem; background: var(--color-neutral-800); box-shadow: var(--shadow-md);"></nascene>
+        <nascene scene_data="data/museum/manifest.json" style="height: 60vh; width: 100%; border-radius: 12px; margin-bottom: 2rem; box-shadow: var(--shadow-md);"></nascene>
 
     </single_column>
 </main_container>

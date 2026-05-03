@@ -1451,28 +1451,50 @@ body {
 
 .nascene-container {
     border-radius: var(--radius-lg);
+    background-color: #000000;
+    background: #000000;
+}
+
+.nascene-bar-text {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    color: #ffffff;
 }
 
 .nascene-bar {
-    background-color: color-mix(in srgb, var(--primary-900) 90.0%, transparent);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 60%;
+    background-color: color-mix(in srgb, #444444 90.0%, transparent);
+    border-top: 3px solid var(--primary-700);
     color: var(--neutral-50);
     padding-left: var(--space-4);
     padding-right: var(--space-4);
     padding-top: var(--space-2);
     padding-bottom: var(--space-2);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .nascene-button {
-    background-color: color-mix(in srgb, var(--primary-200) 15.0%, transparent);
-    color: var(--neutral-50);
+    background-color: var(--primary-100);
+    color: var(--primary-900);
     border-radius: var(--radius-sm);
-    padding-left: var(--space-3);
-    padding-right: var(--space-3);
-    padding-top: var(--space-1);
-    padding-bottom: var(--space-1);
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-4);
     cursor: pointer;
+    border: none;
 }
 
 .nascene-button:hover {
-    background-color: color-mix(in srgb, var(--primary-200) 30.0%, transparent);
+    background-color: var(--primary-600);
 }
