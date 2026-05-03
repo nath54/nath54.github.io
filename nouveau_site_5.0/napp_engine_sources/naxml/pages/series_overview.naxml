@@ -1,39 +1,39 @@
 <page>
 <exec_include template="components/os_title_bar" back_url="pages/blog.html" back_label_en="The Gazette" back_label_fr="La Gazette" />
 <main_container>
-    <div class="article-container">
-        <header class="article-header">
-            <div class="article-metadata">
-                <span class="badge" style="background: var(--color-primary-100); color: var(--color-primary-800);">Series Overview</span>
-                <span style="margin-left: var(--space-2);">{category}</span>
-            </div>
-            <h1 class="article-title">
-                <span name_en="{title_en}" name_fr="{title_fr}">{title_en}</span>
-            </h1>
-            <p style="font-family: var(--font-family-serif); font-size: 1.2rem; color: var(--color-neutral-600); margin-top: var(--space-4);">
-                <span name_en="{description_en}" name_fr="{description_fr}">{description_en}</span>
-            </p>
-        </header>
-
-        <div style="margin-top: var(--space-8);">
-            <h3 style="font-family: var(--font-family-serif); border-bottom: 2px solid var(--color-neutral-200); padding-bottom: var(--space-2);">Episodes in this Series</h3>
-
-            <div style="display: flex; flex-direction: column; gap: var(--space-4); margin-top: var(--space-4);">
-                <exec_generate
-                    parser="markdown_gazette"
-                    source="data/blogs"
-                    template="gazette_card"
-                    filter="series == '{_source_file}'"
-                    sort_by="series_order"
-                    sort_order="asc"
-                />
-            </div>
+<single_column>
+    <div class="series-overview-header">
+        <div class="article-metadata">
+            <span class="badge">Series Overview</span>
+            <span class="badge">{category}</span>
         </div>
-
-        <footer style="margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--color-neutral-200); text-align: center;">
-            <button_action icon="back" name_en="Back to Feed" name_fr="Retour au flux" action="navigate" url="pages/blog.html" />
-        </footer>
+        <h1 class="series-overview-title">
+            <span name_en="{title_en}" name_fr="{title_fr}">{title_en}</span>
+        </h1>
+        <p class="series-overview-description">
+            <span name_en="{description_en}" name_fr="{description_fr}">{description_en}</span>
+        </p>
+        <separator_h style="width: 100%; margin-top: var(--space-8);" />
     </div>
+
+    <div class="episodes-section">
+        <h3 class="episodes-title">Episodes in this Series</h3>
+        <div class="episodes-list">
+            <exec_generate
+                parser="markdown_gazette"
+                source="data/blogs"
+                template="gazette_card"
+                filter="series == '{_source_file}'"
+                sort_by="series_order"
+                sort_order="asc"
+            />
+        </div>
+    </div>
+
+    <footer style="margin-top: var(--space-12); padding-bottom: var(--space-8); text-align: center;">
+        <button_action icon="back" name_en="Back to Feed" name_fr="Retour au flux" action="navigate" url="pages/blog.html" />
+    </footer>
+</single_column>
 </main_container>
 
 </page>

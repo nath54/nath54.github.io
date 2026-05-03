@@ -790,6 +790,72 @@ body {
     letter-spacing: 1px;
 }
 
+.article-metadata {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-2);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.series-overview-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+    width: 100%;
+}
+
+.series-overview-title {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--neutral-900);
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-2);
+}
+
+.series-overview-description {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-lg);
+    color: var(--neutral-600);
+    max-width: 85%;
+    margin-top: var(--space-4);
+    line-height: 1.6;
+}
+
+.episodes-section {
+    width: 100%;
+    margin-top: var(--space-8);
+}
+
+.episodes-title {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--neutral-700);
+    border-bottom: 1px solid var(--neutral-200);
+    padding-bottom: var(--space-2);
+    margin-bottom: var(--space-6);
+    width: 100%;
+}
+
+.episodes-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    width: 100%;
+    align-items: stretch;
+}
+
+.episodes-list .gazette-card {
+    width: 100%;
+    max-width: 100%;
+}
+
 .subsection {
     padding-top: var(--space-4);
     padding-bottom: var(--space-4);

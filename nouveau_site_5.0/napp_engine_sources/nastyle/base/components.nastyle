@@ -594,6 +594,71 @@ class gazette_series_card {
 
 // === Sections ===
 
+class article_metadata {
+    str display = "flex";
+    str flex_direction = "row";
+    str align_items = "center";
+    size gap = $space_2;
+    size margin_left = "auto";
+    size margin_right = "auto";
+}
+
+class series_overview_header {
+    str display = "flex";
+    str flex_direction = "column";
+    str align_items = "center";
+    str text_align = "center";
+    size padding_y = $space_8;
+    size width = 100%;
+}
+
+class series_overview_title {
+    font_family font_family = $font_serif;
+    size font_size = 2.8rem;
+    int font_weight = $font_weight_bold;
+    color text_color = $neutral_900;
+    size margin_top = $space_2;
+    size margin_bottom = $space_2;
+}
+
+class series_overview_description {
+    font_family font_family = $font_serif;
+    size font_size = $font_size_lg;
+    color text_color = $neutral_600;
+    str max_width = 85%;
+    size margin_top = $space_4;
+    str line_height = "1.6";
+}
+
+class episodes_section {
+    size width = 100%;
+    size margin_top = $space_8;
+}
+
+class episodes_title {
+    font_family font_family = $font_serif;
+    size font_size = $font_size_base;
+    int font_weight = $font_weight_bold;
+    color text_color = $neutral_700;
+    line border_bottom = line(width=1px, style="solid", color=$neutral_200);
+    size padding_bottom = $space_2;
+    size margin_bottom = $space_6;
+    size width = 100%;
+}
+
+class episodes_list {
+    str display = "flex";
+    str flex_direction = "column";
+    size gap = $space_6;
+    size width = 100%;
+    str align_items = "stretch";
+}
+
+(class episodes_list) > (class gazette_card) {
+    size width = 100%;
+    size max_width = 100%;
+}
+
 class subsection {
     size padding_y = $space_4;
 }
