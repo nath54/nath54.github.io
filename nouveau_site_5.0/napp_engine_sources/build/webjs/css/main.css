@@ -238,7 +238,6 @@ body {
     margin-right: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
@@ -591,22 +590,119 @@ body {
     width: 100%;
 }
 
+.gazette-feed {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-6);
+    width: 100%;
+    margin-top: var(--space-8);
+}
+
 .gazette-card {
-    background-color: var(--primary-100);
-    border-radius: var(--radius-lg);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--primary-200);
+    background-color: var(--primary-0);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--neutral-200);
+    border-left: 4px solid var(--primary-500);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 90%;
-    padding: var(--space-2);
-    margin: var(--space-4);
+    align-items: flex-start;
+    text-align: left;
+    position: relative;
+    width: 42%;
+    min-width: 200px;
+    padding: var(--space-6);
+    margin-bottom: var(--space-2);
+    backdrop-filter: none;
+    transition: transform $trans_normal, box-shadow $trans_normal;
 }
 
 .gazette-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     border: 1px solid var(--primary-300);
+    border-left: 4px solid var(--primary-600);
+}
+
+.gazette-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: var(--space-3);
+}
+
+.gazette-card-date {
+    font-size: var(--font-size-xs);
+    color: var(--neutral-500);
+}
+
+.gazette-card-title {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--neutral-900);
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-3);
+    text-align: left;
+}
+
+.gazette-card-excerpt {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-600);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+    text-align: left;
+}
+
+.gazette-card-art-container {
+    width: 100%;
+    height: 180px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background-color: var(--neutral-100);
+    margin-bottom: var(--space-4);
+    background-size: cover;
+    background-position: center;
+}
+
+.gazette-masthead {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-4);
+    width: 100%;
+}
+
+.gazette-title {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--neutral-900);
+    text-transform: uppercase;
+    margin-bottom: 0;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.gazette-subtitle {
+    font-family: var(--font-serif);
+    font-size: var(--font-size-xs);
+    color: var(--neutral-500);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-align: center;
+    margin-top: var(--space-1);
+    margin-bottom: var(--space-6);
+}
+
+.gazette-masthead .separator-h {
+    background-color: var(--neutral-800);
+    height: 2px;
+    margin-top: var(--space-2);
+    width: 95%;
 }
 
 .gazette-chip {
@@ -649,24 +745,28 @@ body {
 }
 
 .gazette-series-card {
-    background-color: var(--primary-100);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--primary-200);
+    background-color: var(--primary-0);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--neutral-200);
+    border-left: 4px solid var(--primary-600);
+    position: relative;
 }
 
 .gazette-series-card::after {
     content: "SERIES";
     position: absolute;
-    top: 8px;
-    right: 8px;
-    background-color: var(--primary-600);
-    color: var(--primary-200);
+    top: 12px;
+    right: 12px;
+    background-color: var(--primary-100);
+    color: var(--primary-700);
     padding-left: 8px;
     padding-right: 8px;
     padding-top: 4px;
     padding-bottom: 4px;
-    border-radius: var(--radius-full);
-    font-size: var(--font-size-xs);
+    border-radius: var(--radius-sm);
+    font-size: 10px;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 1px;
 }
 
 .subsection {

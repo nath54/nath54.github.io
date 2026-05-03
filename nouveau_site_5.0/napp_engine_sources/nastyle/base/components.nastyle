@@ -48,7 +48,7 @@ class layout_single_column {
     size margin_right = "auto";
     str display = "flex";
     str flex_direction = "column";
-    str justify_content = "center";
+    // str justify_content = "center";
     str align_items = "center";
 }
 
@@ -399,22 +399,119 @@ class gazette_filter_bar_chips {
     size width = 100%;
 }
 
+class gazette_feed {
+    str display = "flex";
+    str flex_wrap = "wrap";
+    str justify_content = "space-between";
+    size gap = $space_6;
+    size width = 100%;
+    size margin_top = $space_8;
+}
+
 class gazette_card {
-    color background_color = $primary_100;
-    size border_radius = $radius_lg;
-    filter backdrop_filter = blur(radius=8px);
-    line border = line(width=1px, style="solid", color=$primary_200);
+    color background_color = $primary_0;
+    size border_radius = $radius_md;
+    line border = line(width=1px, style="solid", color=$neutral_200);
+    line border_left = line(width=4px, style="solid", color=$primary_500);
+
     str display = "flex";
     str flex_direction = "column";
-    str justify_content = "center";
-    str align_items = "center";
-    size max_width = 90%;
-    size padding = $space_2;
-    size margin = $space_4;
+    str align_items = "flex-start";
+    str text_align = "left";
+    str position = "relative";
+
+    size width = 42%;
+    size min_width = 200px;
+    size padding = $space_6;
+    size margin_bottom = $space_2;
+    filter backdrop_filter = "none";
+    str transition = "transform $trans_normal, box-shadow $trans_normal";
 
     state hover {
+        str transform = "translateY(-4px)";
+        str box_shadow = "0 10px 25px rgba(0,0,0,0.05)";
         line border = line(width=1px, style="solid", color=$primary_300);
+        line border_left = line(width=4px, style="solid", color=$primary_600);
     }
+}
+
+class gazette_card_meta {
+    str display = "flex";
+    str justify_content = "space-between";
+    str align_items = "center";
+    size width = 100%;
+    size margin_bottom = $space_3;
+}
+
+class gazette_card_date {
+    size font_size = $font_size_xs;
+    color text_color = $neutral_500;
+}
+
+class gazette_card_title {
+    font_family font_family = $font_serif;
+    size font_size = $font_size_xl;
+    int font_weight = $font_weight_bold;
+    color text_color = $neutral_900;
+    size margin_y = $space_3;
+    str text_align = "left";
+}
+
+class gazette_card_excerpt {
+    size font_size = $font_size_sm;
+    color text_color = $neutral_600;
+    str line_height = "1.6";
+    size margin_bottom = $space_4;
+    str text_align = "left";
+}
+
+class gazette_card_art_container {
+    size width = 100%;
+    size height = 180px;
+    size border_radius = $radius_sm;
+    str overflow = "hidden";
+    color background_color = $neutral_100;
+    size margin_bottom = $space_4;
+    str background_size = "cover";
+    str background_position = "center";
+}
+
+class gazette_masthead {
+    str display = "flex";
+    str flex_direction = "column";
+    str align_items = "center";
+    str justify_content = "center";
+    size padding_y = $space_4;
+    size width = 100%;
+}
+
+class gazette_title {
+    font_family font_family = $font_serif;
+    size font_size = 3.5rem;
+    int font_weight = $font_weight_bold;
+    color text_color = $neutral_900;
+    str text_transform = "uppercase";
+    size margin_bottom = 0;
+    str text_align = "center";
+    str letter_spacing = "-0.5px";
+}
+
+class gazette_subtitle {
+    font_family font_family = $font_serif;
+    size font_size = $font_size_xs;
+    color text_color = $neutral_500;
+    str text_transform = "uppercase";
+    str letter_spacing = "4px";
+    str text_align = "center";
+    size margin_top = $space_1;
+    size margin_bottom = $space_6;
+}
+
+(class gazette_masthead) > (tag separator_h) {
+    color background_color = $neutral_800;
+    size height = 2px;
+    size margin_top = $space_2;
+    size width = 95%;
 }
 
 class gazette_chip {
@@ -453,21 +550,25 @@ class gazette_card_category {
 }
 
 class gazette_series_card {
-    color background_color = $primary_100;
-    size border_radius = $radius_lg;
-    line border = line(width=1px, style="solid", color=$primary_200);
+    color background_color = $primary_0;
+    size border_radius = $radius_md;
+    line border = line(width=1px, style="solid", color=$neutral_200);
+    line border_left = line(width=4px, style="solid", color=$primary_600);
+    str position = "relative";
 
     state after {
         str content = "SERIES";
         str position = "absolute";
-        size top = 8px;
-        size right = 8px;
-        color background_color = $primary_600;
-        color text_color = $primary_200;
+        size top = 12px;
+        size right = 12px;
+        color background_color = $primary_100;
+        color text_color = $primary_700;
         size padding_x = 8px;
         size padding_y = 4px;
-        size border_radius = $radius_full;
-        size font_size = $font_size_xs;
+        size border_radius = $radius_sm;
+        size font_size = 10px;
+        int font_weight = $font_weight_bold;
+        str letter_spacing = "1px";
     }
 }
 

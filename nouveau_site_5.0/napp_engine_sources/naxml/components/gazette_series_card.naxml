@@ -3,7 +3,7 @@
         <span class="gazette-card-category badge">Playlist</span>
     </div>
 
-    <div class="gazette-card-art-container" src="{cover_image}" data-title="{title_en}" data-category="Playlist" style="margin-bottom: var(--space-3); border-radius: var(--border-radius-sm); overflow: hidden; width: 100%; height: 120px; background: var(--color-neutral-100);"></div>
+    <div class="gazette-card-art-container" src="{cover_image}" data-title="{title_en}" data-category="Playlist"></div>
 
     <h2 class="gazette-card-title">
         <a href="pages/blog/series_{_source_file}.html">
@@ -15,7 +15,7 @@
         <span name_en="{description_en}" name_fr="{description_fr}">{description_en}</span>
     </p>
 
-    <div style="margin-top: var(--space-4);">
+    <div class="gazette-card-actions">
         <button_action icon="read" name_en="View Series" name_fr="Voir la série" action="navigate" url="pages/blog/series_{_source_file}.html" />
     </div>
 </div>
