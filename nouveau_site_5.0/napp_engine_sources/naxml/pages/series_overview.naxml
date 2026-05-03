@@ -1,5 +1,5 @@
 <page>
-<exec_include template="components/os_title_bar" back_url="pages/blog.html" back_label_en="The Gazette" back_label_fr="La Gazette" />
+<exec_include template="components/os_title_bar" title="Series Overview - Nathan's website" back_url="pages/blog.html" back_label_en="The Gazette" back_label_fr="La Gazette" />
 <main_container>
 <single_column>
     <div class="series-overview-header">

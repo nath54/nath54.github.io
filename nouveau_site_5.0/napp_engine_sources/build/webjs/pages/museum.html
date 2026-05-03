@@ -15,7 +15,7 @@
     
 
     <div class="page-content-wrapper">
-        <div class="app-page"><div class="component"><div class="row os-title-bar"><a icon="fas fa-arrow-left" data-langcode="fr" data-translation_en="Home" data-translation_fr="Accueil" href="../index.html" class="link link-page os-btn-back to_translate" onclick="NApp.navigate(&#x27;../index.html&#x27;); return false;" id="napp_gen_1"><span class="btn-icon" data-icon="fas fa-arrow-left"></span><span class="btn-text" data-translation_en="&quot;Home&quot;" data-translation_fr="&quot;Accueil&quot;">&quot;Home&quot;</span></a><p class="text os-title"><span id="napp_gen_2">...</span></p><div class="row os-controls"><div class="os-btn-max"></div><div class="os-btn-min"></div><div class="os-btn-close"></div></div></div></div><div class="main-container"><div class="layout-single-column"><h1 data-langcode="fr" data-translation_en="The Museum" data-translation_fr="Le musée" class="title-text to_translate">The Museum</h1><p data-langcode="fr" data-translation_en="Choose a gallery to visit." data-translation_fr="Choisissez une galerie à visiter." class="text to_translate">Choose a gallery to visit.</p><div scene_data="data/museum/manifest.json" style="height: 60vh; width: 100%; border-radius: 12px; margin-bottom: 2rem; background: var(--color-neutral-800); box-shadow: var(--shadow-md);" class="nascene-container" id="napp_gen_3"></div></div></div></div>
+        <div class="app-page"><div class="component"><div class="row os-title-bar"><a icon="fas fa-arrow-left" data-langcode="fr" data-translation_en="Home" data-translation_fr="Accueil" href="../index.html" class="link link-page os-btn-back to_translate" onclick="NApp.navigate(&#x27;../index.html&#x27;); return false;" id="napp_gen_1"><span class="btn-icon" data-icon="fas fa-arrow-left"></span><span class="btn-text" data-translation_en="&quot;Home&quot;" data-translation_fr="&quot;Accueil&quot;">&quot;Home&quot;</span></a><p class="text os-title">Museum - Nathan&#x27;s website</p><div class="row os-controls"><div class="os-btn-max"></div><div class="os-btn-min"></div><div class="os-btn-close"></div></div></div></div><div class="main-container"><div class="layout-single-column"><h1 data-langcode="fr" data-translation_en="The Museum" data-translation_fr="Le musée" class="title-text to_translate">The Museum</h1><p data-langcode="fr" data-translation_en="Choose a gallery to visit." data-translation_fr="Choisissez une galerie à visiter." class="text to_translate">Choose a gallery to visit.</p><div scene_data="data/museum/manifest.json" style="height: 60vh; width: 100%; border-radius: 12px; margin-bottom: 2rem; background: var(--color-neutral-800); box-shadow: var(--shadow-md);" class="nascene-container" id="napp_gen_2"></div></div></div></div>
     </div>
 
     <script src="../js/napp_runtime.js"></script>
@@ -28,8 +28,7 @@
             if (typeof main === 'function') main();
 
             NApp.bindTemplate('napp_gen_1', [], () => "Home");
-            NApp.bindText('napp_gen_2', 'title');
-            const ns_napp_gen_3 = new NaSceneEngine(document.getElementById('napp_gen_3'), {manifest: window.buffer.data.museum.manifest, baseData: window.buffer.data.museum}); ns_napp_gen_3.loadManifest();
+            const ns_napp_gen_2 = new NaSceneEngine(document.getElementById('napp_gen_2'), {manifest: window.buffer.data.museum.manifest, baseData: window.buffer.data.museum}); ns_napp_gen_2.loadManifest();
         });
     </script>
 </body>

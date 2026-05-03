@@ -1,5 +1,5 @@
 <page>
-<exec_include template="components/os_title_bar" title="About Me — Nathan" back_url="index.html" back_label_en="Back" back_label_fr="Retour" />
+<exec_include template="components/os_title_bar" title="About Me — Nathan's website" back_url="index.html" back_label_en="Back" back_label_fr="Retour" />
 <main_container>
     <single_column>
         <title_text name_en="About Me" name_fr="À propos de moi" />

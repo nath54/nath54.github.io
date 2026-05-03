@@ -1,5 +1,5 @@
 <page>
-<exec_include template="components/os_title_bar" back_url="pages/projects.html" back_label_en="Projects" back_label_fr="Projets" />
+<exec_include template="components/os_title_bar" title="Projects - Nathan's website" back_url="pages/projects.html" back_label_en="Projects" back_label_fr="Projets" />
 <main_container>
     <div class="project-detail-page">
         <!-- App Store Header -->
