@@ -247,70 +247,95 @@ class project_card {
 // === OS Title Bar ===
 
 class os_title_bar {
-    color background_color = $neutral_300;
-    color text_color = $neutral_50;
-    size padding_x = $space_1;
-    size padding_y = $space_1;
+    // Glassmorphism effect
+    color background_color = $neutral_50;
+    filter backdrop_filter = blur(radius=16px);
+
+    // Gradient for premium feel
+    gradient background = linear_gradient(
+        angle=180deg,
+        stops=[
+            (0%, rgba($neutral_50, 0.8)),
+            (100%, rgba($neutral_200, 0.4))
+        ]
+    );
+
+    color text_color = $neutral_800;
+    size padding_x = $space_4;
+    size padding_y = $space_2;
     size font_size = $font_size_sm;
     str display = "flex";
     str flex_direction = "row";
+    str align_items = "center";
     str justify_content = "space-between";
-    str z_index = "10";
-    size border_radius = $radius_md;
+    str z_index = "50";
+
+    // Rounded top only
+    size border_top_left_radius = $radius_lg;
+    size border_top_right_radius = $radius_lg;
+
+    // Subtle border and shadow
+    line border_bottom = line(width=1px, style="solid", color=rgba($neutral_400, 0.15));
+    shadow box_shadow = drop_shadow(offset_x=0px, offset_y=4px, blur=12px, spread=0px, color=rgba(0,0,0,0.03));
 }
 
 class os_btn_back {
-
-    color text_color = $neutral_50;
-    color background_color = $primary_600;
+    color text_color = $neutral_600;
+    color background_color = "transparent";
     size font_size = $font_size_sm;
+    int font_weight = $font_weight_medium;
+    str text_decoration = "none";
+    str cursor = "pointer";
+    str display = "flex";
+    str align_items = "center";
+    size gap = $space_2;
+    str transition = "color $trans_fast";
 
     state hover {
-        color background_color = $primary_700;
+        color text_color = $primary_600;
+        color background_color = "transparent";
     }
 }
 
 class os_title {
     size font_size = $font_size_sm;
-    int font_weight = $font_weight_semibold;
-    color text_color = $neutral_200;
+    int font_weight = $font_weight_medium;
+    color text_color = $primary_700;
+    str flex = "1";
+    str text_align = "center";
+    str letter_spacing = "0.2px";
 }
 
 class os_controls {
-    size padding_x = $space_2;
     str display = "flex";
     str flex_direction = "row";
-    str justify_content = "space-between";
-}
-
-class os_btn_min {
-    size width = 12px;
-    size height = 12px;
-    size border_radius = $radius_full;
-    color background_color = #fbbf24;
-    size margin = $space_1;
-    size margin_top = "auto";
-    size margin_bottom = "auto";
+    str align_items = "center";
+    size gap = $space_2;
+    str width = "auto";
 }
 
 class os_btn_max {
     size width = 12px;
     size height = 12px;
     size border_radius = $radius_full;
-    color background_color = #22c55e;
-    size margin = $space_1;
-    size margin_top = "auto";
-    size margin_bottom = "auto";
+    color background_color = #22c55e; // Green
+    str cursor = "pointer";
+}
+
+class os_btn_min {
+    size width = 12px;
+    size height = 12px;
+    size border_radius = $radius_full;
+    color background_color = #fbbf24; // Yellow
+    str cursor = "pointer";
 }
 
 class os_btn_close {
     size width = 12px;
     size height = 12px;
     size border_radius = $radius_full;
-    color background_color = #ef4444;
-    size margin = $space_1;
-    size margin_top = "auto";
-    size margin_bottom = "auto";
+    color background_color = #ef4444; // Red
+    str cursor = "pointer";
 }
 
 // === Navigation ===

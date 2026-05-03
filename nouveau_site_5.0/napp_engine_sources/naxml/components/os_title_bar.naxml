@@ -6,8 +6,8 @@
         url="{back_url}" />
     <text class="os-title">{title}</text>
     <row class="os-controls">
-        <div class="os-btn-min" />
         <div class="os-btn-max" />
+        <div class="os-btn-min" />
         <div class="os-btn-close" />
     </row>
 </row>

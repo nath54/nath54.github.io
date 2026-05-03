@@ -1,5 +1,5 @@
 <page>
-<exec_include template="components/os_title_bar" back_url="index.html" back_label_en="Home" back_label_fr="Accueil" />
+<exec_include template="components/os_title_bar" title="Projects Showcase — Nathan" back_url="index.html" back_label_en="Back" back_label_fr="Retour" />
 <main_container>
     <div class="projects-page">
         <!-- Search Bar at the Top (Google Play Style) -->
