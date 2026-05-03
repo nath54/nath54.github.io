@@ -1,9 +1,11 @@
 <div class="gazette-filter-bar">
     <search_input id="gazette-search" class="gazette-search" placeholder="Search the Gazette..." value="{gs.var_get(name='search_query', default_value='')}" on_input="{update_search(value);}" />
-    <button class="gazette-chip active" data-filter="all" name_en="All News" name_fr="Toute l'actualité" on_click="{set_filter('all');}">All News</button>
-    <button class="gazette-chip" data-filter="Tech" name_en="Technology" name_fr="Technologie" on_click="{set_filter('Tech');}">Technology</button>
-    <button class="gazette-chip" data-filter="Art" name_en="Arts &amp; Fiction" name_fr="Arts &amp; Fiction" on_click="{set_filter('Art');}">Arts &amp; Fiction</button>
-    <button class="gazette-chip" data-filter="Lifestyle" name_en="Lifestyle" name_fr="Style de vie" on_click="{set_filter('Lifestyle');}">Lifestyle</button>
-    <button class="gazette-chip" data-filter="Joke" name_en="Humor" name_fr="Humour" on_click="{set_filter('Joke');}">Humor</button>
-    <button class="gazette-chip" data-filter="Series" name_en="Series" name_fr="Séries" on_click="{set_filter('Series');}">Series</button>
+    <div class="gazette-filter-bar-chips">
+        <button class="gazette-chip active" data-filter="all" name_en="All" name_fr="Tout" on_click="{set_filter('all');}">All</button>
+        <button class="gazette-chip" data-filter="Tech" name_en="Tech" name_fr="Tech" on_click="{set_filter('Tech');}">Tech</button>
+        <button class="gazette-chip" data-filter="Art" name_en="Arts &amp; Fiction" name_fr="Arts &amp; Fiction" on_click="{set_filter('Art');}">Arts &amp; Fiction</button>
+        <button class="gazette-chip" data-filter="Lifestyle" name_en="Lifestyle" name_fr="Style de vie" on_click="{set_filter('Lifestyle');}">Lifestyle</button>
+        <button class="gazette-chip" data-filter="Joke" name_en="Humor" name_fr="Humour" on_click="{set_filter('Joke');}">Humor</button>
+        <button class="gazette-chip" data-filter="Series" name_en="Series" name_fr="Séries" on_click="{set_filter('Series');}">Series</button>
+    </div>
 </div>

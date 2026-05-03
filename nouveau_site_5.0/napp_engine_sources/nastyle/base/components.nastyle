@@ -44,11 +44,19 @@ tag main_container {
 
 class layout_single_column {
     size max_width = 900px;
+    size margin_left = "auto";
+    size margin_right = "auto";
+    str display = "flex";
+    str flex_direction = "column";
+    str justify_content = "center";
+    str align_items = "center";
 }
 
 class layout_two_columns {
     str display = "flex";
     size gap = $space_6;
+    size margin_left = "auto";
+    size margin_right = "auto";
 }
 
 class layout_col {
@@ -179,10 +187,10 @@ class link {
 // === Cards ===
 
 class card {
-    color background_color = rgba(#ffffff, 0.7);
+    color background_color = rgba($primary_200, 0.7);
     size border_radius = $radius_lg;
     filter backdrop_filter = blur(radius=10px);
-    line border = line(width=1px, style="solid", color=rgba(#ffffff, 0.3));
+    line border = line(width=1px, style="solid", color=rgba($primary_200, 0.3));
 
     state hover {
         line border = line(width=1px, style="solid", color=$primary_300);
@@ -190,10 +198,10 @@ class card {
 }
 
 class glass_card {
-    color background_color = rgba(#ffffff, 0.6);
+    color background_color = rgba($primary_200, 0.6);
     size border_radius = $radius_lg;
     filter backdrop_filter = blur(radius=10px);
-    line border = line(width=1px, style="solid", color=rgba(#ffffff, 0.3));
+    line border = line(width=1px, style="solid", color=rgba($primary_200, 0.3));
 
     state hover {
         line border = line(width=1px, style="solid", color=$primary_400);
@@ -205,10 +213,10 @@ class glass_card {
 }
 
 class project_card {
-    color background_color = rgba(#ffffff, 0.7);
+    color background_color = rgba($primary_200, 0.7);
     size border_radius = $radius_xl;
     filter backdrop_filter = blur(radius=12px);
-    line border = line(width=1px, style="solid", color=rgba(#ffffff, 0.3));
+    line border = line(width=1px, style="solid", color=rgba($primary_200, 0.3));
 
     state hover {
         line border = line(width=1px, style="solid", color=$primary_400);
@@ -301,6 +309,16 @@ class nav_pill {
     }
 }
 
+class category_tabs {
+    str display = "flex";
+    str flex_direction = "row";
+    str justify_content = "space-between";
+    size margin_left = "auto";
+    size margin_right = "auto";
+    size margin_bottom = $space_2;
+    size max_width = 35%;
+}
+
 class category_tab {
     size padding_x = $space_4;
     size padding_y = $space_2;
@@ -309,21 +327,37 @@ class category_tab {
     color text_color = $neutral_600;
     str cursor = "pointer";
     line border = line(width=1px, style="solid", color=$neutral_200);
+    color background_color = $neutral_100;
 
     state hover {
+        color background_color = $neutral_200;
         color text_color = $primary_600;
         line border = line(width=1px, style="solid", color=$primary_300);
+    }
+
+    state active {
+        color background_color = $neutral_300;
+        color text_color = $primary_700;
+        line border = line(width=1px, style="solid", color=$primary_400);
     }
 }
 
 // === Search ===
 
 class search_input {
-    color background_color = rgba(#ffffff, 0.8);
+    color background_color = rgba($primary_200, 0.8);
     size border_radius = $radius_full;
     line border = line(width=1px, style="solid", color=$neutral_200);
     size padding_x = $space_4;
     size padding_y = $space_3;
+    str display = "flex";
+    str justify_content = "center";
+    str align_items = "center";
+    size margin_left = "auto";
+    size margin_right = "auto";
+    size margin_bottom = $space_2;
+    size width = 35%;
+    str text_align = "center";
     size font_size = $font_size_base;
     color text_color = $neutral_800;
 
@@ -333,7 +367,7 @@ class search_input {
 }
 
 tag input_text {
-    color background_color = rgba(#ffffff, 0.8);
+    color background_color = rgba($primary_200, 0.8);
     size border_radius = $radius_md;
     line border = line(width=1px, style="solid", color=$neutral_300);
     size padding_x = $space_3;
@@ -348,11 +382,35 @@ tag input_text {
 
 // === Blog / Gazette ===
 
+class gazette_filter_bar {
+    str display = "flex";
+    str flex_direction = "column";
+    str justify_content = "center";
+    str align_items = "center";
+    size margin_bottom = $space_2;
+    size width = 100%;
+}
+
+class gazette_filter_bar_chips {
+    str display = "flex";
+    str flex_direction = "row";
+    str justify_content = "center";
+    str align_items = "center";
+    size width = 100%;
+}
+
 class gazette_card {
-    color background_color = rgba(#ffffff, 0.6);
+    color background_color = $primary_100;
     size border_radius = $radius_lg;
     filter backdrop_filter = blur(radius=8px);
-    line border = line(width=1px, style="solid", color=rgba(#ffffff, 0.25));
+    line border = line(width=1px, style="solid", color=$primary_200);
+    str display = "flex";
+    str flex_direction = "column";
+    str justify_content = "center";
+    str align_items = "center";
+    size max_width = 90%;
+    size padding = $space_2;
+    size margin = $space_4;
 
     state hover {
         line border = line(width=1px, style="solid", color=$primary_300);
@@ -360,22 +418,44 @@ class gazette_card {
 }
 
 class gazette_chip {
-    color background_color = rgba($primary_100, 0.6);
+    color background_color = $primary_200;
     size border_radius = $radius_full;
     size padding_x = $space_3;
-    size padding_y = $space_1;
+    size padding_y = $space_2;
+    size margin = $space_2;
     size font_size = $font_size_xs;
     color text_color = $primary_700;
+    str cursor = "pointer";
 
     state hover {
-        color background_color = $primary_200;
+        color background_color = $primary_300;
     }
 }
 
+class gazette_card_category {
+    color background_color = $primary_100;
+    size border_radius = $radius_full;
+    size padding_x = $space_3;
+    size padding_y = $space_2;
+    size margin = $space_2;
+    size font_size = $font_size_xs;
+    color text_color = $primary_700;
+    str cursor = "pointer";
+
+    state hover {
+        color background_color = $primary_300;
+    }
+}
+
+(class gazette_chip) and (class active) {
+    color background_color = $primary_600;
+    color text_color = $primary_100;
+}
+
 class gazette_series_card {
-    color background_color = rgba(#ffffff, 0.7);
+    color background_color = $primary_100;
     size border_radius = $radius_lg;
-    line border = line(width=1px, style="solid", color=rgba(#ffffff, 0.3));
+    line border = line(width=1px, style="solid", color=$primary_200);
 
     state after {
         str content = "SERIES";
@@ -383,7 +463,7 @@ class gazette_series_card {
         size top = 8px;
         size right = 8px;
         color background_color = $primary_600;
-        color text_color = #ffffff;
+        color text_color = $primary_200;
         size padding_x = 8px;
         size padding_y = 4px;
         size border_radius = $radius_full;
@@ -443,7 +523,7 @@ class expandable_content {
 // === Badge ===
 
 class badge {
-    color background_color = $primary_100;
+    color background_color = $primary_200;
     color text_color = $primary_700;
     size border_radius = $radius_full;
     size padding_x = $space_2;
@@ -485,7 +565,7 @@ class nascene_bar {
 }
 
 class nascene_button {
-    color background_color = rgba(#ffffff, 0.15);
+    color background_color = rgba($primary_200, 0.15);
     color text_color = $neutral_50;
     size border_radius = $radius_sm;
     size padding_x = $space_3;
@@ -493,6 +573,6 @@ class nascene_button {
     str cursor = "pointer";
 
     state hover {
-        color background_color = rgba(#ffffff, 0.3);
+        color background_color = rgba($primary_200, 0.3);
     }
 }
