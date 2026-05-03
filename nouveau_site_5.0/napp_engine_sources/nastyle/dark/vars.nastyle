@@ -3,7 +3,8 @@
 
 theme Dark {
     // === Primary Palette (same hues, adjusted for dark bg) ===
-    color primary_50 = #1a1425;
+    color primary_0 = #0c0814ff;
+    color primary_50 = #1a1425ff;
     color primary_100 = #221a33;
     color primary_200 = #2d2145;
     color primary_300 = #4a2e7a;

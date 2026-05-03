@@ -3,6 +3,7 @@
 
 theme Light {
     // === Primary Palette (violet vibrant) ===
+    color primary_0 = #fafaff;
     color primary_50 = #f8f4ff;
     color primary_100 = #f0e7ff;
     color primary_200 = #dcd0ff;

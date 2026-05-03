@@ -42,6 +42,26 @@ tag main_container {
     size margin_right = "auto";
 }
 
+class single_column {
+    size max_width = 900px;
+    size margin_left = "auto";
+    size margin_right = "auto";
+    str display = "flex";
+    str flex_direction = "column";
+    // str justify_content = "center";
+    str align_items = "center";
+}
+
+class subsection_column {
+    size max_width = 100%;
+    size margin_left = "auto";
+    size margin_right = "auto";
+    str display = "flex";
+    str flex_direction = "column";
+    // str justify_content = "center";
+    str align_items = "center";
+}
+
 class layout_single_column {
     size max_width = 900px;
     size margin_left = "auto";
@@ -69,7 +89,7 @@ tag section {
     str flex_wrap = "wrap";
     size gap = $space_1;
     size margin_bottom = $space_2;
-    color background_color = $neutral_200;
+    color background_color = $primary_100;
     size border_radius = $radius_lg;
     size padding = $space_4;
 }
@@ -597,11 +617,17 @@ class grid_projects {
 class expandable {
     size border_radius = $radius_md;
     line border = line(width=1px, style="solid", color=$neutral_200);
-    size margin = $space_2;
+    color background_color = $primary_50;
+    size margin_top = $space_2;
+    size margin_bottom = $space_2;
+    size margin_left = "auto";
+    size margin_right = "auto";
+    size width = 95%;
 }
 
 class expandable_sm {
     size margin = $space_1;
+    color background_color = $primary_50;
 }
 
 class expandable_title {
@@ -619,6 +645,8 @@ class expandable_content {
     size padding_x = $space_2;
     size padding_y = $space_2;
     color text_color = $neutral_700;
+    color background_color = $primary_100;
+    size border_radius = $radius_md;
 }
 
 // === Badge ===
