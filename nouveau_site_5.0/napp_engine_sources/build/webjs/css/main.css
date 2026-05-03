@@ -203,7 +203,7 @@ body {
 .br {
     display: block;
     width: 100%;
-    height: 0;
+    height: 0px;
 }
 
 .separator-h {
@@ -797,6 +797,58 @@ body {
     gap: var(--space-2);
     margin-left: auto;
     margin-right: auto;
+}
+
+.article-container {
+    background-color: var(--primary-0);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--neutral-100);
+    padding-left: var(--space-16);
+    padding-right: var(--space-16);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-8);
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+}
+
+.series-banner {
+    background-color: var(--primary-50);
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-12);
+    text-align: center;
+    width: 100%;
+}
+
+.article-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: var(--space-8);
+}
+
+.article-title {
+    font-family: var(--font-serif);
+    font-size: 3.2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--neutral-900);
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-8);
+    border-bottom: 1px solid var(--neutral-100);
+    padding-bottom: var(--space-10);
+    width: 100%;
+}
+
+.article-body {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--neutral-800);
+    line-height: 1.9;
 }
 
 .series-overview-header {

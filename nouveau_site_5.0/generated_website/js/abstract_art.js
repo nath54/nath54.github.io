@@ -1,6 +1,6 @@
 // js/lib/abstract_art.js
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
     const containers = document.querySelectorAll('.gazette-card-art-container');
 
     // Hash string to number for deterministic generation
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     containers.forEach(container => {
         const imgSrc = container.getAttribute('src');
         // Handle un-resolved placeholder or empty string
-        if (!imgSrc || imgSrc.includes('{') || imgSrc === 'None') {
+        if (!imgSrc || imgSrc.includes('{') || imgSrc === 'None' || imgSrc === '../' || imgSrc === '../None') {
             const canvas = document.createElement('canvas');
             canvas.width = 600;
             canvas.height = 300;

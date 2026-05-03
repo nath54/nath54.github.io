@@ -1,8 +1,8 @@
 <main_container back_url="pages/blog.html" back_lbl_en="The Gazette" back_lbl_fr="La Gazette">
     <div class="article-container">
 
-        <exec_if condition="'{series}' != ''">
-            <div style="background: var(--color-primary-50); padding: var(--space-4); border-radius: var(--border-radius-md); margin-bottom: var(--space-6); text-align: center;">
+        <exec_if condition="series != '' and series != 'None'">
+            <div class="series-banner">
                 <span style="font-family: var(--font-family-serif); font-size: var(--font-size-lg); color: var(--color-primary-800);">
                     Part of Series: <link_page url="pages/blog/series_{series}.html" action="navigate" name_en="View Series Overview" name_fr="Voir l'aperçu de la série" style="font-weight: bold; text-decoration: underline;" />
                 </span>
@@ -13,7 +13,7 @@
             <div class="article-metadata">
                 <span>{date}</span> •
                 <span>{author}</span> •
-                <link_page action="navigate" url="pages/blog.html?category={category}" name="{category}" class="badge" style="text-decoration: none; cursor: pointer;" />
+                <link_page action="navigate" url="pages/blog.html?category={category}" name="{category}" class="badge" />
             </div>
             <h1 class="article-title">
                 <span name_en="{title_en}" name_fr="{title_fr}">{title_en}</span>
@@ -29,7 +29,8 @@
             </markdown_render>
         </div>
 
-        <footer style="margin-top: var(--space-8); padding-top: var(--space-4); border-top: 1px solid var(--color-neutral-200); text-align: center;">
+        <footer style="margin-top: var(--space-12); text-align: center;">
+            <separator_h style="margin-bottom: var(--space-8);" />
             <button_action icon="back" name_en="Back to Feed" name_fr="Retour au flux" action="navigate" url="pages/blog.html" />
         </footer>
     </div>

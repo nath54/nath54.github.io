@@ -14,7 +14,7 @@ tag page {
 tag br {
     str display = "block";
     size width = 100%;
-    size height = 0;
+    size height = 0px;
 }
 
 tag separator_h {
@@ -601,6 +601,68 @@ class article_metadata {
     size gap = $space_2;
     size margin_left = "auto";
     size margin_right = "auto";
+}
+
+class article_container {
+    color background_color = $primary_0;
+    size border_radius = $radius_lg;
+    line border = line(width=1px, style="solid", color=$neutral_100);
+    size padding_x = $space_16;
+    size padding_y = $space_12;
+    size margin_y = $space_8;
+    size max_width = 850px;
+    size margin_left = "auto";
+    size margin_right = "auto";
+    str box_shadow = "0 20px 50px rgba(0,0,0,0.06)";
+}
+
+class series_banner {
+    color background_color = $primary_50;
+    size padding = $space_6;
+    size border_radius = $radius_md;
+    size margin_bottom = $space_12;
+    str text_align = "center";
+    size width = 100%;
+}
+
+class article_header {
+    str display = "flex";
+    str flex_direction = "column";
+    str align_items = "center";
+    str text_align = "center";
+    size margin_bottom = $space_8;
+}
+
+class article_title {
+    font_family font_family = $font_serif;
+    size font_size = 3.2rem;
+    int font_weight = $font_weight_bold;
+    color text_color = $neutral_900;
+    size margin_top = $space_4;
+    size margin_bottom = $space_8;
+    line border_bottom = line(width=1px, style="solid", color=$neutral_100);
+    size padding_bottom = $space_10;
+    size width = 100%;
+}
+
+class article_body {
+    font_family font_family = $font_serif;
+    size font_size = 1.25rem;
+    color text_color = $neutral_800;
+    str line_height = "1.9";
+}
+
+(class article_body) > (tag p) {
+    state first_letter {
+        str float = "left";
+        size font_size = 4.8rem;
+        str line_height = "0.8";
+        size padding_top = 8px;
+        size padding_right = 14px;
+        color text_color = $primary_600;
+        font_family font_family = $font_serif;
+        int font_weight = $font_weight_bold;
+    }
 }
 
 class series_overview_header {
