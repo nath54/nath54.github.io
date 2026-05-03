@@ -17,20 +17,20 @@
 
         <!-- Hero Section: Featured Project -->
         <exec_if condition="{gs.var_get(name='active_filter', default_value='all') == 'all'}">
-            <section class="projects-section featured-hero" data-section-filter="all">
+            <section class="col_section projects-section featured-hero" data-section-filter="all">
                 <exec_generate
                     parser="yaml_directory"
                     source="data/projects/"
                     template="project_card_hero"
                     filter="project_showcase_importance >= 90"
-                    limit="1"
+                    limit="2"
                 />
             </section>
         </exec_if>
 
         <!-- Must-Have Apps (Top rated) -->
         <exec_if condition="{gs.var_get(name='active_filter', default_value='all') == 'all'}">
-            <section class="projects-section" data-section-filter="all">
+            <section class="col_section projects-section" data-section-filter="all">
                 <title name_en="Must-Have Projects" name_fr="Projets Incontournables" />
                 <projects_grid>
                     <exec_generate
@@ -48,7 +48,7 @@
 
         <!-- Professional Collections -->
         <exec_if condition="{gs.var_get(name='active_filter', default_value='all') == 'all' or gs.var_get(name='active_filter') == 'Professional'}">
-            <section class="projects-section" data-section-filter="Professional">
+            <section class="col_section projects-section" data-section-filter="Professional">
                 <title name_en="Professional Gallery" name_fr="Galerie Professionnelle" />
                 <projects_grid>
                     <exec_generate
@@ -65,7 +65,7 @@
 
         <!-- Academic & Research -->
         <exec_if condition="{gs.var_get(name='active_filter', default_value='all') == 'all' or gs.var_get(name='active_filter') == 'Academic'}">
-            <section class="projects-section" data-section-filter="Academic">
+            <section class="col_section projects-section" data-section-filter="Academic">
                 <title name_en="Academic Research" name_fr="Recherche Académique" />
                 <projects_grid>
                     <exec_generate
@@ -82,7 +82,7 @@
 
         <!-- Personal & Side Projects -->
         <exec_if condition="{gs.var_get(name='active_filter', default_value='all') == 'all' or gs.var_get(name='active_filter') == 'Personal'}">
-            <section class="projects-section" data-section-filter="Personal">
+            <section class="col_section projects-section" data-section-filter="Personal">
                 <title name_en="Personal Side-Projects" name_fr="Projets Personnels" />
                 <projects_grid>
                     <exec_generate

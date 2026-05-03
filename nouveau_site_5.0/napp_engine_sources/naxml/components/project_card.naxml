@@ -1,17 +1,11 @@
 <project_card visible="{matches_search(name_en, name_fr)}" data-type="{project_type}" data-importance="{project_showcase_importance}" action="navigate" url="pages/projects/{_source_file}.html">
-
-    <icon src="{icon}" />
-    <div class="card-info">
-        <name name_en="{name_en}" name_fr="{name_fr}" />
-        <short_description name_en="{short_description_en}" name_fr="{short_description_fr}" />
-        <tags_list>
-            <exec_foreach var="tag" in="{tags}" limit="2">
-                <tag>{tag}</tag>
-            </exec_foreach>
-        </tags_list>
-    </div>
-    <div class="card-actions">
-        <btn_get name_en="Get" name_fr="Ouvrir" action="navigate" url="pages/projects/{_source_file}.html" />
-        <status badge="{project_status}">{project_status}</status>
-    </div>
+    <section class="col_section project_card_section">
+        <icon src="{icon}" class="project_icon" />
+        <div class="project-name" name_en="{name_en}" name_fr="{name_fr}" />
+        <short_description class="project_description" name_en="{short_description_en}" name_fr="{short_description_fr}" />
+        <div class="card-actions">
+            <btn_get name_en="Get" name_fr="Ouvrir" action="navigate" url="pages/projects/{_source_file}.html" />
+            <status badge="{project_status}">{project_status}</status>
+        </div>
+    </section>
 </project_card>

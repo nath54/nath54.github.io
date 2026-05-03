@@ -27,7 +27,7 @@
             </section>
 
             <!-- Quick history section -->
-            <section>
+            <section class="col_section">
                 <exec_generate
                     parser="markdown_alternating"
                     source="data/home/quick_history.md"
@@ -41,7 +41,7 @@
         <right_column>
 
             <!-- Professional links -->
-            <section>
+            <section class="row_section">
 
                 <title name_en="Professional links" name_fr="Liens professionnels" />
 
@@ -58,7 +58,7 @@
             </section>
 
             <!-- For my friends and family and those who want to know me -->
-            <section>
+            <section class="row_section">
 
                 <title name_en="For my friends and family and those who want to know me" name_fr="Pour mes amis, ma famille et ceux qui veulent me connaître" />
 
@@ -72,7 +72,7 @@
             </section>
 
             <!-- Random citation -->
-            <section>
+            <section class="col_section">
 
                 <title name_en="Random citation" name_fr="Citation aléatoire" action="refresh_target" target="citation-widget" />
 

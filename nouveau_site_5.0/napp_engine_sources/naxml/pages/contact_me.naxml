@@ -3,7 +3,7 @@
 <main_container>
     <single_column>
         <title_text name_en="Contact Me" name_fr="Me contacter" />
-        <section>
+        <section class="row_section">
             <text
                 name_en="If you want to reach out for professional inquiries, for a collaboration, or just to say hi, here are the best ways of contacting me:"
                 name_fr="Si vous souhaitez me contacter pour des raisons professionnelles, pour une collaboration, ou simplement pour me dire bonjour, voici les meilleurs moyens de me joindre :"

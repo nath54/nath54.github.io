@@ -83,7 +83,7 @@ class layout_col {
     str flex = "1";
 }
 
-tag section {
+class row_section {
     str display = "flex";
     str flex_direction = "row";
     str flex_wrap = "wrap";
@@ -92,6 +92,14 @@ tag section {
     color background_color = $primary_100;
     size border_radius = $radius_lg;
     size padding = $space_4;
+}
+
+class col_section {
+    str display = "flex";
+    str flex_direction = "column";
+    size gap = $space_6;
+    size margin_bottom = $space_4;
+    size width = 100%;
 }
 
 class row_head {
@@ -206,6 +214,39 @@ class link {
 
 // === Cards ===
 
+class icon {
+    size width = 64px;
+    size height = 64px;
+
+    str display = "flex";
+
+    size margin_left = "auto";
+    size margin_right = "auto";
+}
+
+class project_icon {
+    size width = 64px;
+    size height = 64px;
+
+    size margin_left = "auto";
+    size margin_right = "auto";
+}
+
+class project_name {
+    str text_align = "center";
+}
+
+class project_description {
+    str text_align = "center";
+}
+
+class project_card_section {
+    str display = "flex";
+    str flex_direction = "column";
+    str align_items = "center";
+    str justify_content = "center";
+}
+
 class card {
     color background_color = rgba($primary_200, 0.7);
     size border_radius = $radius_lg;
@@ -233,14 +274,167 @@ class glass_card {
 }
 
 class project_card {
-    color background_color = rgba($primary_200, 0.7);
+    color background_color = $neutral_0;
     size border_radius = $radius_xl;
-    filter backdrop_filter = blur(radius=12px);
-    line border = line(width=1px, style="solid", color=rgba($primary_200, 0.3));
+    size padding = $space_6;
+    line border = line(width=1px, style="solid", color=$neutral_100);
+    str display = "flex";
+    str flex_direction = "column";
+    str align_items = "center";
+    str text_align = "center";
+    size gap = $space_4;
+    str transition = "transform $trans_normal, box-shadow $trans_normal";
 
     state hover {
-        line border = line(width=1px, style="solid", color=$primary_400);
-        shadow box_shadow = drop_shadow(offset_x=0px, offset_y=8px, blur=24px, spread=-4px, color=rgba($primary_500, 0.2));
+        str transform = "translateY(-8px)";
+        shadow box_shadow = drop_shadow(offset_x=0px, offset_y=20px, blur=40px, spread=-10px, color=rgba(0,0,0,0.08));
+    }
+}
+
+class project_card_hero {
+    color background_color = $primary_500;
+    size border_radius = $radius_xl;
+    size padding = $space_8;
+    size margin_bottom = $space_8;
+    str display = "flex";
+    str flex_direction = "column";
+    str justify_content = "flex-end";
+    size min_height = 340px;
+    size width = 100%;
+    str position = "relative";
+    str overflow = "hidden";
+    shadow box_shadow = drop_shadow(offset_x=0px, offset_y=20px, blur=40px, spread=-10px, color=rgba($primary_900, 0.4));
+}
+
+class hero_content {
+    gradient background = linear_gradient(
+        angle=135deg,
+        stops=[
+            (0%, $primary_500),
+            (100%, $primary_700)
+        ]
+    );
+    filter backdrop_filter = blur(radius=20px);
+    size border_radius = $radius_lg;
+    size padding = $space_6;
+    line border = line(width=1px, style="solid", color=rgba($neutral_50, 0.2));
+    str display = "flex";
+    str flex_direction = "column";
+    size gap = $space_1;
+
+    state hover {
+        filter backdrop_filter = blur(radius=50px);
+
+        gradient background = linear_gradient(
+            angle=135deg,
+            stops=[
+                (0%, $primary_600),
+                (100%, $primary_800)
+            ]
+        );
+    }
+
+    str cursor = "pointer";
+    size margin = $space_4;
+}
+
+class card_project_small {
+    color background_color = $primary_50;
+    size border_radius = $radius_lg;
+    size padding = $space_4;
+    line border = line(width=1px, style="solid", color=$neutral_100);
+    str display = "flex";
+    str flex_direction = "column";
+    str align_items = "center";
+    size gap = $space_4;
+}
+
+
+class card_project {
+    color background_color = $primary_50;
+    size border_radius = $radius_lg;
+    size padding = $space_4;
+    line border = line(width=1px, style="solid", color=$neutral_100);
+    str display = "flex";
+    str flex_direction = "column";
+    str align_items = "center";
+    size gap = $space_4;
+    size width = 20%;
+    size max_width = 400px;
+    size max_height = 400px;
+}
+
+class projects_section {
+    size margin_top = $space_4;
+    color background_color = $primary_100;
+    size border_radius = $radius_lg;
+    size padding = $space_4;
+}
+
+class projects_grid {
+    str display = "grid";
+    str grid_template_columns = "repeat(3, 1fr)";
+    size gap = $space_8;
+    size width = 100%;
+    size margin_y = $space_6;
+}
+
+class hero_tagline {
+    size font_size = $font_size_xs;
+    int font_weight = $font_weight_bold;
+    color text_color = rgba($neutral_50, 0.7);
+    str text_transform = "uppercase";
+    str letter_spacing = "1.5px";
+}
+
+class project_name {
+    size font_size = $font_size_base;
+    int font_weight = $font_weight_bold;
+    color text_color = $neutral_800;
+}
+
+class short_description {
+    size font_size = $font_size_sm;
+    color text_color = $neutral_600;
+    str line_height = "1.5";
+    size margin_bottom = $space_4;
+}
+
+(class hero_content) > (class hero_title) {
+    color text_color = $neutral_50;
+}
+
+(class hero_content) > (class short_description) {
+    color text_color = rgba($neutral_50, 0.9);
+}
+
+class btn_get {
+    color background_color = $primary_600;
+    color text_color = $neutral_50;
+    size border_radius = $radius_full;
+    size padding_x = $space_6;
+    size padding_y = $space_2;
+    size font_size = $font_size_xs;
+    int font_weight = $font_weight_bold;
+    str text_transform = "uppercase";
+    str cursor = "pointer";
+    str width = "fit-content";
+    str margin_left = "auto";
+    str margin_right = "auto";
+    str transition = "transform $trans_fast, background $trans_fast";
+
+    state hover {
+        str transform = "scale(1.05)";
+        color background_color = $primary_700;
+    }
+}
+
+(class hero_content) > (class btn_get) {
+    color background_color = $neutral_50;
+    color text_color = $primary_700;
+
+    state hover {
+        color background_color = $neutral_100;
     }
 }
 
@@ -390,7 +584,7 @@ class category_tab {
 // === Search ===
 
 class search_input {
-    color background_color = rgba($primary_200, 0.8);
+    color background_color = rgba($neutral_50, 0.8);
     size border_radius = $radius_full;
     line border = line(width=1px, style="solid", color=$neutral_200);
     size padding_x = $space_4;
@@ -412,7 +606,7 @@ class search_input {
 }
 
 tag input_text {
-    color background_color = rgba($primary_200, 0.8);
+    color background_color = rgba($neutral_50, 0.8);
     size border_radius = $radius_md;
     line border = line(width=1px, style="solid", color=$neutral_300);
     size padding_x = $space_3;
@@ -803,14 +997,24 @@ class expandable_content {
 
 // === Badge ===
 
+class card_actions {
+    str display = "flex";
+    str flex_direction = "column";
+    str align_items = "center";
+    size gap = $space_2;
+    size margin_top = "auto";
+}
+
 class badge {
-    color background_color = $primary_200;
+    color background_color = rgba($primary_200, 0.4);
     color text_color = $primary_700;
     size border_radius = $radius_full;
-    size padding_x = $space_2;
+    size padding_x = $space_3;
     size padding_y = $space_1;
-    size font_size = $font_size_xs;
-    int font_weight = $font_weight_medium;
+    size font_size = 10px;
+    int font_weight = $font_weight_bold;
+    str text_transform = "uppercase";
+    str letter_spacing = "0.5px";
 }
 
 // === Stat Items ===

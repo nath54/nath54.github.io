@@ -40,7 +40,7 @@
         </stat_group>
 
         <!-- Gallery -->
-        <section class="section">
+        <section class="row_section">
             <h2 class="section-title" name_en="Gallery" name_fr="Galerie" />
             <image_carousel>
                 <exec_foreach var="img" in="{gallery}">
@@ -50,7 +50,7 @@
         </section>
 
         <!-- Description -->
-        <section class="section">
+        <section class="col_section">
             <h2 class="section-title" name_en="About" name_fr="À propos" />
             <long_description name_en="{description_en}" name_fr="{description_fr}" />
             <div class="tags-list">
