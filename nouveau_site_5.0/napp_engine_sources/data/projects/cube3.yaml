@@ -1,0 +1,21 @@
+name_en: "Cube3"
+name_fr: "Cube3"
+short_description_en: ""
+short_description_fr: ""
+project_status: "Aborted"
+project_type: "Personal"
+project_showcase_importance: 3
+icon: "res/icons/icon_project_cube3.png"
+link: "https://github.com/nath54/Cube3/releases/tag/v0.1-indev"
+github_link: "https://github.com/nath54/Cube3"
+app_version: "0.1"
+download_size: "42.1 MB"
+tags: ["Godot", "C#", "Game", "3D"]
+gallery: ["res/icons/icon_project_cube3.png"]
+description_en: ""
+description_fr: ""
+funny_comments:
+  - user: ""
+    rating: 5
+    text_en: ""
+    text_fr: ""

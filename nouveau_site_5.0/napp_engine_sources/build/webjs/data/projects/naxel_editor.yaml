@@ -1,0 +1,21 @@
+name_en: "Naxel Editor"
+name_fr: "Naxel Editor"
+short_description_en: ""
+short_description_fr: ""
+project_status: "Paused"
+project_type: "Personal"
+project_showcase_importance: 6
+icon: "res/icons/icon_project_naxel_editor.png"
+link: "https://nath54.github.io/NaxelEditor/naxel_editor_webpage/"
+github_link: "https://github.com/nath54/NaxelEditor"
+app_version: "0.9"
+download_size: "-"
+tags: ["Graphics", "Editor", "3D", "Voxels"]
+gallery: ["res/icons/icon_project_naxel_editor.png"]
+description_en: ""
+description_fr: ""
+funny_comments:
+  - user: ""
+    rating: 5
+    text_en: ""
+    text_fr: ""

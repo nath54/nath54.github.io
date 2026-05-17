@@ -1,0 +1,21 @@
+name_en: "Napp Engine Compiler"
+name_fr: "Napp Engine Compiler"
+short_description_en: ""
+short_description_fr: ""
+project_status: "Ended"
+project_type: "Personal"
+project_showcase_importance: 15
+icon: "res/icons/icon_project_napp_engine_compiler.png"
+link: "https://github.com/nath54/napp_engine_compiler/archive/refs/heads/master.zip"
+github_link: "https://github.com/nath54/napp_engine_compiler"
+app_version: "0.1.2"
+download_size: "254 Ko"
+tags: ["Python", "Compilation", "Dev", "Engine"]
+gallery: ["res/icons/icon_project_napp_engine_compiler.png"]
+description_en: ""
+description_fr: ""
+funny_comments:
+  - user: ""
+    rating: 5
+    text_en: ""
+    text_fr: ""

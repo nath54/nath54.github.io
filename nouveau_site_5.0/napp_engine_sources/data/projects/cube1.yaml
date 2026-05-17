@@ -1,0 +1,21 @@
+name_en: "Cube1"
+name_fr: "Cube1"
+short_description_en: ""
+short_description_fr: ""
+project_status: "Aborted"
+project_type: "Personal"
+project_showcase_importance: 1
+icon: "res/icons/icon_project_cube1.png"
+link: "https://github.com/nath54/cube/archive/refs/heads/master.zip"
+github_link: "https://github.com/nath54/cube"
+app_version: "1.0"
+download_size: "10.2 Ko"
+tags: ["Python", "Game", "2D", "Pygame"]
+gallery: ["res/icons/icon_project_cube1.png"]
+description_en: ""
+description_fr: ""
+funny_comments:
+  - user: ""
+    rating: 5
+    text_en: ""
+    text_fr: ""

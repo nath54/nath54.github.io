@@ -1,0 +1,21 @@
+name_en: "iFiction Engine"
+name_fr: "iFiction Engine"
+short_description_en: ""
+short_description_fr: ""
+project_status: "Paused"
+project_type: "Personal"
+project_showcase_importance: 10
+icon: "res/icons/icon_project_ifiction_engine.png"
+link: "https://github.com/nath54/ifiction_engine/archive/refs/heads/main.zip"
+github_link: "https://github.com/nath54/ifiction_engine"
+app_version: "0.4.2"
+download_size: "73.0 Ko"
+tags: ["Python", "Engine", "Interactive fiction"]
+gallery: ["res/icons/icon_project_ifiction_engine.png"]
+description_en: ""
+description_fr: ""
+funny_comments:
+  - user: ""
+    rating: 5
+    text_en: ""
+    text_fr: ""

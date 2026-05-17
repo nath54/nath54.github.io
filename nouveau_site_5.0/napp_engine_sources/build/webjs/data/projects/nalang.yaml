@@ -1,0 +1,21 @@
+name_en: "NaLang"
+name_fr: "NaLang"
+short_description_en: ""
+short_description_fr: ""
+project_status: "Ended"
+project_type: "Personal"
+project_showcase_importance: 4
+icon: "res/icons/icon_project_nalang.png"
+link: "https://github.com/nath54/NaLang/releases/tag/v0.9.4.4"
+github_link: "https://github.com/nath54/NaLang"
+app_version: "0.9.4.4"
+download_size: "71.7 MB"
+tags: ["Godot", "GDScript", "Language", "Learning"]
+gallery: ["res/icons/icon_project_nalang.png"]
+description_en: ""
+description_fr: ""
+funny_comments:
+  - user: ""
+    rating: 5
+    text_en: ""
+    text_fr: ""

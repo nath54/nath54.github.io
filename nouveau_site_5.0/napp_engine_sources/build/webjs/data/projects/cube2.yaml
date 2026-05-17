@@ -1,0 +1,21 @@
+name_en: "Cube2"
+name_fr: "Cube2"
+short_description_en: ""
+short_description_fr: ""
+project_status: "Aborted"
+project_type: "Personal"
+project_showcase_importance: 2
+icon: "res/icons/icon_project_cube2.png"
+link: "https://github.com/nath54/cube2/releases/download/2.2/main.zip"
+github_link: "https://github.com/nath54/cube2"
+app_version: "2.2"
+download_size: "31.4 MB"
+tags: ["Python", "Game", "2D", "Pygame"]
+gallery: ["res/icons/icon_project_cube2.png"]
+description_en: ""
+description_fr: ""
+funny_comments:
+  - user: ""
+    rating: 5
+    text_en: ""
+    text_fr: ""
