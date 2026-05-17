@@ -8,3 +8,15 @@ initial_state:
 storage:
   mode: local
   id: nath54_website
+
+dynamic_pages:
+  - source: "data/projects/"
+    template: "pages/project_page.naxml"
+    output_pattern: "pages/projects/{_source_file}.html"
+  - source: "data/blog_series/"
+    template: "pages/series_overview.naxml"
+    output_pattern: "pages/blog/series_{_source_file}.html"
+  - source: "data/blogs/"
+    template: "pages/blog_post.naxml"
+    output_pattern: "pages/blog/{_source_file}.html"
+    parser: "markdown_gazette"

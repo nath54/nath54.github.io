@@ -479,7 +479,7 @@ class os_title_bar {
 
 class os_btn_back {
     color text_color = $neutral_600;
-    color background_color = "transparent";
+    str background_color = "transparent";
     size font_size = $font_size_sm;
     int font_weight = $font_weight_medium;
     str text_decoration = "none";
@@ -491,7 +491,7 @@ class os_btn_back {
 
     state hover {
         color text_color = $primary_600;
-        color background_color = "transparent";
+        str background_color = "transparent";
     }
 }
 
@@ -667,7 +667,7 @@ class gazette_card {
     size min_width = 200px;
     size padding = $space_6;
     size margin_bottom = $space_2;
-    filter backdrop_filter = "none";
+    str backdrop_filter = "none";
     str transition = "transform $trans_normal, box-shadow $trans_normal";
 
     state hover {
@@ -734,7 +734,7 @@ class gazette_title {
     int font_weight = $font_weight_bold;
     color text_color = $neutral_900;
     str text_transform = "uppercase";
-    size margin_bottom = 0;
+    size margin_bottom = 0px;
     str text_align = "center";
     str letter_spacing = "-0.5px";
 }
@@ -822,8 +822,8 @@ class article_metadata {
     str flex_direction = "row";
     str align_items = "center";
     size gap = $space_2;
-    size margin_left = "auto";
-    size margin_right = "auto";
+    str margin_left = "auto";
+    str margin_right = "auto";
 }
 
 class article_container {
@@ -834,8 +834,8 @@ class article_container {
     size padding_y = $space_12;
     size margin_y = $space_8;
     size max_width = 850px;
-    size margin_left = "auto";
-    size margin_right = "auto";
+    str margin_left = "auto";
+    str margin_right = "auto";
     str box_shadow = "0 20px 50px rgba(0,0,0,0.06)";
 }
 
@@ -910,7 +910,7 @@ class series_overview_description {
     font_family font_family = $font_serif;
     size font_size = $font_size_lg;
     color text_color = $neutral_600;
-    str max_width = 85%;
+    size max_width = 85%;
     size margin_top = $space_4;
     str line_height = "1.6";
 }
@@ -970,8 +970,8 @@ class expandable {
     color background_color = $primary_50;
     size margin_top = $space_2;
     size margin_bottom = $space_2;
-    size margin_left = "auto";
-    size margin_right = "auto";
+    str margin_left = "auto";
+    str margin_right = "auto";
     size width = 95%;
 }
 
@@ -1006,7 +1006,7 @@ class card_actions {
     str flex_direction = "column";
     str align_items = "center";
     size gap = $space_2;
-    size margin_top = "auto";
+    str margin_top = "auto";
 }
 
 class badge {
@@ -1054,14 +1054,14 @@ class product_title {
     size font_size = $font_size_4xl;
     int font_weight = $font_weight_bold;
     color text_color = $neutral_900;
-    size margin = 0;
+    size margin = 0px;
 }
 
 class product_developer {
     size font_size = $font_size_lg;
     color text_color = $primary_600;
     int font_weight = $font_weight_medium;
-    size margin = 0;
+    size margin = 0px;
 }
 
 class header_actions {
@@ -1292,26 +1292,26 @@ class interactive {
 
 class nascene_container {
     size border_radius = $radius_lg;
-    color background_color = "#000000";
-    color background = "#000000";
+    str background_color = "#000000";
+    str background = "#000000";
 }
 
 class nascene_bar_text {
-    size margin_left = "auto";
-    size margin_right = "auto";
-    size margin_top = "auto";
-    size margin_bottom = "auto";
+    str margin_left = "auto";
+    str margin_right = "auto";
+    str margin_top = "auto";
+    str margin_bottom = "auto";
     str text_align = "center";
-    color text_color = "#ffffff";
+    str text_color = "#ffffff";
 }
 
 class nascene_bar {
     str position = "absolute";
-    size left = 0;
-    size bottom = 0;
-    size right = 0;
+    size left = 0px;
+    size bottom = 0px;
+    size right = 0px;
     size top = 60%;
-    color background_color = rgba("#444444", 0.9);
+    str background_color = "rgba(68, 68, 68, 0.9)";
     line border_top = line(width=3px, style="solid", color=$primary_700);
     color text_color = $neutral_50;
     size padding_x = $space_4;
@@ -1329,7 +1329,7 @@ class nascene_button {
     size padding_x = $space_4;
     size padding_y = $space_4;
     str cursor = "pointer";
-    line border = "none";
+    str border = "none";
 
     state hover {
         color background_color = $primary_600;

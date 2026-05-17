@@ -834,6 +834,227 @@ window.gs = {
         redo: () => window.NApp.redo()
     },
 
+
+    // --- Network APIs ---
+    network: {
+        fetch: async (...args) => {
+            const [url, method, headers, body] = window.gs._args(args, "url", "method", "headers", "body");
+            try {
+                const res = await fetch(url, {
+                    method: method || "GET",
+                    headers: headers || {},
+                    body: typeof body === 'object' ? JSON.stringify(body) : body
+                });
+                const text = await res.text();
+                let jsonBody = null;
+                try { jsonBody = JSON.parse(text); } catch(e) {}
+                return {
+                    status: res.status,
+                    body: jsonBody !== null ? jsonBody : text,
+                    headers: Object.fromEntries(res.headers.entries())
+                };
+            } catch (err) {
+                return { status: 0, body: String(err), headers: {} };
+            }
+        },
+        socket_connect: (...args) => {
+            const [id, url] = window.gs._args(args, "id", "url");
+            window.NApp._sockets = window.NApp._sockets || {};
+            window.NApp._sockets[id] = new WebSocket(url);
+        },
+        socket_on_message: (...args) => {
+            const [id, handler_name] = window.gs._args(args, "id", "handler_name");
+            if(window.NApp._sockets && window.NApp._sockets[id]) {
+                window.NApp._sockets[id].addEventListener('message', e => {
+                    if (typeof e.data === 'string' && window[handler_name]) window[handler_name](e.data);
+                });
+            }
+        },
+        socket_on_message_bytes: (...args) => {
+            const [id, handler_name] = window.gs._args(args, "id", "handler_name");
+            if(window.NApp._sockets && window.NApp._sockets[id]) {
+                window.NApp._sockets[id].binaryType = 'arraybuffer';
+                window.NApp._sockets[id].addEventListener('message', e => {
+                    if (e.data instanceof ArrayBuffer && window[handler_name]) {
+                        window[handler_name](Array.from(new Uint8Array(e.data)));
+                    }
+                });
+            }
+        },
+        socket_on_close: (...args) => {
+            const [id, handler_name] = window.gs._args(args, "id", "handler_name");
+            if(window.NApp._sockets && window.NApp._sockets[id]) {
+                window.NApp._sockets[id].addEventListener('close', () => {
+                    if (window[handler_name]) window[handler_name]();
+                });
+            }
+        },
+        socket_send: (...args) => {
+            const [id, data] = window.gs._args(args, "id", "data");
+            if(window.NApp._sockets && window.NApp._sockets[id]) window.NApp._sockets[id].send(data);
+        },
+        socket_send_bytes: (...args) => {
+            const [id, data] = window.gs._args(args, "id", "data");
+            if(window.NApp._sockets && window.NApp._sockets[id]) {
+                const uintArray = new Uint8Array(data);
+                window.NApp._sockets[id].send(uintArray.buffer);
+            }
+        },
+        socket_close: (...args) => {
+            const [id] = window.gs._args(args, "id");
+            if(window.NApp._sockets && window.NApp._sockets[id]) {
+                window.NApp._sockets[id].close();
+                delete window.NApp._sockets[id];
+            }
+        }
+    },
+
+    // --- Hardware APIs ---
+    hardware: {
+        clipboard_write: (...args) => {
+            const [text] = window.gs._args(args, "text");
+            if (navigator.clipboard) navigator.clipboard.writeText(text);
+        },
+        clipboard_read: async () => {
+            if (navigator.clipboard) return await navigator.clipboard.readText();
+            return "";
+        },
+        get_location: async () => {
+            return new Promise(resolve => {
+                if (!navigator.geolocation) return resolve({});
+                navigator.geolocation.getCurrentPosition(
+                    pos => resolve({ lat: pos.coords.latitude, lng: pos.coords.longitude, accuracy: pos.coords.accuracy }),
+                    err => resolve({})
+                );
+            });
+        },
+        nfc_listen: async (...args) => {
+            const [handler_name] = window.gs._args(args, "handler_name");
+            if ('NDEFReader' in window) {
+                try {
+                    const ndef = new window.NDEFReader();
+                    await ndef.scan();
+                    ndef.onreading = event => {
+                        const decoder = new TextDecoder();
+                        for (const record of event.message.records) {
+                            if (window[handler_name]) window[handler_name](decoder.decode(record.data));
+                        }
+                    };
+                } catch(e) { console.error("[NApp NFC]", e); }
+            } else { console.warn("[NApp] WebNFC not supported."); }
+        },
+        nfc_write_next: async (...args) => {
+            const [payload] = window.gs._args(args, "payload");
+            if ('NDEFReader' in window) {
+                try {
+                    const ndef = new window.NDEFReader();
+                    await ndef.write(payload);
+                } catch(e) { console.error("[NApp NFC]", e); }
+            }
+        }
+    },
+
+    // --- Media APIs ---
+    media: {
+        _audio_instances: {},
+        audio_load: (...args) => {
+            const [id, src] = window.gs._args(args, "id", "src");
+            window.gs.media._audio_instances[id] = new Audio(src);
+        },
+        audio_play: (...args) => {
+            const [id] = window.gs._args(args, "id");
+            if (window.gs.media._audio_instances[id]) window.gs.media._audio_instances[id].play();
+        },
+        audio_pause: (...args) => {
+            const [id] = window.gs._args(args, "id");
+            if (window.gs.media._audio_instances[id]) window.gs.media._audio_instances[id].pause();
+        },
+        audio_stop: (...args) => {
+            const [id] = window.gs._args(args, "id");
+            if (window.gs.media._audio_instances[id]) {
+                window.gs.media._audio_instances[id].pause();
+                window.gs.media._audio_instances[id].currentTime = 0;
+            }
+        },
+        audio_set_volume: (...args) => {
+            const [id, volume] = window.gs._args(args, "id", "volume");
+            if (window.gs.media._audio_instances[id]) window.gs.media._audio_instances[id].volume = volume;
+        },
+        audio_set_loop: (...args) => {
+            const [id, loop] = window.gs._args(args, "id", "loop");
+            if (window.gs.media._audio_instances[id]) window.gs.media._audio_instances[id].loop = loop;
+        },
+        audio_set_position: (...args) => {
+            const [id, position_seconds] = window.gs._args(args, "id", "position_seconds");
+            if (window.gs.media._audio_instances[id]) window.gs.media._audio_instances[id].currentTime = position_seconds;
+        },
+        audio_get_position: (...args) => {
+            const [id] = window.gs._args(args, "id");
+            return window.gs.media._audio_instances[id] ? window.gs.media._audio_instances[id].currentTime : 0;
+        },
+        audio_get_duration: (...args) => {
+            const [id] = window.gs._args(args, "id");
+            return window.gs.media._audio_instances[id] ? window.gs.media._audio_instances[id].duration : 0;
+        },
+        audio_set_on_finish_handler: (...args) => {
+            const [id, handler_name] = window.gs._args(args, "id", "handler_name");
+            if (window.gs.media._audio_instances[id]) {
+                window.gs.media._audio_instances[id].onended = () => {
+                    if (window[handler_name]) window[handler_name](id);
+                };
+            }
+        },
+        play_sound: (...args) => {
+            const [src, volume] = window.gs._args(args, "src", "volume");
+            const a = new Audio(src);
+            if (volume !== undefined) a.volume = volume;
+            a.play();
+        },
+        // Camera / Video UI parts require DOM interaction (handled generally via ui_gen/components)
+        // Stubs for runtime consistency
+        video_play: (...args) => {
+            const [id] = window.gs._args(args, "id");
+            const el = document.getElementById(id);
+            if (el && el.play) el.play();
+        },
+        video_pause: (...args) => {
+            const [id] = window.gs._args(args, "id");
+            const el = document.getElementById(id);
+            if (el && el.pause) el.pause();
+        },
+        camera_take_photo: (...args) => {
+            return "res://photo.jpg"; // Placeholder until <camera_view> generates a canvas capture
+        }
+    },
+
+    // --- System APIs ---
+    system: {
+        fs_read_text: (...args) => {
+            const [path] = window.gs._args(args, "path");
+            return localStorage.getItem(path) || "";
+        },
+        fs_write_text: (...args) => {
+            const [path, content] = window.gs._args(args, "path", "content");
+            try { localStorage.setItem(path, content); return true; } catch(e) { return false; }
+        },
+        fs_exists: (...args) => {
+            const [path] = window.gs._args(args, "path");
+            return localStorage.getItem(path) !== null;
+        },
+        fs_delete: (...args) => {
+            const [path] = window.gs._args(args, "path");
+            localStorage.removeItem(path);
+        },
+        open_url: (...args) => {
+            const [url] = window.gs._args(args, "url");
+            window.open(url, '_blank');
+        },
+        shell_exec: (...args) => {
+            console.warn("[NApp] shell_exec is sandboxed in WebJS");
+            return "Error: Sandboxed";
+        }
+    },
+
     canvas: (id) => {
         const c = window.NaCanvas.instances[id] || window.NaCanvas.get(id);
         if (!c) console.error(`[gs] Canvas "${id}" not found!`);

@@ -16,6 +16,7 @@ theme Dark {
     color primary_900 = #ede9fe;
 
     // === Neutral Grays (inverted) ===
+    color neutral_0 = #0a0a0a;
     color neutral_50 = #18181b;
     color neutral_100 = #27272a;
     color neutral_200 = #3f3f46;
