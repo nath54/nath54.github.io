@@ -1,7 +1,7 @@
 name_en: "Naxel Editor"
 name_fr: "Naxel Editor"
-short_description_en: ""
-short_description_fr: ""
+short_description_en: "A lightweight 3D voxel ecosystem featuring an expressive JSON-based object format, a serverless web editor, a dynamic JavaScript renderer, and custom light diffusion algorithms."
+short_description_fr: "Un écosystème de voxels 3D léger comprenant un format JSON expressif, un éditeur web sans serveur, une bibliothèque de rendu JavaScript dynamique et des algorithmes de diffusion de lumière."
 project_status: "Paused"
 project_type: "Personal"
 project_showcase_importance: 6
@@ -12,10 +12,62 @@ app_version: "0.9"
 download_size: "-"
 tags: ["Graphics", "Editor", "3D", "Voxels"]
 gallery: ["res/icons/icon_project_naxel_editor.png"]
-description_en: ""
-description_fr: ""
+description_en: |
+  Naxel Editor is a sophisticated, browser-based 3D voxel modeling and rendering ecosystem designed to maximize creative expressivity while maintaining incredibly compact, highly optimized file sizes. At the heart of the system is the **Naxel JSON specification**, a custom data format that supports high-level procedural primitives (such as spheres, cylinders, lines, rectangles, and polygons), advanced multi-stop color gradients, and color zones.
+
+  The ecosystem consists of three core components:
+  1. **Naxel Editor Webpage**: A static, fully serverless web application that enables users to import, edit, visualize, and export Naxel objects directly in the browser. It features a responsive layout with a 3D viewport, a custom palette system, and a 2D slice editor with isometric previews and adjustable ghost layers for seamless workflow efficiency.
+  2. **JavaScript Library (`lib_naxel`)**: A lightweight, self-contained rendering engine designed to dynamically parse and render interactive 3D Naxel objects within any HTML page—perfect for static sites and portfolios (like GitHub Pages).
+  3. **Python Renderer**: A backend script capable of generating high-fidelity static images and animated GIFs from Naxel configurations.
+
+  The editor features a custom **Simple Diffusion** lighting algorithm where light behaves as an additive, multi-channel (RGB) multiplier that propagates through empty space and is blocked by opaque voxels, achieving realistic light propagation and soft shadows without heavy GPU requirements.
+description_fr: |
+  Naxel Editor est un écosystème sophistiqué de modélisation et de rendu de voxels 3D dans le navigateur, conçu pour maximiser l'expressivité créative tout en conservant des fichiers extrêmement compacts et optimisés. Au cœur du système se trouve la **spécification JSON Naxel**, un format de données personnalisé qui prend en charge des primitives procédurales de haut niveau (telles que des sphères, des cylindres, des lignes, des rectangles et des polygones), des dégradés de couleurs complexes et des zones de couleur dynamiques.
+
+  L'écosystème se compose de trois éléments principaux :
+  1. **L'éditeur Naxel Web**: Une application web statique et sans serveur qui permet d'importer, d'éditer, de visualiser et d'exporter des objets Naxel directement dans le navigateur. Elle intègre un viewport 3D réactif, un système de palette personnalisée et un éditeur de tranches 2D avec prévisualisations isométriques et couches fantômes réglables.
+  2. **La bibliothèque JavaScript (`lib_naxel`)**: Un moteur de rendu léger et autonome conçu pour analyser et afficher dynamiquement des objets Naxel 3D interactifs sur n'importe quelle page HTML, idéal pour les sites statiques et portfolios (comme GitHub Pages).
+  3. **Le moteur de rendu Python**: Un script backend capable de générer des images statiques haute fidélité et des GIFs animés à partir des configurations Naxel.
+
+  L'éditeur implémente un algorithme propriétaire de **diffusion simple de la lumière (Simple Diffusion)**, où la lumière se propage de manière additive dans les espaces vides et est bloquée par les voxels opaques, offrant des jeux de lumière réalistes et des ombres douces sans nécessiter de ressources GPU massives.
 funny_comments:
-  - user: ""
+  - user: "VoxelViking99"
     rating: 5
-    text_en: ""
-    text_fr: ""
+    text_en: "I spent 3 hours trying to draw a sphere, only to realize the JSON engine could do it with a single line of code. My index finger will never forgive me."
+    text_fr: "J'ai passé 3 heures à essayer de dessiner une sphère voxel par voxel, pour réaliser que le moteur JSON pouvait le faire en une seule ligne de code. Mon index ne me le pardonnera jamais."
+  - user: "OverflowError"
+    rating: 4
+    text_en: "The Simple Diffusion light algorithm is so simple that my RAM actually understood it. It didn't leak, which is highly suspicious for a JavaScript project."
+    text_fr: "L'algorithme de lumière Simple Diffusion est tellement simple que ma RAM l'a réellement compris. Pas de fuite de mémoire, ce qui est extrêmement suspect pour un projet JavaScript."
+  - user: "Z_Axis_Denialist"
+    rating: 3
+    text_en: "I successfully built a perfect 3D model, but then I switched axes from XY to YZ and entered a parallel dimension where my model is flat and my head hurts."
+    text_fr: "J'ai réussi à construire un modèle 3D parfait, mais j'ai changé d'axe de XY à YZ et je suis entré dans une dimension parallèle où mon modèle est plat et j'ai mal à la tête."
+  - user: "JSON_Hoarder"
+    rating: 5
+    text_en: "My voxel model is 500x500x500 but the JSON file is only 1.2 KB because I used three cylinders and a sphere. My hard drive thinks I am a wizard."
+    text_fr: "Mon modèle voxel fait 500x500x500 mais le fichier JSON ne fait que 1,2 Ko parce que j'ai utilisé trois cylindres et une sphère. Mon disque dur me prend pour un magicien."
+  - user: "GhostWriter"
+    rating: 5
+    text_en: "The ghost layer feature is amazing! I can see the voxels from the previous slice. Unfortunately, I also started seeing the ghosts of my deleted code branches."
+    text_fr: "La fonctionnalité de couche fantôme est géniale ! Je peux voir les voxels de la tranche précédente. Malheureusement, j'ai aussi commencé à voir les fantômes de mes branches de code supprimées."
+  - user: "BugMagnet"
+    rating: 2
+    text_en: "Set the environment sky color to neon pink and the light emission to 9999. I can no longer see my screen, but my room is beautifully illuminated. 10/10 nightlight."
+    text_fr: "J'ai réglé la couleur du ciel sur rose néon et l'émission lumineuse sur 9999. Je ne vois plus mon écran, mais ma chambre est magnifiquement éclairée. 10/10 pour une veilleuse."
+  - user: "NoGPU_NoProblem"
+    rating: 5
+    text_en: "Runs at 60fps on a school calculator from 2004. Take that, Unreal Engine 5!"
+    text_fr: "Tourne à 60 images par seconde sur une calculatrice scolaire de 2004. Prends ça dans les dents, Unreal Engine 5 !"
+  - user: "ArrayOutOfBounds"
+    rating: 4
+    text_en: "Tried to define a color with RGB values of [999, -50, 42]. The engine clamped it to [255, 0, 42] without crashing. I am offended by how robust this error handling is."
+    text_fr: "J'ai essayé de définir une couleur avec des valeurs RGB de [999, -50, 42]. Le moteur l'a bridée à [255, 0, 42] sans crasher. Je suis offensé par la robustesse de cette gestion des erreurs."
+  - user: "Sisyphus_Coder"
+    rating: 1
+    text_en: "I built a gorgeous voxel character, clicked Export, and realized my cat had disconnected the internet. Then I remembered it's a serverless static webpage and it worked perfectly offline. I hate that I couldn't be mad."
+    text_fr: "J'ai créé un superbe personnage voxel, j'ai cliqué sur Exporter et j'ai réalisé que mon chat avait débranché internet. Puis je me suis rappelé que c'est un site statique sans serveur et que ça marchait hors ligne. Je déteste ne pas pouvoir être en colère."
+  - user: "DarkThemeOnly"
+    rating: 5
+    text_en: "The editor has an incredibly sleek dark theme interface. My eyes thanked me, until I turned on the Sun Direction light source and flashbang'd myself."
+    text_fr: "L'éditeur a une interface en thème sombre incroyablement élégante. Mes yeux m'ont remercié, jusqu'à ce que j'active la source lumineuse Sun Direction et que je me flashbange moi-même."

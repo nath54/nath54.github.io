@@ -1,7 +1,7 @@
 name_en: "Napp Engine Compiler"
 name_fr: "Napp Engine Compiler"
-short_description_en: ""
-short_description_fr: ""
+short_description_en: "A modular cross-platform transpiler compiling NaXML, NaStyle, and NaCode into highly responsive WebJS (HTML5/JS) and native desktop PySide6 apps."
+short_description_fr: "Un transpilateur multi-cible modulaire compilant NaXML, NaStyle et NaCode en applications web réactives (WebJS) et de bureau natives (PySide6)."
 project_status: "Ended"
 project_type: "Personal"
 project_showcase_importance: 15
@@ -12,10 +12,46 @@ app_version: "0.1.2"
 download_size: "254 Ko"
 tags: ["Python", "Compilation", "Dev", "Engine"]
 gallery: ["res/icons/icon_project_napp_engine_compiler.png"]
-description_en: ""
-description_fr: ""
+description_en: "The Napp Engine Compiler is a high-performance, modular, multi-target transpiler designed to compile unified NApp projects into responsive, dependency-free single-page web applications (WebJS) and native desktop window applications (PySide6/Qt6). By strictly decoupling declarative UI layouts (NaXML), custom style schemas (NaStyle), strongly typed mid-end logic (NaCode), and native system calls, it enables full cross-platform execution with a single unified codebase.\n\nThe compiler engine features a robust parsing pipeline powered by Lark grammars, syntax-to-AST translation layers, type checking, and semantic validation before generating optimized intermediate representations. It also integrates an emulation-based interactive macOS-style terminal overlay in the browser, local storage proxies, sound control engines, network fetch interfaces, and clipboard hardware controllers, along with an auto-unlocking/kill system to release active Windows ports and file locks during development iterations."
+description_fr: "Le compilateur Napp Engine est un transpilateur modulaire et performant conçu pour compiler des projets NApp unifiés en applications web réactives à page unique (WebJS) et en applications de bureau natives (PySide6/Qt6). Grâce à un découplage rigoureux entre les interfaces utilisateur déclaratives (NaXML), les feuilles de style (NaStyle), la logique fortement typée (NaCode) et les API système globales, il permet une exécution multiplateforme fluide avec une unique base de code.\n\nLe compilateur intègre un pipeline d'analyse robuste basé sur des grammaires Lark, une validation sémantique stricte et un gestionnaire de types unifié pour sécuriser la génération du code. Il prend également en charge une émulation de terminal graphique interactive au style macOS dans le navigateur, des proxies de persistance locale, des lecteurs audio/vidéo intégrés, des requêtes HTTP distantes et des contrôles de presse-papiers physiques, épaulés par un système de déverrouillage de ports et de processus Windows pour simplifier le développement."
 funny_comments:
-  - user: ""
+  - user: "BugHunter99"
     rating: 5
-    text_en: ""
-    text_fr: ""
+    text_en: "The compiler's Windows port auto-unlocker is so aggressive, it closed my browser, my IDE, and terminated my apartment lease."
+    text_fr: "Le débloqueur de port Windows du compilateur est si agressif qu'il a fermé mon navigateur, mon IDE et a résilié mon bail de location."
+  - user: "LarkWhisperer"
+    rating: 4
+    text_en: "I tried using Lark to parse my life choices, but got a Shift/Reduce conflict on 'eating pizza at 3 AM'."
+    text_fr: "J'ai essayé d'utiliser Lark pour analyser mes choix de vie, mais j'ai obtenu un conflit Shift/Reduce sur 'manger une pizza à 3h du matin'."
+  - user: "PySideSurvivor"
+    rating: 5
+    text_en: "The PySide6 fallback is so retro, I half-expected the compiler to ask for a floppy disk."
+    text_fr: "Le repli vers PySide6 est tellement rétro que je m'attendais presque à ce que le compilateur me demande une disquette."
+  - user: "CssWizard"
+    rating: 3
+    text_en: "Compiled my UI, and the grid layout is so responsive it responded by leaving the screen."
+    text_fr: "J'ai compilé mon UI, et la disposition en grille est si réactive qu'elle a réagi en quittant l'écran."
+  - user: "GitGud"
+    rating: 5
+    text_en: "Implemented the Undo/Redo history stack, but I still can't undo my career path."
+    text_fr: "J'ai implémenté la pile d'historique Undo/Redo, mais je ne peux toujours pas annuler mes choix de carrière."
+  - user: "TypeSafetyFirst"
+    rating: 4
+    text_en: "The compiler rejected my 'any' type because it had an existential crisis and preferred to be 'void'."
+    text_fr: "Le compilateur a rejeté mon type 'any' parce qu'il faisait une crise existentielle et préférait être 'void'."
+  - user: "NoGPSNeeded"
+    rating: 5
+    text_en: "The GPS locator always returns (0, 0). Perfect for avoiding git blame and bug reports."
+    text_fr: "Le localisateur GPS renvoie toujours (0, 0). Parfait pour éviter le git blame et les rapports de bogues."
+  - user: "CacheIsKing"
+    rating: 4
+    text_en: "Local Storage falls back to native file writing. Now my settings are saved in a .txt file next to my childhood photos."
+    text_fr: "Le stockage local se rabat sur l'écriture de fichiers natifs. Maintenant, mes paramètres sont sauvegardés dans un fichier .txt à côté de mes photos d'enfance."
+  - user: "FrenchDev"
+    rating: 5
+    text_en: "The bilingual engine is amazing, but naming a variable 'pain_au_chocolat' throws a compilation error in Toulouse."
+    text_fr: "Le moteur bilingue est incroyable, mais nommer une variable 'chocolatine' lève une erreur de compilation à Paris."
+  - user: "CompilerOptimist"
+    rating: 5
+    text_en: "0 errors, 1428 warnings. Mostly the compiler asking if I've touched grass recently. 10/10 feature."
+    text_fr: "0 erreur, 1428 avertissements. Principalement le compilateur me demandant si j'ai touché de l'herbe récemment. Fonctionnalité 10/10."

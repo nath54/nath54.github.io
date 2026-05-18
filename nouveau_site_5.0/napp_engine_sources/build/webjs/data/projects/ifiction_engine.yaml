@@ -1,7 +1,7 @@
 name_en: "iFiction Engine"
 name_fr: "iFiction Engine"
-short_description_en: ""
-short_description_fr: ""
+short_description_en: "A highly modular, event-driven, turn-based Interactive Fiction (text adventure) game engine in Python, featuring a custom natural language parser, time scheduling, and dynamic scripts."
+short_description_fr: "Un moteur de fiction interactive (aventure textuelle) hautement modulaire, piloté par événements et au tour par tour en Python, avec un analyseur de langage naturel personnalisé."
 project_status: "Paused"
 project_type: "Personal"
 project_showcase_importance: 10
@@ -12,10 +12,46 @@ app_version: "0.4.2"
 download_size: "73.0 Ko"
 tags: ["Python", "Engine", "Interactive fiction"]
 gallery: ["res/icons/icon_project_ifiction_engine.png"]
-description_en: ""
-description_fr: ""
+description_en: "iFiction Engine is a complete, modular, and lightweight interactive fiction game engine built entirely in Python's standard library. It parses complex natural language command structures (like 'take key', 'put book in shelf with hands', or 'ask merchant about potion') using an intelligent custom tokenizer. The engine is powered by an event-driven scene execution framework that handles conditions, branch jumps, local/global variables, and custom actions. Additionally, a priority queue-based scheduler governs game-time progression and turns, allowing realistic schedules, NPC behaviors, and world ticks. World blueprints use a unified, fully serializable JSON format, meaning there is no functional difference between a game initialization file and a game save file."
+description_fr: "iFiction Engine est un moteur de jeu de fiction interactive complet, modulaire et léger, entièrement développé en Python avec la bibliothèque standard. Il analyse des structures de commandes complexes en langage naturel (comme 'prendre clé', 'mettre livre dans étagère avec les mains' ou 'demander au marchand à propos de la potion') grâce à un analyseur syntaxique personnalisé. Le moteur repose sur un framework d'exécution de scènes piloté par événements, gérant les conditions, les sauts de branchement, les variables locales/globales et les actions personnalisées. De plus, un ordonnanceur basé sur une file d'attente à priorité régit la progression temporelle du jeu et les tours, permettant des comportements de PNJ et des événements d'arrière-plan réalistes. Les configurations de mondes utilisent un format JSON unifié et sérialisable, de sorte qu'il n'y a aucune différence fonctionnelle entre un fichier d'initialisation de jeu et une sauvegarde."
 funny_comments:
-  - user: ""
+  - user: "GitCommitmentIssues"
     rating: 5
-    text_en: ""
-    text_fr: ""
+    text_en: "Finally, a game engine where I can type 'sprint south-west with bare hands' and not get questioned by local authorities. 10/10 parser!"
+    text_fr: "Enfin un moteur de jeu où je peux taper 'sprinter vers le sud-ouest les mains vides' sans me faire questionner par les autorités locales. Analyseur 10/10 !"
+  - user: "JSON_Derulo"
+    rating: 5
+    text_en: "I love how game saves and game blueprints are the exact same JSON format. Now my bugs are fully serializable too!"
+    text_fr: "J'adore le fait que les sauvegardes de jeu et les configurations initiales soient exactement au même format JSON. Maintenant, mes bugs aussi sont entièrement sérialisables !"
+  - user: "TheSpaghettiArchitect"
+    rating: 4
+    text_en: "It took me three hours of reading 'scenes_events_and_actions.md' to realize I could create a recursive room enter event that traps the player in a temporal paradox. Beautiful design."
+    text_fr: "Il m'a fallu trois heures de lecture sur 'scenes_events_and_actions.md' pour comprendre comment créer un événement récursif d'entrée de pièce qui piège le joueur dans un paradoxe temporel. Un design magnifique."
+  - user: "TerminalIllness"
+    rating: 5
+    text_en: "Who needs 3D Unreal Engine graphics when you have raw CLI mono-spaced text that smells of dusty dungeon hallways? High-quality immersion."
+    text_fr: "Qui a besoin de graphismes 3D sous Unreal Engine quand on a du texte brut CLI en police à chasse fixe qui sent bon les couloirs poussiéreux de donjons ? Immersion de haute qualité."
+  - user: "BugCatcher"
+    rating: 5
+    text_en: "The natural language parser is so thorough it successfully parsed 'sip red potion with crying face'. I have never felt so understood by a standard library."
+    text_fr: "L'analyseur de langage naturel est si complet qu'il a réussi à analyser 'siroter la potion rouge avec un visage en pleurs'. Je ne me suis jamais senti aussi bien compris par une bibliothèque standard."
+  - user: "TimeTraveler99"
+    rating: 4
+    text_en: "The priority queue is so precise that the background train arrived at exactly 14:02:15, but I was busy arguing with a chest and missed the ride. Realism hurts."
+    text_fr: "La file d'attente à priorité est si précise que le train en arrière-plan est arrivé à exactement 14:02:15, mais j'étais trop occupé à me disputer avec un coffre et j'ai raté le départ. Le réalisme fait mal."
+  - user: "KeyboardWarrior"
+    rating: 5
+    text_en: "I typed 'attack bandit with bare hands' and my player character immediately did. I lost, but at least the parser didn't judge my life choices."
+    text_fr: "J'ai tapé 'attaquer le bandit à mains nues' et mon personnage l'a fait immédiatement. J'ai perdu, mais au moins l'analyseur n'a pas jugé mes choix de vie."
+  - user: "StandardLibPurist"
+    rating: 5
+    text_en: "Zero external dependencies. No pip install. Pure python. This code is so clean I'm using it as a soap substitute."
+    text_fr: "Zéro dépendance externe. Pas de pip install. Du pur Python. Ce code est tellement propre que je l'utilise comme substitut de savon."
+  - user: "NPC_Rights_Activist"
+    rating: 5
+    text_en: "Finally, NPCs that operate on a scheduler and take actions. They have schedules and jobs, which means they are more productive than me."
+    text_fr: "Enfin des PNJ qui fonctionnent avec un planificateur et prennent des mesures. Ils ont des horaires et des emplois, ce qui signifie qu'ils sont plus productifs que moi."
+  - user: "LazyCoder"
+    rating: 5
+    text_en: "I started writing an interactive story about my daily routine but the engine threw a SyntaxError. Even the compiler knows my life lacks structure."
+    text_fr: "J'ai commencé à écrire une histoire interactive sur ma routine quotidienne mais le moteur a renvoyé une SyntaxError. Même le compilateur sait que ma vie manque de structure."

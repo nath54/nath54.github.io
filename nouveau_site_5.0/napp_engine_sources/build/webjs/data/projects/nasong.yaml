@@ -1,21 +1,77 @@
 name_en: "NaSong"
 name_fr: "NaSong"
-short_description_en: ""
-short_description_fr: ""
+short_description_en: "A Python-based programmatic music synthesizer and sequencer featuring differentiable instruments, an Algo-Rave TUI for live coding, and deep music theory integration."
+short_description_fr: "Un synthétiseur et séquenceur musical en Python doté d'instruments différentiables, d'un environnement live-coding TUI (Algo-Rave) et d'un moteur de théorie musicale."
 project_status: "Ended"
 project_type: "Personal"
 project_showcase_importance: 9
 icon: "res/icons/icon_project_nasong.png"
-link: "https://github.com/nath54/cv_creator/archive/refs/heads/main.zip"
-github_link: "https://github.com/nath54/cv_creator"
-app_version: "0.9"
-download_size: "9.41 Ko"
-tags: ["Python", "PDF", "CV"]
+link: "https://github.com/nath54/nasong/archive/refs/heads/main.zip"
+github_link: "https://github.com/nath54/nasong"
+app_version: "0.1.0"
+download_size: "4.2 Mo"
+tags: ["Python", "Audio Synthesis", "PyTorch", "Live Coding", "Music Theory", "TUI"]
 gallery: ["res/icons/icon_project_nasong.png"]
-description_en: ""
-description_fr: ""
+description_en: |
+  **NaSong** is a highly innovative, modular Python-based music synthesizer, sequencer, and live-coding platform that treats **"Code as Music"**. Instead of relying on traditional graphical DAWs with fixed tracks and plugin systems, NaSong allows developers and electronic music composers to build fully custom, mathematically precise, and highly composable audio synthesis graphs entirely in Python.
+
+  ### 🔊 Key Features & Architectural Capabilities
+
+  *   **"Everything is a Value" Architecture:** At the core of NaSong is the `Value` system. An audio waveform, an LFO, an ADSR envelope, or a constant value are all modeled as time-varying signal graphs. These graphs leverage fast, vectorized **NumPy** operations (`getitem_np`) to render complex multi-voice orchestrations in record time.
+  *   **Differentiable Audio Synthesis & Deep Learning:** Under the hood, NaSong integrates with **PyTorch** to define trainable instruments. By comparing synthesized waveforms with target audio samples (.wav), the framework uses gradient descent (Adam) and spectral STFT loss to learn optimal synthesizer parameters (such as ADSR envelope values, FM index, or vocal formant frequencies).
+  *   **Algo-Rave Terminal User Interface (TUI):** A complete live-coding environment built using **Textual**. It features an integrated code editor with hot-reloading (saving compiles and hot-swaps the audio graph without playback interruption), live BPM/volume controls, and an API documentation browser.
+  *   **Advanced Multi-Threaded Audio Engine:** Features a background `RenderEngine` that computes audio chunks using a priority queue, double-buffering, and version tracking to ensure glitch-free audio playback even during complex real-time script reloads.
+  *   **Expressive Domain-Specific Language (DSL):** Offers syntactic sugar for signal chaining via the `>>` operator (e.g., `Chainable(Sin) >> Gain(0.5)`), decorators like `@instrument` and `@effect`, and typed musical units (`BPM`, `Ms`, `Bars`, `Hz`).
+  *   **Global Music Theory Engine:** Native support for scale systems, chords, progressions, and rhythm patterns, extending from Western modes (major, minor, Phrygian, etc.) to Non-Western traditions like Indian **Ragas**, Arabic **Maqams**, and Indonesian **Gamelan**. Includes pre-built style generators for **Jazz**, **EDM**, and **Lofi**.
+description_fr: |
+  **NaSong** est un synthétiseur, séquenceur et outil de live-coding musical révolutionnaire basé sur Python qui applique la philosophie du **"Code en tant que Musique"**. Au lieu d'utiliser des stations de travail audio numériques (DAW) graphiques traditionnelles, NaSong permet aux développeurs et compositeurs de concevoir des graphes de synthèse audio complexes, mathématiquement précis et hautement modulables en écrivant du code Python.
+
+  ### 🔊 Fonctionnalités et Architecture Clés
+
+  *   **Architecture "Tout est une Valeur" (Value) :** Le cœur du système repose sur des signaux variant dans le temps. Que ce soit une onde sinusoïdale, un LFO, une enveloppe ADSR ou une constante, chaque élément est un nœud de calcul. Les graphes s'appuient sur des opérations vectorisées **NumPy** (`getitem_np`) pour un rendu extrêmement rapide.
+  *   **Synthèse Différentiable et Deep Learning :** NaSong s'intègre avec **PyTorch** pour définir des instruments programmables intelligents. En comparant les signaux synthétisés à des échantillons audio cibles (.wav), le framework utilise la descente de gradient (Adam) et des pertes spectrales (STFT) pour apprendre les paramètres optimaux d'enveloppe, d'index FM ou de formants vocaux.
+  *   **Interface Terminale Algo-Rave (TUI) :** Un environnement de live-coding immersif développé avec **Textual**. Il propose un éditeur intégré avec rechargement à chaud (la sauvegarde compile et injecte le nouveau graphe sans couper le son), des contrôles de volume/BPM en temps réel, et un explorateur de documentation d'API.
+  *   **Moteur Audio Multi-Threadé Résilient :** Le `RenderEngine` en arrière-plan pré-calcule les blocs audio via une file d'attente prioritaire, un système de double-buffering et un suivi des versions pour éliminer tout artefact sonore ou interruption lors du rechargement de scripts complexes.
+  *   **Langage Dédié Expressif (DSL) :** Fournit une syntaxe fluide de chaînage de signaux via l'opérateur de flux `>>` (ex: `Chainable(Sin) >> Gain(0.5)`), des décorateurs `@instrument` et `@effect`, et des unités musicales typées (`BPM`, `Ms`, `Bars`, `Hz`).
+  *   **Moteur de Théorie Musicale Avancé :** Support natif complet des gammes, accords, progressions et rythmes, s'étendant des modes occidentaux classiques aux systèmes microtonaux et ethniques tels que les **Ragas** indiens, les **Maqams** arabes et le **Gamelan** indonésien. Inclut des générateurs de styles **Jazz**, **EDM** et **Lofi**.
 funny_comments:
-  - user: ""
+  - user: "DJ_StackOverflow"
     rating: 5
-    text_en: ""
-    text_fr: ""
+    text_en: "I spent 12 hours training a neural synth to sound like a perfect acoustic piano, only to realize I could have just loaded a soundfont. 10/10 would waste GPU cycles again."
+    text_fr: "J'ai passé 12 heures à entraîner un synthé neuronal à sonner comme un vrai piano acoustique, pour réaliser ensuite que j'aurais pu juste charger un soundfont. 10/10, je gaspillerai encore mes cycles GPU."
+  - user: "BPM_Police"
+    rating: 5
+    text_en: "Tried to live-code at 300 BPM on the subway. The hot-reload compiled my synth loop, my headphones exploded, and the person sitting next to me asked if I was hacking the government."
+    text_fr: "J'ai essayé de faire du live-coding à 300 BPM dans le métro. Le hot-reload a compilé ma boucle de synthé, mon casque a explosé, et mon voisin m'a demandé si j'étais en train de pirater le gouvernement."
+  - user: "NullPointerMelody"
+    rating: 5
+    text_en: "Everything is a Value. Including my bank account after buying a new GPU to train custom flute sounds."
+    text_fr: "Tout est une Valeur (Value). Y compris mon compte en banque après avoir acheté un nouveau GPU pour entraîner des sons de flûte personnalisés."
+  - user: "NoMouseComposer"
+    rating: 5
+    text_en: "My MIDI controller is a mechanical keyboard. My drops are typed, not played. The latency is high, but the satisfaction of throwing a SyntaxError at the drop is unmatched."
+    text_fr: "Mon contrôleur MIDI est un clavier mécanique. Mes drops sont saisis au clavier, pas joués. La latence est élevée, mais la satisfaction de balancer une SyntaxError au moment du drop est inégalable."
+  - user: "NoisyNeighbor"
+    rating: 5
+    text_en: "I trained an instrument on my neighbor's leaf blower to create a noise-drone-metal track. Now they think I'm recording them. They are right."
+    text_fr: "J'ai entraîné un instrument sur le bruit du souffleur de feuilles de mon voisin pour composer un morceau noise-drone-metal. Maintenant il pense que je l'enregistre. Il a raison."
+  - user: "LFO_Lover"
+    rating: 5
+    text_en: "I modulated my synth's filter cutoff with an LFO, which was modulated by another LFO, which was modulated by the stock market index. The drop hit right when my portfolio crashed."
+    text_fr: "J'ai modulé le cutoff du filtre de mon synthé avec un LFO, lui-même modulé par un autre LFO, lui-même modulé par l'indice boursier. Le drop a retenti pile au moment où mon portefeuille s'est effondré."
+  - user: "TUI_Raver"
+    rating: 5
+    text_en: "Textual TUI for audio live-coding? Yes, because flashing green terminal text is the only visual effect a real cyber-DJ needs."
+    text_fr: "Un TUI Textual pour le live-coding audio ? Oui, parce que du texte de terminal vert qui clignote est le seul effet visuel dont un vrai cyber-DJ a besoin."
+  - user: "GamelanGod"
+    rating: 5
+    text_en: "Configured a non-Western scale with 17 microtones, but my brain only registers C, D, and 'out of tune'. Highly educational, though my cat hates it."
+    text_fr: "J'ai configuré une gamme non-occidentale à 17 tons microtonaux, mais mon cerveau n'enregistre que le Do, le Ré, et 'complètement faux'. Très éducatif, même si mon chat déteste."
+  - user: "WavMaster"
+    rating: 5
+    text_en: "A 3-minute song generated a 1.2GB WAV because I forgot to set a reasonable sample rate. Sounds pristine, but my SSD is crying."
+    text_fr: "Une chanson de 3 minutes a généré un fichier WAV de 1,2 Go parce que j'ai oublié de définir un taux d'échantillonnage raisonnable. Le son est cristallin, mais mon SSD pleure."
+  - user: "BugsAsFeatures"
+    rating: 5
+    text_en: "My rendering crashed because of a division by zero in my ADSR envelope. It made a click sound that was actually a perfect kick drum. Bug? No, instant techno producer."
+    text_fr: "Mon rendu a planté en raison d'une division par zéro dans mon enveloppe ADSR. Ça a produit un clic qui était en fait un kick parfait. Un bug ? Non, producteur techno instantané."

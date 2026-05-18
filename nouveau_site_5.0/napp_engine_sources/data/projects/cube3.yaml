@@ -1,7 +1,7 @@
 name_en: "Cube3"
 name_fr: "Cube3"
-short_description_en: ""
-short_description_fr: ""
+short_description_en: "A high-octane 3D precision cube-platformer built in Godot and C#, featuring handcrafted adventure levels, procedural arcade mazes, and intense neon aesthetics."
+short_description_fr: "Un jeu de plateforme 3D de précision intense sous Godot et C#, mêlant niveaux d'aventure faits main, labyrinthes procéduraux et esthétique néon rétro-futuriste."
 project_status: "Aborted"
 project_type: "Personal"
 project_showcase_importance: 3
@@ -10,12 +10,48 @@ link: "https://github.com/nath54/Cube3/releases/tag/v0.1-indev"
 github_link: "https://github.com/nath54/Cube3"
 app_version: "0.1"
 download_size: "42.1 MB"
-tags: ["Godot", "C#", "Game", "3D"]
+tags: ["Godot", "C#", "Game", "3D", "Platformer", "Arcade", "Procedural Generation", "Customization"]
 gallery: ["res/icons/icon_project_cube3.png"]
-description_en: ""
-description_fr: ""
+description_en: "Cube3 is the third installment in the ultimate Cube platformer series, elevating the franchise to a glorious, neon-drenched 3D dimension. Built entirely in Godot Engine 3 using C# (Mono), Cube3 combines precision physics, dynamic platforming, and gorgeous retro-futuristic visuals. Take control of a custom 3D cube and navigate challenging environments across two distinct game modes: Adventure Mode, featuring handcrafted tutorial and story levels that test your reflexes, and Arcade Mode, utilizing advanced procedural generation to spawn endless custom mazes and platform structures on the fly. Players must reach the level portal without falling into the dark void below, managing their momentum and jumping across shifting spatial layouts. The game features a multi-perspective camera system, allowing players to instantly toggle between an immersive 3rd-person chase camera and a strategic top-down tactical view. Earn n-cubes as in-game currency by completing levels and survival challenges, and spend them in the skin shop to unlock over 16 unique cubic skins. Custom skins are divided into rarity tiers (Common, Rare, Epic, Legendary, Divine, Mythical), ranging from funny homages like a Minecraft-style 'Furnace' and 'Pumpkin', a glowing 'ssj' (Super Saiyan), a rollable 'Dice', to rare animated presets. Customize your experience with four demanding difficulty tiers—from Easy (featuring an automatic HUD arrow pointing to the exit) to Hell (where platforms shrink to a fraction of their size, jumping physics tighten, and no navigational guides exist). Backed by premium post-processing settings including bloom, saturation sliders, custom draw distances, and Screen Space Ambient Occlusion (SAO), Cube3 is a high-octane 3D challenge that pushes cubic platforming to its absolute peak."
+description_fr: "Cube3 est le troisième volet de la célèbre série de jeux de plateforme Cube, élevant la franchise vers une glorieuse troisième dimension baignée de néons. Développé entièrement sous Godot Engine 3 en C# (Mono), Cube3 associe physique de précision, plateforme dynamique et graphismes rétro-futuristes saisissants. Prenez le contrôle d'un cube tridimensionnel et parcourez des environnements périlleux à travers deux modes de jeu majeurs : le Mode Aventure, avec ses tutoriels et ses niveaux narratifs faits main testant vos réflexes, et le Mode Arcade, s'appuyant sur une génération procédurale avancée pour concevoir des structures de plateformes et des labyrinthes 3D infinis à la volée. Les joueurs doivent atteindre le portail de fin sans basculer dans le vide abyssal en dessous, tout en gérant l'inertie et la hauteur des sauts. Le titre intègre un système de double caméra dynamique, permettant de commuter instantanément entre une vue à la troisième personne immersive et une vue tactique de dessus (top-down). Gagnez des n-cubes en terminant des niveaux et dépensez-les dans la boutique pour débloquer plus de 16 skins cubiques uniques. Les skins sont répartis en plusieurs catégories de rareté (Commun, Rare, Épique, Légendaire, Divin, Mythique), allant d'hommages amusants comme le 'Four' (Furnace) ou la 'Citrouille' (Pumpkin), un skin rayonnant 'ssj' (Super Saiyan), un dé à jouer fonctionnel ('de'), jusqu'à des modèles divins animés. Personnalisez votre défi grâce à quatre modes de difficulté — de Facile (avec une flèche directionnelle pointant vers la sortie) jusqu'à l'Enfer (où les plateformes rétrécissent drastiquement, les physiques de saut se durcissent et aucun guide n'est fourni). Sublimé par des réglages post-traitement de premier choix comprenant du bloom (glow), des filtres de saturation, une distance d'affichage ajustable et de l'occlusion ambiante (SAO), Cube3 est un défi 3D effréné qui repousse les limites de la plateforme géométrique."
 funny_comments:
-  - user: ""
+  - user: "3D_Dimensional_Crisis"
     rating: 5
-    text_en: ""
-    text_fr: ""
+    text_en: "I spent two games mastering 2D grids only for the developer to add a Z-axis and make me realize I have zero spatial awareness. 11/10 depth perception is a lie."
+    text_fr: "J'ai passé deux jeux à maîtriser les grilles 2D pour que le développeur ajoute un axe Z et me fasse réaliser que j'ai une perception spatiale de zéro. 11/10 la profondeur est un mensonge."
+  - user: "SuperSaiyanSquare"
+    rating: 5
+    text_en: "Unlocked the 'ssj' skin, turned the glow intensity to maximum, and literally blinded myself in real life. My living room now shines brighter than the sun."
+    text_fr: "J'ai débloqué le skin 'ssj', mis l'intensité du bloom au maximum, et je me suis littéralement aveuglé dans la vraie vie. Mon salon brille plus fort que le soleil."
+  - user: "MinecraftMigrant"
+    rating: 4
+    text_en: "Equipped the Furnace skin and tried to smelt my iron ore. I fell into procedural lava instead. Very realistic, would bake again."
+    text_fr: "J'ai équipé le skin Fourneau et j'ai essayé de faire fondre mon minerai de fer. À la place, je suis tombé dans de la lave procédurale. Très réaliste, je recuirais volontiers."
+  - user: "ArrowBeliever"
+    rating: 5
+    text_en: "Easy mode: 'Just follow the giant arrow, buddy!' Hell mode: 'Figure it out yourself, you are now a blind pixel in a neon void.' I love the emotional roller coaster."
+    text_fr: "Mode Facile : 'Suis juste la grosse flèche, mon pote !' Mode Enfer : 'Débrouille-toi tout seul, tu n'es qu'un pixel aveugle dans un vide de néons. J'adore l'ascenseur émotionnel."
+  - user: "DiceyBusiness"
+    rating: 3
+    text_en: "Equipped the Dice skin, rolled off a cliff, and landed a perfect 6. Does that mean I won? The game over screen says no, but my heart says yes."
+    text_fr: "J'ai équipé le skin Dé, j'ai roulé hors d'une falaise et j'ai fait un 6 parfait. Est-ce que ça veut dire que j'ai gagné ? L'écran Game Over dit non, mais mon cœur dit oui."
+  - user: "GlowInTheDark"
+    rating: 5
+    text_en: "The bloom effect is so beautiful I can feel my graphics card slowly heating my entire house. Thanks developer, I saved money on gas this winter!"
+    text_fr: "L'effet de bloom est si beau que je sens ma carte graphique chauffer lentement toute ma maison. Merci au développeur, j'ai économisé sur le chauffage cet hiver !"
+  - user: "TopDownStrategist"
+    rating: 4
+    text_en: "Switched to Top-Down camera hoping to get a better view, only to realize I can now watch myself fall into the lava from a highly professional cinematic perspective."
+    text_fr: "Je suis passé en caméra du dessus en espérant mieux voir, pour finalement me rendre compte que je peux maintenant me regarder tomber dans la lave sous un angle de vue très professionnel."
+  - user: "FrenchCube"
+    rating: 5
+    text_en: "Reaching the end of Level 11 with the 'france' skin while listening to aggressive electro-synth music is the closest thing to absolute cubic patriotism."
+    text_fr: "Atteindre la fin du niveau 11 avec le skin 'france' tout en écoutant de la musique synthwave agressive est ce qui se rapproche le plus du patriotisme cubique absolu."
+  - user: "AbortedHope"
+    rating: 5
+    text_en: "Status: 'Aborted'. But honestly, this game is more complete, optimized, and polished than 90% of the early access games on Steam right now."
+    text_fr: "Statut : 'Abandonné'. Mais honnêtement, ce jeu est plus complet, optimisé et propre que 90% des jeux en accès anticipé actuellement sur Steam."
+  - user: "ZeroGravityCube"
+    rating: 4
+    text_en: "My cube fell to Y = -40. My spawnpoint was set directly above the void due to a level design error of my own creation. I am now trapped in an eternal loop of instant death. 10/10."
+    text_fr: "Mon cube est tombé à Y = -40. Mon point d'apparition s'est retrouvé directement au-dessus du vide à cause d'une erreur de ma propre création. Je suis bloqué dans une boucle éternelle. 10/10."

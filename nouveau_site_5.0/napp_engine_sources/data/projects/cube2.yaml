@@ -1,7 +1,7 @@
 name_en: "Cube2"
 name_fr: "Cube2"
-short_description_en: ""
-short_description_fr: ""
+short_description_en: "An intense 2D procedurally generated maze game in Pygame where you outrun a cloning shadow, gather keys, and master a grappling hook."
+short_description_fr: "Un jeu d'arcade 2D haletant sous Pygame avec labyrinthes procéduraux, où vous fuyez une ombre traqueuse, collectez des clés et maîtrisez un grappin."
 project_status: "Aborted"
 project_type: "Personal"
 project_showcase_importance: 2
@@ -10,12 +10,48 @@ link: "https://github.com/nath54/cube2/releases/download/2.2/main.zip"
 github_link: "https://github.com/nath54/cube2"
 app_version: "2.2"
 download_size: "31.4 MB"
-tags: ["Python", "Game", "2D", "Pygame"]
+tags: ["Python", "Game", "2D", "Pygame", "Arcade", "Procedural Generation", "Grappling Hook", "Retro", "Customization"]
 gallery: ["res/icons/icon_project_cube2.png"]
-description_en: ""
-description_fr: ""
+description_en: "Cube2 is a fast-paced 2D arcade-puzzle game built entirely in Python using Pygame. Players navigate randomly generated, color-contrasting mazes with a single goal: reach the exit. But there's a catch—you are chased by a sinister clone (Cube2) that replicates your exact movements with a slight delay, draining your health upon contact. Collect hidden keys to unlock locked exits, evade blinking hazard traps, and survive the collapsing time limit bar at the top of the screen. Reaching Level 10 unlocks a powerful Grappling Hook, allowing high-speed traversal across hallways, provided no walls block your line of sight. Cube2 features a deep progression system with 23 unlockable achievements and over 76 unique player skins divided into color-coded rarity tiers (Common, Rare, Epic, Legendary, Divine), including multi-frame animated skins and rotation mechanics. With 5 difficulty modes (from Very Easy with directional assistance to instant-death Hardcore), an 'Eye-Saver' softer rendering option, custom keyboard mapping, and native joystick support, Cube2 is a complete and highly addictive arcade experience."
+description_fr: "Cube2 est un jeu d'arcade-puzzle 2D effréné développé entièrement en Python avec Pygame. Les joueurs naviguent dans des labyrinthes générés de manière procédurale aux couleurs contrastées avec un seul but : atteindre la sortie. Mais attention : vous êtes poursuivi par un double maléfique (Cube2) qui reproduit exactement vos mouvements avec un léger décalage, vidant votre santé s'il vous touche. Collectez des clés cachées pour déverrouiller la sortie, évitez les pièges clignotants et survivez avant que la barre de temps au sommet de l'écran ne s'épuise. Atteindre le niveau 10 débloque un puissant Grappin, permettant de vous propulser à grande vitesse dans les couloirs en évitant les obstacles directs. Le jeu propose un système de progression riche avec 23 succès à débloquer et plus de 76 skins de joueur uniques répartis en raretés de couleurs distinctes (Commun, Rare, Épique, Légendaire, Divin), incluant des animations multi-images et des rotations de mouvement. Avec 5 modes de difficulté (de Très Facile avec flèches indicatrices à Hardcore avec mort instantanée), une option de couleurs douces pour protéger vos yeux, la configuration personnalisée des touches et le support manette natif, Cube2 offre une expérience d'arcade complète et addictive."
 funny_comments:
-  - user: ""
+  - user: "ShadowHater99"
     rating: 5
-    text_en: ""
-    text_fr: ""
+    text_en: "Cube2 is like my anxiety: it follows me exactly where I go, but slightly delayed and kills me if I stop moving."
+    text_fr: "Cube2 est comme mon anxiété : il me suit exactement là où je vais, avec un léger retard, et me tue si j'arrête de bouger."
+  - user: "SpideySquare"
+    rating: 4
+    text_en: "I unlocked the grappling hook at level 10 and immediately pulled myself straight into a solid wall. 10/10 would die again."
+    text_fr: "J'ai débloqué le grappin au niveau 10 et je me suis immédiatement propulsé dans un mur solide. 10/10, je mourrais à nouveau."
+  - user: "CheatCodeEnthusiast"
+    rating: 5
+    text_en: "Pressing C-U-B-E and Enter solved my skill issue by unlocking all 76 skins. My cube is now divine even if my gameplay is absolute trash."
+    text_fr: "Taper C-U-B-E et Entrée a résolu mon manque de talent en débloquant les 76 skins. Mon cube est divin même si mon niveau de jeu est éclaté."
+  - user: "RageQuitterMax"
+    rating: 1
+    text_en: "Played on Hardcore mode. Breathing too loudly apparently counts as colliding with a wall. My keyboard is now in two pieces."
+    text_fr: "J'ai joué en mode Hardcore. Respirer trop fort compte apparemment comme une collision avec un mur. Mon clavier est maintenant en deux morceaux."
+  - user: "NoMoreGlasses"
+    rating: 5
+    text_en: "The 'Couleurs douces' option saved my eyes from the randomized neon hell. My ophthalmologist sends his warmest regards."
+    text_fr: "L'option 'Couleurs douces' a sauvé mes yeux de l'enfer néon aléatoire. Mon ophtalmologiste vous envoie ses amitiés."
+  - user: "TickTockCube"
+    rating: 4
+    text_en: "The top timer bar shrinking makes me sweat more than an actual cardio session. Who knew a white square could cause high blood pressure?"
+    text_fr: "La barre de temps qui rétrécit me fait plus transpirer qu'une séance de cardio. Qui savait qu'un carré blanc pouvait causer de l'hypertension ?"
+  - user: "KeyMaster"
+    rating: 3
+    text_en: "Spent 5 minutes finding the last key on Level 80 only for Cube2 to gently tap my shoulder and reset my life. Absolutely beautiful."
+    text_fr: "J'ai passé 5 minutes à chercher la dernière clé au niveau 80, pour que Cube2 me tapote doucement l'épaule et réinitialise ma vie. C'est magnifique."
+  - user: "GodModeSquare"
+    rating: 5
+    text_en: "Reached Level 100. I can now mathematically predict the trajectory of a pixelated chasing cube. I am ready to rule the cosmos."
+    text_fr: "Atteint le niveau 100. Je peux maintenant prédire mathématiquement la trajectoire d'un cube traqueur en pixels. Je suis prêt à régner sur le cosmos."
+  - user: "GottaCatchEmAll"
+    rating: 5
+    text_en: "Spent hours grind-farming for a Divine skin, only to use a common one because it looks like a cute little television. No regrets."
+    text_fr: "J'ai passé des heures à farmer pour un skin divin, tout ça pour utiliser un skin commun parce qu'il ressemble à une jolie petite télé. Aucun regret."
+  - user: "SadDeveloper"
+    rating: 4
+    text_en: "Status: 'Aborted'. Just like my plans to go to the gym. But this game is actually fully finished, polished, and extremely addictive!"
+    text_fr: "Statut : 'Abandonné'. Tout comme mes résolutions de faire du sport. Pourtant, ce jeu est fini, poli et extrêmement addictif !"

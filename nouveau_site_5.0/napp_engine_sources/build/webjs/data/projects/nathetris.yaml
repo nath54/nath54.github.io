@@ -1,7 +1,7 @@
 name_en: "Nathetris"
 name_fr: "Nathetris"
-short_description_en: ""
-short_description_fr: ""
+short_description_en: "A feature-rich local multiplayer Tetris remix built in Python, featuring 13 custom tetromino shapes, dynamic gradients, co-op/1v1 split-screen modes, and AI bots."
+short_description_fr: "Un remix enrichi de Tetris en Python avec 13 pièces personnalisées, des dégradés dynamiques, des modes coopératif et 1v1 en écran scindé, ainsi que des bots."
 project_status: "Ended"
 project_type: "Personal"
 project_showcase_importance: 0
@@ -12,10 +12,46 @@ app_version: "1.0"
 download_size: "48 MB"
 tags: ["Python", "Game", "2D", "Pygame", "Arcade"]
 gallery: ["res/icons/icon_project_nathetris.png"]
-description_en: ""
-description_fr: ""
+description_en: "Nathetris is a highly customized local multiplayer and single-player Tetris variation developed in Python using Pygame and NumPy. Key Features: 1) Catalog of 13 Tetromino Shapes: Includes standard shapes as well as a 1-block dot, 2-block and 3-block line segments, a corner piece, a 5-block cross, and a 5-block U-shape, completely altering classic strategies. 2) Local Multiplayer Modes: Real-time cooperation (2 players controlling separate blocks on the same grid), cooperative play with a bot, competitive 1v1 split-screen, and competitive play against a bot. 3) Four Coloring Modes: Spawns blocks with fully random colors, shape-bound unique colors, retro high-contrast monochrome (white on black), or a dynamic gradient mode that smoothly transitions colors with each spawned block. 4) Fully Adjustable Rules: Select from three grid sizes (10x18, 15x20, 20x25), four difficulty settings (Easy, Medium, Hard, Hardcore), and four acceleration speeds (None, Slow, Medium, Fast). 5) Hardware Resolution Adaptation: Uses Pygame to read the host display configuration and dynamically scale coordinate systems, providing pixel-perfect menu and board rendering on any aspect ratio."
+description_fr: "Nathetris est une variante hautement personnalisable de Tetris, jouable en solo ou en multijoueur local, développée en Python avec Pygame et NumPy. Fonctionnalités clés : 1) Catalogue étendu à 13 pièces : Intègre les formes classiques ainsi qu'un bloc unique (point), des lignes de 2 ou 3 blocs, un coin à 3 blocs, une croix à 5 blocs et une forme en U à 5 blocs pour renouveler l'approche stratégique. 2) Modes multijoueurs en local : Coopération en temps réel (deux joueurs contrôlent deux pièces distinctes sur le même plateau), coopération avec un bot d'aide, duel 1v1 en écran scindé et duel 1v1 contre un bot. 3) Quatre modes de couleurs : Attribution de couleurs entièrement aléatoires, couleurs statiques uniques dédiées à chaque forme, monochrome rétro (blanc sur noir) et un mode dégradé dynamique qui fait évoluer subtilement la couleur à chaque nouvelle pièce. 4) Paramètres personnalisables : Trois tailles de grilles (10x18, 15x20, 20x25), quatre niveaux de difficulté (Facile, Moyen, Difficile, Hardcore) et quatre taux d'accélération progressive (Nul, Lent, Moyen, Rapide). 5) Adaptation dynamique à l'écran : Analyse la résolution de l'hôte au démarrage via Pygame pour adapter proportionnellement l'échelle des coordonnées, garantissant un affichage optimal et sans distorsion."
 funny_comments:
-  - user: ""
+  - user: "StackOverflowSurvivor"
     rating: 5
-    text_en: ""
-    text_fr: ""
+    text_en: "I tried the cooperative mode with my friend. We are no longer on speaking terms, but our grid alignment was mathematically flawless. Highly recommended."
+    text_fr: "J'ai testé le mode coopératif avec un ami. Nous ne nous parlons plus, mais notre alignement de blocs était mathématiquement parfait. Je recommande vivement."
+  - user: "PygamePurist"
+    rating: 4
+    text_en: "The single dot block is an absolute miracle sent from the programming heavens. It saved my grid more times than Git has saved my career."
+    text_fr: "Le bloc composé d'un seul carré est un miracle absolu envoyé du paradis des programmeurs. Il a sauvé ma grille plus de fois que Git n'a sauvé ma carrière."
+  - user: "ChaosMonkey"
+    rating: 5
+    text_en: "Playing Co-op with the bot is like writing code with an intern who has had three cups of coffee and no sleep. Pure, unadulterated chaos."
+    text_fr: "Jouer en coop avec le bot équivaut à écrire du code avec un stagiaire sous l'effet de trois cafés et sans sommeil. Un chaos pur et total."
+  - user: "GradientLover99"
+    rating: 5
+    text_en: "The gradient color mode makes my screen look like a beautiful neon synthwave aesthetic dream, right up until the point where the 5-block cross shape completely ruins my life."
+    text_fr: "Le mode dégradé donne à mon écran des airs de rêve synthwave néon magnifique, jusqu'au moment précis où la pièce en forme de croix à 5 blocs vient détruire ma vie."
+  - user: "HardwareHacker"
+    rating: 4
+    text_en: "The aspect ratio scaling script is doing some serious dynamic coordinate geometry math just to display falling blocks, and honestly, I respect that level of over-engineering."
+    text_fr: "Le script de mise à l'échelle de l'affichage effectue de la géométrie de coordonnées dynamiques complexe juste pour afficher des blocs qui tombent, et honnêtement, je respecte ce niveau d'ingénierie."
+  - user: "HardcoreCasual"
+    rating: 5
+    text_en: "On Hardcore difficulty with maximum acceleration, the blocks fall faster than Python's garbage collector can run. My keyboard is smoking."
+    text_fr: "En difficulté Hardcore avec accélération maximale, les blocs tombent plus vite que le garbage collector de Python ne s'exécute. Mon clavier fume."
+  - user: "TetrisVeteran"
+    rating: 5
+    text_en: "Standard Tetris has 7 shapes. This game has 13. I spent ten minutes trying to figure out how to rotate a U-shape before realizing my brain does not have the hardware acceleration for this."
+    text_fr: "Le Tetris classique a 7 formes. Ce jeu en a 13. J'ai passé dix minutes à essayer de comprendre comment faire pivoter un U avant de réaliser que mon cerveau n'a pas l'accélération matérielle requise."
+  - user: "GitCommitOrDie"
+    rating: 4
+    text_en: "The menu has an explicit check preventing 1v1 on a 20x25 board. I peeked at the source code and realized the author chose peace and stability over dividing screen widths by zero. Wise choice."
+    text_fr: "Le menu contient une vérification explicite empêchant le 1v1 sur un plateau 20x25. J'ai jeté un oeil au code source et j'ai compris que l'auteur a préféré la paix et la stabilité plutôt que de diviser les largeurs par zéro. Choix sage."
+  - user: "KeyboardMasher"
+    rating: 5
+    text_en: "Player 2 controls are J, K, L, I, and U. It feels like playing a piano concerto while trying to debug a memory leak. 10/10 multiplayer experience."
+    text_fr: "Les contrôles du Joueur 2 sont J, K, L, I et U. On a l'impression de jouer un concerto pour piano tout en essayant de déboguer une fuite de mémoire. Expérience multijoueur 10/10."
+  - user: "CodeSpaghetti"
+    rating: 5
+    text_en: "The README says you can email complaints directly to the creator's personal address. I am going to email him a weekly thank-you letter for making the 1-block dot piece."
+    text_fr: "Le README indique que l'on peut envoyer les plaintes directement à l'adresse personnelle du créateur. Je vais lui envoyer un mail de remerciement hebdomadaire pour avoir créé la pièce à bloc unique."

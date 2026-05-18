@@ -1,7 +1,7 @@
 name_en: "CV_Creator"
 name_fr: "CV_Creator"
-short_description_en: ""
-short_description_fr: ""
+short_description_en: "A dynamic, auto-scaling PDF resume generator that perfectly fits your content onto a single page using a custom binary-search layout loop."
+short_description_fr: "Un générateur dynamique de CV PDF à mise à l'échelle automatique qui ajuste parfaitement le contenu sur une page unique grâce à une boucle de recherche dichotomique."
 project_status: "Ended"
 project_type: "Personal"
 project_showcase_importance: 8
@@ -10,12 +10,48 @@ link: "https://github.com/nath54/cv_creator/archive/refs/heads/main.zip"
 github_link: "https://github.com/nath54/cv_creator"
 app_version: "0.9"
 download_size: "9.41 Ko"
-tags: ["Python", "PDF", "CV"]
+tags: ["Python", "PDF", "CV", "FPDF2", "Auto-scaling", "YAML"]
 gallery: ["res/icons/icon_project_cv_creator.png"]
-description_en: ""
-description_fr: ""
+description_en: "CV_Creator is an intelligent and highly customized resume generator written in Python. It parses structured personal and professional data from human-readable YAML configurations, applies fully customizable styling rules, and renders beautifully typeset PDF CVs. The project features an innovative auto-fitting algorithm: it performs a dynamic search over font sizes and line spacing parameters to scale the layout dynamically, ensuring the generated resume fits perfectly on exactly one page without manual trimming. Supported by two-column asymmetric structures, headers, image rendering, custom margins, and full localization support."
+description_fr: "CV_Creator est un générateur de CV intelligent et hautement personnalisé écrit en Python. Il analyse des données personnelles et professionnelles structurées à partir de fichiers YAML lisibles par l'homme, applique des règles de style entièrement personnalisables et génère des CV PDF magnifiquement mis en page. Le projet intègre un algorithme d'auto-ajustement innovant : il effectue une recherche dichotomique sur la taille des polices et l'espacement des lignes pour adapter dynamiquement la mise en page, garantissant que le CV généré tient parfaitement sur une seule page sans recadrage manuel. Prend en charge les structures asymétriques à deux colonnes, les en-têtes, le rendu d'images, les marges personnalisées et la traduction linguistique."
 funny_comments:
-  - user: ""
+  - user: "BugHunter99"
     rating: 5
-    text_en: ""
-    text_fr: ""
+    text_en: "I put my skills in the YAML and the compiler automatically shrank my '15 years of experience' down to font size 2. Highly recommended!"
+    text_fr: "J'ai mis mes compétences dans le YAML et le compilateur a automatiquement réduit mes '15 ans d'expérience' à une taille de police 2. Très recommandé !"
+  - user: "Recruiter_Destroyer"
+    rating: 5
+    text_en: "Finally a tool that doesn't let my resume spill onto page 2 just because of one bullet point! My life is complete."
+    text_fr: "Enfin un outil qui n'autorise pas mon CV à déborder sur la page 2 à cause d'une seule ligne ! Ma vie est complète."
+  - user: "YamlWhisperer"
+    rating: 4
+    text_en: "Spent 3 hours debugging a missing space in my YAML. Still faster than trying to align a bullet point in MS Word."
+    text_fr: "J'ai passé 3 heures à déboguer un espace manquant dans mon YAML. Toujours plus rapide que d'essayer d'aligner une puce sous MS Word."
+  - user: "LoremIpsumEater"
+    rating: 5
+    text_en: "The auto-scaling algorithm shrank my resume so much that recruiters now need a microscope. But hey, it fits on one page!"
+    text_fr: "L'algorithme de mise à l'échelle a tellement rétréci mon CV que les recruteurs ont besoin d'un microscope. Mais hé, ça tient sur une page !"
+  - user: "PythonistaPro"
+    rating: 5
+    text_en: "I tried to add 'Expert in sleeping' to my interests, and the program crashed. Outstanding feature validation!"
+    text_fr: "J'ai essayé d'ajouter 'Expert en sieste' à mes intérêts, et le programme a planté. Excellente validation des fonctionnalités !"
+  - user: "OverqualifiedDev"
+    rating: 5
+    text_en: "My resume was 5 pages long. The binary search shrank the font size to the planck length. I got hired by a quantum physics lab."
+    text_fr: "Mon CV faisait 5 pages. La recherche dichotomique a réduit la police à la longueur de Planck. J'ai été embauché par un laboratoire de physique quantique."
+  - user: "DockerOnly"
+    rating: 4
+    text_en: "Instructions unclear, compiled my resume into a Docker container and deployed it to Kubernetes. Recruiter still asked for a PDF."
+    text_fr: "Instructions pas claires, j'ai compilé mon CV dans un conteneur Docker et je l'ai déployé sur Kubernetes. Le recruteur a quand même demandé un PDF."
+  - user: "NoMoreWord"
+    rating: 5
+    text_en: "Using this tool reduced my blood pressure by 40% compared to using Microsoft Word's layout generator."
+    text_fr: "L'utilisation de cet outil a réduit ma tension artérielle de 40 % par rapport à l'utilisation du générateur de mise en page de Microsoft Word."
+  - user: "CoffeeDrivenDev"
+    rating: 5
+    text_en: "It compiled in 0.5 seconds, which is faster than the time it took to load the MS Office splash screen."
+    text_fr: "Il s'est compilé en 0,5 seconde, ce qui est plus rapide que le temps de chargement de l'écran de démarrage de MS Office."
+  - user: "CleanCodeFanatic"
+    rating: 5
+    text_en: "I sent my YAML file directly to the HR department. They didn't understand it, but they praised my clean structure."
+    text_fr: "J'ai envoyé mon fichier YAML directement au département RH. Ils n'ont rien compris, mais ils ont loué ma structure propre."

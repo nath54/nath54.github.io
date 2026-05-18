@@ -1,7 +1,7 @@
 name_en: "NaLang"
 name_fr: "NaLang"
-short_description_en: ""
-short_description_fr: ""
+short_description_en: "A playful, premium multi-language learning application built with the Godot engine, featuring custom vocabulary flashcards, written quizzes with Levenshtein-based spelling validation, and parallel multi-language dialogues."
+short_description_fr: "Une application ludique et complète d'apprentissage des langues conçue avec Godot, proposant des fiches personnalisées, des quiz écrits avec validation orthographique par distance de Levenshtein, et des dialogues parallèles multi-langues."
 project_status: "Ended"
 project_type: "Personal"
 project_showcase_importance: 4
@@ -12,10 +12,46 @@ app_version: "0.9.4.4"
 download_size: "71.7 MB"
 tags: ["Godot", "GDScript", "Language", "Learning"]
 gallery: ["res/icons/icon_project_nalang.png"]
-description_en: ""
-description_fr: ""
+description_en: "NaLang is a professional, feature-rich multi-language learning dashboard built on Godot 4.2. Designed to facilitate language acquisition through structured lessons, active recall flashcards, and interactive testing, it offers a comprehensive system for learners. The app features structured lesson pages with rich BBCode-formatted layouts for grammar, pronunciation, and conjugation; customizable vocabulary flashcards (fiches) that users can create, edit, and organize locally; a dual-mode testing engine offering either visual flashcard reviews or written answers; an advanced evaluation algorithm employing a custom Levenshtein distance check with Unicode-aware text normalization; and multi-lingual conversation guides for real-world scenarios. Supported target languages include Spanish, English, German, Mandarin Chinese, Japanese, Korean, and Russian."
+description_fr: "NaLang est un tableau de bord complet et professionnel d'apprentissage multi-langues conçu sous Godot 4.2. Pensé pour faciliter l'apprentissage par le biais de leçons structurées, de flashcards à rappel actif et d'exercices interactifs, l'application propose un système extrêmement robuste. Elle intègre des fiches de cours structurées avec un rendu BBCode riche pour la grammaire, la prononciation et la conjugaison ; des fiches de vocabulaire personnalisables (fiches) que les utilisateurs peuvent créer, éditer et organiser localement ; un moteur de quiz double proposant des révisions visuelles de cartes ou des réponses écrites ; un algorithme d'évaluation avancé utilisant la distance de Levenshtein avec normalisation de texte pour tolérer les fautes de frappe mineures ; et des guides de conversation parallèles multi-langues pour des situations réelles. Les langues cibles prises en charge incluent l'espagnol, l'anglais, l'allemand, le chinois mandarin, le japonais, le coréen et le russe."
 funny_comments:
-  - user: ""
+  - user: "PolyglotWannabe"
     rating: 5
-    text_en: ""
-    text_fr: ""
+    text_en: "I wanted to learn Spanish, but the Levenshtein distance was so forgiving that it convinced me that 'hola' and 'cola' are practically the same word. 10/10, now ordering soft drinks in Madrid."
+    text_fr: "Je voulais apprendre l'espagnol, mais la distance de Levenshtein est si indulgente qu'elle m'a convaincu que 'hola' et 'cola' sont le même mot. 10/10, je commande désormais des sodas à Madrid."
+  - user: "GDScriptFanatic"
+    rating: 5
+    text_en: "A serious language learning app built with a game engine. I keep waiting for a boss fight against the irregular verbs, but so far it's just conjugations."
+    text_fr: "Une application sérieuse d'apprentissage des langues codée avec un moteur de jeu. J'attends toujours le combat de boss contre les verbes irréguliers, mais pour l'instant ce ne sont que des conjugaisons."
+  - user: "TypoMaster"
+    rating: 5
+    text_en: "The custom text normalizer replaces every accented character and strips all punctuation. Finally, an application that accepts my keyboard mashings as fluent Spanish."
+    text_fr: "Le normalisateur de texte remplace chaque caractère accentué et supprime toute la ponctuation. Enfin une application qui accepte mes frappes frénétiques comme de l'espagnol courant."
+  - user: "RestaurantReviewer"
+    rating: 4
+    text_en: "The restaurant dialogue has placeholders like Restaurant Name and Dish 1. I went to a bistro in Paris, ordered Dish 2, and they brought me a bowl of hot water. Highly authentic."
+    text_fr: "Le dialogue du restaurant a des espaces réservés comme Nom du Restaurant et Plat 1. Je suis allé dans un bistrot à Paris, j'ai commandé Plat 2, et on m'a apporté un bol d'eau chaude. Très authentique."
+  - user: "BugFinder"
+    rating: 5
+    text_en: "Translating from Spanish to French in written mode evaluates my French answer against the Spanish solution. My Spanish is now perfect, though my French is severely compromised."
+    text_fr: "Traduire de l'espagnol vers le français en mode écrit évalue ma réponse en français par rapport à la solution en espagnol. Mon espagnol est maintenant parfait, bien que mon français soit gravement compromis."
+  - user: "LowProcessorSaver"
+    rating: 5
+    text_en: "It runs in low processor mode. This is amazing because my phone can now survive a 3-hour session of me failing simple German quizzes without heating up like a toaster."
+    text_fr: "L'application fonctionne en mode processeur bas. C'est incroyable car mon téléphone peut désormais survivre à 3 heures de quiz d'allemand ratés sans surchauffer comme un grille-pain."
+  - user: "CustomCardCreator"
+    rating: 5
+    text_en: "I created a custom vocabulary sheet with only one card to feel good about myself. I now score 100 percent on every single quiz. Easiest fluency of my life."
+    text_fr: "J'ai créé une fiche personnalisée avec une seule carte pour me sentir bien. J'obtiens maintenant 100 pour cent à chaque quiz. L'apprentissage le plus facile de ma vie."
+  - user: "RussianLearner"
+    rating: 4
+    text_en: "I noticed Russian was commented out in the global languages dictionary but fully defined in the vocabulary files. It's like a secret expansion pack waiting to be unlocked."
+    text_fr: "J'ai remarqué que le russe était commenté dans le dictionnaire global des langues mais défini dans les fichiers de vocabulaire. C'est comme une extension secrète qui attend d'être débloquée."
+  - user: "BBCodeEnthusiast"
+    rating: 5
+    text_en: "The parser in verify_errors.py checks for nested color tags. It's like having a compiler warning for my flashcard aesthetic. Beautifully overengineered."
+    text_fr: "Le parseur dans verify_errors.py vérifie les balises de couleur imbriquées. C'est comme avoir un avertissement de compilateur pour l'esthétique de mes fiches de révision. Magnifiquement surconçu."
+  - user: "AccidentalPolyglot"
+    rating: 5
+    text_en: "I accidentally changed the destination language to Mandarin Chinese in the settings, and now the entire app is trying to teach me symbols. I am terrified, but I can now say yellow in three tones."
+    text_fr: "J'ai accidentellement changé la langue cible en chinois mandarin dans les paramètres, et maintenant toute l'application essaie de m'enseigner des symboles. J'ai peur, mais je sais dire jaune en trois tons."
