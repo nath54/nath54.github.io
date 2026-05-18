@@ -8,7 +8,7 @@ project_showcase_importance: 15
 icon: "res/icons/icon_project_napp_engine_compiler.png"
 links:
   - github: "https://github.com/nath54/napp_engine_compiler"
-app_version: "0.1.2"
+app_version: "0.2.0"
 download_size: "-"
 date: "2026"
 authors:
@@ -18,89 +18,188 @@ gallery: []
 roadmap:
   - type: version
     version: "v0.1.0"
-    label_en: "Initial Release"
-    label_fr: "Première version"
+    label_en: "Core Parsing & UI Pipeline"
+    label_fr: "Pipeline d'analyse et d'interface graphique"
   - type: task
     status: done
-    title_en: "NaXML parser & AST generation"
-    title_fr: "Parseur NaXML et génération d'AST"
+    title_en: "Lark Grammar & AST Generator"
+    title_fr: "Grammaire Lark et générateur d'AST"
     subtasks:
       - status: done
-        title_en: "Lark grammar definition"
-        title_fr: "Définition de la grammaire Lark"
+        title_en: "NaXML layout tag parsing"
+        title_fr: "Analyse des balises de disposition NaXML"
       - status: done
-        title_en: "AST node classes"
-        title_fr: "Classes de nœuds AST"
+        title_en: "In-memory AST node hierarchy"
+        title_fr: "Hiérarchie des nœuds AST en mémoire"
   - type: task
     status: done
-    title_en: "WebJS (HTML5/JS) code emitter"
-    title_fr: "Émetteur de code WebJS (HTML5/JS)"
+    title_en: "Baseline Code Emitters"
+    title_fr: "Émetteurs de code de base"
     subtasks:
       - status: done
-        title_en: "Static page generation"
-        title_fr: "Génération de pages statiques"
+        title_en: "WebJS SPA generator (HTML5/CSS/JS)"
+        title_fr: "Générateur SPA WebJS (HTML5/CSS/JS)"
       - status: done
-        title_en: "bindRepeat / exec_foreach support"
-        title_fr: "Support bindRepeat / exec_foreach"
-      - status: done
-        title_en: "Escape fix for JS template literals"
-        title_fr: "Correction d'échappement pour les template literals JS"
-  - type: task
-    status: done
-    title_en: "PySide6 native desktop emitter"
-    title_fr: "Émetteur bureau natif PySide6"
+        title_en: "PySide6 native desktop layout compiler"
+        title_fr: "Compilateur d'interface bureau PySide6"
+
   - type: version
     version: "v0.1.2"
-    label_en: "Current Stable"
-    label_fr: "Version stable actuelle"
+    label_en: "Styling & Developer Experience"
+    label_fr: "Styles & expérience de développement"
   - type: task
     status: done
-    title_en: "NaStyle CSS-like stylesheet compiler"
-    title_fr: "Compilateur de feuilles de style NaStyle"
-  - type: task
-    status: done
-    title_en: "macOS-style terminal emulation overlay"
-    title_fr: "Overlay de terminal style macOS"
-  - type: task
-    status: done
-    title_en: "Windows port auto-unlocker / kill system"
-    title_fr: "Système de déverrouillage automatique des ports Windows"
-  - type: version
-    version: "v0.2.0"
-    label_en: "Next Milestone"
-    label_fr: "Prochain jalon"
-  - type: task
-    status: in-progress
-    title_en: "NaCode strongly-typed mid-end language"
-    title_fr: "Langage NaCode fortement typé"
+    title_en: "NaStyle Stylesheet Compiler"
+    title_fr: "Compilateur de styles NaStyle (type CSS)"
     subtasks:
       - status: done
-        title_en: "Type system & type checker"
-        title_fr: "Système de types et vérificateur"
+        title_en: "Lark-based .nastyle grammar parser"
+        title_fr: "Parseur de grammaire Lark pour .nastyle"
+      - status: done
+        title_en: "Static UI style attribute resolver"
+        title_fr: "Résolveur statique d'attributs de style UI"
+  - type: task
+    status: done
+    title_en: "OS-Emulation Overlays"
+    title_fr: "Couches d'émulation OS"
+    subtasks:
+      - status: done
+        title_en: "macOS-style interactive terminal widget"
+        title_fr: "Émulateur de terminal interactif style macOS"
+      - status: done
+        title_en: "PySide6 native terminal console fallback"
+        title_fr: "Repli console terminal natif sous PySide6"
+  - type: task
+    status: done
+    title_en: "Smart Developer CLI Tooling"
+    title_fr: "Outillage CLI intelligent pour développeurs"
+    subtasks:
+      - status: done
+        title_en: "Windows port auto-unlocker (process killer)"
+        title_fr: "Débloqueur de port Windows (process killer)"
+      - status: done
+        title_en: "Development HTTP server & hot-reloader"
+        title_fr: "Serveur HTTP de dev et hot-reloader"
+
+  - type: version
+    version: "v0.2.0"
+    label_en: "NaCode Type System & State"
+    label_fr: "Système de types NaCode & gestion d'état"
+  - type: task
+    status: done
+    title_en: "Strong-typed Logic Compiler (NaCode)"
+    title_fr: "Compilateur de logique fortement typée NaCode"
+    subtasks:
+      - status: done
+        title_en: "AST syntax analysis & TypeManager validation"
+        title_fr: "Analyse syntaxique AST & TypeManager"
+      - status: done
+        title_en: "Standard library math & string builtins"
+        title_fr: "Liaisons de bibliothèque math & chaînes"
+  - type: task
+    status: done
+    title_en: "System API & Core Handlers"
+    title_fr: "API système & gestionnaires de base"
+    subtasks:
+      - status: done
+        title_en: "Unified local storage persistence proxy"
+        title_fr: "API unifiée de persistance (stockage local)"
+      - status: done
+        title_en: "Logic-layer Undo/Redo state history stack"
+        title_fr: "Pile d'historique Undo/Redo (couche logique)"
+
+  - type: version
+    version: "v0.3.0"
+    label_en: "Hardware & Network Interactivity"
+    label_fr: "Interactivité réseau et matérielle"
+  - type: task
+    status: in-progress
+    title_en: "Asynchronous Network operations"
+    title_fr: "Opérations réseau asynchrones"
+    subtasks:
       - status: in-progress
-        title_en: "Standard library bindings"
-        title_fr: "Liaisons de la bibliothèque standard"
-        subtasks:
-          - status: done
-            title_en: "Math & string builtins"
-            title_fr: "Fonctions intégrées math & chaînes"
-          - status: in-progress
-            title_en: "Network fetch interface"
-            title_fr: "Interface de requêtes réseau"
-          - status: todo
-            title_en: "Clipboard hardware controller"
-            title_fr: "Contrôleur matériel du presse-papiers"
+        title_en: "HTTP client fetch wrapper (gs.network.fetch)"
+        title_fr: "Wrapper HTTP client (gs.network.fetch)"
       - status: todo
-        title_en: "Semantic analysis pass"
-        title_fr: "Passe d'analyse sémantique"
+        title_en: "WebSocket network channels (gs.socket)"
+        title_fr: "Canaux réseau WebSocket (gs.socket)"
+  - type: task
+    status: in-progress
+    title_en: "Media playback & control engines"
+    title_fr: "Moteurs de rendu et de contrôle multimédia"
+    subtasks:
+      - status: todo
+        title_en: "Audio & video backends (Web Audio / QAudioSink)"
+        title_fr: "Backends audio & vidéo (Web Audio / QAudioSink)"
+      - status: in-progress
+        title_en: "YouTube iframe / QWebEngineView embedding"
+        title_fr: "Intégration YouTube iframe / QWebEngineView"
   - type: task
     status: todo
-    title_en: "Incremental compilation & watch mode"
-    title_fr: "Compilation incrémentale et mode watch"
+    title_en: "Hardware clipboard proxy"
+    title_fr: "Contrôleur de presse-papiers physique"
+    subtasks:
+      - status: todo
+        title_en: "Programmatic copy/paste APIs (gs.hardware.clipboard)"
+        title_fr: "APIs de copier/coller (gs.hardware.clipboard)"
+
+  - type: version
+    version: "v0.4.0"
+    label_en: "PySide6 Parity & Refactoring"
+    label_fr: "Parité PySide6 & refactorisation"
   - type: task
     status: todo
-    title_en: "Plugin system for custom emitters"
-    title_fr: "Système de plugins pour émetteurs personnalisés"
+    title_en: "PySide6 Dynamic Translations"
+    title_fr: "Traductions dynamiques sous PySide6"
+    subtasks:
+      - status: todo
+        title_en: "Runtime name_en/name_fr toggle support"
+        title_fr: "Changement de langue name_en/name_fr à l'exécution"
+  - type: task
+    status: todo
+    title_en: "Legacy Code Migration"
+    title_fr: "Migration du code hérité"
+    subtasks:
+      - status: todo
+        title_en: "Deprecate legacy PySide6 self.buffer.get()"
+        title_fr: "Remplacement de l'ancien self.buffer.get() PySide6"
+  - type: task
+    status: todo
+    title_en: "Native shell execution integration"
+    title_fr: "Exécution de commandes système natives"
+    subtasks:
+      - status: todo
+        title_en: "Direct subprocess manager (QProcess / subprocess)"
+        title_fr: "Gestionnaire de sous-processus (QProcess / subprocess)"
+
+  - type: version
+    version: "v0.5.0"
+    label_en: "Mobile & Advanced Targets"
+    label_fr: "Cibles mobiles & avancées"
+  - type: task
+    status: todo
+    title_en: "Mobile Emitters Architecture"
+    title_fr: "Architecture des émetteurs mobiles"
+    subtasks:
+      - status: todo
+        title_en: "Vulkan/Metal canvas context abstraction"
+        title_fr: "Abstraction de contexte canvas Vulkan/Metal"
+  - type: task
+    status: todo
+    title_en: "Mobile sensors integration"
+    title_fr: "Intégration des capteurs mobiles"
+    subtasks:
+      - status: todo
+        title_en: "GPS localization & hardware NFC interfaces"
+        title_fr: "Interface GPS et liaison matérielle NFC"
+  - type: task
+    status: todo
+    title_en: "Advanced 3D graphics VR mode"
+    title_fr: "Mode VR graphique 3D avancé"
+    subtasks:
+      - status: todo
+        title_en: "WebGL/WebGPU split-view VR canvas"
+        title_fr: "Canvas WebGL/WebGPU double vue pour la VR"
 description_en: "The Napp Engine Compiler is a high-performance, modular, multi-target transpiler designed to compile unified NApp projects into responsive, dependency-free single-page web applications (WebJS) and native desktop window applications (PySide6/Qt6). By strictly decoupling declarative UI layouts (NaXML), custom style schemas (NaStyle), strongly typed mid-end logic (NaCode), and native system calls, it enables full cross-platform execution with a single unified codebase.\n\nThe compiler engine features a robust parsing pipeline powered by Lark grammars, syntax-to-AST translation layers, type checking, and semantic validation before generating optimized intermediate representations. It also integrates an emulation-based interactive macOS-style terminal overlay in the browser, local storage proxies, sound control engines, network fetch interfaces, and clipboard hardware controllers, along with an auto-unlocking/kill system to release active Windows ports and file locks during development iterations."
 description_fr: "Le compilateur Napp Engine est un transpilateur modulaire et performant conçu pour compiler des projets NApp unifiés en applications web réactives à page unique (WebJS) et en applications de bureau natives (PySide6/Qt6). Grâce à un découplage rigoureux entre les interfaces utilisateur déclaratives (NaXML), les feuilles de style (NaStyle), la logique fortement typée (NaCode) et les API système globales, il permet une exécution multiplateforme fluide avec une unique base de code.\n\nLe compilateur intègre un pipeline d'analyse robuste basé sur des grammaires Lark, une validation sémantique stricte et un gestionnaire de types unifié pour sécuriser la génération du code. Il prend également en charge une émulation de terminal graphique interactive au style macOS dans le navigateur, des proxies de persistance locale, des lecteurs audio/vidéo intégrés, des requêtes HTTP distantes et des contrôles de presse-papiers physiques, épaulés par un système de déverrouillage de ports et de processus Windows pour simplifier le développement."
 funny_comments:
