@@ -11,6 +11,9 @@ links:
   - windows: "https://github.com/nath54/cube2/releases/download/2.2/main.zip"
 app_version: "2.2"
 download_size: "31.4 MB"
+date: "2019"
+authors:
+  - "Nathan Cerisara"
 tags: ["Python", "Game", "2D", "Pygame", "Arcade", "Procedural Generation", "Grappling Hook", "Retro", "Customization"]
 gallery: ["res/screenshots/cube2_1.png", "res/screenshots/cube2_2.png", "res/screenshots/cube2_3.png"]
 description_en: "Cube2 is a fast-paced 2D arcade-puzzle game built entirely in Python using Pygame. Players navigate randomly generated, color-contrasting mazes with a single goal: reach the exit. But there's a catch—you are chased by a sinister clone (Cube2) that replicates your exact movements with a slight delay, draining your health upon contact. Collect hidden keys to unlock locked exits, evade blinking hazard traps, and survive the collapsing time limit bar at the top of the screen. Reaching Level 10 unlocks a powerful Grappling Hook, allowing high-speed traversal across hallways, provided no walls block your line of sight. Cube2 features a deep progression system with 23 unlockable achievements and over 76 unique player skins divided into color-coded rarity tiers (Common, Rare, Epic, Legendary, Divine), including multi-frame animated skins and rotation mechanics. With 5 difficulty modes (from Very Easy with directional assistance to instant-death Hardcore), an 'Eye-Saver' softer rendering option, custom keyboard mapping, and native joystick support, Cube2 is a complete and highly addictive arcade experience."

@@ -1,4 +1,7 @@
 window.gs = window.gs || {};
+window.range = function(n) {
+    return Array.from({length: Number(n) || 0}, (_, i) => i);
+};
 window.NApp = {
     // Global Buffer (Persistent State) - data is stored here
     _data: {},
@@ -16,6 +19,7 @@ window.NApp = {
     init(initialState = {}, config = {}) {
         this.config = config;
         this._data = initialState;
+        this._allBindings = [];
 
         // Flatten 'state' into the root for legacy compatibility (Stage 6.1)
         if (initialState.state) {
@@ -85,6 +89,19 @@ window.NApp = {
                 console.log(`[NApp] Language switched to: ${this.buffer.language}`);
             }
         });
+    },
+
+    refreshDOMBindings() {
+        console.log("[NApp] Refreshing DOM bindings...");
+        if (this._allBindings) {
+            this._allBindings.forEach(binding => {
+                try {
+                    binding();
+                } catch (e) {
+                    console.error("[NApp] Error during binding refresh:", e);
+                }
+            });
+        }
     },
 
     _loadLocal() {

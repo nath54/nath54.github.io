@@ -10,6 +10,9 @@ links:
   - github: "https://github.com/nath54/nasong"
 app_version: "0.1.0"
 download_size: "-"
+date: "2026"
+authors:
+  - "Nathan Cerisara"
 tags: ["Python", "Audio Synthesis", "PyTorch", "Live Coding", "Music Theory", "TUI"]
 gallery: []
 description_en: |

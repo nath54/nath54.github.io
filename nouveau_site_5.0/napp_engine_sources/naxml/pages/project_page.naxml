@@ -8,7 +8,15 @@
                 <icon src="{icon}" class="product-icon-large" />
                 <div class="header-info">
                     <h1 class="product-title to_translate" data-translation_en="{name_en}" data-translation_fr="{name_fr}">{name_en}</h1>
-                    <p class="product-developer">Nathan Cerisara</p>
+                    <!-- Authors list (shown only if authors field is present and non-empty) -->
+                    <exec_if condition="{authors}">
+                        <div class="product-authors">
+                            <span class="authors-label to_translate" data-translation_en="By" data-translation_fr="Par">By</span>
+                            <exec_foreach var="author" in="{authors}">
+                                <span class="author-chip">{author}</span>
+                            </exec_foreach>
+                        </div>
+                    </exec_if>
                     <div class="header-actions">
                         <exec_foreach var="l" in="{links}">
                             <button class="{l['class']} btn-code" action="navigate" url="{l['url']}">
@@ -23,8 +31,8 @@
         <!-- Stats Grid -->
         <stat_group>
             <stat_item>
-                <div class="stat-label" name_en="Importance" name_fr="Importance" />
-                <div class="stat-value">{project_showcase_importance}</div>
+                <div class="stat-label" name_en="Date" name_fr="Date" />
+                <div class="stat-value">{date}</div>
             </stat_item>
             <separator_v />
             <stat_item>
@@ -36,26 +44,22 @@
                 <div class="stat-label" name_en="Version" name_fr="Version" />
                 <div class="stat-value">{app_version}</div>
             </stat_item>
-            <separator_v />
-            <stat_item>
-                <div class="stat-label" name_en="Size" name_fr="Taille" />
-                <div class="stat-value">{download_size}</div>
-            </stat_item>
         </stat_group>
 
-        <!-- Gallery -->
-        <section class="gallery-section">
-            <h2 class="section-title" name_en="Gallery" name_fr="Galerie" />
-            <image_carousel>
-                <exec_foreach var="img" in="{gallery}">
-                    <div class="gallery-item">
-                        <img src="{img}" />
-                    </div>
-                </exec_foreach>
-            </image_carousel>
-        </section>
-
-        <separator_h />
+        <!-- Gallery (hidden if empty) -->
+        <exec_if condition="{gallery}">
+            <section class="gallery-section">
+                <h2 class="section-title" name_en="Gallery" name_fr="Galerie" />
+                <image_carousel>
+                    <exec_foreach var="img" in="{gallery}">
+                        <div class="gallery-item">
+                            <img src="{img}" />
+                        </div>
+                    </exec_foreach>
+                </image_carousel>
+            </section>
+            <separator_h />
+        </exec_if>
 
         <!-- Description -->
         <section class="description-section">
@@ -71,6 +75,90 @@
         </section>
 
         <separator_h />
+
+        <!-- Roadmap / TODO section (shown only if roadmap field is present and non-empty) -->
+        <exec_if condition="{roadmap}">
+            <section class="roadmap-section">
+                <div class="roadmap-header">
+                    <h2 class="section-title" name_en="Roadmap &amp; Milestones" name_fr="Feuille de route &amp; Jalons" />
+                </div>
+                <div class="roadmap-timeline">
+                    <exec_foreach var="entry" in="{roadmap}">
+                        <!-- Version milestone line -->
+                        <exec_if condition="{entry['type'] == 'version'}">
+                            <div class="roadmap-version-line">
+                                <div class="version-badge">
+                                    <span class="version-icon fas fa-tag"></span>
+                                    <span class="version-label">{entry['version']}</span>
+                                </div>
+                                <div class="version-separator"></div>
+                                <exec_if condition="{entry['label_en']}">
+                                    <span class="version-desc to_translate" data-translation_en="{entry['label_en']}" data-translation_fr="{entry['label_fr']}">{entry['label_en']}</span>
+                                </exec_if>
+                            </div>
+                        </exec_if>
+                        <!-- Task item -->
+                        <exec_if condition="{entry['type'] == 'task'}">
+                            <div class="roadmap-task roadmap-task--{entry['status']}">
+                                <div class="task-status-icon">
+                                    <exec_if condition="{entry['status'] == 'done'}">
+                                        <i class="fas fa-check-circle task-icon task-icon--done"></i>
+                                    </exec_if>
+                                    <exec_if condition="{entry['status'] == 'in-progress'}">
+                                        <i class="fas fa-spinner fa-spin task-icon task-icon--in-progress"></i>
+                                    </exec_if>
+                                    <exec_if condition="{entry['status'] == 'todo'}">
+                                        <i class="far fa-circle task-icon task-icon--todo"></i>
+                                    </exec_if>
+                                </div>
+                                <div class="task-content">
+                                    <span class="task-title to_translate" data-translation_en="{entry['title_en']}" data-translation_fr="{entry['title_fr']}">{entry['title_en']}</span>
+                                    <!-- Subtasks -->
+                                    <exec_if condition="{entry['subtasks']}">
+                                        <div class="subtasks-list">
+                                            <exec_foreach var="sub" in="{entry['subtasks']}">
+                                                <div class="subtask subtask--{sub['status']}">
+                                                    <exec_if condition="{sub['status'] == 'done'}">
+                                                        <i class="fas fa-check subtask-icon subtask-icon--done"></i>
+                                                    </exec_if>
+                                                    <exec_if condition="{sub['status'] == 'in-progress'}">
+                                                        <i class="fas fa-minus subtask-icon subtask-icon--in-progress"></i>
+                                                    </exec_if>
+                                                    <exec_if condition="{sub['status'] == 'todo'}">
+                                                        <i class="far fa-circle subtask-icon subtask-icon--todo"></i>
+                                                    </exec_if>
+                                                    <span class="subtask-title to_translate" data-translation_en="{sub['title_en']}" data-translation_fr="{sub['title_fr']}">{sub['title_en']}</span>
+                                                    <!-- Sub-subtasks (level 3) -->
+                                                    <exec_if condition="{sub['subtasks']}">
+                                                        <div class="subtasks-list subtasks-list--l3">
+                                                            <exec_foreach var="sub2" in="{sub['subtasks']}">
+                                                                <div class="subtask subtask--{sub2['status']} subtask--l3">
+                                                                    <exec_if condition="{sub2['status'] == 'done'}">
+                                                                        <i class="fas fa-check subtask-icon subtask-icon--done"></i>
+                                                                    </exec_if>
+                                                                    <exec_if condition="{sub2['status'] == 'in-progress'}">
+                                                                        <i class="fas fa-minus subtask-icon subtask-icon--in-progress"></i>
+                                                                    </exec_if>
+                                                                    <exec_if condition="{sub2['status'] == 'todo'}">
+                                                                        <i class="far fa-circle subtask-icon subtask-icon--todo"></i>
+                                                                    </exec_if>
+                                                                    <span class="subtask-title to_translate" data-translation_en="{sub2['title_en']}" data-translation_fr="{sub2['title_fr']}">{sub2['title_en']}</span>
+                                                                </div>
+                                                            </exec_foreach>
+                                                        </div>
+                                                    </exec_if>
+                                                </div>
+                                            </exec_foreach>
+                                        </div>
+                                    </exec_if>
+                                </div>
+                            </div>
+                        </exec_if>
+                    </exec_foreach>
+                </div>
+            </section>
+            <separator_h />
+        </exec_if>
 
         <!-- Funny Comments Section -->
         <reviews_section>

@@ -11,6 +11,9 @@ links:
   - windows: "https://github.com/nath54/nathetris/releases/download/zip/jeu.zip"
 app_version: "1.0"
 download_size: "48 MB"
+date: "2018"
+authors:
+  - "Nathan Cerisara"
 tags: ["Python", "Game", "2D", "Pygame", "Arcade"]
 gallery: ["res/screenshots/nathetris_1.png", "res/screenshots/nathetris_2.png", "res/screenshots/nathetris_3.png"]
 description_en: "Nathetris is a highly customized local multiplayer and single-player Tetris variation developed in Python using Pygame and NumPy. Key Features: 1) Catalog of 13 Tetromino Shapes: Includes standard shapes as well as a 1-block dot, 2-block and 3-block line segments, a corner piece, a 5-block cross, and a 5-block U-shape, completely altering classic strategies. 2) Local Multiplayer Modes: Real-time cooperation (2 players controlling separate blocks on the same grid), cooperative play with a bot, competitive 1v1 split-screen, and competitive play against a bot. 3) Four Coloring Modes: Spawns blocks with fully random colors, shape-bound unique colors, retro high-contrast monochrome (white on black), or a dynamic gradient mode that smoothly transitions colors with each spawned block. 4) Fully Adjustable Rules: Select from three grid sizes (10x18, 15x20, 20x25), four difficulty settings (Easy, Medium, Hard, Hardcore), and four acceleration speeds (None, Slow, Medium, Fast). 5) Hardware Resolution Adaptation: Uses Pygame to read the host display configuration and dynamically scale coordinate systems, providing pixel-perfect menu and board rendering on any aspect ratio."

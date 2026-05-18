@@ -11,6 +11,9 @@ links:
   - web: "https://nath54.github.io/NaxelEditor/naxel_editor_webpage/"
 app_version: "0.9"
 download_size: "-"
+date: "2025"
+authors:
+  - "Nathan Cerisara"
 tags: ["Graphics", "Editor", "3D", "Voxels"]
 gallery: ["res/screenshots/naxel_editor_1.png", "res/screenshots/naxel_editor_2.png", "res/screenshots/naxel_editor_3.png"]
 description_en: |

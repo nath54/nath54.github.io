@@ -13,6 +13,9 @@ links:
   - android: "https://github.com/nath54/NaLang/releases/download/v0.9.4.4/NaLang_AndroidVersion.apk"
 app_version: "0.9.4.4"
 download_size: "71.7 MB"
+date: "2024"
+authors:
+  - "Nathan Cerisara"
 tags: ["Godot", "GDScript", "Language", "Learning"]
 gallery: ["res/screenshots/nalang_2.png", "res/screenshots/nalang_3.png", "res/screenshots/nalang_4.png", "res/screenshots/nalang_5.png", "res/screenshots/nalang_6.png", "res/screenshots/nalang_7.png", "res/screenshots/nalang_8.png"]
 description_en: "NaLang is a professional, feature-rich multi-language learning dashboard built on Godot 4.2. Designed to facilitate language acquisition through structured lessons, active recall flashcards, and interactive testing, it offers a comprehensive system for learners. The app features structured lesson pages with rich BBCode-formatted layouts for grammar, pronunciation, and conjugation; customizable vocabulary flashcards (fiches) that users can create, edit, and organize locally; a dual-mode testing engine offering either visual flashcard reviews or written answers; an advanced evaluation algorithm employing a custom Levenshtein distance check with Unicode-aware text normalization; and multi-lingual conversation guides for real-world scenarios. Supported target languages include Spanish, English, German, Mandarin Chinese, Japanese, Korean, and Russian."

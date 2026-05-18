@@ -1411,3 +1411,231 @@ class nascene_button {
         color background_color = $primary_600;
     }
 }
+
+// === Project Page — Authors & Date ===
+
+class product_authors {
+    str display = "flex";
+    str flex_direction = "row";
+    str flex_wrap = "wrap";
+    str align_items = "center";
+    size gap = $space_2;
+    size margin_top = $space_1;
+    size margin_bottom = $space_1;
+}
+
+class authors_label {
+    size font_size = $font_size_sm;
+    color text_color = $neutral_500;
+    int font_weight = $font_weight_medium;
+}
+
+class author_chip {
+    color background_color = $primary_100;
+    color text_color = $primary_700;
+    size border_radius = $radius_full;
+    size padding_x = $space_3;
+    size padding_y = $space_1;
+    size font_size = $font_size_sm;
+    int font_weight = $font_weight_semibold;
+    line border = line(width=1px, style="solid", color=$primary_200);
+}
+
+class product_date {
+    str display = "flex";
+    str flex_direction = "row";
+    str align_items = "center";
+    size gap = $space_2;
+    size margin_top = $space_1;
+    size margin_bottom = $space_2;
+    size font_size = $font_size_sm;
+    color text_color = $neutral_500;
+}
+
+class date_icon {
+    color text_color = $primary_400;
+}
+
+class date_value {
+    int font_weight = $font_weight_medium;
+    color text_color = $neutral_600;
+}
+
+// === Project Page — Roadmap / Milestones ===
+
+class roadmap_section {
+    size margin_y = $space_10;
+    size width = 100%;
+}
+
+class roadmap_header {
+    size margin_bottom = $space_6;
+}
+
+class roadmap_timeline {
+    str display = "flex";
+    str flex_direction = "column";
+    size gap = $space_2;
+    size padding_left = $space_2;
+}
+
+// Version milestone divider line
+
+class roadmap_version_line {
+    str display = "flex";
+    str flex_direction = "row";
+    str align_items = "center";
+    size gap = $space_4;
+    size margin_y = $space_6;
+    size width = 100%;
+}
+
+class version_badge {
+    str display = "flex";
+    str flex_direction = "row";
+    str align_items = "center";
+    size gap = $space_2;
+    color background_color = $primary_600;
+    color text_color = $neutral_0;
+    size border_radius = $radius_full;
+    size padding_x = $space_4;
+    size padding_y = $space_2;
+    size font_size = $font_size_sm;
+    int font_weight = $font_weight_bold;
+    str white_space = "nowrap";
+    shadow box_shadow = drop_shadow(offset_x=0px, offset_y=4px, blur=12px, spread=0px, color=rgba($primary_600, 0.35));
+}
+
+class version_icon {
+    size font_size = $font_size_sm;
+}
+
+class version_label {
+    size font_size = $font_size_sm;
+    int font_weight = $font_weight_bold;
+}
+
+class version_separator {
+    str flex = "1";
+    size height = 2px;
+    gradient background = linear_gradient(
+        angle=90deg,
+        stops=[
+            (0%, $primary_400),
+            (100%, rgba($primary_400, 0.05))
+        ]
+    );
+    size border_radius = $radius_full;
+}
+
+class version_desc {
+    size font_size = $font_size_sm;
+    color text_color = $neutral_500;
+    str white_space = "nowrap";
+    str font_style = "italic";
+}
+
+// Task item
+
+class roadmap_task {
+    str display = "flex";
+    str flex_direction = "row";
+    str align_items = "flex-start";
+    size gap = $space_3;
+    size padding = $space_4;
+    size border_radius = $radius_lg;
+    str transition = "background $trans_fast";
+    size margin_bottom = $space_1;
+    line border_left = line(width=3px, style="solid", color=$neutral_200);
+}
+
+class task_status_icon {
+    str flex = "0 0 auto";
+    size margin_top = 2px;
+}
+
+class task_icon {
+    size font_size = $font_size_xl;
+}
+
+class task_icon__done {
+    color text_color = $success;
+}
+
+class task_icon__in_progress {
+    color text_color = $warning;
+}
+
+class task_icon__todo {
+    color text_color = $neutral_300;
+}
+
+class task_content {
+    str flex = "1";
+    str display = "flex";
+    str flex_direction = "column";
+    size gap = $space_2;
+}
+
+class task_title {
+    size font_size = $font_size_base;
+    int font_weight = $font_weight_medium;
+    color text_color = $neutral_800;
+    str line_height = "1.4";
+}
+
+// Subtasks (level 2)
+
+class subtasks_list {
+    str display = "flex";
+    str flex_direction = "column";
+    size gap = $space_1;
+    size padding_left = $space_6;
+    size margin_top = $space_2;
+    line border_left = line(width=2px, style="dashed", color=$neutral_200);
+}
+
+class subtask {
+    str display = "flex";
+    str flex_direction = "row";
+    str align_items = "flex-start";
+    size gap = $space_2;
+    size padding_x = $space_3;
+    size padding_y = $space_2;
+    size border_radius = $radius_md;
+}
+
+class subtask_icon {
+    size font_size = $font_size_sm;
+    str flex = "0 0 auto";
+    size margin_top = 2px;
+}
+
+class subtask_icon__done {
+    color text_color = $success;
+}
+
+class subtask_icon__in_progress {
+    color text_color = $warning;
+}
+
+class subtask_icon__todo {
+    color text_color = $neutral_300;
+}
+
+class subtask_title {
+    size font_size = $font_size_sm;
+    color text_color = $neutral_700;
+    str line_height = "1.4";
+}
+
+// Sub-subtasks (level 3)
+
+class subtasks_list__l3 {
+    size padding_left = $space_4;
+}
+
+class subtask__l3 {
+    size font_size = $font_size_sm;
+}
+

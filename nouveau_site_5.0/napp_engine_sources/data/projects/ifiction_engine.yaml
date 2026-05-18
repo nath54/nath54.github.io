@@ -10,6 +10,9 @@ links:
   - github: "https://github.com/nath54/ifiction_engine"
 app_version: "0.4.2"
 download_size: "-"
+date: "2025"
+authors:
+  - "Nathan Cerisara"
 tags: ["Python", "Engine", "Interactive fiction"]
 gallery: []
 description_en: "iFiction Engine is a complete, modular, and lightweight interactive fiction game engine built entirely in Python's standard library. It parses complex natural language command structures (like 'take key', 'put book in shelf with hands', or 'ask merchant about potion') using an intelligent custom tokenizer. The engine is powered by an event-driven scene execution framework that handles conditions, branch jumps, local/global variables, and custom actions. Additionally, a priority queue-based scheduler governs game-time progression and turns, allowing realistic schedules, NPC behaviors, and world ticks. World blueprints use a unified, fully serializable JSON format, meaning there is no functional difference between a game initialization file and a game save file."
