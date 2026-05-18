@@ -1133,8 +1133,8 @@ class gallery_section {
     str display = "flex";
     str flex_direction = "row";
     str overflow_x = "auto";
-    size max_height = 600px;
-    size gap = $space_4;
+    size max_height = 420px;
+    size gap = $space_6;
     size padding_y = $space_4;
     str scroll_snap_type = "x mandatory";
     str webkit_overflow_scrolling = "touch";
@@ -1154,18 +1154,27 @@ class gallery_section {
 class gallery_item {
     str flex = "0 0 auto";
     str scroll_snap_align = "start";
-    size width = 280px;
-    size height = 500px;
-    size border_radius = $radius_lg;
+    size width = 600px;
+    str max_width = "90vw";
+    size height = 360px;
+    size border_radius = $radius_xl;
     str overflow = "hidden";
-    line border = line(width=1px, style="solid", color=$neutral_100);
-    shadow box_shadow = drop_shadow(offset_x=0px, offset_y=10px, blur=20px, spread=0px, color=rgba(0,0,0,0.05));
+    line border = line(width=1px, style="solid", color=rgba($neutral_400, 0.15));
+    shadow box_shadow = drop_shadow(offset_x=0px, offset_y=12px, blur=24px, spread=0px, color=rgba(0,0,0,0.08));
+    color background_color = rgba($neutral_800, 0.5);
+    str transition = "transform $trans_normal, box-shadow $trans_normal";
+
+    state hover {
+        str transform = "scale(1.02)";
+        shadow box_shadow = drop_shadow(offset_x=0px, offset_y=20px, blur=32px, spread=0px, color=rgba(0,0,0,0.12));
+    }
 }
 
 (class gallery_item) > (tag img) {
     size width = 100%;
     size height = 100%;
-    str object_fit = "cover";
+    str object_fit = "contain";
+    size padding = $space_4;
 }
 
 class description_section {
