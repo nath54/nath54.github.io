@@ -40,6 +40,11 @@ tag main_container {
     size max_width = 1200px;
     str margin_left = "auto";
     str margin_right = "auto";
+
+    state mobile {
+        size padding_x = $space_4;
+        size padding_y = $space_6;
+    }
 }
 
 class single_column {
@@ -297,6 +302,11 @@ class project_card {
         str transform = "translateY(-8px)";
         shadow box_shadow = drop_shadow(offset_x=0px, offset_y=20px, blur=40px, spread=-10px, color=rgba(0,0,0,0.08));
     }
+
+    state mobile {
+        size width = 100%;
+        size max_width = 100%;
+    }
 }
 
 class project_card_hero {
@@ -370,6 +380,11 @@ class card_project {
     size width = 20%;
     size max_width = 400px;
     size max_height = 400px;
+
+    state mobile {
+        size width = 100%;
+        size max_width = 100%;
+    }
 }
 
 class projects_section {
@@ -385,6 +400,11 @@ class projects_grid {
     size gap = $space_8;
     size width = 100%;
     size margin_y = $space_6;
+
+    state mobile {
+        str grid_template_columns = "1fr";
+        size gap = $space_4;
+    }
 }
 
 class hero_tagline {
@@ -1037,6 +1057,12 @@ class header_main {
     str flex_direction = "row";
     str align_items = "center";
     size gap = $space_8;
+
+    state mobile {
+        str flex_direction = "column";
+        str text_align = "center";
+        size gap = $space_4;
+    }
 }
 
 class product_icon_large {
@@ -1052,6 +1078,11 @@ class header_info {
     str display = "flex";
     str flex_direction = "column";
     size gap = $space_2;
+
+    state mobile {
+        str align_items = "center";
+        str text_align = "center";
+    }
 }
 
 class product_title {
@@ -1073,6 +1104,10 @@ class header_actions {
     str flex_direction = "row";
     size gap = $space_4;
     size margin_top = $space_4;
+
+    state mobile {
+        str justify_content = "center";
+    }
 }
 
 class btn_code {
@@ -1236,6 +1271,11 @@ class comments_grid {
     str display = "grid";
     str grid_template_columns = "repeat(2, 1fr)";
     size gap = $space_6;
+
+    state mobile {
+        str grid_template_columns = "1fr";
+        size gap = $space_4;
+    }
 }
 
 (class comments_grid) > (class napp_repeat_container) {
