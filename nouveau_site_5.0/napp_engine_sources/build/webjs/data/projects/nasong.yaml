@@ -11,7 +11,7 @@ links:
 app_version: "0.1.0"
 download_size: "-"
 tags: ["Python", "Audio Synthesis", "PyTorch", "Live Coding", "Music Theory", "TUI"]
-gallery: ["res/icons/icon_project_nasong.png"]
+gallery: []
 description_en: |
   **NaSong** is a highly innovative, modular Python-based music synthesizer, sequencer, and live-coding platform that treats **"Code as Music"**. Instead of relying on traditional graphical DAWs with fixed tracks and plugin systems, NaSong allows developers and electronic music composers to build fully custom, mathematically precise, and highly composable audio synthesis graphs entirely in Python.
 

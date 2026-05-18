@@ -12,7 +12,7 @@ links:
 app_version: "0.9"
 download_size: "-"
 tags: ["Graphics", "Editor", "3D", "Voxels"]
-gallery: ["res/icons/icon_project_naxel_editor.png"]
+gallery: ["res/screenshots/naxel_editor_1.png", "res/screenshots/naxel_editor_2.png", "res/screenshots/naxel_editor_3.png"]
 description_en: |
   Naxel Editor is a sophisticated, browser-based 3D voxel modeling and rendering ecosystem designed to maximize creative expressivity while maintaining incredibly compact, highly optimized file sizes. At the heart of the system is the **Naxel JSON specification**, a custom data format that supports high-level procedural primitives (such as spheres, cylinders, lines, rectangles, and polygons), advanced multi-stop color gradients, and color zones.
 

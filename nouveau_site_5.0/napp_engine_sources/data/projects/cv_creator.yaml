@@ -11,7 +11,7 @@ links:
 app_version: "0.9"
 download_size: "-"
 tags: ["Python", "PDF", "CV", "FPDF2", "Auto-scaling", "YAML"]
-gallery: ["res/icons/icon_project_cv_creator.png"]
+gallery: []
 description_en: "CV_Creator is an intelligent and highly customized resume generator written in Python. It parses structured personal and professional data from human-readable YAML configurations, applies fully customizable styling rules, and renders beautifully typeset PDF CVs. The project features an innovative auto-fitting algorithm: it performs a dynamic search over font sizes and line spacing parameters to scale the layout dynamically, ensuring the generated resume fits perfectly on exactly one page without manual trimming. Supported by two-column asymmetric structures, headers, image rendering, custom margins, and full localization support."
 description_fr: "CV_Creator est un générateur de CV intelligent et hautement personnalisé écrit en Python. Il analyse des données personnelles et professionnelles structurées à partir de fichiers YAML lisibles par l'homme, applique des règles de style entièrement personnalisables et génère des CV PDF magnifiquement mis en page. Le projet intègre un algorithme d'auto-ajustement innovant : il effectue une recherche dichotomique sur la taille des polices et l'espacement des lignes pour adapter dynamiquement la mise en page, garantissant que le CV généré tient parfaitement sur une seule page sans recadrage manuel. Prend en charge les structures asymétriques à deux colonnes, les en-têtes, le rendu d'images, les marges personnalisées et la traduction linguistique."
 funny_comments:
