@@ -272,6 +272,12 @@ br {
     margin-right: auto;
 }
 
+@media (max-width: 768px) {
+    .layout-two-columns {
+        flex-direction: column;
+    }
+}
+
 .layout-col {
     flex: 1;
 }

@@ -77,6 +77,10 @@ class layout_two_columns {
     size gap = $space_6;
     str margin_left = "auto";
     str margin_right = "auto";
+
+    state mobile {
+        str flex_direction = "column";
+    }
 }
 
 class layout_col {
