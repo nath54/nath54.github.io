@@ -584,6 +584,13 @@ class category_tabs {
     str margin_right = "auto";
     size margin_bottom = $space_2;
     size max_width = 35%;
+
+    state mobile {
+        size max_width = 90%;
+        str flex_wrap = "wrap";
+        str justify_content = "center";
+        size gap = $space_2;
+    }
 }
 
 class category_tab {
