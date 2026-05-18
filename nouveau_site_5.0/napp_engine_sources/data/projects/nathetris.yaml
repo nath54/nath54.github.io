@@ -6,8 +6,9 @@ project_status: "Ended"
 project_type: "Personal"
 project_showcase_importance: 0
 icon: "res/icons/icon_project_nathetris.png"
-link: "https://github.com/nath54/nathetris/releases/download/zip/jeu.zip"
-github_link: "https://github.com/nath54/nathetris"
+links:
+  - github: "https://github.com/nath54/nathetris"
+  - windows: "https://github.com/nath54/nathetris/releases/download/zip/jeu.zip"
 app_version: "1.0"
 download_size: "48 MB"
 tags: ["Python", "Game", "2D", "Pygame", "Arcade"]

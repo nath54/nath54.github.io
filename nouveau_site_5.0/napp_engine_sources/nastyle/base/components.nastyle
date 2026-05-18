@@ -1109,6 +1109,19 @@ class product_developer {
 class header_actions {
     str display = "flex";
     str flex_direction = "row";
+    str flex_wrap = "wrap";
+    size gap = $space_4;
+    size margin_top = $space_4;
+
+    state mobile {
+        str justify_content = "center";
+    }
+}
+
+(class header_actions) > (class napp_repeat_container) {
+    str display = "flex";
+    str flex_direction = "row";
+    str flex_wrap = "wrap";
     size gap = $space_4;
     size margin_top = $space_4;
 
@@ -1123,9 +1136,12 @@ class btn_code {
     size border_radius = $radius_full;
     size padding_x = $space_6;
     size padding_y = $space_2;
+    size margin_x = $space_1;
+    size margin_y = $space_1;
     size font_size = $font_size_xs;
     int font_weight = $font_weight_bold;
     str text_transform = "uppercase";
+    str text_align = "center";
     str cursor = "pointer";
     line border = line(width=1px, style="solid", color=$primary_200);
     str transition = "all $trans_fast";

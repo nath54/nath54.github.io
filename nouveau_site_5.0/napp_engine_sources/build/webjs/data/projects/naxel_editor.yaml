@@ -6,8 +6,9 @@ project_status: "Paused"
 project_type: "Personal"
 project_showcase_importance: 6
 icon: "res/icons/icon_project_naxel_editor.png"
-link: "https://nath54.github.io/NaxelEditor/naxel_editor_webpage/"
-github_link: "https://github.com/nath54/NaxelEditor"
+links:
+  - github: "https://github.com/nath54/NaxelEditor"
+  - web: "https://nath54.github.io/NaxelEditor/naxel_editor_webpage/"
 app_version: "0.9"
 download_size: "-"
 tags: ["Graphics", "Editor", "3D", "Voxels"]

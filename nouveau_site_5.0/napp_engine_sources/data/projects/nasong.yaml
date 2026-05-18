@@ -6,10 +6,10 @@ project_status: "Ended"
 project_type: "Personal"
 project_showcase_importance: 9
 icon: "res/icons/icon_project_nasong.png"
-link: "https://github.com/nath54/nasong/archive/refs/heads/main.zip"
-github_link: "https://github.com/nath54/nasong"
+links:
+  - github: "https://github.com/nath54/nasong"
 app_version: "0.1.0"
-download_size: "4.2 Mo"
+download_size: "-"
 tags: ["Python", "Audio Synthesis", "PyTorch", "Live Coding", "Music Theory", "TUI"]
 gallery: ["res/icons/icon_project_nasong.png"]
 description_en: |

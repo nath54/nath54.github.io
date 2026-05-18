@@ -6,8 +6,11 @@ project_status: "Ended"
 project_type: "Personal"
 project_showcase_importance: 4
 icon: "res/icons/icon_project_nalang.png"
-link: "https://github.com/nath54/NaLang/releases/tag/v0.9.4.4"
-github_link: "https://github.com/nath54/NaLang"
+links:
+  - github: "https://github.com/nath54/NaLang"
+  - linux: "https://github.com/nath54/NaLang/releases/download/v0.9.4.4/NaLang_LinuxVersion.x86_64"
+  - windows: "https://github.com/nath54/NaLang/releases/download/v0.9.4.4/NaLang_WindowsVersion.exe"
+  - android: "https://github.com/nath54/NaLang/releases/download/v0.9.4.4/NaLang_AndroidVersion.apk"
 app_version: "0.9.4.4"
 download_size: "71.7 MB"
 tags: ["Godot", "GDScript", "Language", "Learning"]

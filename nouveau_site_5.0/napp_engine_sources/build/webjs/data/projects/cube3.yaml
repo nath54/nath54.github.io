@@ -6,8 +6,12 @@ project_status: "Aborted"
 project_type: "Personal"
 project_showcase_importance: 3
 icon: "res/icons/icon_project_cube3.png"
-link: "https://github.com/nath54/Cube3/releases/tag/v0.1-indev"
-github_link: "https://github.com/nath54/Cube3"
+links:
+  - github: "https://github.com/nath54/Cube3"
+  - windows: "https://github.com/nath54/Cube3/releases/download/v0.1-indev/cube3_windows.zip"
+  - linux: "https://github.com/nath54/Cube3/releases/download/v0.1-indev/cube3_linux.zip"
+  - macos: "https://github.com/nath54/Cube3/releases/download/v0.1-indev/cube3_macos.zip"
+  - android: "https://github.com/nath54/Cube3/releases/download/v0.1-indev/cube3_android.apk"
 app_version: "0.1"
 download_size: "42.1 MB"
 tags: ["Godot", "C#", "Game", "3D", "Platformer", "Arcade", "Procedural Generation", "Customization"]

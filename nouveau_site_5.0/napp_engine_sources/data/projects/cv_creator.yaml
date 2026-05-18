@@ -6,10 +6,10 @@ project_status: "Ended"
 project_type: "Personal"
 project_showcase_importance: 8
 icon: "res/icons/icon_project_cv_creator.png"
-link: "https://github.com/nath54/cv_creator/archive/refs/heads/main.zip"
-github_link: "https://github.com/nath54/cv_creator"
+links:
+  - github: "https://github.com/nath54/cv_creator"
 app_version: "0.9"
-download_size: "9.41 Ko"
+download_size: "-"
 tags: ["Python", "PDF", "CV", "FPDF2", "Auto-scaling", "YAML"]
 gallery: ["res/icons/icon_project_cv_creator.png"]
 description_en: "CV_Creator is an intelligent and highly customized resume generator written in Python. It parses structured personal and professional data from human-readable YAML configurations, applies fully customizable styling rules, and renders beautifully typeset PDF CVs. The project features an innovative auto-fitting algorithm: it performs a dynamic search over font sizes and line spacing parameters to scale the layout dynamically, ensuring the generated resume fits perfectly on exactly one page without manual trimming. Supported by two-column asymmetric structures, headers, image rendering, custom margins, and full localization support."

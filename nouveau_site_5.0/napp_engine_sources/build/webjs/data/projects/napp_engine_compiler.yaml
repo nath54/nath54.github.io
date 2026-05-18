@@ -6,10 +6,10 @@ project_status: "Ended"
 project_type: "Personal"
 project_showcase_importance: 15
 icon: "res/icons/icon_project_napp_engine_compiler.png"
-link: "https://github.com/nath54/napp_engine_compiler/archive/refs/heads/master.zip"
-github_link: "https://github.com/nath54/napp_engine_compiler"
+links:
+  - github: "https://github.com/nath54/napp_engine_compiler"
 app_version: "0.1.2"
-download_size: "254 Ko"
+download_size: "-"
 tags: ["Python", "Compilation", "Dev", "Engine"]
 gallery: ["res/icons/icon_project_napp_engine_compiler.png"]
 description_en: "The Napp Engine Compiler is a high-performance, modular, multi-target transpiler designed to compile unified NApp projects into responsive, dependency-free single-page web applications (WebJS) and native desktop window applications (PySide6/Qt6). By strictly decoupling declarative UI layouts (NaXML), custom style schemas (NaStyle), strongly typed mid-end logic (NaCode), and native system calls, it enables full cross-platform execution with a single unified codebase.\n\nThe compiler engine features a robust parsing pipeline powered by Lark grammars, syntax-to-AST translation layers, type checking, and semantic validation before generating optimized intermediate representations. It also integrates an emulation-based interactive macOS-style terminal overlay in the browser, local storage proxies, sound control engines, network fetch interfaces, and clipboard hardware controllers, along with an auto-unlocking/kill system to release active Windows ports and file locks during development iterations."

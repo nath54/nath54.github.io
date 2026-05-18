@@ -6,10 +6,10 @@ project_status: "Completed"
 project_type: "Personal"
 project_showcase_importance: 1
 icon: "res/icons/icon_project_cube1.png"
-link: "https://github.com/nath54/cube/archive/refs/heads/master.zip"
-github_link: "https://github.com/nath54/cube"
+links:
+  - github: "https://github.com/nath54/cube"
 app_version: "1.0"
-download_size: "10.2 Ko"
+download_size: "-"
 tags: ["Python", "Game", "2D", "Tkinter", "Retro", "Procedural"]
 gallery: ["res/icons/icon_project_cube1.png"]
 description_en: "Cube1 is a nostalgic 2D procedural arcade game developed in Python using the classic Tkinter interface. The core concept revolves around navigating a tiny white cube through an auto-generated maze towards a red target. The game features a unique maze generation algorithm: it performs a random walk of a configurable number of steps to define a valid path, and converts all unvisited areas of the screen into walls. Players can collect bonus brown points, but must be extremely cautious—touching walls costs a life, resets position, and subtracts points. Cube1 includes a visual difficulty mode: in 'Easy' mode, walls are colored in vibrant hues, while in 'Hard' mode, the wall colors intentionally blend with the dark background, the player, or the target to test your visual perception and memory. Fully compatible with both Python 2.x and Python 3.x."

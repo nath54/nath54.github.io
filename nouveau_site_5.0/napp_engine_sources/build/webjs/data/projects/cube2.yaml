@@ -6,8 +6,9 @@ project_status: "Aborted"
 project_type: "Personal"
 project_showcase_importance: 2
 icon: "res/icons/icon_project_cube2.png"
-link: "https://github.com/nath54/cube2/releases/download/2.2/main.zip"
-github_link: "https://github.com/nath54/cube2"
+links:
+  - github: "https://github.com/nath54/cube2"
+  - windows: "https://github.com/nath54/cube2/releases/download/2.2/main.zip"
 app_version: "2.2"
 download_size: "31.4 MB"
 tags: ["Python", "Game", "2D", "Pygame", "Arcade", "Procedural Generation", "Grappling Hook", "Retro", "Customization"]

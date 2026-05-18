@@ -10,12 +10,11 @@
                     <h1 class="product-title to_translate" data-translation_en="{name_en}" data-translation_fr="{name_fr}">{name_en}</h1>
                     <p class="product-developer">Nathan Cerisara</p>
                     <div class="header-actions">
-                        <btn_get name_en="Get" name_fr="Ouvrir" action="navigate" url="{link}" />
-                        <exec_if var="github_link">
-                            <button class="btn-code" action="navigate" url="{github_link}">
-                                <i class="fab fa-github"></i> <span name_en="Source" name_fr="Code" />
+                        <exec_foreach var="l" in="{links}">
+                            <button class="{l['class']} btn-code" action="navigate" url="{l['url']}">
+                                <span class="{l['icon']}"></span> <span class="btn-code" name_en="{l['name_en']}" name_fr="{l['name_fr']}" />
                             </button>
-                        </exec_if>
+                        </exec_foreach>
                     </div>
                 </div>
             </div>

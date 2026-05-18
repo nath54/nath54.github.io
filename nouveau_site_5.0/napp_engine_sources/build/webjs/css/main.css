@@ -1286,12 +1286,27 @@ br {
 .header-actions {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: var(--space-4);
     margin-top: var(--space-4);
 }
 
 @media (max-width: 768px) {
     .header-actions {
+        justify-content: center;
+    }
+}
+
+.header-actions > .napp-repeat-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+}
+
+@media (max-width: 768px) {
+    .header-actions > .napp-repeat-container {
         justify-content: center;
     }
 }
@@ -1304,9 +1319,14 @@ br {
     padding-right: var(--space-6);
     padding-top: var(--space-2);
     padding-bottom: var(--space-2);
+    margin-left: var(--space-1);
+    margin-right: var(--space-1);
+    margin-top: var(--space-1);
+    margin-bottom: var(--space-1);
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-bold);
     text-transform: uppercase;
+    text-align: center;
     cursor: pointer;
     border: 1px solid var(--primary-200);
     transition: all $trans_fast;
