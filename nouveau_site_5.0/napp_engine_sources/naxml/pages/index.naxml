@@ -47,8 +47,8 @@
 
                 <separator_h />
 
-                <link_file icon="file" name_en="CV / resume (english)" name_fr="CV / resume (anglais)" url="res/cv_en.pdf" />
-                <link_file icon="file" name_en="CV / resume (french)" name_fr="CV / resume (français)" url="res/cv_fr.pdf" />
+                <link_file icon="file" name_en="Resume (english)" name_fr="CV (anglais)" url="res/cv_en.pdf" />
+                <link_file icon="file" name_en="Resume (french)" name_fr="CV (français)" url="res/cv_fr.pdf" />
 
                 <link_url icon="github" name="Github" url="https://github.com/nath54" />
                 <link_url icon="linkedin" name="Linkedin" url="https://www.linkedin.com/in/nathan-cerisara-8669331ba/" />

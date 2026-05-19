@@ -234,6 +234,8 @@ class icon {
     size width = 64px;
     size height = 64px;
 
+    size border_radius = 15px;
+
     str display = "flex";
 }
 
@@ -1124,6 +1126,32 @@ class header_actions {
     str flex_wrap = "wrap";
     size gap = $space_4;
     size margin_top = $space_4;
+
+    state mobile {
+        str justify_content = "center";
+    }
+}
+
+class authors_list {
+    str display = "flex";
+    str flex_direction = "row";
+    str flex_wrap = "wrap";
+    size gap = $space_4;
+    str margin_top = "auto";
+    str margin_bottom = "auto";
+
+    state mobile {
+        str justify_content = "center";
+    }
+}
+
+(class authors_list) > (class napp_repeat_container) {
+    str display = "flex";
+    str flex_direction = "row";
+    str flex_wrap = "wrap";
+    size gap = $space_4;
+    str margin_top = "auto";
+    str margin_bottom = "auto";
 
     state mobile {
         str justify_content = "center";

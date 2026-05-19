@@ -1,0 +1,80 @@
+name_en: "PyTorch ModelBlock AST-to-IR Converter"
+name_fr: "Convertisseur AST vers IR de blocs de modèles PyTorch"
+short_description_en: "An AST-based extraction and interpretation toolchain that preserves control flow and hierarchical structures of PyTorch models into a custom Intermediate Representation."
+short_description_fr: "Une chaîne d'outils d'extraction et d'interprétation basée sur l'AST qui préserve le flux de contrôle et la structure hiérarchique des modèles PyTorch dans une représentation intermédiaire personnalisée."
+project_status: "Ongoing"
+project_type: "Academic"
+project_showcase_importance: 8
+icon: "res/icons/icon_project_ast_ir.png"
+links:
+  - github: "https://github.com/nath54/Pytorch_ModelBlock_IntermediateLayer_Conversion"
+app_version: "1.0.0"
+download_size: "-"
+date: "2024"
+authors:
+  - "Nathan Cerisara"
+tags: ["PyTorch", "Compiler", "AST", "Intermediate Representation", "Machine Learning", "C++ Deployment", "Embedded AI"]
+gallery: []
+description_en: |
+  **PyTorch ModelBlock Intermediate Layer Conversion** is a specialized, AST-driven compiler toolchain designed to extract, analyze, and execute PyTorch model architectures without requiring dynamic execution or tracing.
+
+  Standard deep learning serialization and compilation toolchains (such as ONNX, TorchScript, or generic tracer-based export tools) capture the model as a flattened, static computation graph. While highly optimized for server-class GPUs, static graphs throw away the rich control flow (such as dynamic `for` loops, conditional `if/else` paths) and hierarchical modular structures (like sub-blocks or custom modules) originally defined in Python. This project bridges that gap by parsing the model's source code directly using Python's **Abstract Syntax Tree (AST)** parser.
+
+  ### Core Architecture & Features:
+  1. **AST-Based Extraction (`lib_extract_model_architecture.py`)**: By visiting AST nodes recursively within the model's class and `forward` method, the parser reconstructs the control flow and operations into a high-level **Intermediate Representation (IR)**.
+  2. **Custom Intermediate Representation (`core/lib_impl/lib_classes.py`)**: Models are represented as structured, modular `Language_Model` instances consisting of `FlowControlInstructions`, algebraic/logical `Expressions`, and high-level `Layer` definitions.
+  3. **Weight Linking Engine (`lib_weights_link.py`)**: Provides a mapper that links pre-trained weights from standard PyTorch `.pt` or state dictionary files directly to the corresponding layers within the extracted IR.
+  4. **Pure Python Forward Interpreter (`core/lib_impl/lib_interpretor.py`)**: Features a modular simulation interpreter that allows developers to trace, debug, and execute the extracted IR step-by-step in pure Python, enabling immediate behavior validation.
+  5. **Embedded C++ Target Design**: Designed from the ground up for low-power embedded deployment. The portable C++ operator interface (`core/cpp_modules/op_backend.h`) and tensor structure (`core/cpp_modules/tensor_header.h`) pave the way for cross-compiling the IR into tight, hardware-optimized C++ code targeting high-performance libraries like **CMSIS-NN** (for ARM Cortex-M microcontrollers) and **Fastor** (for compile-time optimized tensor math).
+description_fr: |
+  **PyTorch ModelBlock Intermediate Layer Conversion** est une chaîne d'outils de compilation spécialisée, pilotée par l'AST, conçue pour extraire, analyser et exécuter des architectures de modèles PyTorch sans nécessiter d'exécution dynamique ou de traçage.
+
+  Les outils standards de sérialisation et de compilation en deep learning (tels qu'ONNX, TorchScript ou les exportateurs basés sur le traçage) capturent les modèles sous forme de graphes de calcul statiques et aplatis. Bien qu'efficaces pour les GPU de serveurs, ces graphes statiques sacrifient le flux de contrôle riche (comme les boucles `for` dynamiques, les conditions `if/else`) et les structures hiérarchiques (comme les sous-blocs ou les modules personnalisés) définis en Python. Ce projet comble ce fossé en analysant directement le code source du modèle à l'aide de l'**arbre de syntaxe abstraite (AST)** de Python.
+
+  ### Architecture et Fonctionnalités Clés :
+  1. **Extraction basée sur l'AST (`lib_extract_model_architecture.py`)** : En visitant de manière récursive les nœuds de l'AST dans la classe et la méthode `forward` du modèle, l'extracteur reconstruit la logique algorithmique sous forme d'une **représentation intermédiaire (IR)** de haut niveau.
+  2. **Représentation Intermédiaire Personnalisée (`core/lib_impl/lib_classes.py`)** : Les modèles sont traduits en instances de `Language_Model` structurées et modulaires, composées d'instructions de contrôle de flux (`FlowControlInstructions`), d'expressions algébriques (`Expressions`) et de couches neuronales (`Layer`).
+  3. **Moteur de Liaison des Poids (`lib_weights_link.py`)** : Fournit un mécanisme robuste pour associer directement les poids pré-entraînés issus de fichiers PyTorch `.pt` standard aux couches de l'IR extraite.
+  4. **Interpréteur Forward Pur Python (`core/lib_impl/lib_interpretor.py`)** : Propose un interpréteur de simulation permettant de tracer, déboguer et valider l'exécution de l'IR étape par étape en pur Python, garantissant une conformité comportementale parfaite par rapport au modèle d'origine.
+  5. **Cible de Déploiement C++ Embarqué** : Conçu spécifiquement pour le déploiement sur cibles à faible consommation. L'interface d'opérateurs C++ portable (`core/cpp_modules/op_backend.h`) et les structures de tenseurs (`core/cpp_modules/tensor_header.h`) préparent la génération automatique de code C++ optimisé pour des microcontrôleurs via **CMSIS-NN** (ARM Cortex-M) ou pour des calculs tensoriels performants via **Fastor**.
+funny_comments:
+  - user: "AST_Acrobat"
+    rating: 5
+    text_en: "I parsed a 50-line custom forward pass through 12 levels of AST nested loops, and all I got was this lousy dict of Expressions."
+    text_fr: "J'ai analysé un forward pass personnalisé de 50 lignes à travers 12 niveaux de boucles AST imbriquées, et tout ce que j'ai obtenu, c'est ce minable dictionnaire d'Expressions."
+  - user: "Weight_Watcher"
+    rating: 4
+    text_en: "Linking weights without running the model feels like trying to assemble IKEA furniture purely by smelling the cardboard box."
+    text_fr: "Lier des poids sans exécuter le modèle, c'est comme essayer d'assembler un meuble IKEA uniquement en sentant le carton d'emballage."
+  - user: "BareMetal_Survivor"
+    rating: 5
+    text_en: "CMSIS-NN target: Because nothing says 'I love machine learning' quite like spending three days debugging a buffer overflow on a microcontroller with 64KB of RAM."
+    text_fr: "Cible CMSIS-NN : Parce que rien ne dit plus 'J'adore le machine learning' que de passer trois jours à déboguer un dépassement de tampon sur un microcontrôleur avec 64 Ko de RAM."
+  - user: "Trace_Hater"
+    rating: 5
+    text_en: "TorchScript tracing cried when it saw our dynamic control flow. Our AST parser didn't cry, it just silently planned its revenge."
+    text_fr: "Le traçage TorchScript a pleuré en voyant nos flux de contrôle dynamiques. Notre analyseur AST n'a pas pleuré, il a juste préparé silencieusement sa vengeance."
+  - user: "Slow_And_Steady"
+    rating: 4
+    text_en: "Executing tensor multiplications in a pure Python interpreter is a great way to heat your room in winter, one float at a time."
+    text_fr: "Exécuter des multiplications de tenseurs dans un interpréteur pur Python est un excellent moyen de chauffer sa chambre en hiver, un float à la fois."
+  - user: "Zero_Bias_Hero"
+    rating: 5
+    text_en: "Passing 'NO_WEIGHTS' as an argument is my favorite way of saying 'I trust my random initialization to achieve AGI'."
+    text_fr: "Passer 'NO_WEIGHTS' en argument est ma façon préférée de dire 'Je fais confiance à mon initialisation aléatoire pour atteindre l'AGI'."
+  - user: "C_Plus_Plus_Purist"
+    rating: 5
+    text_en: "Our op_backend.h interface is so abstract that even the C++ compiler isn't sure if the operators actually exist or are just a state of mind."
+    text_fr: "Notre interface op_backend.h est si abstraite que même le compilateur C++ ne sait pas si les opérateurs existent réellement ou s'il s'agit simplement d'un état d'esprit."
+  - user: "Dim_Mismatch_Survivor"
+    rating: 3
+    text_en: "Line 96 of test: 'ensure conv output width becomes 1 so Linear(in_features=1) is valid'. Ah, the classic developer trick of shrinking dimensions until the errors go away."
+    text_fr: "Ligne 96 de test : 's'assurer que la largeur de sortie de la convolution devient 1 pour que Linear(in_features=1) soit valide'. Ah, le grand classique d'ajuster les dimensions jusqu'à ce que les erreurs disparaissent."
+  - user: "Recursion_Rookie"
+    rating: 5
+    text_en: "I wrote an AST node visitor that visited so many nodes, it ended up visiting my childhood memories. Still couldn't find where the syntax error was though."
+    text_fr: "J'ai écrit un visiteur de nœuds AST qui a visité tellement de nœuds qu'il a fini par visiter mes souvenirs d'enfance. Mais il n'a toujours pas trouvé d'où venait l'erreur de syntaxe."
+  - user: "Smart_Toaster_Dev"
+    rating: 5
+    text_en: "Once the C++ exporter is done, I am immediately deploying a ResNet-50 onto my smart toaster. Let's see if it can classify bread burntness in real-time."
+    text_fr: "Dès que l'exportateur C++ sera prêt, je déploierai immédiatement un ResNet-50 sur mon grille-pain connecté. Voyons s'il peut classifier le degré de brûlure du pain en temps réel."

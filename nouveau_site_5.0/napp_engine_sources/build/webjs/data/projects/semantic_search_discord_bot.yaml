@@ -1,0 +1,97 @@
+name_en: "Semantic Search Discord Bot"
+name_fr: "Bot Discord de Recherche Sémantique"
+short_description_en: "A python Discord Bot providing hybrid semantic and syntactic keyword search across channel histories utilizing Hugging Face transformer models."
+short_description_fr: "Un bot Discord en Python offrant une recherche hybride (sémantique et syntaxique) dans l'historique des salons à l'aide de modèles transformers de Hugging Face."
+project_status: "Ended"
+project_type: "Personal"
+project_showcase_importance: 4
+icon: "res/icons/icon_project_semantic_search_discord_bot.png"
+links:
+  - github: "https://github.com/nath54/SemanticSearch-DiscordBot"
+app_version: "1.0"
+download_size: "-"
+date: "2024"
+authors:
+  - "Nathan Cerisara"
+tags:
+  - "Discord Bot"
+  - "NLP"
+  - "Semantic Search"
+  - "Sentence Embeddings"
+  - "PyTorch"
+  - "Hugging Face"
+  - "Transformers"
+  - "Profiling"
+  - "Python"
+gallery: []
+description_en: |
+  A specialized **Python Discord Bot** designed to fetch, parse, and search through Discord channel chat logs. The bot enables users to execute **hybrid queries** that combine deep learning **sentence embeddings** with keyword-based **syntactic overlap**. Users can easily deploy it on any server to retrieve contextually relevant historical messages that standard word-search fails to discover.
+
+  ### Key Components & Architecture:
+  1. **Discord Bot Engine (`discord_bot.py`)**: Built on `discord.py` (`commands.Bot`), it monitors guild channels and intercepts command prefixes (e.g. `!`). Features dynamic message pagination using asynchronous streams (`aiostream.stream`) to retrieve large channel histories, respecting user-specific read permissions.
+  2. **Hybrid Search Pipeline (`distance_calculator.py`)**: Calculates similarity using three primary algorithms:
+     - **Semantic Distance (`calculate_distance_embed`)**: Generates 512-dimensional embeddings via Hugging Face Models and computes L2 (Euclidean) distance (`np.linalg.norm`).
+     - **Keyword Matching (`calculate_distance_common_words`)**: Scores messages based on case-insensitive token set intersections.
+     - **Weighted Combination (`calculate_distance_both`)**: Blends semantic vector distance with syntactic keyword counts to offer a robust hybrid search score.
+  3. **Transformer Embedding Processor (`embedding_calculator.py`)**: Integrates Hugging Face `transformers` (`AutoModel` and `AutoTokenizer`). It features CUDA support for GPU acceleration and runs dynamically batched sentence embedding inferences using mean pooling of the last hidden states.
+  4. **Experimental Attention Weighting**: Implements a highly advanced similarity method (`find_common_tokens_with_attention`) that extracts query and key weight matrices (`self.model.encoder.layer[0].attention.self.query` / `key`) directly from the first encoder layer to compute token-level relevance scores.
+  5. **Performance Profiling & Optimization Benchmarks**:
+     - Includes a custom-built execution timing engine (`profiling.py`) to monitor latency across API queries, tokenization, and model inference loops.
+     - Features an active research and benchmarking suite (`test_research_improve_speed_and_performance.py`) evaluating various speed optimizations, such as skipping late transformer encoder layers.
+     - **Key Research Finding**: Benchmarks demonstrated that skipping encoder layers (up to 20 layers) degraded semantic search precision drastically without improving latency (and sometimes worsening it due to truncated PyTorch graph overhead), proving that the full-depth model is necessary for accurate vector representations.
+description_fr: |
+  Un **bot Discord en Python** spécialisé conçu pour récupérer, analyser et effectuer des recherches dans l'historique des salons de discussion Discord. Le bot permet aux utilisateurs d'exécuter des **requêtes hybrides** combinant des **embeddings de phrases** issus du deep learning avec des correspondances de mots-clés de type **chevauchement syntaxique**. Les utilisateurs peuvent facilement le déployer sur n'importe quel serveur pour retrouver des messages passés pertinents sur le plan contextuel, là où les recherches par mot-clé classiques échouent.
+
+  ### Composants clés & Architecture :
+  1. **Moteur du Bot Discord (`discord_bot.py`)** : Basé sur `discord.py` (`commands.Bot`), il écoute les salons des serveurs et détecte le préfixe de commande configuré (ex. `!`). Il intègre une pagination dynamique des messages via des flux asynchrones (`aiostream.stream`) pour récupérer les historiques de salons de manière fluide tout en respectant les permissions de lecture des utilisateurs.
+  2. **Pipeline de Recherche Hybride (`distance_calculator.py`)** : Évalue la similarité selon trois algorithmes :
+     - **Distance Sémantique (`calculate_distance_embed`)** : Calcule la distance L2 (euclidienne via `np.linalg.norm`) à partir d'embeddings générés par des transformers de Hugging Face.
+     - **Recherche par Mots-clés (`calculate_distance_common_words`)** : Évalue le nombre de mots communs insensibles à la casse entre la requête et le message.
+     - **Combinaison Hybride (`calculate_distance_both`)** : Mélange la distance vectorielle sémantique avec la fréquence des mots-clés syntaxiques pour proposer un score de pertinence hybride très robuste.
+  3. **Processeur d'Embeddings par Transformer (`embedding_calculator.py`)** : Intègre `transformers` de Hugging Face (`AutoModel` et `AutoTokenizer`). Supporte l'accélération matérielle CUDA pour exécuter efficacement les inférences d'embeddings par lots (mean pooling sur le dernier état caché).
+  4. **Pondération par Attention Expérimentale** : Propose une méthode de similarité avancée (`find_common_tokens_with_attention`) qui extrait les matrices d'attention query et key (`self.model.encoder.layer[0].attention.self.query` / `key`) de la première couche de l'encodeur pour évaluer la pertinence au niveau des tokens.
+  5. **Profilage de Performance & Recherche sur l'Optimisation** :
+     - Comprend un module de profilage sur mesure (`profiling.py`) mesurant précisément les temps d'exécution à chaque étape (tokenisation, inférence, requêtes API Discord).
+     - Intègre un script complet de recherche et de benchmark de vitesse (`test_research_improve_speed_and_performance.py`) testant des stratégies de raccourcissement du modèle par omission de couches de l'encodeur.
+     - **Résultat de recherche majeur** : Les benchmarks ont mis en évidence que l'omission de couches (jusqu'à 20 couches) dégrade l'exactitude sémantique de manière critique sans apporter de gain de temps d'inférence significatif (parfois même plus lent en raison de la désoptimisation du graphe PyTorch), prouvant ainsi qu'utiliser l'intégralité des couches du modèle est essentiel pour garantir la fidélité des vecteurs sémantiques.
+funny_comments:
+  - user: "CudaDreamer"
+    rating: 4
+    text_en: "Set use_cuda to 1 on my 500MB VRAM laptop GPU. The bot did a semantic search, my GPU did a physical melt. 10/10 would heat the room again."
+    text_fr: "J'ai mis use_cuda à 1 sur mon PC portable avec 500Mo de VRAM. Le bot a fait une recherche sémantique, mon GPU a fait une fusion physique. 10/10 pour le chauffage."
+  - user: "LayerSkipper"
+    rating: 3
+    text_en: "Spent three days benchmarking 'last_layers' skipping. Skipping 20 layers was supposed to make it fast, but it only succeeded in making the bot think a 'steak au poivre' is semantically identical to a RISC-V register allocation."
+    text_fr: "J'ai passé trois jours à tester le saut de couches ('last_layers'). Sauter 20 couches devait accélérer le tout, mais ça a juste fait croire au bot qu'un 'steak au poivre' est sémantiquement identique à une allocation de registres RISC-V."
+  - user: "HereGatekeeper"
+    rating: 5
+    text_en: "The --here option is a lifesaver. It prevents the bot from searching through my old, cringy messages in other channels when I'm just trying to find a recipe in the cooking channel."
+    text_fr: "L'option --here me sauve la vie. Elle évite au bot de fouiller dans mes vieux messages embarrassants des autres salons quand je cherche juste une recette de cuisine."
+  - user: "MargueriteFan"
+    rating: 4
+    text_en: "Tested the search algorithm with the sentence 'Margerite, tes gateaux étaient très secs'. The semantic search returned 'Critique culinaire' with 100% accuracy. Marguerite's feelings were hurt with 100% accuracy too."
+    text_fr: "J'ai testé l'algorithme avec 'Margerite, tes gateaux étaient très secs'. La recherche sémantique a renvoyé 'Critique culinaire' avec une précision de 100%. L'amour-propre de Marguerite a également été blessé à 100%."
+  - user: "AttentionPlease"
+    rating: 5
+    text_en: "I implemented a custom token attention mechanism by directly extracting query and key matrices from the first encoder layer. I still don't know why it works, but it looks extremely smart on my resume."
+    text_fr: "J'ai implémenté un mécanisme d'attention sur mesure en extrayant directement les matrices query et key de la première couche de l'encodeur. Je ne sais toujours pas pourquoi ça marche, mais ça fait super pro sur mon CV."
+  - user: "RateLimitSurvivor"
+    rating: 3
+    text_en: "Tried to index a channel with 20,000 messages. Discord API rate-limited the bot so hard it started replying to queries in slow-motion three business days later."
+    text_fr: "J'ai essayé d'indexer un salon de 20 000 messages. L'API Discord a tellement bridé le bot qu'il a commencé à répondre aux requêtes au ralenti trois jours ouvrés plus tard."
+  - user: "UbuntuPurist"
+    rating: 4
+    text_en: "'This program has only been tested on Ubuntu.' Translation: 'If you run this on Windows, the slash directions will summon the ancient path demons and crash your terminal.'"
+    text_fr: "'Ce programme n'a été testé que sur Ubuntu.' Traduction : 'Si vous lancez ça sous Windows, le sens des slashes réveillera les démons des chemins et fera planter votre terminal.'"
+  - user: "BufferOverlord"
+    rating: 5
+    text_en: "Setting the message buffer size to 16 is a perfect balance. 17 makes PyTorch run out of memory, and 15 makes my GPU feel like it's being insulted."
+    text_fr: "Régler la taille du tampon de messages à 16 est le compromis idéal. 17 provoque un dépassement de mémoire PyTorch, et 15 donne l'impression au GPU qu'on l'insulte."
+  - user: "LogViewer"
+    rating: 4
+    text_en: "Enabled profiling in config.json. The terminal printed timestamps faster than the speed of light. My terminal log file is now larger than the transformer model itself."
+    text_fr: "J'ai activé le profilage dans le config.json. Le terminal a affiché les lignes de logs plus vite que la lumière. Mon fichier de log est maintenant plus lourd que le modèle de transformer lui-même."
+  - user: "SteakLover"
+    rating: 5
+    text_en: "The test file contains 'Ah, j'ai bien mangé ce midi ! Le repas était très bon, notamment le steak au poivre.' I can confirm that after three hours of debugging semantic search, my brain is also a steak au poivre."
+    text_fr: "Le fichier de test contient 'Ah, j'ai bien mangé ce midi ! Le repas était très bon, notamment le steak au poivre.' Je confirme qu'après trois heures de débogage de recherche sémantique, mon cerveau est lui aussi un steak au poivre."

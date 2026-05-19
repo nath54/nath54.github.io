@@ -12,9 +12,11 @@
                     <exec_if condition="{authors}">
                         <div class="product-authors">
                             <span class="authors-label to_translate" data-translation_en="By" data-translation_fr="Par">By</span>
-                            <exec_foreach var="author" in="{authors}">
-                                <span class="author-chip">{author}</span>
-                            </exec_foreach>
+                            <div class="authors-list">
+                                <exec_foreach var="author" in="{authors}">
+                                    <span class="author-chip">{author}</span>
+                                </exec_foreach>
+                            </div>
                         </div>
                     </exec_if>
                     <div class="header-actions">

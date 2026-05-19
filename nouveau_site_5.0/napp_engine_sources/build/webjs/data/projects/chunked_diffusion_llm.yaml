@@ -1,0 +1,60 @@
+name_en: "Chunked Diffusion LLM"
+name_fr: "Chunked Diffusion LLM"
+short_description_en: "Chunked Diffusion LLM is an innovative machine learning project exploring a novel architecture for large language models (LLMs)."
+short_description_fr: "Chunked Diffusion LLM est un projet innovant en apprentissage automatique qui explore une nouvelle architecture pour les grands modèles de langage (LLM)."
+project_status: "Aborted"
+project_type: "Personal"
+project_showcase_importance: 0
+icon: "res/icons/icon_project_chunked_diffusion_llm.png"
+links:
+  - github: "https://github.com/nath54/ChunkedDiffusion_LLM"
+app_version: "1.0"
+download_size: "-"
+date: "2025"
+authors:
+  - "Nathan Cerisara"
+tags: ["LLM", "Deep Learning", "Python", "Pytorch"]
+gallery: []
+description_en: "Chunked Diffusion LLM is an experimental PyTorch-based machine learning project aiming to revolutionize long-context management and generation capabilities in large language models. The project proposes a novel hybrid architecture integrating three distinct innovations:\n\n1. **Intelligent Chunking System**: Splitting input text into cohesive chunks managed with both localized, high-resolution context and a global, summarized context. When processing within a specific chunk, the model sees a compressed representation of the other chunks to keep active memory requirements small.\n2. **Permission-based Attention Control**: Implementing custom permission masks concatenated directly into the hidden state embedding space. The model remains aware of what each token space represents (system prompt, read-only document, chunk inside read-and-write, etc.) to enforce strict and fine-grained attention boundaries at the hardware/attention level.\n3. **Textual Diffusion**: Moving beyond standard autoregressive generation by performing textual diffusion denoising directly within the hidden state embedding space.\n\nThe training pipeline is structured as a comprehensive 6-stage process ranging from initial representation alignment (SFT encoding) and embedding-level diffusion training, up to next-word prediction and RLHF. Although the project has been officially paused ('Aborted') due to the sheer scale of the engineering requirements for a single developer, it stands as an exceptional showcase of deep learning research, architectural exploration, and customization of the attention layers in standard transformer models (such as Qwen, Llama, and Mistral)."
+description_fr: "Chunked Diffusion LLM est un projet expérimental d'apprentissage automatique basé sur PyTorch, visant à révolutionner la gestion des longs contextes et les capacités de génération des grands modèles de langage. Le projet propose une nouvelle architecture hybride intégrant trois innovations majeures :\n\n1. **Système de fragmentation intelligent (Chunking)** : Découpage du texte d'entrée en fragments gérés à la fois avec un contexte local haute résolution et un contexte global résumé. Lors du traitement d'un fragment spécifique, le modèle ne voit qu'une représentation compressée des autres fragments afin de limiter l'empreinte mémoire active.\n2. **Contrôle d'attention basé sur des permissions** : Implémentation de masques de permissions personnalisés concaténés directement dans l'espace d'encodage de l'état caché (hidden state). Le modèle sait ce que chaque espace de jeton représente (invite système, document en lecture seule, fragment en lecture-écriture, etc.) afin d'imposer des limites strictes et granulaires au niveau de l'attention.\n3. **Diffusion textuelle** : Dépassement de la génération autorégressive classique en effectuant des étapes de diffusion et de débruitage directement au sein de l'espace d'encodage des états cachés.\n\nLe pipeline d'entraînement est structuré en un processus complet de 6 étapes, allant de l'alignement initial des représentations (encodage SFT) et de l'entraînement à la diffusion au niveau de l'encodage, jusqu'à la prédiction du mot suivant et à l'apprentissage par renforcement (RLHF). Bien que le projet ait été officiellement suspendu ('Aborted') en raison de l'ampleur des besoins d'ingénierie pour un seul développeur, il constitue une démonstration exceptionnelle de recherche en deep learning, d'exploration architecturale et de personnalisation des couches d'attention dans des modèles de transformeurs standards (tels que Qwen, Llama et Mistral)."
+funny_comments:
+  - user: "CUDA_Dreamer"
+    rating: 5
+    text_en: "Training an LLM on a CPU is the most technologically advanced way to heat your room in winter while accomplishing absolutely nothing."
+    text_fr: "Entraîner un LLM sur un CPU est le moyen technologique le plus avancé pour chauffer votre chambre en hiver tout en n'accomplissant absolument rien."
+  - user: "Micromanager_AI"
+    rating: 4
+    text_en: "Permission indexes for attention masking: basically standard corporate micromanagement translated into tensor operations."
+    text_fr: "Indices de permission pour le masquage d'attention : fondamentalement du micro-management d'entreprise standard traduit en opérations de tenseurs."
+  - user: "OptimistCoder"
+    rating: 5
+    text_en: "The project started one day ago by a single person. It is like building a space rocket in a garage using cardboard and positive thinking."
+    text_fr: "Le projet a débuté il y a un jour par une seule personne. C'est comme construire une fusée spatiale dans un garage avec du carton et de la pensée positive."
+  - user: "PyTorch_On_Fire"
+    rating: 5
+    text_en: "Sharing weights between embeddings and the LM head. Sharing is caring, especially when PyTorch's VRAM usage is actively trying to melt your GPU."
+    text_fr: "Partage des poids entre l'encodage et la tête LM. Partager, c'est s'entraider, surtout quand l'utilisation de la VRAM de PyTorch essaie activement de faire fondre votre carte graphique."
+  - user: "Loss_Minimizer"
+    rating: 4
+    text_en: "Handling embedding dimensional mismatch by using a random projection. The mathematical equivalent of shoving a square peg into a round hole with a heavy hammer."
+    text_fr: "Gestion des écarts de dimensions d'encodage par projection aléatoire. L'équivalent mathématique d'enfoncer une cheville carrée dans un trou rond à coups de gros marteau."
+  - user: "GPU_Hunter_99"
+    rating: 5
+    text_en: "No accelerator found, defaulting to CPU. Prepare your coffee, your lunch, your dinner, and possibly a calendar for next year."
+    text_fr: "Aucun accélérateur trouvé, retour au processeur (CPU). Préparez votre café, votre déjeuner, votre dîner et probablement un calendrier pour l'année prochaine."
+  - user: "Reinforcement_Enthusiast"
+    rating: 4
+    text_en: "Reinforcement learning planned for training. Because why make the model smart when we can just beat it with reward penalties until it complies?"
+    text_fr: "Apprentissage par renforcement prévu pour l'entraînement. Pourquoi rendre le modèle intelligent quand on peut simplement le marteler de pénalités de récompense jusqu'à ce qu'il obéisse ?"
+  - user: "QLoRA_Survivor"
+    rating: 5
+    text_en: "Try-except block printing the entire model structure on failure. Because debugging QLoRA layer shapes is the closest a developer can get to seeing the matrix code."
+    text_fr: "Bloc try-except affichant toute la structure du modèle en cas d'échec. Déboguer les dimensions des couches QLoRA est ce qui se rapproche le plus pour un développeur de voir le code de la matrice."
+  - user: "Sentence_Splitter"
+    rating: 4
+    text_en: "Splitting text by periods to create chunks. Let's hope our LLM never encounters a URL like 'domain.com' and suffers a mental breakdown from infinite chunking."
+    text_fr: "Découpage du texte par des points pour créer des fragments. Espérons que notre LLM ne rencontre jamais une URL comme 'domain.com' et ne fasse une dépression nerveuse à cause d'un découpage infini."
+  - user: "Normal_Distributor"
+    rating: 5
+    text_en: "Initializing weights using a normal distribution. If only my life choices and sleep schedule were this normal and well-distributed."
+    text_fr: "Initialisation des poids via une distribution normale. Si seulement mes choix de vie et mon cycle de sommeil étaient aussi normaux et bien distribués."

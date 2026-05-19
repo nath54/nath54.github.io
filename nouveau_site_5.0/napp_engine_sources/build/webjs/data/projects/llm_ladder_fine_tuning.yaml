@@ -1,0 +1,24 @@
+name_en: "xLadder - LORIA"
+name_fr: "xLadder - LORIA"
+short_description_en: "Ladder Up, Memory Down: Low-Cost Fine-Tuning With Side Nets"
+short_description_fr: "Ladder Up, Memory Down: Low-Cost Fine-Tuning With Side Nets"
+project_status: "Ended"
+project_type: "Professional"
+project_showcase_importance: 0
+icon: "res/icons/icon_project_xladder.png"
+links:
+  - arxiv: "https://arxiv.org/abs/2512.14237"
+app_version: "1.0"
+download_size: "-"
+date: "2025"
+authors:
+  - "Estelle Zheng"
+  - "Nathan Cerisara"
+  - "Sébastien Warichet"
+  - "Emmanuel Helbert"
+  - "Christophe Cerisara"
+tags: ["LLM", "PEFT", "RLHF", "Quantization", "Parameter-Efficient Fine-Tuning"]
+gallery: []
+description_en: "Fine-tuning large language models (LLMs) is often limited by the memory available on commodity GPUs. Parameter-efficient fine-tuning (PEFT) methods such as QLoRA reduce the number of trainable parameters, yet still incur high memory usage induced by the backward pass in the full model. We revisit Ladder Side Tuning (LST), a rarely explored PEFT technique that adds a lightweight side network, and show that it matches QLoRA's compute scaling slope while cutting peak memory by 50%. Across different downstream benchmarks spanning natural language understanding, mathematical and LLM-critic tasks, LST has competitive performance with QLoRA's accuracy on average while being much more memory-efficient. This efficiency enables fine-tuning of 7B-parameter models on a single 12 GB consumer GPU with 2k-token contexts, requiring no gradient checkpointing conditions under which QLoRA exhausts memory. Beyond memory efficiency, we also establish scaling laws showing that LST scales similarly to QLoRA. We exploit Ladder's architectural flexibility by introducing xLadder, a depth-extended variant that increases effective depth via cross-connections and shortens chain-of-thought (CoT) at fixed parameter count. Ladder is strong when memory is the bottleneck; xLadder builds on this by enabling deeper reasoning without additional memory overhead."
+description_fr: "L'ajustement fin des grands modèles de langage (LLM) est souvent limité par la mémoire disponible sur les GPU grand public. Les méthodes d'ajustement fin efficaces en paramètres (PEFT) telles que QLoRA réduisent le nombre de paramètres entraînables, mais entraînent néanmoins une consommation de mémoire élevée induite par la passe arrière dans le modèle complet. Nous revisitons le Ladder Side Tuning (LST), une technique PEFT rarement explorée qui ajoute un réseau latéral léger, et montrons qu'il correspond à la pente d'échelle de calcul de QLoRA tout en réduisant la mémoire maximale de 50%. Sur différents bancs d'essai en aval couvrant la compréhension du langage naturel, les tâches mathématiques et critiques vis-à-vis des LLM, le LST présente des performances compétitives par rapport à la précision de QLoRA en moyenne, tout en étant beaucoup plus efficace en termes de mémoire. Cette efficacité permet l'ajustement fin de modèles à 7 milliards de paramètres sur un seul GPU grand public de 12 Go avec des contextes de 2k tokens, sans nécessiter de point de contrôle de gradient des conditions dans lesquelles QLoRA épuise la mémoire. Au-delà de l'efficacité mémoire, nous établissons également des lois d'échelle montrant que le LST évolue de manière similaire à QLoRA. Nous exploitons la flexibilité architecturale de Ladder en introduisant xLadder, une variante à profondeur étendue qui augmente la profondeur effective via des connexions croisées et raccourcit la chaîne de pensée (CoT) à nombre de paramètres fixe. Ladder est performant lorsque la mémoire est le facteur limitant ; xLadder s'appuie sur cela en permettant un raisonnement plus approfondi sans surcoût mémoire supplémentaire."
+funny_comments: []

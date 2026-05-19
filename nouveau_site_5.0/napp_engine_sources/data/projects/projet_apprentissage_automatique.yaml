@@ -1,0 +1,81 @@
+name_en: "Rakuten France Multimodal Product Classification"
+name_fr: "Classification Multimodale de Produits Rakuten France"
+short_description_en: "A multimodal e-commerce classification system combining NLP and Computer Vision to categorize e-commerce product listings."
+short_description_fr: "Un système de classification e-commerce multimodal combinant le NLP et la vision par ordinateur pour catégoriser les annonces de produits."
+project_status: "Ended"
+project_type: "Academic"
+project_showcase_importance: 8
+icon: "res/icons/icon_project_projet_apprentissage_automatique.png"
+links:
+  - github: "https://github.com/nath54/projet_apprentissage_automatique"
+app_version: "1.0"
+download_size: "-"
+date: "2024"
+authors:
+  - "Nathan Cerisara"
+  - "Ysée Jacquet"
+  - "Ram Nader"
+  - "Enzo Kara"
+tags: ["Machine Learning", "Deep Learning", "Multimodal", "NLP", "Computer Vision", "PyTorch"]
+gallery: []
+description_en: |
+  This project is dedicated to solving the **Rakuten France Multimodal Product Data Classification Challenge**, provided by the Rakuten Institute of Technology. The main objective is to automatically classify e-commerce product listings into their correct category (product type code) using both textual descriptions (titles and product descriptions) and product images.
+
+  Key Features and Methodology:
+  - **Multimodal Architectures**: Integrates textual features (via TF-IDF, bag-of-embeddings, GRU, or transformer backbones like CamemBERT/BERT/E5) with visual features (via ResNet50, Vision Transformer (ViT), GoogLeNet, or EfficientNet-B3).
+  - **Robust Preprocessing Pipeline**: Advanced text cleaning (HTML entity decoding, accent/diacritic removal, custom stop words filtering) combined with intelligent image cropping to discard uninformative white borders.
+  - **Handling Imbalance**: Implements specialized class imbalance techniques including Focal Loss, Class Balanced Loss, and training-data stratification/resampling.
+  - **Advanced Optimization**: Utilizes advanced augmentations (RandAugment, ColorJitter, Synonym Replacement) and custom learning rate schedules.
+  - **Hierarchical Classification**: A 2-stage hierarchical classifier wrapper that groups similar product classes together to improve final granular predictions.
+  - **Ensemble Model**: Combines XGBoost models trained on TF-IDF textual representations with deep multimodal PyTorch models using weighted predictions.
+description_fr: |
+  Ce projet est dédié à la résolution du **défi de classification multimodale de données de produits Rakuten France**, proposé par le Rakuten Institute of Technology. L'objectif principal est de classifier automatiquement les annonces de produits e-commerce dans leur catégorie correcte en utilisant à la fois des descriptions textuelles (titres et descriptions de produits) et des images.
+
+  Fonctionnalités clés et méthodologie :
+  - **Architectures multimodales** : Intègre des caractéristiques textuelles (via TF-IDF, sac d'embeddings, GRU ou squelettes de transformers comme CamemBERT/BERT/E5) avec des caractéristiques visuelles (via ResNet50, Vision Transformer (ViT), GoogLeNet ou EfficientNet-B3).
+  - **Pipeline de prétraitement robuste** : Nettoyage avancé du texte (décodage d'entités HTML, suppression des accents/diacritics, filtrage personnalisé des mots vides) combiné à un rognage intelligent des images pour éliminer les bordures blanches inutiles.
+  - **Gestion du déséquilibre** : Implémente des techniques spécialisées pour le déséquilibre des classes, y compris la Focal Loss, la Class Balanced Loss, et la stratification/le rééchantillonnage des données d'entraînement.
+  - **Optimisation avancée** : Utilise des augmentations avancées (RandAugment, ColorJitter, Synonym Replacement) et des planificateurs de taux d'apprentissage personnalisés.
+  - **Classification hiérarchique** : Un wrapper de classifieur hiérarchique en 2 étapes qui regroupe les classes de produits similaires pour améliorer les prédictions finales granulaires.
+  - **Modèle d'ensemble** : Combine les modèles XGBoost entraînés sur des représentations textuelles TF-IDF avec des modèles PyTorch multimodaux profonds en utilisant des prédictions pondérées.
+funny_comments:
+  - user: "SeedOptimizer"
+    rating: 5
+    text_en: "If the model fails, just blame the random seed. 42 is legally required to work eventually."
+    text_fr: "Si le modèle échoue, accusez la graine aléatoire. 42 est légalement tenu de finir par fonctionner."
+  - user: "OOM_Survivor"
+    rating: 5
+    text_en: "Running garbage collection because PyTorch holds onto memory like a toddler with a favorite toy."
+    text_fr: "Lancement du ramasse-miettes parce que PyTorch s'accroche à la mémoire comme un bambin à son jouet préféré."
+  - user: "OverfitEnthusiast"
+    rating: 4
+    text_en: "95% training data, 5% validation, and 100% pure prayer that we don't overfit by epoch 2."
+    text_fr: "95% de données d'entraînement, 5% de validation, et 100% de prières pures pour ne pas sur-apprendre dès l'époque 2."
+  - user: "OSCrossPlatformDev"
+    rating: 5
+    text_en: "Running 'python3' as a subprocess because playing Russian roulette with Windows OS compatibility is my hobby."
+    text_fr: "Exécution de 'python3' dans un sous-processus parce que jouer à la roulette russe avec la compatibilité Windows est mon passe-temps."
+  - user: "ECommerceGuru"
+    rating: 4
+    text_en: "Replacing description NaNs with empty strings. What the merchant did not describe, the model shall divine."
+    text_fr: "Remplacement des descriptions NaNs par des chaînes vides. Ce que le marchand n'a pas décrit, le modèle le devinera."
+  - user: "ArtDirector"
+    rating: 5
+    text_en: "Cropping white borders because a product image isn't premium unless it fills the space like a modern art masterpiece."
+    text_fr: "Rognage des bordures blanches car une image de produit n'est pas premium à moins de remplir l'espace comme un chef-d'œuvre d'art moderne."
+  - user: "GitConflicted"
+    rating: 5
+    text_en: "Focal Loss: because some classes are extremely popular, and others are as rare as a clean git merge."
+    text_fr: "Focal Loss : parce que certaines classes sont ultra populaires, et d'autres sont aussi rares qu'un git merge sans conflit."
+  - user: "NLP_Purist"
+    rating: 4
+    text_en: "Standard French and English stop words, because 'the' and 'le' never helped anyone buy a Pop figurine."
+    text_fr: "Mots vides français et anglais standard, car 'the' et 'le' n'ont jamais aidé personne à acheter une figurine Pop."
+  - user: "BruteForceWizard"
+    rating: 5
+    text_en: "Grid search: the ancient art of trying every possible combination until the metrics look pretty."
+    text_fr: "Recherche sur grille : l'art ancestral d'essayer tous les nombres possibles jusqu'à ce que les métriques soient jolies."
+  - user: "PowerPointExpert"
+    rating: 5
+    text_en: "Data Analysis Report template. Making numbers look pretty so management thinks we did something smart."
+    text_fr: "Modèle de rapport d'analyse de données. Rendre les chiffres jolis pour que la direction pense qu'on a fait quelque chose d'intelligent."

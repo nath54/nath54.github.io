@@ -1,0 +1,89 @@
+name_en: "Snaky"
+name_fr: "Snaky"
+short_description_en: "A multi-layered 2D Snake game featuring local multiplayer and autonomous neural network-based AI bots trained via genetic algorithms."
+short_description_fr: "Un jeu de Snake 2D complet proposant du multijoueur local et des bots autonomes basés sur des réseaux neuronaux entraînés par algorithmes génétiques."
+project_status: "Ended"
+project_type: "Academic"
+project_showcase_importance: 6
+icon: "res/icons/icon_project_snaky.png"
+links:
+  - github: "https://github.com/nath54/Snaky"
+app_version: "1.0"
+download_size: "-"
+date: "2024"
+authors:
+  - "Nathan Cerisara"
+  - "Ysée Jacquet"
+tags: ["Snake", "Python", "SDL", "Pygame", "AI", "Genetic Algorithm", "Neural Network", "Custom Engine", "Multijoueur"]
+gallery: []
+description_en: |
+  Snaky is an ambitious, highly customized 2D Snake game written in Python, showcasing both local multiplayer capabilities and autonomous AI bots trained via genetic algorithms. Developed as a major academic project by Nathan Cerisara and Ysée Jacquet, the application served as the ultimate testing ground for a custom-built game and application engine: `lib_nadisplay`.
+
+  ### Custom Game Engine Architecture (`lib_nadisplay`)
+  Instead of utilizing high-level engines, the project leverages a hand-crafted framework developed by Nathan Cerisara. Operating over multiple optional graphics layers (SDL2 via PySDL2 and `sdlgfx`, Pygame, OpenGL, and GLFW), `lib_nadisplay` handles:
+  - **Modular Rendering & Layers**: Manages grids, background layers, customized fonts (e.g., Hiromisake, Asian Ninja, Korean Calligraphy), and dynamic sprite sheets representing smooth snake transitions (head, cornering body segments, tail).
+  - **Thread & Event Management**: Houses an event manager and thread-safe global state mapping, isolating the rendering pipeline from physics updates and game loop logic.
+
+  ### Autonomous AI & Genetic Evolution
+  The mathematical core of Snaky is its robust AI training module, where players can breed, evolve, and configure neural networks to play the game:
+  - **Input Context Vector**: The network observes a local grid around the snake's head (default radius of 3, forming a 7x7 matrix). Obstacles are encoded as `-1`, empty cells as `0`, and apples as `1`. This matrix is flattened and combined with apple direction vectors and stochastic noise to prevent circular routing.
+  - **Neural Architectures**:
+    - **Bot V1**: A single linear layer multiplying the flattened context vector by a weight matrix ($W_1 \in \mathbb{R}^{N \times 4}$) to produce action scores for Up, Down, Left, and Right.
+    - **Bot V2**: A multi-layer neural network implementing a hidden layer ($h$ dimensions) combined with a rectified linear unit (ReLU) activation function for advanced decision boundaries.
+  - **Evolutionary Training Loop**: Bots that exceed a target threshold (`min_score_to_reproduce`) pass their weights to subsequent generations. New specimens are bred using either crossover (mixing weights of top performers) or mutation (applying Gaussian noise scaled by the `learning_rate`). The project supports persistent JSON saving/loading of trained weight matrices.
+description_fr: |
+  Snaky est un jeu de Snake 2D ambitieux codé en Python, combinant du multijoueur local et des intelligences artificielles autonomes entraînées par algorithme génétique. Développé par Nathan Cerisara et Ysée Jacquet dans le cadre d'un projet universitaire majeur, le jeu sert de plateforme de démonstration pour `lib_nadisplay`, un moteur graphique et applicatif complet conçu sur mesure.
+
+  ### Architecture du Moteur sur Mesure (`lib_nadisplay`)
+  Plutôt que d'exploiter de simples bibliothèques graphiques, Snaky s'appuie sur une infrastructure modulaire conçue par Nathan Cerisara. Fonctionnant au-dessus de wrappers bas niveau (SDL2 avec PySDL2/sdlgfx, Pygame ou OpenGL/GLFW), `lib_nadisplay` orchestre :
+  - **Le Rendu Multi-couches & Sprites** : Gestion fine des grilles de jeu, calques de fond d'écran, polices personnalisées (Hiromisake, Asian Ninja, Korean Calligraphy) et atlas de textures dynamiques (tête, corps articulé, queue de dragon).
+  - **La Gestion d'Événements & Multithreading** : Une boucle asynchrone thread-safe qui sépare proprement le rendu, les contrôles clavier et la physique du jeu (`update_physic`).
+
+  ### Apprentissage Génétique & Intelligence Artificielle
+  Le cœur technique du projet repose sur un module d'entraînement évolutionnaire, permettant aux utilisateurs d'entraîner et de paramétrer des réseaux neuronaux :
+  - **Vecteur d'Entrée (Contexte)** : Les bots analysent une sous-grille locale centrée sur leur tête (rayon 3, soit une zone de 7x7). Les obstacles y sont représentés par `-1`, les cases vides par `0` et les pommes par `1`. Ce vecteur aplati est enrichi par la direction relative de la pomme et du bruit aléatoire pour casser les trajectoires cycliques.
+  - **Architectures de Réseaux** :
+    - **Bot V1** : Un modèle linéaire simple associant chaque caractéristique d'entrée à un score sur les 4 directions de déplacement possibles ($W_1 \in \mathbb{R}^{N \times 4}$).
+    - **Bot V2** : Un réseau plus profond à deux couches avec une couche cachée intermédiaire et l'application d'une fonction d'activation non-linéaire ReLU ($\text{MAX}(0, X)$) pour appréhender des situations complexes.
+  - **Algorithme Génétique** : Les spécimens ayant un score supérieur au seuil de reproduction sont sélectionnés pour engendrer la génération suivante. Les enfants sont créés par croisement (combinaison des matrices de poids de deux parents performants) ou par mutation (bruit gaussien modulé par le taux d'apprentissage `learning_rate`). Le jeu gère la sauvegarde et le chargement persistant de ces cerveaux IA via des configurations JSON et des matrices NumPy (`.npy`).
+funny_comments:
+  - user: "ThreadSafeOrBust"
+    rating: 5
+    text_en: "Built a whole custom multi-threaded, OpenGL-capable, event-driven engine just to display a pixelated green worm. Overengineering at its finest."
+    text_fr: "Créer un moteur complet, multi-threadé, compatible OpenGL et orienté événements, juste pour afficher un ver vert pixelisé. L'art de la sur-ingénierie à son paroxysme."
+  - user: "DarwinWho"
+    rating: 4
+    text_en: "I trained a Bot V2 for 48 hours. It successfully learned how to commit suicide in 3 steps instead of 2. Natural selection is beautiful."
+    text_fr: "J'ai entraîné un Bot V2 pendant 48 heures. Il a brillamment appris à se suicider en 3 étapes au lieu de 2. La sélection naturelle est magnifique."
+  - user: "LinuxPurist"
+    rating: 5
+    text_en: "'Windows compatibility is unknown' is a fancy way of saying: 'If you run this on Windows, your computer might turn into a Chinese dragon.'"
+    text_fr: "'La compatibilité Windows est inconnue' est une façon élégante de dire : 'Si vous lancez ça sous Windows, votre ordinateur risque de se transformer en dragon chinois.'"
+  - user: "DragonDreamer"
+    rating: 3
+    text_en: "The lore: a little snake wants to become a majestic flying dragon. The reality: he eats a single apple, hits his own head against a wall, and dies."
+    text_fr: "L'histoire : un petit serpent veut devenir un majestueux dragon volant. La réalité : il mange une pomme, se prend un mur de face, et meurt."
+  - user: "DeleteButtonEnjoyer"
+    rating: 5
+    text_en: "The 'Delete Bad Bots' button is the closest I've ever felt to being a cruel god. Begone, zero-score failures!"
+    text_fr: "Le bouton 'Delete Bad Bots' est ce qui me rapproche le plus d'un dieu impitoyable. Disparaissez, bande de ratés au score de zéro !"
+  - user: "SecurityBlanket"
+    rating: 4
+    text_en: "Without the 'security' override, the bots have a suicidal instinct so strong it defies the laws of physics."
+    text_fr: "Sans l'option 'security' activée, les bots ont un instinct suicidaire si fort qu'il défie les lois de la physique."
+  - user: "GLFWSoldier"
+    rating: 2
+    text_en: "lib_nadisplay_glfw_opengl.py: Not working at all. lib_nadisplay_glfw_vulkan.py: Not working at all. I love how honest the comments in main.py are."
+    text_fr: "lib_nadisplay_glfw_opengl.py : Ne marche pas du tout. lib_nadisplay_glfw_vulkan.py : Ne marche pas du tout. J'adore la franchise des commentaires dans main.py."
+  - user: "WindowSqueezer"
+    rating: 3
+    text_en: "Resizing the window makes the GUI look like the snake after running into itself at full speed."
+    text_fr: "Redimensionner la fenêtre donne à l'interface l'apparence du serpent après s'être rentré dedans à pleine vitesse."
+  - user: "RandomNoiseGamer"
+    rating: 4
+    text_en: "Added random values to the bot's input to 'break cycles'. Now the bot doesn't solve cycles, it just vibrates in panic before hitting the wall."
+    text_fr: "Ajout de valeurs aléatoires dans les entrées du bot pour 'casser les cycles'. Maintenant, le bot ne résout rien, il vibre juste de panique avant de s'écraser."
+  - user: "VoidExplorer"
+    rating: 4
+    text_en: "The game has beautiful sprites for dragon horns, but no background. We are navigating a beautifully horned dragon through the infinite, pitch-black void of space."
+    text_fr: "Le jeu a de superbes sprites pour les cornes de dragon, mais aucun arrière-plan. On fait naviguer un dragon à cornes dans le vide spatial le plus total."

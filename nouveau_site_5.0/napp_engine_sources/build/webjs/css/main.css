@@ -430,6 +430,7 @@ br {
 .icon {
     width: 64px;
     height: 64px;
+    border-radius: 15px;
     display: flex;
 }
 
@@ -1307,6 +1308,36 @@ br {
 
 @media (max-width: 768px) {
     .header-actions > .napp-repeat-container {
+        justify-content: center;
+    }
+}
+
+.authors-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+@media (max-width: 768px) {
+    .authors-list {
+        justify-content: center;
+    }
+}
+
+.authors-list > .napp-repeat-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+@media (max-width: 768px) {
+    .authors-list > .napp-repeat-container {
         justify-content: center;
     }
 }

@@ -8,7 +8,7 @@ project_showcase_importance: 15
 icon: "res/icons/icon_project_napp_engine_compiler.png"
 links:
   - github: "https://github.com/nath54/napp_engine_compiler"
-app_version: "0.1.2"
+app_version: "0.2.0"
 download_size: "-"
 date: "2026"
 authors:

@@ -1,0 +1,88 @@
+name_en: "RISCV Compiler"
+name_fr: "Compilateur RISCV"
+short_description_en: "A fully realized compiler that translates the multi-dimensional recurrence language COREC to optimized 64-bit RISC-V assembly."
+short_description_fr: "Un compilateur complet traduisant le langage de récurrence multidimensionnel COREC en assembleur RISC-V 64 bits optimisé."
+project_status: "Completed"
+project_type: "Academic"
+project_showcase_importance: 8
+icon: "res/icons/icon_project_riscv_compiler.png"
+links:
+  - github: "https://github.com/nath54/RISCV_Compiler"
+app_version: "1.0.0"
+download_size: "-"
+date: "2024"
+authors:
+  - "Nathan Cerisara"
+  - "Guilhem Gerouille"
+  - "Emilie Lardy"
+  - "Yann Toussaint"
+tags:
+  - "Compiler"
+  - "RISC-V"
+  - "Assembly"
+  - "Flex"
+  - "Bison"
+  - "C++"
+  - "Python"
+  - "Emulation"
+  - "Three-Address Code"
+gallery: []
+description_en: |
+  RISCV-Compiler is a premium, high-performance compilation suite that compiles **COREC** (COmputed RECurrences)—a specialized multi-dimensional array recurrence Domain-Specific Language (DSL)—into native **64-bit RISC-V assembly** code. It bridges high-level mathematical recurrence logic with bare-metal machine-level instructions.
+
+  Key Technical Elements:
+  - **Lexical and Syntactic Frontend**: Developed in C/C++ using Flex (Lex) and Bison (Yacc) to parse high-level COREC code with strict syntax checks and compile it into an intermediate three-address representation.
+  - **Custom Intermediate Code (IR)**: Translates multi-dimensional array operations, recursive calls, and localized scoping rules into a custom-designed three-address intermediate instruction set.
+  - **Advanced Backend Translator**: A robust and fully-featured Python compiler backend featuring over 3,700 lines of code. It acts as an IR analyzer, a test-suite emulator, and an assembly code emitter.
+  - **Simulation & Native Assemblies**: Emits optimized assemblies for two target targets: RARS (RISC-V Assistant, Assembler, and Runtime Simulator) with custom syscall mapping, and native Linux Kernel environments for physical RISC-V devices.
+  - **Embedded Safety Mechanics**: Implements active boundary checks, heap and stack memory tracking, division-by-zero safeguards, and robust error management directly within the compiled assembly code.
+description_fr: |
+  RISCV-Compiler est une suite de compilation haute performance et haut de gamme qui compile **COREC** (COmputed RECurrences) — un langage dédié (DSL) spécialisé dans les récurrences de tableaux multidimensionnels — en code **assembleur RISC-V 64 bits** natif. Il relie la logique mathématique des récurrences de haut niveau aux instructions machine bas niveau.
+
+  Éléments techniques clés :
+  - **Frontend Lexical et Syntaxique** : Développé en C/C++ en utilisant Flex (Lex) et Bison (Yacc) afin d'analyser le code COREC de haut niveau avec des vérifications de syntaxe strictes pour le compiler en code intermédiaire à trois adresses.
+  - **Code Intermédiaire (IR) Dédié** : Traduit les opérations sur tableaux multidimensionnels, les appels récursifs et les règles de portée locale en un jeu d'instructions intermédiaires à trois adresses conçu sur mesure.
+  - **Traducteur Backend Avancé** : Un traducteur backend robuste écrit en Python de plus de 3 700 lignes de code, agissant comme analyseur d'IR, émulateur de suite de tests et émetteur de code assembleur.
+  - **Cibles de Simulation et Natives** : Génère deux versions d'assembleur optimisées : une pour RARS (simulateur) avec mappage des appels système, et une pour les noyaux Linux natifs sur des processeurs RISC-V physiques.
+  - **Mécanismes de Sécurité Embarqués** : Intègre des vérifications actives des limites de tableaux, un suivi de la mémoire tas (heap) et pile (stack), des protections contre les divisions par zéro et une gestion robuste des erreurs au cœur de l'assembleur généré.
+funny_comments:
+  - user: "yacc_tamer"
+    rating: 5
+    text_en: "Bison parsed my COREC file with zero shift/reduce conflicts on the first try. I immediately went to buy a lottery ticket, but then I realized I spent all my luck on a LALR parser."
+    text_fr: "Bison a analysé mon fichier COREC avec zéro conflit décalage/réduction du premier coup. Je suis immédiatement allé acheter un ticket de loterie, mais j'ai réalisé que j'avais dépensé toute ma chance sur un analyseur LALR."
+  - user: "python_backend_survivor"
+    rating: 4
+    text_en: "The Python script that translates intermediate code to RISC-V is almost 4000 lines of pure python wizardry. It parses three-address code, runs an emulator to check code coverage, and compiles it to 64-bit asm. It's not a backend, it's an entire virtual machine disguised as a python script."
+    text_fr: "Le script Python qui traduit le code intermédiaire en RISC-V fait près de 4000 lignes de pure sorcellerie python. Il analyse le code à trois adresses, lance un émulateur pour vérifier la couverture du code, et compile le tout en assembleur 64 bits. Ce n'est pas un backend, c'est une machine virtuelle entière déguisée en script python."
+  - user: "rars_enthusiast"
+    rating: 3
+    text_en: "Running the code on RARS simulation: works beautifully. Running it on native RISC-V Linux Kernel: crashes because I breathed too close to the stack pointer. 10/10 assembly experience."
+    text_fr: "Exécution du code sur le simulateur RARS : magnifique. Exécution sur un noyau Linux RISC-V natif : crash parce que j'ai respiré trop près du pointeur de pile. 10/10 pour l'expérience de l'assembleur."
+  - user: "corec_fanatic"
+    rating: 5
+    text_en: "COREC is the only language where writing a 2D matrix multiplication feels like solving an ancient topological riddle with recurrences. I love it, but my brain needs a reboot now."
+    text_fr: "COREC est le seul langage où écrire une multiplication de matrices 2D donne l'impression de résoudre une ancienne énigme topologique avec des récurrences. J'adore, mais mon cerveau a besoin d'un redémarrage maintenant."
+  - user: "stack_overflowed"
+    rating: 2
+    text_en: "Tried to calculate Fibonacci on 100. The stack pointer decreased so fast it created a local singularity. RARS started crying and Python threw a UserWarning that looked more like a cry for help."
+    text_fr: "J'ai essayé de calculer Fibonacci pour 100. Le pointeur de pile a diminué si vite qu'il a créé une singularité locale. RARS a commencé à pleurer et Python a levé un UserWarning qui ressemblait plutôt à un appel à l'aide."
+  - user: "memory_leak_hunter"
+    rating: 4
+    text_en: "The intermediate generator has custom `init_heap_int_array` instructions. Yes, we manually implemented a heap allocator in RISC-V 64-bit assembly. I can officially state that malloc is for the weak, we build our own heaps from scratch."
+    text_fr: "Le générateur intermédiaire a des instructions de tas personnalisées. Oui, nous avons implémenté manuellement un allocateur de tas en assembleur RISC-V 64 bits. Je peux officiellement déclarer que malloc est pour les faibles, nous construisons nos propres tas à partir de zéro."
+  - user: "division_by_zero"
+    rating: 5
+    text_en: "The compiler has built-in division-by-zero checks. When my RISC-V code crashed, the console printed a clean, professional error instead of just letting the simulator freeze in an infinite loop. I felt so respected as a buggy developer."
+    text_fr: "Le compilateur intègre des vérifications de division par zéro. Quand mon code RISC-V a planté, la console a affiché une erreur propre et professionnelle au lieu de simplement laisser le simulateur se figer dans une boucle infinie. Je me suis senti tellement respecté en tant que développeur de bugs."
+  - user: "coverage_guru"
+    rating: 4
+    text_en: "The backend script tries to achieve 100% code coverage by running a randomized test suite emulator on the intermediate code blocks before generating assembly. I didn't expect my compiler backend to be a more rigorous tester than my actual QA team."
+    text_fr: "Le script backend tente d'atteindre 100% de couverture de code en exécutant un émulateur de suite de tests aléatoires sur les blocs de code intermédiaire avant de générer l'assembleur. Je ne m'attendais pas à ce que le backend de mon compilateur soit un testeur plus rigoureux que mon équipe d'assurance qualité actuelle."
+  - user: "flex_bison_old_school"
+    rating: 5
+    text_en: "Flex and Bison: because writing a lexer and parser in C using tools from 1980 is the only way to build character. My shift-reduce trauma is permanent, but my compiler works."
+    text_fr: "Flex et Bison : parce qu'écrire un analyseur lexical et syntaxique en C à l'aide d'outils de 1980 est le seul moyen de se forger un caractère. Mon traumatisme de décalage-réduction est permanent, mais mon compilateur fonctionne."
+  - user: "macro_master"
+    rating: 3
+    text_en: "Looking at the generated `code_riscv_linux_kernel.s`. It's 77,000 lines of assembler. I loaded it in my text editor and the fans on my laptop started spinning faster than my recursive arrays. Beautiful performance."
+    text_fr: "En regardant le fichier `code_riscv_linux_kernel.s` généré. Il fait 77 000 lignes d'assembleur. Je l'ai chargé dans mon éditeur de texte et les ventilateurs de mon ordinateur portable ont commencé à tourner plus vite que mes tableaux récursifs. Belle performance."

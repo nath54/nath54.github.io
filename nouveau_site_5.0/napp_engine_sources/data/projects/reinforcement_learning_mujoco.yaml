@@ -1,0 +1,84 @@
+name_en: "Robot Corridor Modular"
+name_fr: "Robot Corridor Modular"
+short_description_en: "A fully modular, type-hinted, and YAML-configurable RL environment for robot navigation using MuJoCo."
+short_description_fr: "Un environnement d'entraînement RL entièrement modulaire, typé et configurable par YAML pour la navigation robotique sous MuJoCo."
+project_status: "Completed"
+project_type: "Academic"
+project_showcase_importance: 9
+icon: "res/icons/icon_project_semantic_search_reinforcement_learning_mujoco.png"
+links:
+  - github: "https://github.com/nath54/reinforcement_learning_mujoco"
+app_version: "1.0.0"
+download_size: "-"
+date: "2024 - 2026"
+authors:
+  - "Nathan Cerisara"
+tags:
+  - "Reinforcement Learning"
+  - "PPO Agent"
+  - "MuJoCo"
+  - "Gymnasium"
+  - "Python"
+  - "PyTorch"
+  - "Curriculum Learning"
+  - "Obstacle Avoidance"
+gallery: []
+description_en: |
+  Robot Corridor Modular is a premium, fully type-hinted, and modular Reinforcement Learning (RL) environment designed to train autonomous mobile robots using the MuJoCo physics engine. It provides a state-of-the-art framework for research and experimentation with Proximal Policy Optimization (PPO), procedural environment generation, and curriculum learning.
+
+  Key Features:
+  - **Procedural Scene Generation**: Generates customized corridor and flat-world environments dynamically using XML generation, with complex obstacle configurations (sinusoidal, double sinusoidal, random, and floor holes).
+  - **Curriculum Learning Pipelines**: Employs structured multi-stage learning with progressive difficulties (e.g., from flat arenas to narrow, obstacle-ridden corridors with floor gaps), transferring agent weights across stages to optimize learning efficiency.
+  - **Highly Configurable Control Modes**: Supports multiple agent control interfaces, including discrete directional inputs, continuous vector velocity/rotation commands, and individual continuous wheel motors.
+  - **Advanced State Representation**: Combines 40x40 pixelated binary robot vision (processed via custom neural network layers) with compact, goal-relative state vectors.
+  - **Parallel Processing & Monitoring**: Implements highly optimized multiprocessing with multiple parallel gymnasium environments, Generalized Advantage Estimation (GAE), real-time distance-to-goal tracking, and automated plotting features.
+description_fr: |
+  Robot Corridor Modular est un environnement d'Apprentissage par Renforcement (RL) haut de gamme, entièrement typé et modulaire, conçu pour entraîner des robots mobiles autonomes à l'aide du moteur physique MuJoCo. Il fournit un framework de pointe pour la recherche et l'expérimentation avec l'optimisation des politiques proximales (PPO), la génération procédurale d'environnements et l'apprentissage par curriculum.
+
+  Caractéristiques clés :
+  - **Génération Procédurale de Scènes** : Génère dynamiquement des couloirs personnalisés et des environnements en monde plat via la génération XML, intégrant des configurations d'obstacles complexes (sinusoïdaux, doubles sinusoïdaux, aléatoires et trous dans le sol).
+  - **Pipelines d'Apprentissage par Curriculum** : Utilise un apprentissage structuré en plusieurs étapes avec des difficultés progressives (par exemple, d'arènes plates à des couloirs étroits remplis d'obstacles et de trous), transférant les poids de l'agent entre les étapes pour optimiser l'efficacité de l'apprentissage.
+  - **Modes de Contrôle Hautement Configurables** : Prend en charge plusieurs interfaces de contrôle de l'agent, notamment des entrées directionnelles discrètes, des commandes de vecteur continu vitesse/rotation et des moteurs de roues continus individuels.
+  - **Représentation d'État Avancée** : Combine une vision binaire pixélisée de 40x40 (traitée par des couches de réseaux neuronaux personnalisées) avec des vecteurs d'état compacts et relatifs à la cible.
+  - **Traitement Parallèle et Suivi** : Implémente un multitraitement hautement optimisé avec plusieurs environnements Gymnasium parallèles, l'estimation des avantages généralisés (GAE), un suivi en temps réel de la distance à la cible et des fonctionnalités de traçage graphique automatisées.
+funny_comments:
+  - user: "gravity_denier"
+    rating: 4
+    text_en: "Set simulation gravity to 0 0 -0.20 as recommended. My robot is now floating like a low-budget helium balloon, but hey, it's turning perfectly. Physics is whatever I want it to be."
+    text_fr: "J'ai réglé la gravité de la simulation sur 0 0 -0.20 comme recommandé. Mon robot flotte maintenant comme un ballon d'hélium à bas budget, mais hé, il tourne parfaitement. La physique est ce que je veux qu'elle soit."
+  - user: "ppo_whisperer"
+    rating: 3
+    text_en: "Left my agent training overnight for 20,000 episodes. Came back to find that it learned to perfectly navigate the corridor by aggressively vibrating sideways at 10 meters per second. 10/10 emergent behavior."
+    text_fr: "J'ai laissé mon agent s'entraîner toute la nuit pendant 20 000 épisodes. À mon retour, j'ai découvert qu'il avait appris à naviguer parfaitement dans le couloir en vibrant agressivement de côté à 10 mètres par seconde. 10/10 pour le comportement émergent."
+  - user: "flat_world_tourist"
+    rating: 5
+    text_en: "Tried the `flat_world` scene. The robot was doing great until I randomized the goal position. Now it's having an existential crisis, spinning in circles, searching for a meaning in life, or maybe just a visual red sphere."
+    text_fr: "J'ai essayé la scène `flat_world`. Le robot s'en sortait très bien jusqu'à ce que je randomise la position de la cible. Maintenant, il fait une crise existentielle, tourne en rond, cherchant un sens à la vie, ou peut-être juste une sphère rouge visuelle."
+  - user: "hole_in_one"
+    rating: 2
+    text_en: "Stage 5 curriculum is wild. The robot successfully avoided three sinusoidal walls, only to dive headfirst into a hole and fall for 30 meters straight. The terminal printed 'endless fall threshold triggered'. My emotional threshold is also triggered."
+    text_fr: "Le curriculum de l'étape 5 est dingue. Le robot a réussi à éviter trois murs sinusoïdaux, pour ensuite plonger tête la première dans un trou et tomber sur 30 mètres d'affilée. Le terminal a affiché 'endless fall threshold triggered'. Mon seuil émotionnel est également déclenché."
+  - user: "discrete_driver"
+    rating: 5
+    text_en: "Switched from `continuous_wheels` to `discrete_direction` because my continuous agent kept performing 1080-degree drift spins. My robot now drives like an 80s arcade cabinet, but at least it reaches the destination."
+    text_fr: "Je suis passé de `continuous_wheels` to `discrete_direction` parce que mon agent continu n'arrêtait pas de faire des dérapages à 1080 degrés. Mon robot roule maintenant comme une borne d'arcade des années 80, mais au moins il arrive à destination."
+  - user: "cv2_visionary"
+    rating: 4
+    text_en: "Using `--live_vision` to check what the robot sees. It’s a 40x40 pixelated binary matrix. I now feel immense respect for this robot navigating a labyrinth of doom while essentially being legally blind."
+    text_fr: "J'utilise `--live_vision` pour voir ce que le robot voit. C'est une matrice binaire pixélisée de 40x40. J'éprouve désormais un immense respect pour ce robot qui navigue dans un labyrinthe de la mort tout en étant fondamentalement aveugle au sens de la loi."
+  - user: "reward_engineer"
+    rating: 3
+    text_en: "Added a huge reward for velocity, but forgot to scale down the stuck penalty. The robot got stuck on a corner, calculated its future earnings, realized the penalty outweighed any possible success, and decided to execute a backflip off the arena to terminate the episode early."
+    text_fr: "J'ai ajouté une énorme récompense pour la vitesse, mais j'ai oublié de réduire la pénalité de blocage. Le robot s'est coincé dans un coin, a calculé ses gains futurs, a réalisé que la pénalité l'emportait sur tout succès possible, et a décidé de faire un salto arrière hors de l'arène pour terminer l'épisode plus tôt."
+  - user: "mujoco_janitor"
+    rating: 5
+    text_en: "The compiler procedural XML generation is so clean it makes me want to cry. I don't have to manually edit 400 lines of XML tags to add a single obstacle box anymore. Now I can just watch python generate obstacle_17b and watch my agent crash into it in real time."
+    text_fr: "La génération procédurale d'XML du compilateur est si propre que ça me donne envie de pleurer. Je n'ai plus besoin de modifier manuellement 400 lignes de balises XML pour ajouter une seule boîte d'obstacle. Maintenant, je peux juste regarder Python générer obstacle_17b et regarder mon agent s'écraser dedans en temps réel."
+  - user: "transformer_fanboy"
+    rating: 4
+    text_en: "Loaded the `ft_transformer` model thinking I was building the GPT of robots. It spent 5000 episodes learning how to bump its rear end against Wall 3. It's not a transformer, it's a roomba with computational luxury."
+    text_fr: "J'ai chargé le modèle `ft_transformer` en pensant que je construisais le GPT des robots. Il a passé 5000 épisodes à apprendre comment cogner son train arrière contre le mur 3. Ce n'est pas un transformer, c'est un roomba avec du luxe computationnel."
+  - user: "wheel_of_fortune"
+    rating: 1
+    text_en: "My four-wheel robot XML is configured to have independent wheel control. It has discovered that by spinning the front-left and back-right wheels in opposite directions, it can turn into a high-speed lawnmower. It doesn't reach the corridor goal, but it is excellent at sweeping the floor."
+    text_fr: "Le XML de mon robot à quatre roues est configuré pour avoir un contrôle indépendant des roues. Il a découvert qu'en faisant tourner les roues avant-gauche et arrière-droite dans des directions opposées, il pouvait se transformer en tondeuse à gazon à grande vitesse. Il n'atteint pas l'objectif du couloir, mais il est excellent pour balayer le sol."

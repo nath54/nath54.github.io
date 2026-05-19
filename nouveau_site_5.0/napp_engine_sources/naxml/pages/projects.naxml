@@ -15,37 +15,6 @@
             <button class="category-tab" data-filter="Personal" name_en="Personal" name_fr="Personnel" on_click="{set_filter('Personal');}">Personal</button>
         </div>
 
-        <!-- Hero Section: Featured Project -->
-        <exec_if condition="{gs.var_get(name='active_filter', default_value='all') == 'all'}">
-            <section class="col_section projects-section featured-hero" data-section-filter="all">
-                <exec_generate
-                    parser="yaml_directory"
-                    source="data/projects/"
-                    template="project_card_hero"
-                    filter="project_showcase_importance >= 90"
-                    limit="2"
-                />
-            </section>
-        </exec_if>
-
-        <!-- Must-Have Apps (Top rated) -->
-        <exec_if condition="{gs.var_get(name='active_filter', default_value='all') == 'all'}">
-            <section class="col_section projects-section" data-section-filter="all">
-                <title name_en="Must-Have Projects" name_fr="Projets Incontournables" />
-                <projects_grid>
-                    <exec_generate
-                        parser="yaml_directory"
-                        source="data/projects/"
-                        template="project_card"
-                        filter="project_showcase_importance >= 75"
-                        sort_by="project_showcase_importance"
-                        sort_order="desc"
-                        limit="3"
-                    />
-                </projects_grid>
-            </section>
-        </exec_if>
-
         <!-- Professional Collections -->
         <exec_if condition="{gs.var_get(name='active_filter', default_value='all') == 'all' or gs.var_get(name='active_filter') == 'Professional'}">
             <section class="col_section projects-section" data-section-filter="Professional">

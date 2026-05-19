@@ -1,0 +1,65 @@
+name_en: "Nucleotides counter"
+name_fr: "Compteur de nucléotides"
+short_description_en: "A high-performance C++ tool for exploring and counting circular codes in DNA sequences."
+short_description_fr: "Un outil C++ haute performance pour explorer et compter les codes circulaires dans les séquences d'ADN."
+project_status: "Ended"
+project_type: "Academic"
+project_showcase_importance: 0
+icon: "res/icons/icon_project_nucleotide_counter.png"
+links:
+  - github: "https://github.com/nath54/Bio-Info-Nucleotides-Counter"
+app_version: "1.0"
+download_size: "-"
+date: "2025"
+authors:
+  - "Nathan Cerisara"
+  - "Justine Andreolli"
+  - "Enora Ledac"
+  - "Guilhem Gerouille"
+  - "Emilie Lardy"
+  - "Nabilath Nachirou-Liamidi"
+tags: ["Bio-Info", "C++", "Qt"]
+gallery: []
+description_en: "A high-performance C++ tool for exploring and counting circular codes in DNA sequences. This project provides both a command-line interface (CLI) and a Qt-based Graphical User Interface (GUI) to analyze nucleotide patterns efficiently using sequential or parallel processing."
+description_fr: "Un outil C++ haute performance pour explorer et compter les codes circulaires dans les séquences d'ADN. Ce projet fournit à la fois une interface en ligne de commande (CLI) et une interface graphique utilisateur (GUI) basée sur Qt pour analyser efficacement les motifs nucléotidiques en utilisant un traitement séquentiel ou parallèle."
+funny_comments:
+  - user: "BioCppDev"
+    rating: 5
+    text_en: "We compressed Adenine, Cytosine, Guanine, and Thymine into 2 bits. At this rate, we can store a whole T-Rex on a floppy disk, though GCC might take an era to compile it."
+    text_fr: "On a compressé l'Adénine, la Cytosine, la Guanine et la Thymine sur 2 bits. À ce rythme, on peut stocker un T-Rex entier sur une disquette, même si GCC mettrait une ère géologique à compiler."
+  - user: "MultithreadSaurus"
+    rating: 5
+    text_en: "Parallelized DNA search because waiting for biological evolution to find the circular codes was taking a bit too long."
+    text_fr: "Recherche d'ADN parallélisée parce qu'attendre que l'évolution biologique trouve les codes circulaires prenait un peu trop de temps."
+  - user: "RibosomeSimulator"
+    rating: 4
+    text_en: "This program is so memory-efficient it could probably run inside a ribosome, although GCC doesn't target tRNA assembly yet."
+    text_fr: "Ce programme est si économe en mémoire qu'il pourrait probablement tourner dans un ribosome, bien que GCC ne gère pas encore l'assembleur ARNt."
+  - user: "QtFanatic"
+    rating: 5
+    text_en: "We added a Qt GUI because biologists tend to panic when the CLI prints 100,000 circular codes in 14ms."
+    text_fr: "On a ajouté une interface graphique Qt parce que les biologistes ont tendance à paniquer quand le CLI affiche 100 000 codes circulaires en 14ms."
+  - user: "BitManipulator"
+    rating: 5
+    text_en: "Why do we use custom bit shifting for circular permutations instead of std::string? Because memory allocations make our CPU cry, and bits don't lie."
+    text_fr: "Pourquoi utiliser du décalage de bits maison au lieu de std::string pour les permutations circulaires ? Parce que les allocations mémoire font pleurer notre CPU, alors que les bits ne mentent pas."
+  - user: "DarwinistCoder"
+    rating: 4
+    text_en: "Survival of the fittest: the recursive backtracking algorithm is currently hunting down codes. Natural selection at 3.6 GHz."
+    text_fr: "Survie du plus apte : l'algorithme de backtracking récursif est en train de traquer les codes. La sélection naturelle à 3.6 GHz."
+  - user: "UracilError"
+    rating: 5
+    text_en: "Spent half a day debugging a segmentation fault just to realize I tried to process RNA with Uracil. C++20 standard library does not support single-stranded drama."
+    text_fr: "J'ai passé une demi-journée à débugger une ségfault pour réaliser que j'essayais de traiter de l'ARN avec de l'Uracile. La bibliothèque standard de C++20 ne gère pas les caprices du simple brin."
+  - user: "Thread_0xFF"
+    rating: 5
+    text_en: "Prefix depth tuning is like biological mutations: set it too low and you waste energy; set it too high and your threads die of starvation."
+    text_fr: "Ajuster la profondeur des préfixes c'est comme les mutations biologiques : trop basse et on gaspille de l'énergie, trop haute et nos threads meurent de faim."
+  - user: "Complémentaire_Mais_Pas_Trop"
+    rating: 4
+    text_en: "C++ binary complement (~word) and biological reverse complement (getComplement) are two very different beasts. My CPU thinks Cytosine is a bug, but nature thinks it's a feature."
+    text_fr: "Le complément binaire C++ (~word) et le complément biologique (getComplement) sont deux bêtes très différentes. Mon processeur pense que la Cytosine est un bug, mais la nature pense que c'est une feature."
+  - user: "InfiniteLooper"
+    rating: 5
+    text_en: "Biologists say circular codes prevent the ribosome from losing its reading frame. Programmers say circular codes prevent the compiler from losing its mind. Both are correct."
+    text_fr: "Les biologistes disent que les codes circulaires empêchent le ribosome de perdre son cadre de lecture. Les développeurs disent qu'ils empêchent le compilateur de perdre la tête. Les deux ont raison."

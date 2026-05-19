@@ -1,0 +1,98 @@
+name_en: "Semantic Search and Conversation Segmentation - Alcatel-Lucent Enterprise"
+name_fr: "Recherche Sémantique et Découpage de Conversations - Alcatel-Lucent Enterprise"
+short_description_en: "Semantic search and conversation segmentation tool developed during a 3-month internship at Alcatel-Lucent Enterprise (Rainbow) utilizing embeddings, custom translation caches, and Named Entity Recognition."
+short_description_fr: "Outil de recherche sémantique et de découpage de conversations développé lors d'un stage de 3 mois chez Alcatel-Lucent Enterprise (Rainbow) avec embeddings, cache de traduction personnalisé et reconnaissance d'entités nommées."
+project_status: "Ended"
+project_type: "Professional"
+project_showcase_importance: 5
+icon: "res/icons/icon_project_semantic_search_ale.png"
+links:
+  - github: "https://github.com/nath54/SemanticSearch-ALE"
+app_version: "1.0"
+download_size: "-"
+date: "2024"
+authors:
+  - "Nathan Cerisara"
+tags:
+  - "NLP"
+  - "Semantic Search"
+  - "Sentence Embeddings"
+  - "Named Entity Recognition"
+  - "ONNX Runtime"
+  - "Spacy"
+  - "Translation Pipeline"
+  - "Clustering"
+  - "Python"
+  - "Webapp"
+gallery: []
+description_en: |
+  Developed during a 3-month software engineering internship at Alcatel-Lucent Enterprise, this project focuses on **topical segmentation (conversation cutting)** and **semantic search** within the **Rainbow** collaboration platform logs. When users engage in continuous conversation streams, extracting separate discussions is highly challenging; this project resolves that by using advanced NLP techniques to segment the history into structured discussion threads and indexing them for fast semantic queries.
+
+  ### Key Pillars & Capabilities:
+  1. **Topical Segmentation (Conversation Cutting)**: Combines sequential clustering (`ClusteringSeq_ConversationAlgorithm`) based on time differences between messages, user interactions, embeddings similarity, and matched named entities to slice continuous message flows into cohesive threads.
+  2. **Multi-criteria Semantic Search**: Integrates multiple search strategies into a combined score:
+     - **SimpleEmbedding_SearchAlgorithm**: Calculates cosine distance using state-of-the-art transformer embeddings (e.g., `all-MiniLM-L6-v2`, `e5-large-v2`, `sentence-camembert-large`). Optimized with `optimum` and ONNX Runtime to dramatically improve CPU performance.
+     - **SimpleSearchByTime**: Temporal proximity ranking.
+     - **SearchByUsers**: Interactor-focused query boosting.
+     - **SearchWith_NER_Engine**: Elevates search results containing specific entities.
+  3. **Named Entity Recognition (NER)**: Features syntax-rule-based extraction, standard spaCy pipelines, a custom date recognizer, and a textual number-to-integer converter (e.g. converting "quatre cent quatre-vingt-dix-neuf" to 499).
+  4. **Local Translation Engine**: Utilizes EasyNMT to translate French logs to English on the fly before generating embeddings, enabling multilingual searches on compact English models.
+  5. **Optimized Caching & Threading**: Implements robust local caching for translations and embeddings, alongside a multi-threaded queue-based server architecture (`threads_tasks_server.py`) to reduce query latency.
+  6. **Benchmarks & Hyperparameter Tuning**: Features an automated test suite analyzing algorithms across different configurations, with a dedicated web visualization interface for hyperparameter optimization and benchmark charting.
+  7. **C# Rainbow SDK Integration**: Includes a C# socket client (`Rainbow_App`) to directly ingest chat messages from the official Rainbow SDK API.
+description_fr: |
+  Développé dans le cadre d'un stage de fin d'études de 3 mois chez Alcatel-Lucent Enterprise, ce projet porte sur le **découpage thématique** et la **recherche sémantique** dans les historiques de conversations de la plateforme de collaboration **Rainbow**. Face aux flux continus de messages dans les canaux de discussion, isoler des conversations distinctes est difficile ; ce projet résout cette problématique en structurant l'historique en fils de discussion cohérents et en les indexant pour permettre des recherches sémantiques rapides.
+
+  ### Piliers technologiques & Fonctionnalités :
+  1. **Découpage des Conversations (Conversation Cutting)** : Allie un algorithme de clustering séquentiel basé sur l'intervalle de temps entre les messages, l'interaction des utilisateurs, la similarité des embeddings et la présence d'entités nommées pour découper le flux continu de messages en sessions de discussion distinctes.
+  2. **Moteur de Recherche Sémantique Multi-critères** : Combine plusieurs approches de recherche pour calculer un score de pertinence hybride :
+     - **SimpleEmbedding_SearchAlgorithm** : Calcule la distance cosinus à l'aide d'embeddings de phrases (via des modèles de sentence-transformers comme `all-MiniLM-L6-v2`, `e5-large-v2`, `sentence-camembert-large`), optimisés sous format ONNX via `optimum` pour d'excellentes performances sur CPU.
+     - **SimpleSearchByTime** : Pondération temporelle.
+     - **SearchByUsers** : Boost de pertinence basé sur les participants.
+     - **SearchWith_NER_Engine** : Valorise les messages contenant les entités nommées recherchées.
+  3. **Moteur de Reconnaissance d'Entités Nommées (NER)** : Propose une reconnaissance d'entités basée sur des règles syntaxiques et des modèles spaCy. Comprend un système sur mesure de détection de dates et un convertisseur textuel de nombres (ex: convertit "quatre cent vingt-trois" en 423).
+  4. **Pipeline de Traduction Localisé** : Utilise EasyNMT pour traduire les messages français en anglais avant le calcul d'embeddings, permettant d'exploiter de petits modèles anglais très performants sur des conversations francophones.
+  5. **Système de Cache et de Threading** : Met en œuvre des systèmes de cache locaux persistants pour les embeddings et les traductions afin de minimiser les temps de calcul, ainsi qu'un serveur multi-threadé basé sur des files d'attente pour traiter les requêtes en parallèle.
+  6. **Visualisation de Benchmarks et Optimisation** : Inclut une suite de tests automatisés générant des rapports interactifs complets en HTML statique pour analyser la pertinence de la recherche, du NER et du découpage, ainsi qu'une interface web d'optimisation automatique des hyperparamètres.
+  7. **Intégration C# SDK Rainbow** : Comprend un client socket en C# (`Rainbow_App`) qui se connecte au serveur Python pour ingérer et indexer directement les conversations en temps réel depuis le SDK Rainbow officiel.
+funny_comments:
+  - user: "InternWithNoSleep"
+    rating: 5
+    text_en: "The translation cache works so well that my brain now refuses to process French without translating it to English first. 10/10, would suffer from translation lag again."
+    text_fr: "Le cache de traduction fonctionne si bien que mon cerveau refuse désormais de traiter le français sans le traduire d'abord en anglais. 10/10, je recommande le décalage de traduction."
+  - user: "CsharpSurvivor"
+    rating: 4
+    text_en: "Connecting a C# SDK socket to a multi-threaded Python server on Windows felt like hosting a peace summit between two languages that actively despise each other. It works, but don't look at the logs."
+    text_fr: "Connecter un socket SDK C# à un serveur Python multi-threadé sous Windows ressemblait à un sommet de la paix entre deux langages qui se détestent. Ça marche, mais ne regardez pas les logs."
+  - user: "HyperParamOptimizer"
+    rating: 5
+    text_en: "I spent 48 hours running hyperparameter optimization to improve search accuracy by 0.2%. Worth every watt of electricity and every tear shed."
+    text_fr: "J'ai passé 48 heures à optimiser les hyperparamètres pour améliorer la précision de recherche de 0,2%. Ça valait chaque watt d'électricité et chaque larme versée."
+  - user: "SpacyEnthusiast"
+    rating: 3
+    text_en: "The spacy_lg model is great, but my laptop fan now generates enough thrust to make it hover 3 inches off my desk. Perfect for hot summer days."
+    text_fr: "Le modèle spacy_lg est génial, mais le ventilateur de mon ordinateur portable génère maintenant assez de poussée pour décoller de 10 cm. Parfait pour les chaudes journées d'été."
+  - user: "FrenchSpeaker"
+    rating: 4
+    text_en: "The custom number converter correctly parsed 'quatre cent quatre-vingt-dix-neuf' into 499. As a French speaker, I am glad someone taught the computer the madness of our numerical system."
+    text_fr: "Le convertisseur de nombres a correctement traduit 'quatre cent quatre-vingt-dix-neuf' par 499. En tant que francophone, je suis ravi qu'on ait appris à la machine la folie de nos nombres."
+  - user: "TimeDifferenceSeeker"
+    rating: 5
+    text_en: "Conversation cutting using message time differences showed that our longest discussion thread was just us sending each other coffee emojis every 2 minutes for 4 hours."
+    text_fr: "Le découpage de conversations par différence de temps a prouvé que notre plus long fil de discussion était juste l'envoi d'emojis café toutes les 2 minutes pendant 4 heures."
+  - user: "WindowUser99"
+    rating: 4
+    text_en: "Spent 3 hours debugging why paths weren't loading, only to realize Windows slashes and Python JSON strings have a deep, unresolved mutual hatred. `..\\` vs `../` is my villain origin story."
+    text_fr: "J'ai passé 3 heures à chercher pourquoi les chemins ne chargeaient pas, pour réaliser que les slashes Windows et le JSON de Python se vouent une haine féroce. `..\\` contre `../` est le début de ma descente aux enfers."
+  - user: "ONNXFanatic"
+    rating: 5
+    text_en: "Optimum and ONNX Runtime made the embeddings calculation fast enough that I no longer have time to brew a fresh cup of coffee during execution. I am both impressed and deeply caffeinated."
+    text_fr: "Optimum et ONNX Runtime ont rendu le calcul des embeddings si rapide que je n'ai même plus le temps d'aller me faire couler un café pendant l'exécution. Je suis à la fois impressionné et en manque de caféine."
+  - user: "RainbowStalker"
+    rating: 4
+    text_en: "I can now semantically search the exact second my manager asked 'Are you done?' across three years of chat logs. It's like a horror movie but with indexable data."
+    text_fr: "Je peux désormais rechercher sémantiquement la seconde exacte où mon manager a demandé 'Tu as fini ?' sur trois ans de logs. C'est un film d'horreur, mais indexable."
+  - user: "InternDeadline"
+    rating: 5
+    text_en: "The 3-month internship ended exactly when the first full-benchmark execution finished. Coincidence? I think not. Praise the caching mechanism!"
+    text_fr: "Le stage de 3 mois s'est terminé exactement au moment où la première exécution du benchmark complet s'est achevée. Coïncidence ? Je ne pense pas. Gloire au système de cache !"
