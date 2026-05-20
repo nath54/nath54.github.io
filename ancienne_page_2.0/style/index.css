@@ -47,7 +47,7 @@ body {
 
 .line {
     position: absolute;
-    border-radius: 15px;
+    border-radius: 15%;
     background: linear-gradient(to right, transparent, lightblue, lightblue, lightblue, transparent);
     border: 5px solid rgba(10, 10, 10, 0.7);
     height: 15px;

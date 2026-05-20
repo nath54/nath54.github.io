@@ -26,7 +26,7 @@ tags:
   - "Webapp"
 gallery: []
 description_en: |
-  Developed during a 3-month software engineering internship at Alcatel-Lucent Enterprise, this project focuses on **topical segmentation (conversation cutting)** and **semantic search** within the **Rainbow** collaboration platform logs. When users engage in continuous conversation streams, extracting separate discussions is highly challenging; this project resolves that by using advanced NLP techniques to segment the history into structured discussion threads and indexing them for fast semantic queries.
+  Developed during a 3-month engineering internship at Alcatel-Lucent Enterprise, this project focuses on **topical segmentation (conversation cutting)** and **semantic search** within the **Rainbow** collaboration platform logs. When users engage in continuous conversation streams, extracting separate discussions is highly challenging; this project resolves that by using advanced NLP techniques to segment the history into structured discussion threads and indexing them for fast semantic queries.
 
   ### Key Pillars & Capabilities:
   1. **Topical Segmentation (Conversation Cutting)**: Combines sequential clustering (`ClusteringSeq_ConversationAlgorithm`) based on time differences between messages, user interactions, embeddings similarity, and matched named entities to slice continuous message flows into cohesive threads.
@@ -41,7 +41,7 @@ description_en: |
   6. **Benchmarks & Hyperparameter Tuning**: Features an automated test suite analyzing algorithms across different configurations, with a dedicated web visualization interface for hyperparameter optimization and benchmark charting.
   7. **C# Rainbow SDK Integration**: Includes a C# socket client (`Rainbow_App`) to directly ingest chat messages from the official Rainbow SDK API.
 description_fr: |
-  Développé dans le cadre d'un stage de fin d'études de 3 mois chez Alcatel-Lucent Enterprise, ce projet porte sur le **découpage thématique** et la **recherche sémantique** dans les historiques de conversations de la plateforme de collaboration **Rainbow**. Face aux flux continus de messages dans les canaux de discussion, isoler des conversations distinctes est difficile ; ce projet résout cette problématique en structurant l'historique en fils de discussion cohérents et en les indexant pour permettre des recherches sémantiques rapides.
+  Développé dans le cadre d'un stage de premier année d'école d'ingénieur de 3 mois chez Alcatel-Lucent Enterprise, ce projet porte sur le **découpage thématique** et la **recherche sémantique** dans les historiques de conversations de la plateforme de collaboration **Rainbow**. Face aux flux continus de messages dans les canaux de discussion, isoler des conversations distinctes est difficile ; ce projet résout cette problématique en structurant l'historique en fils de discussion cohérents et en les indexant pour permettre des recherches sémantiques rapides.
 
   ### Piliers technologiques & Fonctionnalités :
   1. **Découpage des Conversations (Conversation Cutting)** : Allie un algorithme de clustering séquentiel basé sur l'intervalle de temps entre les messages, l'interaction des utilisateurs, la similarité des embeddings et la présence d'entités nommées pour découper le flux continu de messages en sessions de discussion distinctes.

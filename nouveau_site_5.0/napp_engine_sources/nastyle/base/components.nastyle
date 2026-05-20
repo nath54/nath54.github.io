@@ -1077,7 +1077,7 @@ class header_main {
 class product_icon_large {
     size width = 160px;
     size height = 160px;
-    size border_radius = $radius_xl;
+    size border_radius = 20%;
     shadow box_shadow = drop_shadow(offset_x=0px, offset_y=20px, blur=40px, spread=0px, color=rgba(0,0,0,0.12));
     str object_fit = "cover";
     line border = line(width=1px, style="solid", color=$neutral_100);
