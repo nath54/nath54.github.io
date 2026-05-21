@@ -114,6 +114,9 @@ class NaCanvasWebGL {
             return;
         }
 
+        // Enable depth testing for proper 3D rendering
+        this.gl.enable(this.gl.DEPTH_TEST);
+
         this.programs = {};
         this.currentProgram = this._createDefaultProgram();
         this.gl.useProgram(this.currentProgram);
@@ -175,7 +178,7 @@ class NaCanvasWebGL {
 
     clear(r = 1, g = 1, b = 1, a = 1) {
         this.gl.clearColor(r, g, b, a);
-        this.gl.clear(this.gl.COLOR_BUFFER_BIT);
+        this.gl.clear(this.gl.COLOR_BUFFER_BIT | this.gl.DEPTH_BUFFER_BIT);
     }
 
     draw_triangles(vertices, options = {}) {
@@ -184,7 +187,6 @@ class NaCanvasWebGL {
             vertices = args.vertices;
             options = args; // Use the same object for options
         }
-        console.log(`[NaCanvasWebGL] Drawing ${vertices.length / 2} triangles`);
         const gl = this.gl;
         gl.useProgram(this.currentProgram);
 
@@ -192,18 +194,48 @@ class NaCanvasWebGL {
         gl.bindBuffer(gl.ARRAY_BUFFER, this.positionBuffer);
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
 
-        const positionLoc = gl.getAttribLocation(this.currentProgram, "a_position");
-        gl.enableVertexAttribArray(positionLoc);
-        gl.vertexAttribPointer(positionLoc, 2, gl.FLOAT, false, 0, 0);
+        const pos3dLoc = gl.getAttribLocation(this.currentProgram, "a_pos");
+        const color3dLoc = gl.getAttribLocation(this.currentProgram, "a_color");
 
-        // Set color uniform if it exists
-        const colorLoc = gl.getUniformLocation(this.currentProgram, "u_color");
-        if (colorLoc) {
-            const c = options.color || [0, 0, 0, 1];
-            gl.uniform4f(colorLoc, c[0], c[1], c[2], c[3] || 1);
+        if (pos3dLoc !== -1) {
+            // 3D interleaved mode: [x, y, z, r, g, b] (stride = 6 floats = 24 bytes)
+            gl.enableVertexAttribArray(pos3dLoc);
+            gl.vertexAttribPointer(pos3dLoc, 3, gl.FLOAT, false, 6 * 4, 0);
+
+            if (color3dLoc !== -1) {
+                gl.enableVertexAttribArray(color3dLoc);
+                gl.vertexAttribPointer(color3dLoc, 3, gl.FLOAT, false, 6 * 4, 3 * 4);
+            }
+
+            console.log(`[NaCanvasWebGL] Drawing ${vertices.length / 6} triangles (3D interleaved)`);
+            gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 6);
+
+            gl.disableVertexAttribArray(pos3dLoc);
+            if (color3dLoc !== -1) {
+                gl.disableVertexAttribArray(color3dLoc);
+            }
+        } else {
+            // 2D mode: [x, y] (stride = 2 floats = 8 bytes)
+            const pos2dLoc = gl.getAttribLocation(this.currentProgram, "a_position");
+            if (pos2dLoc !== -1) {
+                gl.enableVertexAttribArray(pos2dLoc);
+                gl.vertexAttribPointer(pos2dLoc, 2, gl.FLOAT, false, 2 * 4, 0);
+            }
+
+            // Set color uniform if it exists
+            const colorLoc = gl.getUniformLocation(this.currentProgram, "u_color");
+            if (colorLoc) {
+                const c = options.color || [0, 0, 0, 1];
+                gl.uniform4f(colorLoc, c[0], c[1], c[2], c[3] || 1);
+            }
+
+            console.log(`[NaCanvasWebGL] Drawing ${vertices.length / 2} triangles (2D)`);
+            gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 2);
+
+            if (pos2dLoc !== -1) {
+                gl.disableVertexAttribArray(pos2dLoc);
+            }
         }
-
-        gl.drawArrays(gl.TRIANGLES, 0, vertices.length / 2);
     }
 }
 

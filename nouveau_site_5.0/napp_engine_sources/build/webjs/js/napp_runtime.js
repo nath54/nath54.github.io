@@ -2,6 +2,11 @@ window.gs = window.gs || {};
 window.range = function(n) {
     return Array.from({length: Number(n) || 0}, (_, i) => i);
 };
+window.next_frame = {
+    then(resolve) {
+        window.requestAnimationFrame(resolve);
+    }
+};
 window.NApp = {
     // Global Buffer (Persistent State) - data is stored here
     _data: {},
@@ -361,6 +366,11 @@ window.NApp = {
                 console.warn(`[NApp] bindRepeat(${containerId}): data is not an array`, list);
                 return;
             }
+            if (!window.NApp._repeatData) {
+                window.NApp._repeatData = new Map();
+            }
+            window.NApp._repeatData.set(containerId, list);
+
             console.log(`[NApp] bindRepeat(${containerId}) updating with ${list.length} items`);
             const html = list.map((item, index) => {
                 const fragment = templateFn(item, index);
@@ -392,6 +402,12 @@ window.NApp = {
         this.subscribe('language', update); // Support both paths
         // Initial render
         update(this._getDeep(this._data, collectionPath));
+    },
+
+    getRepeatItem(containerId, index) {
+        if (!this._repeatData) return undefined;
+        const list = this._repeatData.get(containerId);
+        return list ? list[index] : undefined;
     },
 
     /**
@@ -762,6 +778,16 @@ window.gs = {
         const [name, idx] = window.gs._args(args, "name", "idx");
         const lst = [...window.gs.list_get(name)];
         if (idx >= 0 && idx < lst.length) {
+            lst.splice(idx, 1);
+            window.gs.list_set(name, lst);
+        }
+    },
+
+    list_remove_by_value: (...args) => {
+        const [name, value] = window.gs._args(args, "name", "value");
+        const lst = [...window.gs.list_get(name)];
+        const idx = lst.indexOf(value);
+        if (idx !== -1) {
             lst.splice(idx, 1);
             window.gs.list_set(name, lst);
         }
