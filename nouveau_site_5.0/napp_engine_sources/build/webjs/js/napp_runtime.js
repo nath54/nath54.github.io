@@ -7,6 +7,26 @@ window.next_frame = {
         window.requestAnimationFrame(resolve);
     }
 };
+
+// Global NaCode numeric types, casting wrappers, and vector constructors
+window.float32 = Number;
+window.int32 = Number;
+window.uint32 = Number;
+window.float64 = Number;
+window.int64 = Number;
+window.uint64 = Number;
+window.convert = function(val, target) {
+    if (target === "string" || target === String) return String(val);
+    if (target === "number" || target === Number) return Number(val);
+    if (target === "boolean" || target === Boolean) return Boolean(val);
+    if (typeof target === 'function') return target(val);
+    return val;
+};
+window.vec2d = (x,y) => [x,y];
+window.vec3d = (x,y,z) => [x,y,z];
+window.vec4d = (x,y,z,w) => [x,y,z,w];
+window.f32vec3 = (x,y,z) => [x,y,z];
+window.u32vec3 = (x,y,z) => [x,y,z];
 window.NApp = {
     // Global Buffer (Persistent State) - data is stored here
     _data: {},
@@ -173,16 +193,18 @@ window.NApp = {
 
                 target[prop] = value;
 
-                // Record history (if not in undo/redo)
-                if (!self._inHistoryMove) {
+                // Record history (if not in undo/redo and NOT starting with '_')
+                const isPrivate = prop.startsWith('_') || path.some(p => p.startsWith('_'));
+                if (!self._inHistoryMove && !isPrivate) {
                     self._history.push({ path: fullPath, old: oldVal, new: value });
                     self._redoStack = [];
                 }
 
-                self._notify(fullPath, value);
-
-                // Persistence Sync
-                self._saveLocal();
+                if (!isPrivate) {
+                    self._notify(fullPath, value);
+                    // Persistence Sync
+                    self._saveLocal();
+                }
 
                 return true;
             }
@@ -202,10 +224,15 @@ window.NApp = {
     _notify(propPath, value) {
         // Notify the exact path
         this._trigger(propPath, value);
-        console.log(`[NApp] Property changed: ${propPath}`, value);
+        
+        // Skip logging for private properties starting with underscore
+        const parts = propPath.split('.');
+        const isPrivate = parts.some(p => p.startsWith('_'));
+        if (!isPrivate) {
+            console.log(`[NApp] Property changed: ${propPath}`, value);
+        }
 
         // Notify parent paths (e.g., if 'user.name' changed, 'user' also changed)
-        const parts = propPath.split('.');
         while (parts.length > 1) {
             parts.pop();
             const parentPath = parts.join('.');
@@ -562,7 +589,11 @@ window.NApp = {
         const parts = path.split('.');
         let curr = obj;
         for (let i = 0; i < parts.length - 1; i++) {
-            curr = curr[parts[i]];
+            const p = parts[i];
+            if (curr[p] === undefined || curr[p] === null || typeof curr[p] !== 'object') {
+                curr[p] = {};
+            }
+            curr = curr[p];
         }
         curr[parts[parts.length - 1]] = value;
     },
@@ -694,6 +725,268 @@ window.gs = {
         return parseFloat(val) || 0.0;
     },
 
+    // --- GPU and Canvas 3D Acceleration Simulation ---
+    _tensors: {},
+    _programs: {},
+
+    accel_tensor_decl: (...args) => {
+        const [name, shape, dtype] = window.gs._args(args, "name", "shape", "dtype");
+        const size = shape.reduce((x, y) => x * y, 1);
+        window.gs._tensors[name] = new Array(size).fill(0.0);
+    },
+
+    accel_tensor_write_slice: (...args) => {
+        const [name, start_idx, data] = window.gs._args(args, "name", "start_idx", "data");
+        const s = Number(start_idx);
+        if (window.gs._tensors[name]) {
+            const tensor = window.gs._tensors[name];
+            for (let i = 0; i < data.length; i++) {
+                tensor[s + i] = data[i];
+            }
+        }
+    },
+
+    accel_tensor_read_slice: (...args) => {
+        const [name, start_idx, count] = window.gs._args(args, "name", "start_idx", "count");
+        const s = Number(start_idx);
+        const c = Number(count);
+        if (window.gs._tensors[name]) {
+            return window.gs._tensors[name].slice(s, s + c);
+        }
+        return [];
+    },
+
+    graph_load_program: (...args) => {
+        const [program_id, src] = window.gs._args(args, "program_id", "src");
+        window.gs._programs[program_id] = src;
+    },
+
+    graph_dispatch: (...args) => {
+        const [program_id, env, dispatch_size] = window.gs._args(args, "program_id", "env", "dispatch_size");
+        const pid = program_id.includes("#") ? program_id.split("#").pop() : program_id;
+
+        if (pid === "prog_vector_add" || pid === "vector_add") {
+            const a_name = env["a"];
+            const b_name = env["b"];
+            const out_name = env["out"];
+            const a = window.gs._tensors[a_name];
+            const b = window.gs._tensors[b_name];
+            const out = window.gs._tensors[out_name];
+            const n = Number(env["n"] !== undefined ? env["n"] : a.length);
+            for (let i = 0; i < n; i++) {
+                out[i] = a[i] + b[i];
+            }
+        }
+        else if (pid === "prog_matrix_scale" || pid === "matrix_scale") {
+            const data_name = env["data"];
+            const scalar = Number(env["scalar"]);
+            const data = window.gs._tensors[data_name];
+            const total = Number(env["total_elements"] !== undefined ? env["total_elements"] : data.length);
+            for (let i = 0; i < total; i++) {
+                data[i] = data[i] * scalar;
+            }
+        }
+        else if (pid === "prog_reduce_sum" || pid === "reduce_sum_pass1") {
+            const data_name = env["data"];
+            const partials_name = env["partials"];
+            const data = window.gs._tensors[data_name];
+            const partials = window.gs._tensors[partials_name];
+            const n = Number(env["n"] !== undefined ? env["n"] : data.length);
+            const num_workgroups = Math.floor(n / 256);
+            for (let g = 0; g < num_workgroups; g++) {
+                let sum = 0.0;
+                const start = g * 256;
+                const end = (g + 1) * 256;
+                for (let i = start; i < end; i++) {
+                    sum += data[i];
+                }
+                partials[g] = sum;
+            }
+        }
+        else if (pid === "particle_physics") {
+            const pos_name = env["pos"];
+            const old_pos_name = env["old_pos"];
+            const gravity = env["gravity"] || [0.0, -0.0005, 0.0];
+            const damping = Number(env["damping"] !== undefined ? env["damping"] : 0.998);
+            const dt = Number(env["dt"] !== undefined ? env["dt"] : 0.016);
+            const active_count = Number(env["active_count"] !== undefined ? env["active_count"] : 100000);
+            const time = Number(env["time"] !== undefined ? env["time"] : 0.0);
+
+            const pos = window.gs._tensors[pos_name];
+            const old_pos = window.gs._tensors[old_pos_name];
+
+            const cap = Math.min(active_count, Math.floor(pos.length / 4), 5000);
+
+            for (let i = 0; i < cap; i++) {
+                const idx = i * 4;
+                const x = pos[idx];
+                const y = pos[idx+1];
+                const z = pos[idx+2];
+                let age = pos[idx+3];
+
+                const ox = old_pos[idx];
+                const oy = old_pos[idx+1];
+                const oz = old_pos[idx+2];
+
+                let vx = (x - ox) * damping;
+                let vy = (y - oy) * damping;
+                let vz = (z - oz) * damping;
+
+                vx += gravity[0] * dt;
+                vy += gravity[1] * dt;
+                vz += gravity[2] * dt;
+
+                const r = Math.sqrt(x*x + z*z) + 1e-5;
+                const vortex_strength = 0.05 / (r + 0.1);
+                const swirl_x = -z / r * vortex_strength;
+                const swirl_z = x / r * vortex_strength;
+
+                vx += swirl_x * dt;
+                vz += swirl_z * dt;
+
+                old_pos[idx] = x;
+                old_pos[idx+1] = y;
+                old_pos[idx+2] = z;
+                old_pos[idx+3] = age;
+
+                pos[idx] = x + vx;
+                pos[idx+1] = y + vy;
+                pos[idx+2] = z + vz;
+
+                age += dt * 0.1;
+                if (age > 1.0) {
+                    const phi = i * 2.399963229;
+                    const theta = Math.acos(1.0 - 2.0 * ((i + Math.floor(time * 10)) % 1000) / 1000.0);
+                    pos[idx] = 0.5 * Math.sin(theta) * Math.cos(phi);
+                    pos[idx+1] = 0.5 * Math.cos(theta);
+                    pos[idx+2] = 0.5 * Math.sin(theta) * Math.sin(phi);
+                    pos[idx+3] = 0.0;
+                    old_pos[idx] = pos[idx];
+                    old_pos[idx+1] = pos[idx+1];
+                    old_pos[idx+2] = pos[idx+2];
+                    old_pos[idx+3] = 0.0;
+                } else {
+                    pos[idx+3] = age;
+                }
+            }
+        }
+        else if (pid === "water_physics") {
+            const pos_name = env["pos"];
+            const old_pos_name = env["old_pos"];
+            const gravity = env["gravity"] || [0.0, -0.0015, 0.0];
+            const damping = Number(env["damping"] !== undefined ? env["damping"] : 0.99);
+            const dt = Number(env["dt"] !== undefined ? env["dt"] : 0.016);
+            const active_count = Number(env["active_count"] !== undefined ? env["active_count"] : 5000);
+            const repulsion_pos = env["repulsion_pos"] || [0.0, 0.0, 0.0];
+            const repulsion_active = Number(env["repulsion_active"] !== undefined ? env["repulsion_active"] : 0.0);
+            const box_width = Number(env["box_width"] !== undefined ? env["box_width"] : 8.0);
+            const half_w = box_width * 0.5;
+
+            const pos = window.gs._tensors[pos_name];
+            const old_pos = window.gs._tensors[old_pos_name];
+
+            const cap = Math.min(active_count, Math.floor(pos.length / 4), 5000);
+
+            for (let i = 0; i < cap; i++) {
+                const idx = i * 4;
+                const x = pos[idx];
+                const y = pos[idx+1];
+                const z = pos[idx+2];
+                let age = pos[idx+3];
+
+                const ox = old_pos[idx];
+                const oy = old_pos[idx+1];
+                const oz = old_pos[idx+2];
+
+                let vx = (x - ox) * damping;
+                let vy = (y - oy) * damping;
+                let vz = (z - oz) * damping;
+
+                vx += gravity[0] * dt;
+                vy += gravity[1] * dt;
+                vz += gravity[2] * dt;
+
+                // Volumetric local repulsion (Index-local search)
+                // Compares with neighboring indices to maintain volume at 60 FPS
+                for (let offset = -8; offset <= 8; offset++) {
+                    if (offset !== 0) {
+                        const j = i + offset;
+                        if (j >= 0 && j < cap) {
+                            const j_idx = j * 4;
+                            const px = pos[j_idx];
+                            const py = pos[j_idx+1];
+                            const pz = pos[j_idx+2];
+                            
+                            const dx = x - px;
+                            const dy = y - py;
+                            const dz = z - pz
+                            
+                            const dist_sq = dx*dx + dy*dy + dz*dz + 1e-5;
+                            if (dist_sq < 0.25) { // Radius = 0.5
+                                const dist = Math.sqrt(dist_sq);
+                                const force = (0.5 - dist) * 0.08;
+                                vx += (dx / dist) * force;
+                                vy += (dy / dist) * force;
+                                vz += (dz / dist) * force;
+                            }
+                        }
+                    }
+                }
+
+                if (repulsion_active > 0.5) {
+                    const dx = x - repulsion_pos[0];
+                    const dy = y - repulsion_pos[1];
+                    const dz = z - repulsion_pos[2];
+                    const dist = Math.sqrt(dx*dx + dy*dy + dz*dz) + 1e-5;
+                    if (dist < 3.0) {
+                        const force = (3.0 - dist) * 0.15;
+                        vx += (dx / dist) * force;
+                        vy += (dy / dist) * force;
+                        vz += (dz / dist) * force;
+                    }
+                }
+
+                old_pos[idx] = x;
+                old_pos[idx+1] = y;
+                old_pos[idx+2] = z;
+                old_pos[idx+3] = age;
+
+                let nx = x + vx;
+                let ny = y + vy;
+                let nz = z + vz;
+
+                const bounce = -0.4;
+                if (nx < -half_w) { nx = -half_w; old_pos[idx] = nx - vx * bounce; }
+                if (nx > half_w) { nx = half_w; old_pos[idx] = nx - vx * bounce; }
+                if (ny < -3.0) { ny = -3.0; old_pos[idx+1] = ny - vy * bounce; }
+                if (ny > 3.0) { ny = 3.0; old_pos[idx+1] = ny - vy * bounce; }
+                if (nz < -half_w) { nz = -half_w; old_pos[idx+2] = nz - vz * bounce; }
+                if (nz > half_w) { nz = half_w; old_pos[idx+2] = nz - vz * bounce; }
+
+                pos[idx] = nx;
+                pos[idx+1] = ny;
+                pos[idx+2] = nz;
+                pos[idx+3] = age;
+            }
+        }
+    },
+
+    canvas3d_bind_accel_tensor: (...args) => {
+        const [canvas_id, shader_input, accel_tensor_id, stride, offset] = window.gs._args(args, "canvas_id", "shader_input", "accel_tensor_id", "stride", "offset");
+        const cv = window.gs.canvas(canvas_id);
+        if (cv && typeof cv.bind_accel_tensor === 'function') {
+            cv.bind_accel_tensor(shader_input, accel_tensor_id, stride, offset);
+        }
+    },
+
+    canvas3d_draw_points: (...args) => {
+        const [canvas_id, vertex_count] = window.gs._args(args, "canvas_id", "vertex_count");
+        const cv = window.gs.canvas(canvas_id);
+        if (cv && typeof cv.draw_points === 'function') {
+            cv.draw_points(vertex_count);
+        }
+    },
+
     // --- Variable Manipulation ---
 
     var_decl: (...args) => {
@@ -742,6 +1035,11 @@ window.gs = {
 
     list_append: (...args) => {
         const [name, value] = window.gs._args(args, "name", "value");
+        const rawList = window.NApp._getDeep(window.NApp._data, name);
+        if (Array.isArray(rawList)) {
+            rawList.push(value);
+            return;
+        }
         const lst = [...window.gs.list_get(name)];
         lst.push(value);
         window.gs.list_set(name, lst);

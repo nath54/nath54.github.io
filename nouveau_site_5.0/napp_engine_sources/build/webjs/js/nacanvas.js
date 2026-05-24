@@ -177,6 +177,13 @@ class NaCanvasWebGL {
     }
 
     clear(r = 1, g = 1, b = 1, a = 1) {
+        if (typeof r === 'object' && r !== null) {
+            const args = r;
+            r = args.r !== undefined ? args.r : 1;
+            g = args.g !== undefined ? args.g : 1;
+            b = args.b !== undefined ? args.b : 1;
+            a = args.a !== undefined ? args.a : 1;
+        }
         this.gl.clearColor(r, g, b, a);
         this.gl.clear(this.gl.COLOR_BUFFER_BIT | this.gl.DEPTH_BUFFER_BIT);
     }
@@ -235,6 +242,109 @@ class NaCanvasWebGL {
             if (pos2dLoc !== -1) {
                 gl.disableVertexAttribArray(pos2dLoc);
             }
+        }
+    }
+
+    bind_accel_tensor(shader_input, accel_tensor_id, stride = 4, offset = 0) {
+        if (typeof shader_input === 'object' && shader_input !== null) {
+            const args = shader_input;
+            shader_input = args.shader_input;
+            accel_tensor_id = args.accel_tensor_id;
+            stride = args.stride !== undefined ? args.stride : 4;
+            offset = args.offset !== undefined ? args.offset : 0;
+        }
+        this._tensor_bindings = this._tensor_bindings || {};
+        this._tensor_bindings[shader_input] = {
+            tensor_id: accel_tensor_id,
+            stride: stride,
+            offset: offset
+        };
+    }
+
+    set_uniform_mat4(name, matrix_data) {
+        if (typeof name === 'object' && name !== null) {
+            const args = name;
+            name = args.name;
+            matrix_data = args.matrix_data;
+        }
+        const gl = this.gl;
+        gl.useProgram(this.currentProgram);
+        const loc = gl.getUniformLocation(this.currentProgram, name);
+        if (loc) {
+            gl.uniformMatrix4fv(loc, false, new Float32Array(matrix_data));
+        }
+    }
+
+    set_uniform_float(name, value) {
+        if (typeof name === 'object' && name !== null) {
+            const args = name;
+            name = args.name;
+            value = args.value;
+        }
+        const gl = this.gl;
+        gl.useProgram(this.currentProgram);
+        const loc = gl.getUniformLocation(this.currentProgram, name);
+        if (loc) {
+            gl.uniform1f(loc, Number(value));
+        }
+    }
+
+    draw_points(vertex_count) {
+        if (typeof vertex_count === 'object' && vertex_count !== null) {
+            const args = vertex_count;
+            vertex_count = args.vertex_count;
+        }
+        const gl = this.gl;
+        gl.useProgram(this.currentProgram);
+
+        this._tensor_bindings = this._tensor_bindings || {};
+        const enabledAttribs = [];
+        let cap_count = vertex_count;
+
+        for (const [shader_input, binding] of Object.entries(this._tensor_bindings)) {
+            const tensor_id = binding.tensor_id;
+            const stride = binding.stride;
+            const offset = binding.offset;
+            const tensor_data = window.gs._tensors[tensor_id];
+            if (!tensor_data) {
+                console.warn(`[NaCanvasWebGL] Tensor "${tensor_id}" not found for binding "${shader_input}"`);
+                continue;
+            }
+
+            const attr_loc = gl.getAttribLocation(this.currentProgram, shader_input);
+            if (attr_loc === -1) continue;
+
+            const local_cap = Math.min(vertex_count, Math.floor(tensor_data.length / stride), 5000);
+            if (local_cap < cap_count) {
+                cap_count = local_cap;
+            }
+
+            const slice_data = tensor_data.slice(0, local_cap * stride);
+
+            const buffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(slice_data), gl.DYNAMIC_DRAW);
+
+            gl.enableVertexAttribArray(attr_loc);
+            gl.vertexAttribPointer(
+                attr_loc,
+                stride, // components per attribute, e.g. 4
+                gl.FLOAT,
+                false,
+                stride * 4,
+                offset * 4
+            );
+            enabledAttribs.push(attr_loc);
+        }
+
+        if (cap_count > 0 && enabledAttribs.length > 0) {
+            console.log(`[NaCanvasWebGL] Drawing ${cap_count} points (GL_POINTS)`);
+            gl.drawArrays(gl.POINTS, 0, cap_count);
+        }
+
+        // Clean up
+        for (const attr_loc of enabledAttribs) {
+            gl.disableVertexAttribArray(attr_loc);
         }
     }
 }
